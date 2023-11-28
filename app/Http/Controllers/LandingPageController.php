@@ -14,7 +14,7 @@ class LandingPageController extends Controller
 
         $newsData = json_decode($newsAPI->body());
 
-        return view('welcome')->with([
+        return view('landing-page')->with([
            'news' => $newsData, 
         ]);
     }
