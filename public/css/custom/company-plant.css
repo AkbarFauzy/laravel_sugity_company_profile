@@ -1,0 +1,95 @@
+/* Facility =========== */
+.style-carousel-facility {
+    position: relative;
+    width: 100%;
+}
+
+.style-carousel-facility .style-item {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.style-carousel-facility .style-item .style-carousel-item {
+    width: 26%;
+    height: 450px;
+    /* left: 0;
+    right: 0;
+    margin: auto; */
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s linear;
+}
+
+.style-carousel-facility .style-item .style-carousel-item .style-carousel-overlay {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 0.5s linear;
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-3 .style-carousel-overlay {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-1 {
+    height: 300px;
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-2 {
+    height: 350px;
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-3 {
+    height: 450px;
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-4 {
+    height: 350px;
+}
+
+.style-carousel-facility .style-item .style-carousel-item.item-5 {
+    height: 300px;
+}
+
+.style-carousel-facility .style-item .style-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.style-carousel-facility .style-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 11;
+}
+
+.style-carousel-facility .style-nav button {
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    border: 0;
+    font-size: 35px;
+    color: black;
+    transition: all 0.5s linear;
+    box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.style-carousel-facility .style-nav button:hover {
+    background-color: #179B34;
+    color: white;
+}
+
+/* End Facility =========== */

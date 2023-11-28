@@ -1,0 +1,80 @@
+#page-title {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill !important;
+    height: 100%;
+}
+.president-message-text {
+    font-weight: 700;
+    font-size: 45px;
+    color: #000;
+}
+.president-speech {
+    width: 670px; 
+    line-height: 25px !important; 
+    font-weight: 100 !important; 
+    /* color: #000 !important; */
+    font-size: 15px;
+}
+.president-signature {
+    width: 150px;
+    line-height: 20px !important; 
+    color: #000 !important;
+    font-weight: 200 !important; 
+
+}
+.president-signature-sugity {
+    width: 300px !important;
+    line-height: 20px !important; 
+    color: #000 !important;
+    font-weight: 200 !important; 
+
+}
+.parallax.section-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill !important;
+    height: 100%;
+}
+.about-us-text {
+    font-size: 50px !important;
+}
+.text-first-parallax {
+    font-size: 60px;
+    font-weight: 700;
+}
+.text-second-parallax {
+    font-size: 18px;
+}
+.text-visi-misi {
+    color: #000;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 620px;
+	flex-shrink: 0; 
+    padding-left: 123px;
+}
+.card {
+    border: none;
+    box-shadow: 0px 4px 15px 0px rgba(241, 129, 64, 0.30);
+}
+.title-on-slider {
+    font-size: 80px;
+    font-weight: 700;
+}
+.president-image {
+    height: 560px;
+}
+.text-content-about-us {
+    width: 500px;
+}
+.is-mobile-hide {
+    display: block;
+}
+.is-mobile-show {
+    display: none;
+}

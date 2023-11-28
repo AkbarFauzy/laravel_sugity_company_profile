@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "475cc408-17b7-4779-9014-c88db09baf1c",
+		"name": "Sugity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18192334",
+		"_collection_link": "https://bold-sunset-231919.postman.co/workspace/test~fc07adf1-f5fa-4df5-846a-08905778532b/collection/18192334-475cc408-17b7-4779-9014-c88db09baf1c?action=share&source=collection_link&creator=18192334"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "productById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/product/1"
+					},
+					"response": []
+				},
+				{
+					"name": "events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "eventsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/event/1"
+					},
+					"response": []
+				},
+				{
+					"name": "news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/news"
+					},
+					"response": []
+				},
+				{
+					"name": "newsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/news/1"
+					},
+					"response": []
+				},
+				{
+					"name": "csr",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/csr"
+					},
+					"response": []
+				},
+				{
+					"name": "csrById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/csr/1"
+					},
+					"response": []
+				},
+				{
+					"name": "president",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/president-director"
+					},
+					"response": []
+				},
+				{
+					"name": "vice-president",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/vice-president"
+					},
+					"response": []
+				},
+				{
+					"name": "director",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/directors"
+					},
+					"response": []
+				},
+				{
+					"name": "commissioner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://sugity.co.id/api/commissioners"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

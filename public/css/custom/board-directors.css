@@ -1,0 +1,96 @@
+.style-nav-pills-bod .nav-item .nav-link.active, .style-nav-pills .nav-item .nav-link:hover {
+    color: #EE6D22;
+    border-radius: 10px;
+    background: radial-gradient(60.19% 64.45% at 50% 128.33%, #EE6D22 0%, rgba(238, 109, 34, 0.00) 100%);
+}
+
+.style-nav-pills-bod .nav-item .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #C0BEBE;
+    background-color: #fff;
+    border-radius: 0;
+    -webkit-transition: all 500ms linear;
+    -moz-transition: all 500ms linear;
+    -o-transition: all 500ms linear;
+    -ms-transition: all 500ms linear;
+    transition: all 500ms linear;
+}
+
+.director-image {
+    transition: filter 0.5s;
+}
+
+.director-image:hover {
+    filter: drop-shadow(20px 4px 4px #2F7649);
+}
+
+@media screen and (max-width: 400px) {
+	.style-nav-pills-bod .nav-item .nav-link {
+        width: 100% !important;
+    }
+    .commis-name {
+        font-size: 15px;
+    }
+    .corp-name {
+        font-size: 11px;
+    }
+    .director-title {
+        font-size: 15px;
+    }
+    .director-name {
+        font-size: 13px;
+    }
+    .director-corp {
+        font-size: 11px;
+        font-weight: 500;
+    }
+    .bod-title-text {
+        font-size: 22px;
+        text-align: center;
+    }
+    .shareholders-title-text {
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 550px) {}
+
+@media screen and (max-width: 765px) and (min-width: 401px) {
+	
+}
+
+@media screen and (max-width: 650px) and (min-width: 402px) {
+	.style-nav-pills-bod .nav-item .nav-link {
+        width: 100% !important;
+    }
+    .commis-name {
+        font-size: 15px;
+    }
+    .corp-name {
+        font-size: 11px;
+    }
+    .director-title {
+        font-size: 15px;
+    }
+    .director-name {
+        font-size: 13px;
+    }
+    .director-corp {
+        font-size: 11px;
+        font-weight: 500;
+    }
+    .bod-title-text {
+        font-size: 22px;
+        text-align: center;
+    }
+    .shareholders-title-text {
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {}
+
+@media screen and (max-width: 1265px) and (min-width: 651px) {
+}
