@@ -20,32 +20,38 @@ class BODSeeder extends Seeder
             'name' => 'Masashi Suzuki',
             'position' => 'President Director',
             'affiliation'=> 'Toyota Auto Body Co., Ltd.',
+            'img' => 'MasashiSuzuki-Pres.Director.png'
         ]);
 
         BOD::create([
             'name' => 'Riwan Darmanto',
             'position' => 'Executive Vice President',
+            'img' => 'RiwanDarmanto-ExecutiveVicePres.Director.png'
         ]);
 
         BOD::create([
             'name' => 'Djoko Santoso',
             'position' => 'Director',
+            'img' => 'DjokoSantoso-Director.png'
         ]);
 
         BOD::create([
             'name' => 'Koji Yasuda',
             'position' => 'Director',
             'affiliation'=> 'Toyota Auto Body Co., Ltd.',
+            'img' => 'KojiYasuda-Director.png'
         ]);
 
         BOD::create([
             'name' => 'Asep Chandra P.Y.',
             'position' => 'Director',
+            'img' => 'AsepChandra-Director.png'
         ]);
 
         BOD::create([
             'name' => 'Maya Maharini',
             'position' => 'Director',
+            'img' => 'MayaMaharini-Director.png'
         ]);
     }
 }

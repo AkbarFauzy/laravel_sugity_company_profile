@@ -14,5 +14,12 @@ class News extends Model
         'headline',
         'headline_img',
         'content',
+        'isPublish'
     ];
+
+    public function gallery()
+    {
+        return $this->hasMany(NewsContentGallery::class, 'news_id', 'id');
+    }
+
 }

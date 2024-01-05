@@ -1,6 +1,8 @@
 @extends('layout.app')
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/company-value.css') }}" type="text/css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	
 @endsection
 
 @section('title')
@@ -9,8 +11,8 @@
 
 @section('content')
 	<!-- For Desktop -->
-	<section class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 800px !important;">
-		<div class="row">
+	<section data-scroll class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 800px !important;">
+		<div class="row" data-aos="fade-in" data-aos-duration="1300">
 			<div class="col-xs-12 col-md-7 text-layer" style="display: flex; justify-content: center; align-items: center;">
 				<div class="container dark pt-5">
 					<h1 class="title-layer-1 mb-0">Our</h1>
@@ -27,8 +29,8 @@
 	</section>
 
 	<!-- For Mobile -->
-	<section class="page-title-dark mb-0 d-block d-sm-none" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 800px !important;">
-		<div class="row">
+	<section data-scroll class="page-title-dark mb-0 d-block d-sm-none" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 800px !important;">
+		<div class="row" data-aos="fade-up" data-aos-duration="1300">
 			<div class="col-xs-12 col-md-7">
 				<div class="container dark" style="padding-top: 80px;">
 					<h1 class="title-layer-1 mb-0">Our</h1>
@@ -46,83 +48,46 @@
 	
 	<!-- Content
 	============================================= -->
-	<section id="content">
+	<section data-scroll id="content">
 
 		<!-- section visi misi -->
-		<div class="row m-0 row-section-visi-misi">
-			<div class="col-md-6 text-visi-misi">
-				<div class="container">
-					Our Company Values
+		<div data-scroll class="row m-0 mt-5 py-md-5 row-section-visi-misi">
+			<div class="col-md-4 d-flex justify-content-center">
+				<div class="px-3 px-md-5 text-center border-thick" data-aos="fade-up" data-aos-duration="1300">
+					<img src="{{asset('images/vector/vector-mission.png')}}" width="50" alt="">
+					<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Mission</h1>
+					<p class="desc-values">Being a Sustainable Product Maker Company that Provides Customer Satisfaction & Contributes to Society Growth.</p>
+					<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
+				</div>
+				
+			</div>
+			<div class="col-md-4 d-flex justify-content-center">
+				<div class="px-3 px-md-5 text-center border-thick" data-aos="fade-up" data-aos-duration="1300">
+					<img src="{{asset('images/vector/vector-vision.png')}}" width="50" alt="">
+					<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Vision</h1>
+					<h2 class="my-0 title-values">LEADING with PRIDE</h2>
+					<p class="desc-values">Become a Model of Automotive <br> Manufacturing Company that Leads the industrial ecosystem development.</p>
 				</div>
 			</div>
-			<div class="divider-visi-misi" style="width: 1px; height: 650px; border-left: 1px solid #000;"></div>
-			<div class="col-md-6 p-4 p-sm-5 parent-visi-misi">
-				<!-- mission section -->
-				<div class="row">
-					<div class="col-md-6 p-2 p-sm-4 card-mission-1">
-						<div class="card">
-							<div class="card-body px-4 pb-0">
-								<h5 class="card-title"><img src="{{asset('images/vector/our-philosophy.png')}}" alt=""
-										height="110"></h5>
-								<h4 class="card-subtitle mb-2">Our Philosophy</h4>
-								<p style="line-height: 20px; font-size: 14px;">Create continous collaboration
-									beetwen Indonesia and Japan by congtributing in various innovations for future
-									mobility technology.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 p-2 p-sm-4 card-mission-2">
-						<div class="card">
-							<div class="card-body px-4 pb-0">
-								<h5 class="card-title"><img src="{{asset('images/vector/our-value.png')}}" alt=""
-										height="110"></h5>
-								<h4 class="card-subtitle mb-2">Our Value</h4>
-								<p style="line-height: 20px; font-size: 22px; font-weight: 700; color: #EE6D22;">
-									SUGITY PRIDE</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- vision section -->
-				<div class="row">
-					<div class="col-md-6 p-2 p-sm-4 card-vision-1">
-						<div class="card">
-							<div class="card-body px-4 pb-0">
-								<h5 class="card-title"><img src="{{asset('images/vector/our-mission.png')}}" alt=""
-										height="110"></h5>
-								<h4 class="card-subtitle mb-2">Our Mission</h4>
-								<p style="line-height: 20px; font-size: 14px;">Being a Sustainable Product Maker
-									Company that Provides Customer Satisfaction & Contributes to Society Growth</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 p-2 p-sm-4 card-vision-2">
-						<div class="card">
-							<div class="card-body px-4 pb-0">
-								<h5 class="card-title"><img src="{{asset('images/vector/our-vision.png')}}" alt=""
-										height="110"></h5>
-								<h4 class="card-subtitle mb-2">Our Vision</h4>
-								<p class="mb-1"
-									style="line-height: 20px; font-size: 16px; font-weight: 700; color: #EE6D22;">
-									LEADING with PRIDE</p>
-								<p style="line-height: 20px; font-size: 14px;">Become a Model of Automotive
-									Manufacturing Company that Leads the industrial ecosystem development.</p>
-							</div>
-						</div>
-					</div>
+			<div class="col-md-4 d-flex justify-content-center">
+				<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+					<img src="{{asset('images/vector/vector-philosophy.png')}}" width="50" alt="">
+					<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Philosophy</h1>
+					<p class="desc-values">Create continuous collaboration between Indonesia and Japan by contributing in <br>various innovations for future mobility technology.</p>
+					<h2 class="mb-1 title-values">&nbsp;</h2>
 				</div>
 			</div>
 		</div>
 		<!-- end section visi misi -->
 
 		<!-- our value -->
-		<div class="value-section my-5">
+		<div data-scroll class="value-section mt-5 pt-md-5" data-aos="fade-down" data-aos-duration="1300">
 			<div class="text-center mb-5">
-				<h2 class="our-value-text fs-2">Our Value</h2>
+				<h1 class="our-value-text fs-1" style="color: #EE6D22;">Our Value</h1>
 				<h1 class="integrity-text fs-1">Professional • Integrity • Development</h1>
 			</div>
 		</div>
-		<div class="row m-0 px-sm-5 pb-5">
+		<div data-scroll class="row m-0 px-sm-5 pb-5" data-aos="fade-up" data-aos-duration="1300">
 			<div class="col-md-4 text-center px-5 py-4">
 				<div style="background-image: url('{{asset('images/card-image/comp-value-1.png')}}'); height: 420px; border-radius: 12px;">
 					<div class="container dark text-start item-text-overlay-value pb-3">
@@ -163,6 +128,22 @@
 		<!-- end our value -->
 	</section>
 	<!-- #content end -->
+@endsection
 
 
+@section('custom_js')
+	<!-- AOS (Animate on Scroll) -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+	<!-- smooth scroll -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.polyfills.min.js"></script>
+
+	<script>
+		AOS.init();
+
+		// Initialize Smooth Scroll
+		var scroll = new SmoothScroll('[data-scroll]', {
+			speed: 100, // Adjust the scrolling speed as needed
+		});
+	</script>
 @endsection

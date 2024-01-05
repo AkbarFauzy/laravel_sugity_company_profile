@@ -1,0 +1,62 @@
+@media only screen and (max-width: 575px) {
+    .text-banner {
+        font-size: 50px !important; 
+        font-weight: 700 !important; 
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .text-banner {
+        font-size: 100px !important; 
+        font-weight: 700 !important; 
+    }
+}
+
+.style-text-business-title {
+    font-size: 30px;
+    color: #000;
+}
+
+.vl {
+    border-left: 1px solid black;
+    height: 80px;
+    margin-left: 30%;
+}
+
+.style-text-business-description {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+.style-nav-pills-business {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 40px 40px 7px rgba(0, 0, 0, 0.15);
+}
+.style-nav-pills-business .nav-link.active,
+.style-nav-pills .nav-link:hover {
+    background-color: #EE6D22;
+    color: #fff;
+    /* border-radius: 10px; */
+    padding: 24px 30px;
+}
+
+.style-nav-pills-business .nav-link {
+    font-size: 24px;
+    font-weight: 500;
+    color: #4E4E4E;
+    background-color: #fff;
+    -webkit-transition: all 500ms linear;
+    -moz-transition: all 500ms linear;
+    -o-transition: all 500ms linear;
+    -ms-transition: all 500ms linear;
+    transition: all 500ms linear;
+    padding: 24px 30px;
+}
+
+.style-nav-pills-business .nav-link:hover {
+    color: #fff;
+    background-color: #EE6D22;
+}

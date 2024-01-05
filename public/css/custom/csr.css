@@ -1,0 +1,325 @@
+.style-owl-banner-slider {
+    --owl-nav-bg: var(--themecolor, rgba(0, 0, 0, 0.50));
+}
+
+.owl-nav .owl-prev {
+    background: rgba(0, 0, 0, 0.50) !important;
+    color: #FFF !important;
+    left: 2% !important;
+    border: 0 !important;
+}
+
+.owl-nav .owl-next {
+    background: rgba(0, 0, 0, 0.50) !important;
+    color: #FFF !important;
+    right: 2% !important;
+    border: 0 !important;
+}
+
+.owl-nav .owl-prev:hover {
+    background: linear-gradient(90deg, #F18140 0%, rgba(255, 255, 255, 0.00) 100%) !important;
+}
+
+.owl-nav .owl-next:hover {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #F18140 100%) !important;
+}
+
+.style-owl-banner-slider .item {
+    position: relative;
+}
+
+.style-owl-banner-slider .style-banner-content {
+    opacity: 1;
+    z-index: 111;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    bottom: 10vh;
+    left: 8vw;
+    right: 8vw;
+}
+
+.style-owl-banner-slider .style-date-slider {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0;
+    -webkit-animation: styleAnimationFadeIn 1000ms linear;
+    -moz-animation: styleAnimationFadeIn 1000ms linear;
+    -o-animation: styleAnimationFadeIn 1000ms linear;
+    -ms-animation: styleAnimationFadeIn 1000ms linear;
+    animation: styleAnimationFadeIn 1000ms linear;
+    -webkit-transition: opacity 1500ms linear;
+    -moz-transition: opacity 1500ms linear;
+    -o-transition: opacity 1500ms linear;
+    -ms-transition: opacity 1500ms linear;
+    transition: opacity 1500ms linear;
+}
+
+.style-owl-banner-slider .style-title-slider {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    opacity: 0;
+    -webkit-animation: styleAnimationFadeIn 1000ms linear;
+    -moz-animation: styleAnimationFadeIn 1000ms linear;
+    -o-animation: styleAnimationFadeIn 1000ms linear;
+    -ms-animation: styleAnimationFadeIn 1000ms linear;
+    animation: styleAnimationFadeIn 1000ms linear;
+    -webkit-transition: opacity 1500ms linear;
+    -moz-transition: opacity 1500ms linear;
+    -o-transition: opacity 1500ms linear;
+    -ms-transition: opacity 1500ms linear;
+    transition: opacity 1500ms linear;
+}
+
+.style-owl-banner-slider .style-desc-slider {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0;
+    -webkit-animation: styleAnimationFadeIn 1000ms linear;
+    -moz-animation: styleAnimationFadeIn 1000ms linear;
+    -o-animation: styleAnimationFadeIn 1000ms linear;
+    -ms-animation: styleAnimationFadeIn 1000ms linear;
+    animation: styleAnimationFadeIn 1000ms linear;
+    -webkit-transition: opacity 1500ms linear;
+    -moz-transition: opacity 1500ms linear;
+    -o-transition: opacity 1500ms linear;
+    -ms-transition: opacity 1500ms linear;
+    transition: opacity 1500ms linear;
+}
+
+.style-owl-banner-slider .owl-item.active .style-date-slider {
+    opacity: 1;
+}
+
+.style-owl-banner-slider .owl-item.active .style-title-slider {
+    opacity: 1;
+}
+
+.style-owl-banner-slider .owl-item.active .style-desc-slider {
+    opacity: 1;
+}
+
+/* Content */
+.style-header {
+    color: #000;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content {
+    margin-top: 70px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 1px 5px 30px 0px rgba(0, 0, 0, 0.15);
+    padding: 48px 32px;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-button {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #FFF;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px 16px;
+    transition: all 0.4s linear;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-button:hover {
+    background-color: #EE6D22;
+    color: #FFF;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-button i {
+    font-size: 15px;
+    -webkit-text-stroke: 1.5px #000;
+    color: #000;
+    transition: all 0.4s linear;
+}
+
+.style-carousel .style-carousel-item .style-carousel-content .style-button:hover>i {
+    -webkit-text-stroke: 1.5px #FFF;
+    color: #FFF;
+}
+
+.style-latest-event-section .style-carousel .style-carousel-item .style-carousel-image {
+    margin-left: -60px;
+    border-radius: 15px;
+    box-shadow: -20px 20px 0px 0px #179B34E5;
+    width: 100%;
+    height: auto;
+}
+
+.style-csr-activity-section .style-carousel .style-carousel-item .style-carousel-image {
+    margin-left: 60px;
+    border-radius: 15px;
+    box-shadow: -20px 20px 0px 0px #F18140;
+    width: 100%;
+    height: auto;
+}
+
+.style-carousel .style-carousel-item .style-carousel-nav {
+    position: relative;
+    margin-top: 30px;
+    height: 50px;
+    width: 90px;
+}
+
+.style-carousel .style-carousel-item .style-carousel-nav button {
+    opacity: 1;
+    font-size: 18px;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #FFF;
+    color: #2DA447;
+    -webkit-text-stroke: 1px #2DA447;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10);
+    transition: all 0.4s linear;
+}
+
+.style-latest-event-section .style-carousel .style-carousel-item .style-carousel-nav button {
+    color: #2DA447;
+    -webkit-text-stroke: 1px #2DA447;
+}
+
+.style-csr-activity-section .style-carousel .style-carousel-item .style-carousel-nav button {
+    color: #F18140;
+    -webkit-text-stroke: 1px #F18140;
+}
+
+.style-carousel .style-carousel-item .style-carousel-nav button:hover {
+    -webkit-text-stroke: 1px #FFF;
+    background-color: #2DA447;
+    color: #FFF;
+}
+
+.style-latest-event-section .style-carousel .style-carousel-item .style-carousel-nav button:hover {
+    background-color: #2DA447;
+}
+
+.style-csr-activity-section .style-carousel .style-carousel-item .style-carousel-nav button:hover {
+    background-color: #F18140;
+}
+
+
+.style-background-csr-1 {
+    position: relative;
+}
+
+.style-background-csr-1 * {
+    z-index: 10;
+}
+
+.style-background-csr-1::before {
+    content: '';
+    background: url('../../images/csr/background/background_1.svg');
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+.style-background-csr-2 {
+    position: relative;
+}
+
+.style-background-csr-2 * {
+    z-index: 10;
+}
+
+.style-background-csr-2::before {
+    content: '';
+    background: url('../../images/csr/background/background_2.svg');
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* End Content */
+
+@media only screen and (max-width: 991px) {
+    .style-carousel .style-carousel-item .style-carousel-content {
+        margin-top: 30px;
+        padding: 32px 32px;
+    }
+
+    .style-carousel .style-carousel-item .style-carousel-content .style-title {
+        font-size: 20px;
+
+    }
+
+    .style-carousel .style-carousel-item .style-carousel-content .style-subtitle {
+        font-size: 10px;
+
+    }
+
+    .style-carousel .style-carousel-item .style-carousel-content .style-button {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .style-carousel .style-carousel-item .style-carousel-content {
+        margin-top: 0px;
+        padding: 0;
+    }
+
+    .style-carousel .style-carousel-item .style-carousel-nav {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .style-owl-banner-slider .style-date-slider {
+        font-size: 10px;
+    }
+
+    .style-owl-banner-slider .style-title-slider {
+        font-size: 20px;
+    }
+
+    .style-owl-banner-slider .style-desc-slider {
+        font-size: 12px;
+    }
+}

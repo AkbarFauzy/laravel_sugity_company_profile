@@ -2,6 +2,8 @@
 @extends('layout.app')
 @section('custom_css')	
 <link rel="stylesheet" href="{{ asset('css/custom/company-profile.css') }}" type="text/css" />
+<!-- AOS (Animate on Scroll) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 @endsection
 
 @section('title')
@@ -9,16 +11,16 @@
 @endsection
 
 @section('content')
-		<!-- Banner Slider
+	<!-- Banner Slider
 		============================================= -->
-		<div class="owl-carousel owl-theme style-owl-banner-slider">
+		<div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll>
 			<div class="item min-vh-100 min-vh-md-100">
 				<video autoplay="" muted="" loop=""
 					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
 					<source src="{{asset('videos/banner-video-profile.mov')}}" type="video/mp4">
 				</video>
 				<div class="style-banner-image is-mobile-show"
-					style="background-image: url('./asset/images/banner/mobile/banner-comp-pro.png');">
+					style="background-image: url('{{asset('videos/banner-video-profile.mov')}}');">
 				</div>
 			</div>
 		</div>
@@ -26,16 +28,16 @@
 
 		<!-- Page Title
 		============================================= -->
-		<!-- <section id="page-title" class="page-title-dark d-none d-sm-block" 
-		style="background-image: url('{{asset('images/background/background-company-profile.png')}}'); padding: 375px 0; background-size: cover;">
+		<!-- <section id="page-title" class="page-title-dark d-none d-sm-block"
+			style="background-image: url('./asset/images/background/background-company-profile.png'); padding: 375px 0; background-size: cover;">
 
 			<div class="container clearfix text-center">
 				<h1 style="font-size: 80px;">Company Profile</h1>
 			</div>
 
 		</section>
-		<section id="page-title" class="page-title-dark d-block d-sm-none" 
-		style="background-image: url('{{asset('images/background/background-company-profile.png')}}'); padding: 325px 0; background-size: cover;">
+		<section id="page-title" class="page-title-dark d-block d-sm-none"
+			style="background-image: url('./asset/images/background/background-company-profile.png'); padding: 325px 0; background-size: cover;">
 
 			<div class="container clearfix text-center">
 				<h1 style="font-size: 50px;">Company Profile</h1>
@@ -48,18 +50,18 @@
 		============================================= -->
 		<section id="content">
 			<!-- president section -->
-			<div class="section m-0" id="president-message">
-				<div class="row p-5">
-					<div class="col-md-5 text-end parent-image-president">
+			<div class="section p-0" id="president-message" data-scroll>
+				<div class="row p-0 p-md-5 bg-white">
+					<div data-aos="fade-in" data-aos-duration="1300" class="col-12 col-xl-5 text-end parent-image-president">
 						<div class="container" style="width: 100%; height: 100%; display: flex; 
 						justify-content: center; 
 						align-items: center;">
 							<!-- <div style="background-image: url('./asset/images/pres-2.png'); height: 100%; width: 100%; background-repeat: no-repeat;"></div> -->
-							<img src="{{asset('images/pres-2.png')}}" class="president-image" alt="">
+							<img src="{{asset('images/president-img-v2.png')}}" class="president-image" alt="">
 						</div>
 					</div>
-					<div class="col-md-6 parent-president-message">
-						<div class="container pt-4">
+					<div class="col-12 col-xl-6 parent-president-message">
+						<div data-aos="fade-left" data-aos-duration="1300" class="container pt-4 color-black">
 							<h1 class="mb-2 president-message-text">President Message</h1>
 							<p class="mb-3 president-speech">
 								Dear Valued Members of the Sugity Creatives Community,
@@ -107,11 +109,11 @@
 			<!-- end president section -->
 
 			<!-- parallax -->
-			<div class="section style-paralax section-image m-0 border-0 d-none d-sm-block"
+			<div data-scroll class="section style-paralax-2 section-image m-0 border-0 d-none d-lg-block bg-white"
 				style="height: 700px; background-image: url('{{asset('images/parallax/parallax-company-profile.png')}}');"
 				data-bottom-top="background-position:0px 200px;" data-top-bottom="background-position:0px -200px;">
 				<div class="row" style="height: 100%;">
-					<div class="col-md-8 col-lg-6 col-xl-5 px-5 pt-5"
+					<div data-aos="fade-right" data-aos-duration="1300" class="col-md-8 col-lg-6 col-xl-5 px-5 pt-5"
 						style="display: flex; justify-content: center; align-items: center;">
 						<div class="container px-5" style="height: 100%;">
 							<h1 class="mt-0 about-us-text">About Us</h1>
@@ -133,8 +135,8 @@
 				</div>
 			</div>
 
-			<div class="d-block d-sm-none">
-				<div class="container px-4" style="height: 100%;">
+			<div data-scroll class="d-block d-lg-none bg-white">
+				<div data-aos="fade-right" data-aos-duration="1300" class="container px-4" style="height: 100%;">
 					<h1 class="mt-0 about-us-text">About Us</h1>
 					<p style="line-height: 25px;">
 						Sugity Creatives is a leading manufacturer of automotive components. With a legacy
@@ -150,63 +152,65 @@
 						creativity with integrity and innovation.
 					</p>
 				</div>
-				<div style="height: 300px; background-image: url('{{asset('images/parallax/bg-about-us-mobile.png')}}'); background-repeat: no-repeat; background-position: top; background-size: contain;"></div>
+				<div class="img-bg-about-us" style="background-image: url('{{asset('images/parallax/bg-about-us-mobile.png')}}'); "></div>
 			</div>
 			<!-- end parallax -->
 
-			<div class="row style-history py-5 ps-md-5 mt-5 mx-0">
+
+			<!-- section slider history company -->
+			<!-- <div class="row style-history py-5 py-lg-0 ps-md-5 mt-5 mx-0">
 				<div class="col-7 ps-lg-5 pe-5">
 					<div class="style-custom-slider">
 						<div class="style-item style-item-1">
-							<img src="{{asset('images/brief-history/1-whereitall.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/1-whereitall.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-2">
-							<img src="{{asset('images/brief-history/2-dynaassembly.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/2-dynaassembly.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-3">
-							<img src="{{asset('images/brief-history/3-rubberline.png')}}" alt="...">
+							<img src="./asset/images/brief-history/3-rubberline-v2.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider">
-							<img src="{{asset('images/brief-history/4-resin.png')}}" alt="...">
+							<img src="./asset/images/brief-history/4-resin.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-1">
-							<img src="{{asset('images/brief-history/5-kijang.png')}}" alt="...">
+							<img src="./asset/images/brief-history/5-kijang.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-2">
-							<img src="{{asset('images/brief-history/7-mold.png')}}" alt="...">
+							<img src="./asset/images/brief-history/6-ttec-v2.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-3">
-							<img src="{{asset('images/brief-history/6-ttec-v2.png')}}" alt="...">
+							<img src="./asset/images/brief-history/7-mold.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-4">
-							<img src="{{asset('images/brief-history/8-dyna.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/8-dyna.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-5">
-							<img src="{{asset('images/brief-history/9-plant2.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/9-plant2.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-6">
-							<img src="{{asset('images/brief-history/10-nav.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/10-nav.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-7">
-							<img src="{{asset('images/brief-history/11-rpt-v2.png')}}" alt="...">
+							<img src="./asset/images/brief-history/11-rpt-v2.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-8">
-							<img src="{{asset('images/brief-history/12-hi-ace.png')}}" alt="...">
+							<img src="./asset/images/brief-history/12-hi-ace.png" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-9">
-							<img src="{{asset('images/brief-history/1-whereitall.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/1-whereitall.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-10">
-							<img src="{{asset('images/brief-history/2-dynaassembly.jpg')}}" alt="...">
+							<img src="./asset/images/brief-history/2-dynaassembly.jpg" alt="...">
 						</div>
 						<div class="style-item style-item-slider style-delay-11">
-							<img src="{{asset('images/brief-history/3-rubberline.png')}}" alt="...">
+							<img src="./asset/images/brief-history/3-rubberline.png" alt="...">
 						</div>
 					</div>
 				</div>
 				<div class="col-5">
 					<div class="style-custom-content pt-5">
-					<div class="style-item px-2 px-md-5 style-item-1">
+						<div class="style-item px-2 px-md-5 style-item-1">
 							<p class="style-description m-0 pb-2 pb-md-4">Sugity Establish</p>
 							<h2 class="style-title m-0 p-0">1995</h2>
 						</div>
@@ -227,12 +231,12 @@
 							<h2 class="style-title m-0 p-0">2002</h2>
 						</div>
 						<div class="style-item px-2 px-md-5 style-item-fade style-delay-2">
-							<p class="style-description m-0 pb-2 pb-md-4">Mold Making</p>
-							<h2 class="style-title m-0 p-0">2004</h2>
-						</div>
-						<div class="style-item px-2 px-md-5 style-item-fade style-delay-3">
 							<p class="style-description m-0 pb-2 pb-md-4">TTEC Establish</p>
 							<h2 class="style-title m-0 p-0">2005</h2>
+						</div>
+						<div class="style-item px-2 px-md-5 style-item-fade style-delay-3">
+							<p class="style-description m-0 pb-2 pb-md-4">Mold Making</p>
+							<h2 class="style-title m-0 p-0">2008</h2>
 						</div>
 						<div class="style-item px-2 px-md-5 style-item-fade style-delay-4">
 							<p class="style-description m-0 pb-2 pb-md-4">Dyna Move To Hino</p>
@@ -251,7 +255,7 @@
 							<h2 class="style-title m-0 p-0">2013</h2>
 						</div>
 						<div class="style-item px-2 px-md-5 style-item-fade style-delay-8">
-							<p class="style-description m-0 pb-2 pb-md-4">Hi-Ace Conversion</p>
+							<p class="style-description m-0 pb-2 pb-md-4">HiAce Conversion</p>
 							<h2 class="style-title m-0 p-0">2017</h2>
 						</div>
 						<div class="style-item px-2 px-md-5 style-item-fade style-delay-9">
@@ -268,83 +272,57 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- end section slider history company -->
 
 
 			<!-- section visi misi -->
-				{{-- <div class="row m-0 row-section-visi-misi" style="display: flex;
-			width: 100%;
-			justify-content: space-between;
-			align-items: center;
-			flex-shrink: 0;">
-				<div class="col-md-6 text-visi-misi">
-					<div class="container">
-						Our Company Values
+			<!-- <div class="row m-0 pt-md-6 mt-md-5 py-md-5 mb-lg-5 row-section-visi-misi">
+				<div class="col-lg-4 d-flex justify-content-center">
+					<div class="px-3 px-md-5 text-center border-thick">
+						<img src="./asset/images/vector/vector-mission.png" width="50" alt="">
+						<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Mission</h1>
+						<p class="desc-values">Being a Sustainable Product Maker Company that Provides Customer Satisfaction & Contributes to Society Growth.</p>
+						<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
+					</div>
+					
+				</div>
+				<div class="col-lg-4 d-flex justify-content-center">
+					<div class="px-3 px-md-5 text-center border-thick">
+						<img src="./asset/images/vector/vector-vision.png" width="50" alt="">
+						<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Vision</h1>
+						<h2 class="my-0 title-values">LEADING with PRIDE</h2>
+						<p class="desc-values">Become a Model of Automotive <br> Manufacturing Company that Leads the industrial ecosystem development.</p>
 					</div>
 				</div>
-				<div class="divider-visi-misi" style="width: 1px; height: 650px; border-left: 1px solid #000;"></div>
-				<div class="col-md-6 p-5 parent-visi-misi">
-					<!-- mission section -->
-					<div class="row">
-						<div class="col-md-6 p-2 card-mission-1">
-							<div class="card" style="width: 18rem; height: 300px;">
-								<div class="card-body px-4 pb-0">
-									<h5 class="card-title"><img src="{{asset('images/vector/our-philosophy.png')}}" alt=""
-											height="110"></h5>
-									<h4 class="card-subtitle mb-2">Our Philosophy</h4>
-									<p style="line-height: 20px; font-size: 14px;">Create continous collaboration
-										beetwen Indonesia and Japan by congtributing in various innovations for future
-										mobility technology.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 p-2 card-mission-2">
-							<div class="card" style="width: 18rem; height: 300px;">
-								<div class="card-body px-4 pb-0">
-									<h5 class="card-title"><img src="{{asset('images/vector/our-value.png')}}" alt=""
-											height="110"></h5>
-									<h4 class="card-subtitle mb-2">Our Value</h4>
-									<p style="line-height: 20px; font-size: 22px; font-weight: 700; color: #EE6D22;">
-										SUGITY PRIDE</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- vision section -->
-					<div class="row mt-2">
-						<div class="col-md-6 p-2 card-vision-1">
-							<div class="card" style="width: 18rem; height: 300px;">
-								<div class="card-body px-4 pb-0">
-									<h5 class="card-title"><img src="{{asset('images/vector/our-mission.png')}}" alt=""
-											height="110"></h5>
-									<h4 class="card-subtitle mb-2">Our Mission</h4>
-									<p style="line-height: 20px; font-size: 14px;">Being a Sustainable Product Maker
-										Company that Provides Customer Satisfaction & Contributes to Society Growth</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 p-2 card-vision-2">
-							<div class="card" style="width: 18rem; height: 300px;">
-								<div class="card-body px-4 pb-0">
-									<h5 class="card-title"><img src="{{asset('images/vector/our-vision.png')}}" alt=""
-											height="110"></h5>
-									<h4 class="card-subtitle mb-2">Our Vision</h4>
-									<p class="mb-1"
-										style="line-height: 20px; font-size: 16px; font-weight: 700; color: #EE6D22;">
-										LEADING with PRIDE</p>
-									<p style="line-height: 20px; font-size: 14px;">Become a Model of Automotive
-										Manufacturing Company that Leads the industrial ecosystem development.</p>
-								</div>
-							</div>
-						</div>
+				<div class="col-lg-4 d-flex justify-content-center">
+					<div class="px-3 px-md-5 text-center">
+						<img src="./asset/images/vector/vector-philosophy.png" width="50" alt="">
+						<h1 class="mb-md-5 mt-3 fs-1 title-values">Our Philosophy</h1>
+						<p class="desc-values">Create continuous collaboration between Indonesia and Japan by contributing in <br>various innovations for future mobility technology.</p>
+						<h2 class="mb-1 title-values">&nbsp;</h2>
 					</div>
 				</div>
-			</div> --}}
+			</div> -->
 			<!-- end section visi misi -->
 		</section><!-- #content end -->
 @endsection
 @section('custom_js')
+<!-- AOS (Animate on Scroll) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- smooth scroll -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.polyfills.min.js"></script>
+
+<script>
+	AOS.init();
+
+	// Initialize Smooth Scroll
+	var scroll = new SmoothScroll('[data-scroll]', {
+		speed: 100, // Adjust the scrolling speed as needed
+	});
+</script>
+
 <script>
 	$('.style-owl-banner-slider').owlCarousel({
 		loop: false,
@@ -352,7 +330,7 @@
 		nav: false,
 		items: 1,
 		autoplay: false,
-		autoplayTimeout: 4000,
+		autoplayTimeout: 5000,
 		autoplayHoverPause: false,
 		animateOut: 'slideOutLeft',
 		animateIn: 'slideInRight',

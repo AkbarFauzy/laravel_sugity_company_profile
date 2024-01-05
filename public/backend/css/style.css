@@ -8485,7 +8485,7 @@ html:not([dir=rtl]) .sidebar-close {
 .sidebar-nav .nav-icon {
   flex: 0 0 var(--cui-sidebar-nav-icon-width);
   height: var(--cui-sidebar-nav-icon-height);
-  font-size: var(--cui-sidebar-nav-icon-font-size);
+  /* font-size: var(--cui-sidebar-nav-icon-font-size); */
   color: var(--cui-sidebar-nav-link-icon-color);
   text-align: center;
   pointer-events: none;

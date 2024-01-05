@@ -1,0 +1,14 @@
+@media only screen and (max-width: 575px) {
+    .title-detail-news {
+        font-size: 14px;
+    }
+
+    .date-detail-news {
+        font-size: 10px;
+    }
+
+    .desc-detail-news {
+        line-height: 24px;
+        font-size: 12px;
+    }
+}

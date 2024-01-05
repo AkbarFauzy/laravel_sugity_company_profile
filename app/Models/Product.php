@@ -12,7 +12,15 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'description',
+        'category',
+        'left_content',
+        'right_content',
         'img',
     ];
+
+    public function gallery()
+    {
+        return $this->hasMany(ProductsContentGallery::class, 'products_id', 'id');
+    }
+
 }

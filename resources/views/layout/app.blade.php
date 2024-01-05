@@ -9,9 +9,9 @@
 
     <!-- Stylesheets
 	============================================= -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-	<!-- <link rel="stylesheet" href="./asset/css/bootstrap.css" type="text/css" /> -->
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" /> --}}
+	<link rel="stylesheet" href="{{ asset('css/bootstrap2.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/dark.css') }}" type="text/css" />
@@ -35,28 +35,32 @@
 	<!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper" class="clearfix">
-		<!-- Navbar
+
+
+<!-- Navbar
 		============================================= -->
-		<nav class="navbar navbar-dark navbar-expand-md fixed-top p-0 style-navbar">
-            <div class="container-fluid px-4" style="height: 100%;">
-				<a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('logo/logo-sugity-nav.png')}}" class="logo-nav" style="height: 50px;"
-						alt="Canvas Logo"></a>
+		<nav class="navbar navbar-dark navbar-expand-lg fixed-top p-0 style-navbar">
+			<div class="container-fluid px-4" style="height: 100%;">
+				<a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('logo/logo-sugity-nav.png')}}" class="logo-nav"
+						style="height: 50px;" alt="Canvas Logo"></a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
 					data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse d-none d-md-block" id="navbarNav" style="height: 100%;">
-					<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%;">
+				<div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav" style="height: 100%;">
+					<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto"
+						style="height: 100%;">
 						<li class="nav-item style-w-31">
 							<a class="nav-link" href="{{url('company-profile')}}">
 								Company Profile
 							</a>
 							<ul class="style-sub-navbar-container">
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('coming-soon')}}">Company Value</a>
+									<a class="nav-link" href="{{url('company-value')}}">Company Value</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('company-profile')}}#president-message">President Message</a>
+									<a class="nav-link" href="{{url('company-profile')}}#president-message">President
+										Message</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
@@ -65,10 +69,10 @@
 									<a class="nav-link" href="{{url('company-history')}}">Company History</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('coming-soon')}}">Company Business</a>
+									<a class="nav-link" href="{{url('company-business')}}">Company Business</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('coming-soon')}}">Company Plant</a>
+									<a class="nav-link" href="{{url('company-plant')}}">Company Plant</a>
 								</li>
 							</ul>
 						</li>
@@ -78,28 +82,28 @@
 							</a>
 							<ul class="style-sub-navbar-container style-left-31">
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('products')}}">Part Business</a>
+									<a class="nav-link" href="{{url('products-vehicle')}}">Vehicle Business</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('coming-soon')}}">Vehicle Business</a>
+									<a class="nav-link" href="{{url('products-part')}}">Part Business</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('coming-soon')}}">Mold Business</a>
+									<a class="nav-link" href="{{url('products-mold')}}">Mold Business</a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item style-w-23">
-							<a class="nav-link style-dashed" href="{{url('coming-soon')}}">
+							<a class="nav-link style-dashed" href="{{url('csr')}}">
 								CSR
 							</a>
 						</li>
 						<li class="nav-item style-w-23">
-							<a class="nav-link style-dashed" href="{{url('coming-soon')}}">
+							<a class="nav-link style-dashed" href="{{url('news-page')}}">
 								News
 							</a>
 						</li>
 					</ul>
-					<a class="lang ps-5">
+					<a class="lang ps-xl-2 ps-xxl-5">
 						EN
 					</a>
 					<div class="color-white px-2">
@@ -109,7 +113,7 @@
 						ID
 					</a>
 				</div>
-				<div class="offcanvas offcanvas-end style-navbar-offcanvas d-md-none" tabindex="-1" id="offcanvasNavbar"
+				<div class="offcanvas offcanvas-end style-navbar-offcanvas d-lg-none" tabindex="-1" id="offcanvasNavbar"
 					aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
 						<a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('logo/logo-sugity-nav.png')}}"
@@ -124,7 +128,7 @@
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('coming-soon')}}">Company Value</a>
+										<a class="nav-link" href="{{url('company-value')}}">Company Value</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="{{url('company-profile')}}#president-message">President
@@ -137,36 +141,36 @@
 										<a class="nav-link" href="{{url('company-history')}}">Company History</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('coming-soon')}}">Company Business</a>
+										<a class="nav-link" href="{{url('company-business')}}">Company Business</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('coming-soon')}}">Company Plant</a>
+										<a class="nav-link" href="{{url('company-plant')}}">Company Plant</a>
 									</li>
 								</ul>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">
+								<a class="nav-link" href="{{url('products')}}">
 									Product
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('products')}}">Part Business</a>
+										<a class="nav-link" href="{{url('products-vehicle')}}">Vehicle Business</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('coming-soon')}}">Vehicle Business</a>
+										<a class="nav-link" href="{{url('products-part')}}">Part Business</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{url('coming-soon')}}">Mold Business</a>
+										<a class="nav-link" href="{{url('products-mold')}}">Mold Business</a>
 									</li>
 								</ul>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{url('coming-soon')}}">
+								<a class="nav-link" href="{{url('csr')}}">
 									CSR
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{url('coming-soon')}}">
+								<a class="nav-link" href="{{url('news-page')}}">
 									News
 								</a>
 							</li>
@@ -174,36 +178,35 @@
 					</div>
 				</div>
 			</div>
-		</nav>
-        <!-- #Navbar end -->
+		</nav><!-- #Navbar end -->
 
         @yield('content')
 
-        <!-- Footer
+        	<!-- Footer
 		============================================= -->
 		<footer id="footer" class="background-footer dark"
-        style="background-image: url(' {{asset('images/banner/banner-footer.png')}}');">
-        <div class="container">
+        style="background-image: url('{{asset('images/banner/banner-footer.png')}}');">
+        <div class="container-fluid container-md">
 
             <!-- Footer Widgets
             ============================================= -->
             <div class="footer-widgets-wrap">
 
-                <div class="row col-mb-50">
+                <div class="row col-mb-30">
                     <div class="col-lg-8">
 
                         <div class="row col-mb-50">
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
 
                                 <div class="widget widget_links clearfix">
 
-                                    <a href="{{url('coming-soon')}}">
-                                        <h3 class="entry-title">Contact Us</h3>
-                                    </a>
+                                    <!-- <a href="#"> -->
+                                        <h3 class="entry-title mb-1">Contact Us</h3>
+                                    <!-- </a> -->
 
-                                    <div class="row">
+                                    <div class="row mb-3">
                                         <div class="col-12">
-                                            <a href = "mailto: info@sugity.co.id">
+                                            <a href="mailto: info@sugity.co.id">
                                                 <i class="icon-envelope"></i> info@sugity.co.id
                                             </a>
                                         </div>
@@ -212,6 +215,13 @@
                                                 <i class="icon-phone"></i> (021) 898 0307
                                             </a>
                                         </div>
+                                    </div>
+
+                                    <a href="#">
+                                        <h3 class="entry-title mb-1">Social Media</h3>
+                                    </a>
+
+                                    <div class="row">
                                         <div class="col-12">
                                             <a href="https://www.youtube.com/@sugitycreatives8335" target="_blank">
                                                 <i class="icon-youtube"></i> Sugity Creatives
@@ -228,26 +238,34 @@
 
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
 
                                 <div class="widget widget_links clearfix">
-                                    
-                                    <a href="{{url('company-profile')}}">
-                                        <h3 class="entry-title">Company Profile</h3>
-                                    </a>
+
+                                    <h3 class="entry-title">
+                                        <a href="{{url('company-profile')}}">
+                                            Company Profile
+                                        </a>
+                                    </h3>
 
                                     <div class="row">
+                                        <div class="col-12">
+                                            <a href="{{url('company-value')}}">Company Value</a>
+                                        </div>
                                         <div class="col-12">
                                             <a href="{{url('company-profile')}}#president-message">President Message</a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="{{url('coming-soon')}}">Company Info</a>
+                                            <a href="{{url('board-directors')}}">Board of Director</a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="{{url('coming-soon')}}">Brief History</a>
+                                            <a href="{{url('company-history')}}">Company History</a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="{{url('coming-soon')}}">Core Business</a>
+                                            <a href="{{url('company-business')}}">Company Business</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <a href="{{url('company-plant')}}">Company Plant</a>
                                         </div>
                                     </div>
 
@@ -255,23 +273,25 @@
 
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
 
                                 <div class="widget widget_links clearfix">
-                                    
-                                    <a href="{{url('coming-soon')}}">
-                                        <h3 class="entry-title">Product</h3>
-                                    </a>
+
+                                    <h3 class="entry-title">
+                                        <a href="{{url('products')}}">
+                                            Product
+                                        </a>
+                                    </h3>
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <a href="{{url('products')}}">Part Business</a>
+                                            <a href="{{url('products-vehicle')}}">Vehicle Business</a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="{{url('coming-soon')}}">Vehicle Business</a>
+                                            <a href="{{url('products-part')}}">Part Business</a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="{{url('coming-soon')}}">Mold Business</a>
+                                            <a href="{{url('products-mold')}}">Mold Business</a>
                                         </div>
                                     </div>
 
@@ -284,52 +304,56 @@
 
                     <div class="col-lg-4">
 
-                        <div class="row col-mb-50">
+                        <div class="row">
                             <div class="col-md-4 col-lg-12">
-                                <div class="widget clearfix" style="margin-bottom: -20px;">
+                                <div class="widget clearfix pt-5 ps-2 pt-md-0 ps-md-0" style="margin-bottom: -20px;">
 
                                     <div class="row">
                                         <div class="col-lg-6 bottommargin-sm">
                                             <div class="widget widget_links clearfix">
-                                    
-                                                <a href="{{url('coming-soon')}}">
-                                                    <h3 class="entry-title">CSR</h3>
-                                                </a>
-        
+
+                                                <h3 class="entry-title">
+                                                    <a href="{{url('csr')}}">
+                                                        CSR
+                                                    </a>
+                                                </h3>
+
                                                 <!-- <div class="row">
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Tree Planting</a>
+                                                        <a href="coming-soon.html">Tree Planting</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Story Book (Ehon)</a>
+                                                        <a href="coming-soon.html">Story Book (Ehon)</a>
                                                     </div>
                                                 </div> -->
-        
+
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6 bottommargin-sm">
                                             <div class="widget widget_links clearfix">
-                                    
-                                                <a href="{{url('coming-soon')}}">
-                                                    <h3 class="entry-title">News</h3>
-                                                </a>
-        
+
+                                                <h3 class="entry-title">
+                                                    <a href="{{url('news-page')}}">
+                                                        News
+                                                    </a>
+                                                </h3>	
+
                                                 <!-- <div class="row">
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Achievement</a>
+                                                        <a href="coming-soon.html">Achievement</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Product & Exhibition</a>
+                                                        <a href="coming-soon.html">Product & Exhibition</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Internal Event</a>
+                                                        <a href="coming-soon.html">Internal Event</a>
                                                     </div>
                                                     <div class="col-12">
-                                                        <a href="{{url('coming-soon')}}">Other Information</a>
+                                                        <a href="coming-soon.html">Other Information</a>
                                                     </div>
                                                 </div> -->
-        
+
                                             </div>
                                         </div>
                                     </div>
@@ -378,6 +402,7 @@
 
                     </div>
                 </div>
+
             </div><!-- .footer-widgets-wrap end -->
 
         </div>

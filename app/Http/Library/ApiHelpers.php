@@ -25,7 +25,7 @@ trait ApiHelpers{
         ], $code, $this->headers);
     }
 
-    protected function onError($message, $errormsg, int $code = 404): JsonResponse
+    protected function onError($message, $errormsg, int $code = 500): JsonResponse
     {
         return response()->json([
             'success' => false,

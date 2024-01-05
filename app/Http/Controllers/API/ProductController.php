@@ -15,76 +15,251 @@ class ProductController extends Controller
     use ApiHelpers;
     public function GetProducts(){
         try {
-            $data = Product::all();
+            $product = Product::with('gallery')->get();
         }catch(\Exception $exception){  
             return $this->onError("Can't Fetch Product", $exception->getMessage());
         }
         
-        return $this->onSuccess($data, '');
+        return $this->onSuccess($product, '');
     }
 
     public function GetProductById($id){
         try{
-            $data = Product::findOrFail($id);
+            $product = Product::with('gallery')->findOrFail($id);
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Product", $exception->getMessage());
         }
-        return $this->onSuccess($data, '');
+        return $this->onSuccess($product, '');
+    }
+
+    public function GetVehicles(){
+        try{
+            $categories = [
+                'Public Transport',
+                'Healthcare Vehicle',
+                'Export Vehicle',
+                'Other'
+            ];
+            $vehicles = Product::whereIn('category', $categories)->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+    public function GetPublicTransport(){
+        try{
+            $vehicles = Product::where('category', 'Public Transport')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+    public function GetHealthcareVehicles(){
+        try{
+            $vehicles = Product::where('category', 'Healthcare Vehicle')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+    public function GetExportVehicles(){
+        try{
+            $vehicles = Product::where('category', 'Export Vehicle')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+    public function GetParts(){
+        try{
+            $categories = [
+                'Exterior Part',
+                'Interior Part'
+            ];
+            $parts = Product::whereIn('category', $categories)->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Parts", $exception->getMessage());
+        }
+        return $this->onSuccess($parts, '');
+    }
+
+    public function GetMold(){
+        try{
+            $mold = Product::where('category', 'Mold')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Mold", $exception->getMessage());
+        }
+        return $this->onSuccess($mold, '');
     }
 
     public function AddProduct(Request $req){
         try{
             $req->validate([
-                'inputName' => 'required',
-                'description' => 'required',
+                'name' => 'required',
                 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'interior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'exterior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             
-            $fileName = time() . '.' . $req->img->extension();
-            $req->img->storeAs('public/images', $fileName);
+            if ($image = $req->file('img')) {
+                $originName = $req->file('img')->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $req->file('img')->getClientOriginalExtension();
+                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $req->file('img')->move(public_path('images/products/'), $fileName);
+                $url = asset('images/products/' . $fileName);
+            }
 
             DB::beginTransaction();
-            $data = Product::create([
-                'name' => $req->input('inputName'),
-                'description' => $req->input('inputDescription'),
+
+            $product = Product::create([
+                'name' => $req->input('name'),
+                'category' => $req->input('category'),
+                'left_content' => $req->input('left_content'),
+                'right_content' => $req->input('right_content'),
                 'img' => $fileName
             ]);
+
+            if ($files = $req->file('interior')) {
+                foreach ($files as $key => $file) {
+                    $originName = $file->getClientOriginalName();
+                    $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $file->move(public_path('images/products/content/'), $fileName);
+                    $url = asset('images/products/content/' . $fileName);            
+                    $product->gallery()->create([
+                        'img' => $fileName,
+                        'type' => "interior",
+                    ]);
+                }
+            }
+            
+            if ($files = $req->file('exterior')) {
+                foreach ($files as $key => $file) {
+                    $originName = $file->getClientOriginalName();
+                    $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $file->move(public_path('images/products/content/'), $fileName);
+                    $url = asset('images/products/content/' . $fileName);            
+                    $product->gallery()->create([
+                        'img' => $fileName,
+                        'type' => "exterior",
+                    ]);
+                }
+            }
+
             DB::commit();
         }catch(\Exception $exception){
             DB::rollback();
             return $this->onError("Can't Add Product", $exception->getMessage());
         }
 
-        return $this->onSuccess($data, '');
+        return $this->onSuccess($product, '');
     }
 
-    public function EditProduct(Request $req, $id){
+    public function UpdateProduct(Request $req, $id){
         try{
             $req->validate([
-                'inputName' => 'required',
-                'description' => 'required',
+                'name' => 'required',
+                'img' => ' image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'interior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'exterior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             DB::beginTransaction();
-            $data = Product::findOrFail($id);
-            $data->update([
-                'name' => $req->input('inputName'),
-                'description'=> $req->input('inputDescription'),
-            ]);
+            $product = Product::findOrFail($id);
 
+            if($req->has('img')){
+                $file = $req->file('img');
+                
+                $current_img_path = public_path('images/products/'.$product->img);
+                if (file_exists($current_img_path) && !empty($product->img)) {
+                    unlink($current_img_path);
+                }
+
+                $originName = $file->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = $fileName . '_' . time() . '.' . $extension;
+
+                $file->move(public_path('images/products/'), $fileName);
+
+                $product->img = $fileName;
+            }
+            
+            $product->update([
+                'name' => $req->input('name'),
+                'category' => $req->input('category'),
+                'left_content' => $req->input('left_content'),
+                'right_content' => $req->input('right_content')
+            ]);
+            
+            if ($req->hasFile('interior') || $req->hasFile('exterior')) {
+                $newGalleryImages = [];
+                foreach ($req->file('interior') as $file) {
+                    $originName = $file->getClientOriginalName();
+                    $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    
+                    $file->move(public_path('images/products/content/'), $fileName);
+                    $newGalleryImages[] = $fileName;
+                    
+                    $product->gallery()->create([
+                        'img' => $fileName,
+                        'type' => 'interior'
+                    ]);
+                }
+
+                foreach ($req->file('exterior') as $file){
+                    $originName = $file->getClientOriginalName();
+                    $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = $fileName . '_' . time() . '.' . $extension;
+
+                    $file->move(public_path('images/products/content/'), $fileName);
+                    $newGalleryImages[] = $fileName;
+
+                    $product->gallery()->create([
+                        'img' => $fileName,
+                        'type' => 'exterior'
+                    ]);
+                }
+    
+                $existingGallery = $product->gallery()->pluck('img')->toArray();
+                $imagesToDelete = array_diff($existingGallery, $newGalleryImages);
+    
+                foreach ($imagesToDelete as $image) {
+                    $imagePath = public_path('images/product/content/'.$image);
+    
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+    
+                    $product->gallery()->where('img', $image)->delete();
+                }
+            }
+            
             DB::commit();
         }catch(\Exception $exception){
             DB::rollback();
             return $this->onError("Can't Edit Product", $exception->getMessage());
         }
-        return $this->onSuccess($data,'');
+
+        return $this->onSuccess($product,'Update Products Success!');
     }
 
 
     public function DeleteProduct($id){
         try {
             DB::beginTransaction();
-            $data = Product::findOrFail($id)->delete();
+            $product = Product::findOrFail($id)->delete();
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollback();

@@ -39,6 +39,15 @@ body {
     transition-delay: 0.1s;
 }
 
+.text-link {
+    color: #fff;
+}
+
+.text-link:hover {
+    transition: 0.5s;
+    color: #EE6D22 !important;
+}
+
 .image-container:hover>.text-overlay {
     color: #fff;
 }
@@ -151,14 +160,15 @@ body {
     width: 70%;
     margin-left: 15%;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1200px) {
     .text-second-parallax-3 {
-        padding-left: 35px !important;
+        padding-left: 65px !important;
     }
 
     .text-second-parallax i{
         font-size: 14px; 
         position: absolute; 
+        left: 3.5rem;
         top: 0px;
     }
 
@@ -188,4 +198,75 @@ body {
 }
 .fluid-width-video-wrapper {
     height: 100%;
+}
+
+.style-owl-banner-slider .style-banner-content.slide-1 {
+    opacity: 1;
+    z-index: 111;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    bottom: 5vh;
+    left: 10vw;
+    right: 8vw;
+}
+
+.style-owl-banner-slider .style-banner-content.slide-2 {
+    opacity: 1;
+    z-index: 111;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    bottom: 5vh;
+    left: 10vw;
+    right: 8vw;
+}
+
+.style-owl-banner-slider .style-banner-content.slide-3 {
+    opacity: 1;
+    z-index: 111;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    top: 15vh;
+    left: 8vw;
+    right: 10vw;
+}
+
+/* first text */
+.style-banner-content .first-text-slider-landing {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+/* secind text */
+.style-banner-content .second-text-slider-landing {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    /* line-height: 150%; */
+}
+
+@media only screen and (max-width: 576px) {
+    .style-banner-content .first-text-slider-landing {
+        font-size: 25px;
+    }
+
+    .style-banner-content .second-text-slider-landing {
+        font-size: 13px;
+    }
 }

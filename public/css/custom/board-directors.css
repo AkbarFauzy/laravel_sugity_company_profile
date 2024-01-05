@@ -1,4 +1,9 @@
-.style-nav-pills-bod .nav-item .nav-link.active, .style-nav-pills .nav-item .nav-link:hover {
+body {
+    overflow-x: hidden;
+}
+
+.style-nav-pills-bod .nav-item .nav-link.active,
+.style-nav-pills .nav-item .nav-link:hover {
     color: #EE6D22;
     border-radius: 10px;
     background: radial-gradient(60.19% 64.45% at 50% 128.33%, #EE6D22 0%, rgba(238, 109, 34, 0.00) 100%);
@@ -21,34 +26,60 @@
     transition: filter 0.5s;
 }
 
-.director-image:hover {
-    filter: drop-shadow(20px 4px 4px #2F7649);
+.desc-shareholder {
+    font-size: 1.5rem !important;
+    font-weight: 500;
 }
 
-@media screen and (max-width: 400px) {
-	.style-nav-pills-bod .nav-item .nav-link {
+.wrap-shareholders {
+    display: flex;
+    align-items: center !important;
+}
+
+/* .director-image:hover {
+    filter: drop-shadow(20px 4px 4px #2F7649);
+} */
+
+@media screen and (max-width: 500px) {
+    .desc-shareholder {
+        font-size: 0.7rem !important;
+    }
+
+    .wrap-shareholders {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .style-nav-pills-bod .nav-item .nav-link {
         width: 100% !important;
     }
+
     .commis-name {
         font-size: 15px;
     }
+
     .corp-name {
         font-size: 11px;
     }
+
     .director-title {
         font-size: 15px;
     }
+
     .director-name {
         font-size: 13px;
     }
+
     .director-corp {
         font-size: 11px;
         font-weight: 500;
     }
+
     .bod-title-text {
         font-size: 22px;
         text-align: center;
     }
+
     .shareholders-title-text {
         font-size: 19px;
     }
@@ -56,34 +87,39 @@
 
 @media screen and (max-width: 550px) {}
 
-@media screen and (max-width: 765px) and (min-width: 401px) {
-	
-}
+@media screen and (max-width: 765px) and (min-width: 401px) {}
 
 @media screen and (max-width: 650px) and (min-width: 402px) {
-	.style-nav-pills-bod .nav-item .nav-link {
+    .style-nav-pills-bod .nav-item .nav-link {
         width: 100% !important;
     }
+
     .commis-name {
         font-size: 15px;
     }
+
     .corp-name {
         font-size: 11px;
     }
+
     .director-title {
         font-size: 15px;
     }
+
     .director-name {
         font-size: 13px;
     }
+
     .director-corp {
         font-size: 11px;
         font-weight: 500;
     }
+
     .bod-title-text {
         font-size: 22px;
         text-align: center;
     }
+
     .shareholders-title-text {
         font-size: 22px;
     }
@@ -92,5 +128,35 @@
 
 @media screen and (max-width: 800px) {}
 
-@media screen and (max-width: 1265px) and (min-width: 651px) {
+@media screen and (max-width: 1265px) and (min-width: 651px) {}
+
+
+.style-bg-dot .tab-content>div>div>div {
+    z-index: 10;
+}
+
+.style-bg-dot::before {
+    content: '';
+    position: absolute;
+    left: -230px;
+    bottom: 50px;
+    height: 700px;
+    width: 100%;
+    z-index: 1;
+    background-image: url('../../images/board-of-director/group-dots-orange.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.style-bg-dot::after {
+    content: '';
+    position: absolute;
+    right: -250px;
+    top: -100px;
+    height: 500px;
+    width: 100%;
+    z-index: 1;
+    background-image: url('../../images/board-of-director/group-dots-green.png');
+    background-repeat: no-repeat;
+    background-position: right center;
 }

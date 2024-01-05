@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/landing-page.css') }}" type="text/css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 @stop
 
 @section('title')
@@ -8,34 +9,35 @@
 @stop
 
 @section('content')
-
-        <div class="owl-carousel owl-theme style-owl-banner-slider">
+		<!-- Banner Slider
+		============================================= -->
+		<div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll>
 			<div class="item min-vh-100 min-vh-md-100">
-				<video autoplay="" muted loop playsinline
+				<video autoplay="" muted="" loop=""
 					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
 					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
 				</video>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-image"
-					style="background-image: url('{{asset('images/banner/banner-2-v3.png')}}');"></div>
+				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-2-v3.png')}}');">
+				</div>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
-				<!--  <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
-				<div class="style-banner-image"
-					style="background-image: url('{{asset('images/banner/banner-3-v3.png')}}');"></div>
+				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
+				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-3-v3.png')}}');">
+				</div>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Company.</h2> -->
-				<div class="style-banner-image"
-					style="background-image: url('{{asset('images/banner/banner-4-v4.png')}}');"></div>
+				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-4-v4.png')}}');">
+				</div>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
-				<video autoplay muted loop playsinline
-				style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
-				<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
-			</video>
+				<video autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
+					<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
+				</video>
 			</div>
 		</div><!-- #Banner Slider end -->
 
@@ -43,14 +45,14 @@
 		============================================= -->
 		<section id="content">
 			<!-- image divider -->
-			<img src="{{asset('images/divider-black.png')}}" alt="" srcset="">
+			<img src="{{asset('images/divider-black.png')}}" alt="" srcset="" data-scroll>
 
 			<!-- parallax -->
-			<div class="section style-paralax style-paralax-bg-dark section-image dark m-0 border-0"
-				style="background-image: url(' {{asset('images/parallax/parallax-sugity-creatives.png')}} ');">
-				<div class="row" style="">
-				<div class="col-lg-10 col-md-12 px-5 pt-0">
-						<div class="p-0 px-5">
+			<div data-scroll class="section style-paralax style-paralax-bg-dark section-image dark m-0 border-0"
+				style="background-image: url('{{asset('images/parallax/parallax-sugity-creatives.png')}}');">
+				<div class="row" style="height: 100%;">
+					<div class="col-lg-9 col-12 px-5 pt-0">
+						<div data-aos="fade-right" data-aos-duration="900" class="p-0 px-5">
 							<h2 class="mb-0" style="color: #C5C2C3;">Welcome</h2>
 							<h1 class="mt-0 mb-2 sugity-creative-text">Sugity Creatives</h1>
 							<p style="line-height: 25px;">
@@ -62,49 +64,62 @@
 								ensuring a harmonious balance between automotive innovation and sustainable practices.
 							</p>
 							<div class="row">
-								<div class="col-md-3 text-first-parallax">1995 
+								<div class="col-md-3 text-first-parallax">1995
 									<span class="hide-txt-par-landing">Year Established</span>
 								</div>
-								<div class="col-md-3 text-first-parallax">1270 
+								<div class="col-md-3 text-first-parallax">1270
 									<span class="hide-txt-par-landing">Professional Employees</span>
-									</div>
-								<div class="col-md-3 text-first-parallax text-second-parallax-3" >31
-									<span class="hide-txt-par-landing text-second-parallax-3">CUSTOMER <i style="font-size: 12px;">(Click for Details)</i></span>
 								</div>
-								<div class="col-md-3 text-first-parallax text-second-parallax-3">148 
-									<span class="hide-txt-par-landing text-second-parallax-3">SUPPLY CHAIN <i style="font-size: 12px;">(Click for Details)</i> </span>
+								<div class="col-md-3 text-first-parallax text-second-parallax-3">31
+									<span class="hide-txt-par-landing text-second-parallax-3">
+										<a href="index.html#client" style="color: #fff;">CUSTOMER</a> 
+										<!-- <i style="font-size: 12px;">
+											<a href="index.html#client" style="color:white">(Click for Details)</a>
+										</i> -->
+									</span>
+								</div>
+								<div class="col-md-3 text-first-parallax text-second-parallax-3">148
+									<span class="hide-txt-par-landing text-second-parallax-3">
+										<a href="index.html#supply-chain" style="color: #fff;">SUPPLY CHAIN</a>
+										<!-- <i style="font-size: 12px;">
+											<a href="index.html#supply-chain" style="color:white">(Click for Details)</a>
+										</i> -->
+									</span>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-3 text-second-parallax">
-									<br>
+									<!-- <br> -->
 									Year Established
 								</div>
 								<div class="col-md-3 text-second-parallax">
-									<br>
+									<!-- <br> -->
 									Professional Employees
 								</div>
 								<div class="col-md-3 text-second-parallax text-second-parallax-3">
-									<i class="">Click for Details</i><br>
-									CUSTOMER
+									<!-- <i><a href="index.html#client" style="color:white">Click for Details</a></i><br> -->
+									<!-- <br> -->
+									<a href="index.html#client" class="text-link">
+										CUSTOMER
+									</a>
 								</div>
 								<div class="col-md-3 text-second-parallax text-second-parallax-3">
-									<i class="">Click for Details</i><br>
-									SUPPLY CHAIN
+									<!-- <i><a href="index.html#supply-chain" style="color:white">Click for Details</a></i><br> -->
+									<!-- <br> -->
+									<a href="index.html#supply-chain" class="text-link">
+										SUPPLY CHAIN
+									</a>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
+								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+								</div>
+								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+								</div>
+								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+								</div>
+								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
 										alt="">
-								</div>
-								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
-										alt="">
-								</div>
-								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" 
-									alt="">
-								</div>
-								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" 
-									alt="">
 								</div>
 							</div>
 						</div>
@@ -114,14 +129,16 @@
 			<!-- end parallax -->
 
 			<!-- our services section -->
-			<div class="services-section my-5">
-				<div class="text-center mb-5">
+			<div class="services-section my-5" data-scroll>
+				<div data-aos="fade-in" data-aos-duration="1000" class="text-center mb-5">
 					<h2 class="our-services-text">Our Services</h2>
 					<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
-					<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA of every product we deliver</h5>
+					<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
+						the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA
+						of every product we deliver</h5>
 				</div>
 			</div>
-			<ul class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
+			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
 				<li class="nav-item col-4" role="presentation">
 					<button class="nav-link w-100 active" id="pills-vehicle-tab" data-bs-toggle="pill"
 						data-bs-target="#pills-vehicle" type="button" role="tab" aria-controls="pills-vehicle"
@@ -138,37 +155,44 @@
 						aria-selected="false">Mold</button>
 				</li>
 			</ul>
-			<div class="tab-content style-tab-content" id="pills-tabContent"
+			<div data-scroll data-aos="fade-in" data-aos-duration="1000" class="tab-content style-tab-content" id="pills-tabContent"
 				style="background-image: url('{{asset('images/background/background-services-section.png')}}');">
+				
 				<div class="tab-pane fade show active" id="pills-vehicle" role="tabpanel"
 					aria-labelledby="pills-vehicle-tab" tabindex="0">
-					<div class="row ps-lg-5 h-bg-our-services">
+					<div class="row me-0 ps-lg-5 h-bg-our-services">
 						<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
 							<div>
 								<h1 class="style-title my-5 title-services">Vehicle Business</h1>
 								<p class="style-description mb-5 desc-services">
-									Focused on vehicle assembly and conversion, our growth started with Kijang Krista (1996-2022), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016). Since 2017, our innovation expanded our offerings to Hiace Luxury, Fortuner CCV, Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and Hiace Medical Mover, emphasizing our commitment to advanced, tailored conversion vehicles.
+									Focused on vehicle assembly and conversion, our growth started with Kijang Krista
+									(1996-2022), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016).
+									Since 2017, our innovation expanded our offerings to Hiace Luxury, Fortuner CCV,
+									Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and Hiace
+									Medical Mover, emphasizing our commitment to advanced, tailored conversion vehicles.
 								</p>
-								<button class="btn btn-primary style-btn mb-5">Read More</button>
+								<a class="btn-primary style-btn mb-5" href="product-vehicle-business.html">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
-							<img src="{{asset('images/background/overlay/1.1-overlay-image-service-section.png')}}" width="650"
-								alt="">
+							<img src="{{asset('images/background/overlay/1.1-overlay-image-service-section.png')}}"
+								width="650" alt="">
 						</div>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="pills-parts" role="tabpanel" aria-labelledby="pills-parts-tab"
 					tabindex="0">
-					<div class="row ps-lg-5 h-bg-our-services">
-						<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
+					<div class="row me-0 ps-lg-5 h-bg-our-services">
+						<div class="col-md-6 my-4 ps-5 d-flex justify-content-center align-items-center">
 							<div>
 								<h1 class="style-title my-5 title-services">Part Business</h1>
 								<p class="style-description mb-5 desc-services">
-									As the initial core business in Sugity, the automotive parts business has been running resin injection since 1996, and along its process cultivating into painting & sub assy processes which are advancing toward automation.
-								
+									As the initial core business in Sugity, the automotive parts business has been
+									running resin injection since 1996, and along its process cultivating into painting
+									& sub assy processes which are advancing toward automation.
+
 								</p>
-								<button class="btn btn-primary style-btn mb-5">Read More</button>
+								<a class="btn btn-primary style-btn mb-5" href="product-part-business.html">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
@@ -179,209 +203,472 @@
 				</div>
 				<div class="tab-pane fade" id="pills-mold" role="tabpanel" aria-labelledby="pills-mold-tab"
 					tabindex="0">
-					<div class="row ps-lg-5 h-bg-our-services">
-						<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
+					<div class="row me-0 ps-lg-5 h-bg-our-services">
+						<div class="col-md-6 my-4 ps-5 d-flex justify-content-center align-items-center">
 							<div>
 								<h1 class="style-title my-5 title-services">Mold Business</h1>
 								<p class="style-description mb-5 desc-services">
-									Mold Making Business is one of our core business that produces iron-based plastic mold. Initiated in 2004 from in-house mold making by producing small mold, we continued to make bumpers in 2014 to finally reached the ASEAN market in 2018. As one of our business pillars that contributes to the company's profit, we targeted to be the No.1 Mold Maker all over the ASEAN.
+									Mold Making Business is one of our core business that produces iron-based plastic
+									mold. Initiated in 2004 from in-house mold making by producing small mold, we
+									continued to make bumpers in 2014 to finally reached the ASEAN market in 2018. As
+									one of our business pillars that contributes to the company's profit, we targeted to
+									be the No.1 Mold Maker all over the ASEAN.
 								</p>
-								<button class="btn btn-primary style-btn mb-5">Read More</button>
+								<a class="btn btn-primary style-btn mb-5" href="product-mold-business.html">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
-							<img src="{{asset('images/background/overlay/3-overlay-image-service-section.jpg')}}" width="650"
+							<img src="{{asset('images/background/overlay/3-overlay-image-service-section.png')}}" width="650"
 								alt="">
 						</div>
 					</div>
 				</div>
+
+
+
 			</div>
 			<!-- end our services section -->
 
 			<!-- recent news section -->
-			<div class="recent-news-section style-recent-news-section px-2"
+			<div data-scroll class="recent-news-section style-recent-news-section px-2"
 				style="background-image: url('{{asset('images/Polygon.png')}}');">
-				<div class="px-5 pt-5">
+				<div data-aos="fade-in" data-aos-duration="1000" class="px-5 pt-5">
 					<h3 class="our-services-text">Our Recent News</h3>
 					<h2 class="integrity-text">Check out our latest events and information</h2>
 				</div>
 
-				
-            <div class="style-recent-news row m-0 pb-5" style="width: 100%;">
-             <div class="col-12 col-md-9" style="padding-left: 50px;">
-               <div class="style-content style-content-1 d-flex justify-content-start align-items-end" style="background-image: url('{{ asset('/images/news/'.$news->data[0]->headline_img) }}');">
-                 <div class="style-content-text ms-5 mb-4">
-                      <h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
-                     <p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
-                 </div>
-              <div
-                  class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
-                  <h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
-                  <p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
-                  <p class="style-description mt-2 mb-3">{{$news->data[0]->content}}</p>
-                  <button class="btn style-btn">Read More -></button>
-              </div>
-          </div>
-  
-          <div class="row">
-              @foreach (array_slice($news->data, 1,2) as $item)
-  
-              <div class="col-md-6">
-                  <div class="style-content mt-3 style-content-2 d-flex justify-content-start align-items-end"
-                      style="background-image: url('{{ asset('images/news/'.$item->headline_img) }}');">
-                      <div class="style-content-text ms-5 mb-4">
-                          <h3 class="style-title m-0">{{$item->headline}}</h3>
-                          <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-                      </div>
-                      <div
-                          class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
-                          <h3 class="style-title m-0">{{$item->headline}}</h3>
-                          <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-                          <p class="style-description mt-2 mb-3">{{$item->content}}</p>
-                          <button class="btn style-btn">Read More -></button>
-                      </div>
-                  </div>
-              </div>
+				<div data-aos="fade-in" data-aos-duration="1000" class="style-recent-news row m-0 pb-5 px-lg-4" style="width: 100%;">
+					<div class="col-12 col-md-8">
+						<div class="style-content style-content-1 d-flex justify-content-start align-items-end"
+							style="background-image: url('{{ asset('/images/news/'.$news->data[0]->headline_img) }}');">
+							<div class="style-content-text ms-5 mb-4">
+								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
+								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
+							</div>
+							<div
+								class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
+								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
+								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
+								<div class="style-description mt-2 mb-3" style="color:white">
+									{!!  \Illuminate\Support\Str::limit($news->data[0]->content, 450) !!}
+								</div>
+								<a href="{{url('detail-news', $news->data[0]->id)}}">
+									<button class="btn style-btn">Read More -></button>
+								</a>
+							</div>
+						</div>
 
-              @endforeach
-          </div>
-      </div>
+						<div class="row">
+							@foreach (array_slice($news->data, 1,2) as $item)
 
-      <div class="col-12 col-md-3 hide-mobile-width" style="padding-right: 50px;">
-          @foreach (array_slice($news->data, 3,3) as $index => $item)
-              @if($index % 2 == 1) 
-                  <div class="style-content style-content-3 d-flex justify-content-start align-items-end"
-                  style="background-image: url(' {{ asset('images/news/'.$item->headline_img) }}');">
-                      <div class="style-content-text ms-3 mb-2">
-                          <h3 class="style-title m-0">{{$item->headline}}</h3>
-                          <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-                      </div>
-                    
-              @else
-                  <div class="style-content style-content-3 my-2 d-flex justify-content-start align-items-end"
-                  style="background-image: url('{{asset('images/news/'.$item->headline_img)}}');">
-                      <div class="style-content-text ms-3 mb-2">
-                          <h3 class="style-title m-0">{{$item->headline}}</h3>
-                          <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-                      </div>
-              @endif
-              <div
-                    class="style-content-animation d-flex flex-column justify-content-center align-items-start p-3 mb-2">
-                    <h3 class="style-title m-0">{{$item->headline}}</h3>
-                    <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-                    <p class="style-description mt-2 mb-3">{{$item->content}}</p>
-                    <button class="btn style-btn">Read More -></button>
-                </div>
-            </div>
-          @endforeach
-      
-      </div>
-  </div>
-  <div class="px-5 pt-5 pb-5 section-our-videos">
-	<h3 class="our-video-text" style="color: #EE6D22">Check Our Videos!</h3>
-	<div class="parent-img-our-videos">
-		<iframe src="https://www.youtube.com/embed/S-03z27-WpA" frameborder="0" allowfullscreen></iframe>
-		<!-- <a href="https://www.youtube.com/watch?v=S-03z27-WpA&t=34s" target="_blank">
-			<img src="./asset/images/our-news-img.png" class="img-our-videos" alt="">
-		</a> -->
-	</div>
-</div>
-</div>
-<!-- end recent news section -->
+							<div class="col-md-6">
+								<div class="style-content mt-3 style-content-2 d-flex justify-content-start align-items-end"
+									style="background-image: url('{{ asset('images/news/'.$item->headline_img) }}');">
+									<div class="style-content-text ms-5 mb-4">
+										<h3 class="style-title m-0">{{$item->headline}}</h3>
+										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
+									</div>
+									<div
+										class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
+										<h3 class="style-title m-0">{{$item->headline}}</h3>
+										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
+										<p class="style-description mt-2 mb-3" style="color:white">{!!   \Illuminate\Support\Str::limit($item->content, 350) !!}</p>
+										<a href="{{url('detail-news', $item->id)}}">
+											<button class="btn style-btn">Read More -></button>
+										</a>
+									</div>
+								</div>
+							</div>
+							
+							@endforeach
+						</div>
+					</div>
+
+					<div class="col-12 col-md-4 hide-mobile-width scroll-news-landing">
+
+						@foreach (array_slice($news->data, 3,7) as $item)
+
+						<div class="row pb-3">
+							<div class="col-md-6 img-small-news" style="background-image: url('{{ asset('images/news/'.$item->headline_img)}}');">
+							</div>
+							<div class="col-md-6 d-flex flex-column justify-content-center">
+								<div class="title-small-news pb-2">{{$item->headline}}</div>
+								<div class="date-small-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
+								<a href="{{url('detail-news', $item->id)}}">
+									<div class="readmore-small-news">Read More -></div>
+								</a>
+							</div>
+						</div>
+
+						@endforeach
+
+					</div>
+				</div>
+				<div data-aos="fade-in" data-aos-duration="1000" class="px-5 pt-5 pb-5 section-our-videos">
+					<h3 class="our-video-text" style="color: #EE6D22">Check Our Videos!</h3>
+					<div class="parent-img-our-videos">
+						<iframe src="https://www.youtube.com/embed/W_qM4LOOhPk?si=vHas8ylV5CvVrcKE" frameborder="0" allowfullscreen></iframe>
+						<!-- <a href="https://www.youtube.com/@sugitycreatives8335&t=34s" target="_blank">
+							<img src="./asset/images/our-news-img.png" class="img-our-videos" alt="">
+						</a> -->
+					</div>
+					<div id="client">
+					</div>
+				</div>
+			</div>
+			<!-- end recent news section -->
 
 			<!-- slider client -->
-			<div class="slider-client py-5">
-				<div class="text-center">
+			<div class="slider-client pt-5 pt-md-3" data-scroll>
+				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
 					<h3 class="our-client-text">Our Client</h3>
 					<h2 class="we-build-text">We build long-term Partnerships</h2>
 				</div>
-				<div class="owl-carousel owl-theme style-owl-client-slider py-5">
+				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-client-slider py-2">
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/ani.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/1. new_toyota.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/boshoku.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/2. daihatsu.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/daihatsu.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/3. new hino.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/denso.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/4. honda.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/hitachi.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/5. new_suzuki.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/honda.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/6. nissan.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/suzuki.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/8. isuzu.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/tcd.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/9. mitsubishi.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/toyota.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/10. boshoku.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
 					<div class="item">
 						<a href="javascript:void(0)">
-							<img src="{{asset('images/clients/tsusho.png')}}" class="style-image" alt="Clients">
+							<img src="{{asset('images/clients/11. tsusho.png')}}" class="style-image" alt="Clients">
 						</a>
 					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/12. hitachi.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/13. tcd.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/14. denso.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/15. ani.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/16. cabind.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/17. tam.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/18. agc.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/19. yazaki autocomp.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/20. hd.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/22. stanley.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/23. eds pemi.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/24. toyotetsu.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/25. mori.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/26. tme.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/27. sami.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/28. jatim auto.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/29. aisin.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/30. ochiai.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/clients/31. honda access.png')}}" class="style-image" alt="Clients">
+						</a>
+					</div>
+				</div>
+				<div id="supply-chain" class="pt-5">
 				</div>
 			</div>
 			<!-- end slider client  -->
 
+			<!-- slider supply chain -->
+			<div class="slider-client pb-5 pb-md-3" data-scroll>
+				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
+					<h3 class="our-client-text">Our Supplier</h3>
+					<h2 class="we-build-text">Synergizing Excellence, Uniting Supply</h2>
+				</div>
+				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-supplier-slider py-2">
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/1. rpt.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/2. inoac.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/3. dae in tech.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/4. ypti.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/5. hasura.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/5. maju makmur.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/6. ttec.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/7. megah nusantara.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/8. asahi denso.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/9. uno minda.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/10. toyoda.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/11. GIW.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/12. mitra kemasindo.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/13. kansai.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/14. nippon.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/15. dnt.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/16. fujikura kasei.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/17. tsusho.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/18. murni cahaya.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/19. basunjaya.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/20. duaka.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/21. kpa.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/22. jungwoo.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/23. Saeam.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/24. hyukjin.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/25. selamat teknik.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/26. kofuku.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+					<div class="item">
+						<a href="javascript:void(0)">
+							<img src="{{asset('images/supply-chain/27. gnp.png')}}" class="style-image" alt="Supply Chain">
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- end slider supply chain  -->
+
 			<!-- section location -->
-			<div class="style-section-location">
-				<div class="row mb-5 mt-5 px-5">
-					<div class="col-sm-12 col-md-12 col-lg-4 d-lg-flex text-sm-center mb-sm-2">
+			<div data-aos="fade-in" data-aos-duration="1000" class="style-section-location" data-scroll>
+				<div class="row mb-5 mt-5 px-lg-5">
+					<div class="col-sm-12 col-md-12 col-xl-4 d-xl-flex text-center mb-sm-2">
 						<img src="{{asset('logo/logo-sugity-bottom-text.png')}}" alt="" srcset="" class="style-logo">
 					</div>
-					<div class="col-sm-6 col-md-6 col-lg-4 px-3 py-2">
+					<div class="col-sm-6 col-md-6 col-xl-4 px-3 py-2">
 						<a href="https://maps.app.goo.gl/v57EzC77gZrsrn4T7" target="_blank">
 							<div class="style-content">
 								<img src="{{asset('images/cibitung-plant.png')}}" alt="" srcset="" class="style-image">
 								<div class="style-title">
 									Head Office / Cibitung Plant
 								</div>
-								<div class="style-description">
-									Kawasan Industri, Jl. Bali I Jl. Mm 2100 No.17-20,<br/> 
+								<div class="style-description d-none d-sm-block">
+									Kawasan Industri, Jl. Bali I Jl. Mm 2100 No.17-20,<br />
 									Gandamekar, Cikarang Barat, Bekasi Regency, <br />
 									West Java 17530
-	
+								</div>
+								<div class="style-description d-block d-sm-none">
+									Kawasan Industri, Jl. Bali I Jl. Mm 2100 No.17-20, 
+									Gandamekar, Cikarang Barat, Bekasi Regency, 
+									West Java 17530
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-sm-6 col-md-6 col-lg-4 px-3 py-2">
+					<div class="col-sm-6 col-md-6 col-xl-4 px-3 py-2">
 						<a href="https://maps.app.goo.gl/2aoSKAoSUuQqQXDz9" target="_blank">
 							<div class="style-content">
 								<img src="{{asset('images/karawang-plant.png')}}" alt="" srcset="" class="style-image">
 								<div class="style-title">
 									Karawang Plant
 								</div>
-								<div class="style-description">
+								<div class="style-description d-none d-sm-block">
 									Kawasan Industri KIIC, Jl. Permata 3, Telukjambe Timur, <br />
-									Puseurjaya, Telukjambe Timur, Karawang, <br />Jawa Barat 41361
+									Puseurjaya, Telukjambe Timur, Karawang, <br />
+									Jawa Barat 41361
+								</div>
+								<div class="style-description d-block d-sm-none">
+									Kawasan Industri KIIC, Jl. Permata 3, Telukjambe Timur, 
+									Puseurjaya, Telukjambe Timur, Karawang, 
+									Jawa Barat 41361
 								</div>
 							</div>
 						</a>
@@ -390,73 +677,103 @@
 			</div>
 			<!-- end section location -->
 		</section><!-- #content end -->
-
-
-
-
 @stop
 
 @section('custom_js')
 <script src="{{asset('js/custom/landing-page.js')}}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script>	
+<!-- smooth scroll -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.polyfills.min.js"></script>
+
+<script>
+	AOS.init();
+
+	// Initialize Smooth Scroll
+	var scroll = new SmoothScroll('[data-scroll]', {
+		speed: 100, // Adjust the scrolling speed as needed
+	});
+</script>
+<script>
 	setInterval(function () {
-			if ($('#pills-vehicle-tab').hasClass('active')) {
-				$('#pills-parts-tab').trigger('click');
-			} else if ($('#pills-parts-tab').hasClass('active')) {
-				$('#pills-mold-tab').trigger('click');
-			} else if ($('#pills-mold-tab').hasClass('active')) {
-				$('#pills-vehicle-tab').trigger('click');
-			}
-		}, 5000);
+		if ($('#pills-vehicle-tab').hasClass('active')) {
+			$('#pills-parts-tab').trigger('click');
+		} else if ($('#pills-parts-tab').hasClass('active')) {
+			$('#pills-mold-tab').trigger('click');
+		} else if ($('#pills-mold-tab').hasClass('active')) {
+			$('#pills-vehicle-tab').trigger('click');
+		}
+	}, 5000);
 
-
-    $('.style-owl-banner-slider').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: false,
-        items: 1,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: false,
-        animateOut: 'slideOutLeft',
-        animateIn: 'slideInRight',
-    });
+	$('.style-owl-banner-slider').owlCarousel({
+		loop: true,
+		margin: 0,
+		nav: false,
+		items: 1,
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: false,
+		animateOut: 'slideOutLeft',
+		animateIn: 'slideInRight',
+	});
 
 	$('.owl-dot').on('click', function () {
-			$('.style-owl-banner-slider').trigger('stop.owl.autoplay');
-			$('.style-owl-banner-slider').trigger('refresh.owl.carousel');
-		});
+		$('.style-owl-banner-slider').trigger('stop.owl.autoplay');
+		$('.style-owl-banner-slider').trigger('refresh.owl.carousel');
+	});
 
-    $('.style-owl-client-slider').owlCarousel({
-        rtl: false,
-        loop: true,
-        margin: 40,
-        nav: false,
-        dots: false,
-        autoplay: true,
-        slideTransition: 'linear',
-        autoplayTimeout: 2000,
-        autoplaySpeed: 2000,
-        autoplayHoverPause: false,
-        animateOut: 'slideOutLeft',
-        animateIn: 'slideInRight',
-        responsive: {
-            0: {
-                items: 2
-            },
-            600: {
-                items: 4
-            },
-            1000: {
-                items: 6
-            }
-        }
+	$('.style-owl-client-slider').owlCarousel({
+		rtl: false,
+		loop: true,
+		margin: 40,
+		nav: false,
+		dots: false,
+		autoplay: true,
+		slideTransition: 'linear',
+		autoplayTimeout: 2000,
+		autoplaySpeed: 2000,
+		autoplayHoverPause: false,
+		animateOut: 'slideOutLeft',
+		animateIn: 'slideInRight',
+		responsive: {
+			0: {
+				items: 2
+			},
+			600: {
+				items: 4
+			},
+			1000: {
+				items: 6
+			}
+		}
 
-    });
+	});
 
+	$('.style-owl-supplier-slider').owlCarousel({
+		rtl: false,
+		loop: true,
+		margin: 40,
+		nav: false,
+		dots: false,
+		autoplay: true,
+		slideTransition: 'linear',
+		autoplayTimeout: 2000,
+		autoplaySpeed: 2000,
+		autoplayHoverPause: false,
+		animateOut: 'slideOutLeft',
+		animateIn: 'slideInRight',
+		responsive: {
+			0: {
+				items: 2
+			},
+			600: {
+				items: 4
+			},
+			1000: {
+				items: 6
+			}
+		}
 
-
-
+	});
 </script>
 @stop

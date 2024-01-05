@@ -231,9 +231,18 @@
 }
 
 /* Navbar =================== */
-.style-navbar {
-	background: linear-gradient(270deg, #282c35 52.33%, #b4b6b9 69.96%, rgba(254, 254, 255, 0.65) 82.18%) !important;
-	height: 65px;
+@media only screen and (max-width: 991px) {
+	.style-navbar {
+		background: linear-gradient(270deg, #282c35 20%, #b4b6b9 60%, rgba(254, 254, 255, 0.65) 82.18%) !important;
+		height: 65px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.style-navbar {
+		background: linear-gradient(270deg, #282c35 52.33%, #b4b6b9 69.96%, rgba(254, 254, 255, 0.65) 82.18%) !important;
+		height: 65px;
+	}
 }
 
 .style-navbar .offcanvas {
@@ -371,6 +380,10 @@
 	color: #ffffff;
 }
 
+.color-black {
+	color: #000000;
+}
+
 /* .style-navbar .style-navbar-offcanvas .navbar-nav .nav-item:hover .style-sub-navbar-offcanvas-container {
 	height: 100%;
 	visibility: visible;
@@ -473,7 +486,7 @@
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 }
 
 .style-owl-banner-slider .owl-dots {
@@ -514,6 +527,22 @@
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.style-paralax-2 {
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: 30%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.style-paralax-3 {
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: 15%;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -588,14 +617,14 @@
 	background: linear-gradient(270deg, rgba(255, 255, 255, 0.75) 53.12%, rgba(255, 255, 255, 0.47) 85.36%, rgba(255, 255, 255, 0.00) 100%);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
 	.h-bg-our-services {
 		height: 650px !important;
 	}
 }
 
 .h-bg-our-services {
-	height: 500px;
+	height: 575px;
 }
 
 /* End Our Service =================== */
@@ -603,7 +632,7 @@
 
 /* Recent News  */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
 	.style-recent-news .col-12 {
 		width: 100%;
 	}
@@ -625,15 +654,40 @@
 }
 
 .style-recent-news .style-content-1 {
-	height: 360px;
+	/* height: 360px; */
+	height: 300px;
+	position: relative;
+	overflow: hidden;
 }
 
 .style-recent-news .style-content-2 {
-	height: 300px;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
 }
 
 .style-recent-news .style-content-3 {
 	height: 220px;
+	position: relative;
+	overflow: hidden;
+}
+
+.style-recent-news .style-content-1-menu {
+	height: 360px;
+	position: relative;
+	overflow: hidden;
+}
+
+.style-recent-news .style-content-2-menu {
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.style-recent-news .style-content-3-menu {
+	height: 220px;
+	position: relative;
+	overflow: hidden;
 }
 
 .style-recent-news .style-content .style-content-text .style-title {
@@ -656,7 +710,19 @@
 	font-size: 12px;
 }
 
-.style-recent-news .style-content .style-content-animation {
+.style-recent-news .style-content.style-content-3-menu .style-content-text .style-title {
+	font-size: 18px;
+}
+
+.style-recent-news .style-content.style-content-3-menu .style-content-text .style-date {
+	font-size: 12px;
+}
+
+
+
+/* adjust animation per content */
+/* content 1 animate appear from right to left */
+.style-recent-news .style-content-1 .style-content-animation {
 	position: absolute;
 	top: 0;
 	right: 0px;
@@ -666,33 +732,151 @@
 	visibility: hidden;
 	border-radius: 10px;
 	background: #4E4E4E;
-	-webkit-transition: all 500ms linear;
-	-moz-transition: all 500ms linear;
-	-o-transition: all 500ms linear;
-	-ms-transition: all 500ms linear;
-	transition: all 500ms linear;
+	transform: translateX(100%); /* adjust animation for news landing page */
+    transition: transform 0.4s ease-in-out; /* adjust animation for news landing page */
 }
 
-.style-recent-news .style-content:hover .style-content-animation {
+.style-recent-news .style-content-1:hover .style-content-animation {
 	opacity: 1;
 	visibility: visible;
+	transform: translateX(0); /* adjust animation for news landing page */
 }
+
+/* adjust animation for news landing page */
+.style-recent-news .style-content-1:not(:hover) .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(100%); /* adjust animation for news landing page */
+}
+
+
+/* content 2 animate from bottom to top */
+.style-recent-news .style-content-2 .style-content-animation {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	visibility: hidden;
+	border-radius: 10px;
+	background: #4E4E4E;
+	transform: translateY(100%); /* adjust animation for news landing page */
+    transition: transform 0.3s ease-in-out; /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-2:hover .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0); /* adjust animation for news landing page */
+}
+
+/* adjust animation for news landing page */
+.style-recent-news .style-content-2:not(:hover) .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(100%); /* adjust animation for news landing page */
+}
+
+/* menu news */
+.style-recent-news .style-content-1-menu .style-content-animation {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	visibility: hidden;
+	border-radius: 10px;
+	background: #4E4E4E;
+	transform: translateX(100%); /* adjust animation for news landing page */
+    transition: transform 0.4s ease-in-out; /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-1-menu:hover .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0); /* adjust animation for news landing page */
+}
+
+/* adjust animation for news landing page */
+.style-recent-news .style-content-1-menu:not(:hover) .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(100%); /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-2-menu .style-content-animation {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	visibility: hidden;
+	border-radius: 10px;
+	background: #4E4E4E;
+	transform: translateY(100%); /* adjust animation for news landing page */
+    transition: transform 0.4s ease-in-out; /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-2-menu:hover .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0); /* adjust animation for news landing page */
+}
+
+/* adjust animation for news landing page */
+.style-recent-news .style-content-2-menu:not(:hover) .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(100%); /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-3-menu .style-content-animation {
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	visibility: hidden;
+	border-radius: 10px;
+	background: #4E4E4E;
+	transform: translateX(100%); /* adjust animation for news landing page */
+    transition: transform 0.4s ease-in-out; /* adjust animation for news landing page */
+}
+
+.style-recent-news .style-content-3-menu:hover .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0); /* adjust animation for news landing page */
+}
+
+/* adjust animation for news landing page */
+.style-recent-news .style-content-3-menu:not(:hover) .style-content-animation {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(100%); /* adjust animation for news landing page */
+}
+
+/* end adjust animation per content */
 
 .style-recent-news .style-content .style-content-animation .style-title {
 	color: #FFFFFF;
-	font-size: 26px;
+	font-size: 15px;
 	font-weight: 700;
 }
 
 .style-recent-news .style-content .style-content-animation .style-date {
 	color: #FFFFFF;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 400;
 }
 
 .style-recent-news .style-content .style-content-animation .style-description {
 	color: #FFFFFF;
-	font-size: 16px;
+	font-size: 13px;
 	font-weight: 400;
 }
 
@@ -700,12 +884,12 @@
 	padding-left: 0;
 	border: 0;
 	color: #EE6D22;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 500;
 }
 
 .style-recent-news .style-content.style-content-3 .style-content-animation .style-title {
-	font-size: 18px;
+	font-size: 15px;
 }
 
 .style-recent-news .style-content.style-content-3 .style-content-animation .style-date {
@@ -717,7 +901,23 @@
 }
 
 .style-recent-news .style-content.style-content-3 .style-content-animation .style-btn {
+	font-size: 14px;
+}
+
+.style-recent-news .style-content.style-content-3-menu .style-content-animation .style-title {
+	font-size: 15px;
+}
+
+.style-recent-news .style-content.style-content-3-menu .style-content-animation .style-date {
+	font-size: 12px;
+}
+
+.style-recent-news .style-content.style-content-3-menu .style-content-animation .style-description {
 	font-size: 13px;
+}
+
+.style-recent-news .style-content.style-content-3-menu .style-content-animation .style-btn {
+	font-size: 14px;
 }
 
 /* End Recent News =================== */
@@ -731,14 +931,44 @@
 	}
 }
 
+@media only screen and (max-width: 1200px) {
+	.style-owl-client-slider .style-image {
+		object-fit: contain !important;
+		height: 150px !important;
+		width: 500px !important;
+	}
+}
+
 .style-owl-client-slider .style-image {
-	object-fit: fill;
+	object-fit: contain;
 	height: 200px;
 	width: auto;
 }
-
 /* End Client Slider =================== */
 
+/* Supplier Slider =================== */
+@media only screen and (max-width: 575px) {
+	.style-owl-supplier-slider .style-image {
+		object-fit: contain !important;
+		height: 125px !important;
+		width: 300px !important;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.style-owl-supplier-slider .style-image {
+		object-fit: contain !important;
+		height: 100px !important;
+		width: 300px !important;
+	}
+}
+
+.style-owl-supplier-slider .style-image {
+	object-fit: contain;
+	height: 120px;
+	width: auto;
+}
+/* End Supplier Slider =================== */
 
 /* Section Location =================== */
 .style-section-location {
@@ -758,7 +988,7 @@
 	width: 100%;
 	min-height: 250px;
 	object-fit: cover;
-	object-position: 35% 50%;
+	object-position: 40% 50%;
 }
 
 .style-section-location .style-content .style-title {
@@ -786,15 +1016,16 @@
 	background: rgba(255, 255, 255, 0.70);
 	position: absolute;
 	color: #000000;
-	font-size: 15px;
+	font-size: 15px !important;
 	font-weight: 500;
 	width: 100%;
 	visibility: hidden;
 	opacity: 0;
-	padding-top: 12px;
-	padding-bottom: 10px;
-	padding-right: 20px;
-	bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-right: 40px;
+	padding-left: 10px;
+	bottom: 0 !important;
 	left: 10;
 	right: 10;
 	display: flex;
@@ -816,6 +1047,13 @@
 
 
 /* Company Profile History =================== */
+
+@media screen and (max-width: 991px) and (min-width: 576px) {
+	.style-history {
+		margin-bottom: 12rem !important;
+	}
+}
+
 .style-history .style-custom-content {
 	position: relative;
 	height: 600px;
@@ -1039,6 +1277,14 @@
 	.style-history .style-custom-slider .style-item img {
 		height: 150px;
 	}
+
+	.style-section-location .style-content .style-image {
+		border-radius: 15px;
+		width: 100%;
+		min-height: 200px;
+		object-fit: cover;
+		object-position: 45% 50%;
+	}
 }
 
 /* End Company Profile History =================== */
@@ -1048,6 +1294,14 @@
 /* responsive css */
 
 @media screen and (max-width: 425px) {
+	.style-recent-news .style-content-1 {
+		height: 360px;
+	}
+	
+	.style-recent-news .style-content-2 {
+		height: 320px;
+	}
+	
 	.logo-nav {
 		height: 30px !important;
 	}
@@ -1108,10 +1362,10 @@
 
 	.style-content-animation .style-description {
 		font-size: 12px !important;
-		display: -webkit-box; 
-		-webkit-box-orient: vertical; 
-		-webkit-line-clamp: 4; 
-		overflow: hidden; 
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
@@ -1192,9 +1446,9 @@
 		font-size: 10px;
 	}
 
-	/* .style-section-location .style-logo {
-		width: 170px;
-	} */
+	.style-section-location .style-logo {
+		width: 220px;
+	}
 
 	.style-history .style-custom-slider {
 		height: 300px;
@@ -1206,14 +1460,6 @@
 
 	.hide-mobile-width {
 		display: none;
-	}
-
-	.style-section-location .style-content .style-image {
-		border-radius: 15px;
-		width: 100%;
-		min-height: 250px;
-		object-fit: cover;
-		object-position: 40% 50%;
 	}
 
 	.section-our-videos {
@@ -1258,30 +1504,45 @@
 	.footer-widgets-wrap .col-mb-50 {
 		padding-left: 2% !important;
 	}
+
 	.style-navbar {
 		height: 70px;
 	}
+
 	.navbar-toggler-icon {
 		background-size: 75%;
 	}
+
 	.navbar-toggler {
 		padding-left: 3px;
 		padding-right: 3px;
 		padding-top: 1px;
 		padding-bottom: 1px;
 	}
+
 	.parent-img-our-videos {
 		height: 200px !important;
 		padding-left: 2% !important;
 		padding-right: 2% !important;
 	}
+
 	.owl-carousel.owl-theme.style-owl-client-slider {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 	}
+
+	.owl-carousel.owl-theme.style-owl-supplier-slider {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
 	.style-section-product-overview .px-5 {
 		padding-right: 0 !important;
-		padding-left: 7rem !important;
+		padding-left: 6rem !important;
+	}
+
+	.border-thick {
+		border-right: 0 !important;
 	}
 }
 
@@ -1349,6 +1610,10 @@
 		padding-left: 2% !important;
 	}
 
+	.style-paralax .row .px-5 {
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+	}
 
 	/* responsive company profile */
 	.divider-visi-misi {
@@ -1410,9 +1675,17 @@
 	.img-our-videos {
 		width: 100% !important;
 	}
+
+	.style-section-location .style-content .style-image {
+		border-radius: 15px;
+		width: 100%;
+		min-height: 200px;
+		object-fit: cover;
+		object-position: 45% 50%;
+	}
 }
 
-@media screen and (max-width: 650px) and (min-width: 402px) {
+@media screen and (max-width: 991px) and (min-width: 426px) {
 	.integrity-text {
 		font-size: 22px;
 	}
@@ -1439,7 +1712,7 @@
 	}
 
 	.president-image {
-		height: 250px !important;
+		height: 350px !important;
 	}
 
 	.style-section-location .style-logo {
@@ -1496,50 +1769,75 @@
 	.footer-widgets-wrap .col-mb-50 {
 		padding-left: 2% !important;
 	}
+
 	.style-content .style-title {
 		font-size: 14px !important;
 		margin-bottom: 0.5rem !important;
 	}
+
 	.style-content-animation .style-description {
 		font-size: 12px !important;
-		display: -webkit-box; 
-		-webkit-box-orient: vertical; 
-		-webkit-line-clamp: 4; 
-		overflow: hidden; 
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
 	.logo-nav {
 		height: 35px !important;
 	}
+
 	.style-navbar {
 		height: 70px;
 	}
+
 	.navbar-toggler-icon {
 		background-size: 75%;
 	}
+
 	.navbar-toggler {
 		padding-left: 3px;
 		padding-right: 3px;
 		padding-top: 1px;
 		padding-bottom: 1px;
 	}
+
 	.parent-img-our-videos {
-		height: 200px !important;
-		padding-left: 1% !important;
-		padding-right: 1% !important;
+		height: 250px !important;
+		padding-left: 15% !important;
+		padding-right: 15% !important;
 	}
+
 	.owl-carousel.owl-theme.style-owl-client-slider {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 	}
+
+	.owl-carousel.owl-theme.style-owl-supplier-slider {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	.border-thick {
+		border-right: 0 !important;
+	}
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 992px) {
 	.parent-img-our-videos {
 		height: 300px !important;
-		padding-left: 1% !important;
-		padding-right: 1% !important;
+		padding-left: 15% !important;
+		padding-right: 15% !important;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.parent-img-our-videos {
+		height: 450px !important;
+		padding-left: 20% !important;
+		padding-right: 20% !important;
 	}
 }
 
@@ -1555,3 +1853,251 @@
 }
 
 /* end responsive css */
+
+/* company value */
+.title-values {
+	color: #EE6D22;
+	font-weight: 700 !important;
+}
+
+.desc-values {
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5 !important;
+}
+
+.border-thick {
+	border-right: 1px solid #C0BEBE;
+}
+
+@media screen and (max-width: 991px) and (min-width: 576px) {
+	.row-section-visi-misi {
+		margin-top: 12rem !important;
+	}
+
+	.style-section-location .style-content .style-image {
+		border-radius: 15px;
+		width: 100%;
+		min-height: 200px;
+		object-fit: cover;
+		object-position: 45% 50%;
+	}
+}
+
+.row-section-visi-misi .text-center {
+	height: 315px;
+}
+
+
+/* end company value */
+
+/* product */
+
+@media screen and (max-width: 575px) {
+	.tabs-bb .tab-nav li {
+		margin: 0 8px !important;
+	}
+
+	.tab-nav li a {
+		padding: 0 5px !important;
+		font-size: 18px !important;
+		font-weight: 500 !important;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.tabs-bb .tab-nav li {
+		margin: 0 40px !important;
+	}
+
+	.tab-nav li a {
+		padding: 0 5px !important;
+		font-size: 20px !important;
+		font-weight: 600 !important;
+	}
+}
+
+/* end product */
+
+/* start news */
+.title-news {
+	color: #000;
+	font-size: 30px;
+	font-weight: 800;
+}
+
+.content-news-card .card {
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 1px 5px 30px 0px rgba(0, 0, 0, 0.15);
+	border: none;
+}
+
+.content-news-card .card .card-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: #000;
+	line-height: 28px;
+}
+
+.divider-title-news {
+	border-radius: 10px; 
+	background: #000; 
+	width: 100%;
+	height: 1px;
+}
+
+.divider-title-card {
+	border-radius: 10px; 
+	background: #3B3B3B;
+	width: 100%;
+	height: 0.8px;
+}
+
+.content-news-card .card a {
+	font-size: 12px;
+}
+/* end news */
+
+/* relayout small news on landing page */
+.scroll-news-landing {
+	overflow-y: scroll; 
+	max-height: 100%; 
+	height: 567px;
+}
+/* For Webkit-based browsers (Chrome, Safari) */
+.scroll-news-landing::-webkit-scrollbar {
+	width: 10px; /* Adjust the width as needed */
+}
+  
+.scroll-news-landing::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	background: #EE6D22;
+	height: 50px;
+}
+  
+.scroll-news-landing::-webkit-scrollbar-track {
+	background-color: #fff; /* Scrollbar track color */
+}
+
+.img-small-news {
+	height: 150px;
+	width: 150px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.img-small-detail-news {
+	height: 80px;
+	width: 80px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.title-small-news {
+	color: #000;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.title-small-detail-news {
+	color: #000;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.date-small-news {
+	color: #000;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.date-small-detail-news {
+	color: #000;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.readmore-small-news {
+	color: #F18120;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	cursor: pointer;
+}
+
+.readmore-small-detail-news {
+	color: #F18120;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	cursor: pointer;
+}
+
+.dark .footer-widgets-wrap a {
+	color: #fff;
+}
+
+.dark .footer-widgets-wrap a:hover {
+	color: #EE6D22;
+}
+
+/* end relayout small news on landing page */
+
+/* detail news */
+.btn-back:hover {
+	color: #EE6D22;
+}
+
+.date-detail-news {
+	font-weight: 300;
+}
+
+.desc-detail-news {
+	line-height: 35px;
+	color: #000;
+	font-size: 18px;
+}
+
+.divider-aside {
+	height: 1px;
+	width: 100%;
+	border-radius: 20px;
+	background: #EE6D22;
+}
+
+.small-recent-news.popular {
+	height: 300px;
+	overflow-y: scroll;
+}
+
+/* For Webkit-based browsers (Chrome, Safari) */
+.small-recent-news::-webkit-scrollbar {
+	width: 4px; /* Adjust the width as needed */
+}
+  
+.small-recent-news::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	background: #EE6D22;
+	height: 50px;
+}
+  
+.small-recent-news::-webkit-scrollbar-track {
+	background-color: #fff; /* Scrollbar track color */
+}
+/* end detail news */

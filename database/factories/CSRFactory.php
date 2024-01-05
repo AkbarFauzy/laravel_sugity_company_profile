@@ -21,6 +21,7 @@ class CSRFactory extends Factory
             'headline' => fake()->sentence(),
             'headline_img' => fake()->word(),
             'content' => fake()->paragraph(10),
+            'isPublish'=> fake()->boolean(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

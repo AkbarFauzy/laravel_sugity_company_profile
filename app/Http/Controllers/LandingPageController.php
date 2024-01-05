@@ -18,4 +18,5 @@ class LandingPageController extends Controller
            'news' => $newsData, 
         ]);
     }
+    
 }

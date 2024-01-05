@@ -16,8 +16,17 @@ return new class extends Migration
             $table->string('headline');
             $table->string('headline_img');
             $table->text('content');
+            $table->boolean('isPublish')->default(0);
             $table->timestamps();
         });
+
+        Schema::create('news_content_gallery', function (Blueprint $table) {
+            $table->unsignedBigInteger('news_id');
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
+            $table->string('img');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -25,6 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('news_content_gallery');
         Schema::dropIfExists('news');
     }
 };

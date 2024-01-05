@@ -12698,7 +12698,7 @@ body:not(.device-touch) .social-icon i {
 }
 
 .tabs-bb .tab-nav li.ui-tabs-active a {
-	border-bottom: 2px solid #EE6D22;
+	border-bottom: 4px solid #EE6D22;
 	top: -2px;
 	height: 44px;
 	line-height: 44px;
@@ -15976,7 +15976,7 @@ body:not(.device-touch) #gotoTop {
 #footer {
 	position: relative;
 	background-color: #EEE;
-	border-top: 5px solid rgba(0, 0, 0, 0.2);
+	/* border-top: 5px solid rgba(0, 0, 0, 0.2); */
 }
 
 @media (min-width: 992px) {
