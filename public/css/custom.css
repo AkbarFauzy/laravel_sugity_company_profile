@@ -1543,6 +1543,7 @@
 
 	.border-thick {
 		border-right: 0 !important;
+		border-left: 0 !important;
 	}
 }
 
@@ -1821,6 +1822,7 @@
 
 	.border-thick {
 		border-right: 0 !important;
+		border-left: 0 !important;
 	}
 }
 
@@ -1869,12 +1871,13 @@
 
 .border-thick {
 	border-right: 1px solid #C0BEBE;
+	border-left: 1px solid #C0BEBE;
 }
 
 @media screen and (max-width: 991px) and (min-width: 576px) {
-	.row-section-visi-misi {
+	/* .row-section-visi-misi {
 		margin-top: 12rem !important;
-	}
+	} */
 
 	.style-section-location .style-content .style-image {
 		border-radius: 15px;

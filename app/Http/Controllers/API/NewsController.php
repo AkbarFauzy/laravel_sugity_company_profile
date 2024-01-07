@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 use App\Models\News;
@@ -54,17 +55,16 @@ class NewsController extends Controller
             $req->validate([
                 'headline' => 'required',
                 'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'content' => 'required',
+                // 'content' => 'required',
                 'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             if ($image = $req->file('thumbnail')) {
-                $originName = $req->file('thumbnail')->getClientOriginalName();
+                $originName = $image->getClientOriginalName();
                 $fileName = pathinfo($originName, PATHINFO_FILENAME);
                 $extension = $req->file('thumbnail')->getClientOriginalExtension();
-                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $req->file('thumbnail')->move(public_path('images/news/'), $fileName);
-                $url = asset('images/news/' . $fileName);
             }
 
             DB::beginTransaction();
@@ -80,9 +80,8 @@ class NewsController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
-                    $file->move(public_path('images/news/content/'), $fileName);
-                    $url = asset('images/news/content/' . $fileName);            
+                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                    $file->move(public_path('images/news/content/'), $fileName);        
                     $news->gallery()->create([
                         'img' => $fileName,
                     ]);
@@ -104,10 +103,9 @@ class NewsController extends Controller
             $req->validate([
                 'headline' => 'required',
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'content' => 'required',
+                // 'content' => 'required',
                 'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-
             DB::beginTransaction();
             $news = News::findOrFail($id);
 
@@ -121,7 +119,7 @@ class NewsController extends Controller
                 $originName = $file->getClientOriginalName();
                 $fileName = pathinfo($originName, PATHINFO_FILENAME);
                 $extension = $file->getClientOriginalExtension();
-                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $file->move(public_path('images/news/'), $fileName);
 
                 $news->headline_img = $fileName;
@@ -133,14 +131,14 @@ class NewsController extends Controller
                 'isPublish' => $req->input('isPublish') 
             ]);
 
+            $newGalleryImages = $req->uploadedGallery;
             if ($req->hasFile('gallery')) {
-                $newGalleryImages = [];
     
                 foreach ($req->file('gallery') as $file) {
                     $gallery_image_name = $file->getClientOriginalName();
                     $fileName = pathinfo($gallery_image_name, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                     $file->move(public_path('images/news/content/'), $fileName);
 
                     $newGalleryImages[] = $fileName;
@@ -149,21 +147,22 @@ class NewsController extends Controller
                         'img' => $fileName,
                     ]);
                 }
-    
-                $existingGallery = $news->gallery()->pluck('img')->toArray();
+            }
+
+            $existingGallery = $news->gallery()->pluck('img')->toArray();
+            if($newGalleryImages && $existingGallery){
                 $imagesToDelete = array_diff($existingGallery, $newGalleryImages);
-    
+                
                 foreach ($imagesToDelete as $image) {
                     $imagePath = public_path('images/news/content/'.$image);
-    
+                    
                     if (file_exists($imagePath)) {
                         unlink($imagePath);
                     }
-    
+                    
                     $news->gallery()->where('img', $image)->delete();
                 }
-            }
-            
+            }            
             DB::commit();
         }
         catch(\Exception $exception){
@@ -227,7 +226,7 @@ class NewsController extends Controller
             $originName = $req->file('upload')->getClientOriginalName();
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
             $extension = $req->file('upload')->getClientOriginalExtension();
-            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
     
             $req->file('upload')->move(public_path('media'), $fileName);
     
@@ -235,4 +234,9 @@ class NewsController extends Controller
             return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
         }
     }
+
+    public function DeleteNewsGallery(){
+        return $this->onSuccess('', 'Delete News Success!');
+    }
+
 }

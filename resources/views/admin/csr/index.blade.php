@@ -66,7 +66,7 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'headline', name: 'headline' },
-            { data: 'headline_img', name: 'thumbnail' },
+            { data: 'headline_img', name: 'headline_img' },
             { data: 'isPublish', name: 'isPublish'},
             // { data: 'description', name: 'description', width:'50%' },
             {
@@ -74,7 +74,7 @@ $(function() {
                 name: 'action',
                 orderable: false,
                 searchable: false,
-                width:'20%'
+                width:'30%'
             },
         ]
     });
@@ -102,7 +102,7 @@ $(function() {
                 id:id
               },
               success: function(response){
-                if(JSON.parse(response)["success"]){
+                if(response["success"]){
                   Swal.fire(
                     'Deleted!',
                     'Your record has been deleted.',
@@ -113,7 +113,7 @@ $(function() {
                   Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: response,
+                    text: response["message"],
                   })
                 }
               },
@@ -121,7 +121,7 @@ $(function() {
                 Swal.fire({
                   icon: 'error',
                   title: 'Oops...',
-                  text: response,
+                  text: response["message"],
                 })
               },
             })
@@ -140,10 +140,10 @@ $(function() {
           id:id
         },
         success: function (response) {
-          alert(response.message);
+          alert(response["message"]);
         },
         error: function (response) {
-          alert(response.message);
+          alert(response["message"]);
         },
       });
     })

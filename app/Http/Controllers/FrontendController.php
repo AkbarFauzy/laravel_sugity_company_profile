@@ -29,7 +29,7 @@ class FrontendController extends Controller
         $newsData = json_decode($newsAPI->body());
         
 
-        if($newsData->success){     
+        if($currentNewsData->success){     
             return view('detail-news')->with([
                 'current_news' => $currentNewsData, 
                 'news' => $newsData
@@ -130,6 +130,46 @@ class FrontendController extends Controller
             'isExterior' => $exteriorExists,
             'interiors' => $interiors,
             'exteriors' => $exteriors,
+        ]);
+    }
+
+    public function ProductVehicles(){
+        $vehiclesAPI = Http::get(env('API_DOMAIN').'/api/vehicles');
+        $vehiclesData = json_decode($vehiclesAPI->body());
+
+        $publicTransportAPI = Http::get(env('API_DOMAIN').'/api/public-transport');
+        $publicTransportData = json_decode($publicTransportAPI->body());
+
+        $healthcareVehiclesAPI = Http::get(env('API_DOMAIN').'/api/healthcare-vehicles');
+        $healthcareVehiclesData = json_decode($healthcareVehiclesAPI->body());
+
+        $exportVehiclesAPI = Http::get(env('API_DOMAIN').'/api/export-vehicles');
+        $exportVehiclesData = json_decode($exportVehiclesAPI->body());
+
+        
+        return view('product-vehicle-business')->with([
+            'vehicles' => $vehiclesData,
+            'publicTransport' => $publicTransportData,
+            'healthcareVehicles' => $healthcareVehiclesData,
+            'exportVehicles'=> $exportVehiclesData,
+        ]);
+
+    }
+
+    public function ProductParts(){
+        $partsAPI = Http::get(env('API_DOMAIN').'/api/parts');
+        $partsData = json_decode($partsAPI->body());
+
+        $partInteriorAPI = Http::get(env('API_DOMAIN').'/api/interior-parts');
+        $partInteriorData = json_decode($partInteriorAPI->body());
+
+        $partExteriorAPI = Http::get(env('API_DOMAIN').'/api/exterior-parts');
+        $partExteriorData = json_decode($partExteriorAPI->body());
+
+        return view('product-part-business')->with([
+            'parts' => $partsData,
+            'interiors' => $partInteriorData,
+            'exteriors' => $partExteriorData,
         ]);
     }
 

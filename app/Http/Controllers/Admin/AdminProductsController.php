@@ -46,44 +46,6 @@ class AdminProductsController extends Controller
       return view('admin/products/create');
     }
 
-    // public function add(Request $request){
-    //   $response = Http::withToken(Session::get('token'))
-    //       ->attach('img', file_get_contents($request->file('img')->getRealPath()), 
-    //                             $request->file('img')->getClientOriginalName(),
-    //                             ['Content-Type' => Storage::mimeType($request->file('img')->getRealPath())]
-    //                           );
-      
-    //   if ($request->hasFile('interior')) {
-    //       $galleryFiles = $request->file('interior');
-          
-    //       foreach ($galleryFiles as $index => $file) {
-    //           $response->attach("interior[]", 
-    //                           file_get_contents($file->getRealPath()), 
-    //                           $file->getClientOriginalName(),
-    //                           ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                       );
-    //       }
-    //   }
-
-    //   if ($request->hasFile('exterior')) {
-    //     $galleryFiles = $request->file('exterior');
-        
-    //     foreach ($galleryFiles as $index => $file) {
-    //         $response->attach("exterior[]", 
-    //                         file_get_contents($file->getRealPath()), 
-    //                         $file->getClientOriginalName(),
-    //                         ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                     );
-    //     }
-    //   }
-
-    //   return $response->post(env('API_DOMAIN').'/api/products/add', [
-    //       'name' => $request->input('name'),
-    //       'category' => $request->input('category'),
-    //       'left_content' => $request->input('left_content'),
-    //       'right_content' => $request->input('right_content'),
-    //   ]);
-    // }
 
     public function edit($id){
       $API = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/products/'.$id);
@@ -112,51 +74,7 @@ class AdminProductsController extends Controller
             ->with('interiorImageUrls', $interiorImageUrls)
             ->with('exteriorImageUrls', $exteriorImageUrls);
     }
-
-    // public function update(Request $request, $id){
-    //   $response = Http::withToken(Session::get('token'))
-    //   ->attach('img', file_get_contents($request->file('img')->getRealPath()), 
-    //                         $request->file('img')->getClientOriginalName(),
-    //                         ['Content-Type' => Storage::mimeType($request->file('img')->getRealPath())]
-    //                           );
-      
-    //   if ($request->hasFile('interior')) {
-    //       $galleryFiles = $request->file('interior');
-          
-    //       foreach ($galleryFiles as $index => $file) {
-    //           $response->attach("interior[]", 
-    //                           file_get_contents($file->getRealPath()), 
-    //                           $file->getClientOriginalName(),
-    //                           ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                       );
-    //       }
-    //   }
-
-    //   if ($request->hasFile('exterior')) {
-    //     $galleryFiles = $request->file('exterior');
-        
-    //     foreach ($galleryFiles as $index => $file) {
-    //         $response->attach("exterior[]", 
-    //                         file_get_contents($file->getRealPath()), 
-    //                         $file->getClientOriginalName(),
-    //                         ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                     );
-    //     }
-    //   }
-
-    //   return $response->post(env('API_DOMAIN').'/api/products/update/'.$id, [
-    //       'name' => $request->input('name'),
-    //       'category' => $request->input('category'),
-    //       'left_content' => $request->input('left_content'),
-    //       'right_content' => $request->input('right_content'),
-    //   ]);
-    // }
-
-    public function delete($id){
-      $response = Http::withToken(Session::get('token'))->delete(env('API_DOMAIN').'/api/bod/delete/'.$id);
-      return $response->body();
-    }
-
+    
     public function store(Request $request)
     {
       $this->validate($request, [

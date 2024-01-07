@@ -45,146 +45,23 @@
 						<div class="tab-content clearfix" id="tabs-all">
 							<div class="style-section-product-overview">
 								<div class="row">
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/1.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Sub Assy Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+									
+										@foreach($parts->data as $part)
+										<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
+											<div class="style-content">
+												<img src="{{asset('images/products/'.$part->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+												<div class="style-footer px-4 px-md-0">
+													<h4 class="text-left mt-4" style="color: black">{{$part->name}}
+														<br><br>
+														<a style="color: black" class="text-left" href="#" 
+														data-bs-toggle="modal" 
+														data-bs-id="{{$part->id}}"
+														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/2.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/3.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/4.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Box Console
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/5.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Quarter Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/6.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Glove
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/7.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Register
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/1.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/6.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/2.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/7.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/3.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Grille
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/4.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Spoiler
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/5.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Mud Guard
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
+										@endforeach
+
 								</div>
 							</div>
 						</div>
@@ -193,76 +70,21 @@
 						<div class="tab-content clearfix" id="tabs-interior">
 							<div class="style-section-product-overview">
 								<div class="row">
+									@foreach($interiors->data as $interior)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/1.png')}}" style="width:100%; height: 250px; object-fit: contain;">
+											<img src="{{asset('images/products/'.$interior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Sub Assy Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<h4 class="text-left mt-4" style="color: black">{{$interior->name}}
+													<br><br>
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
+													data-bs-id="{{$interior->id}}"
+													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 											</div>
 										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/2.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/3.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/4.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Box Console
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/5.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Quarter Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/6.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Glove
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/interior/7.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Register
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -271,76 +93,23 @@
 						<div class="tab-content clearfix" id="tabs-exterior">
 							<div class="style-section-product-overview">
 								<div class="row">
+
+									@foreach($exteriors->data as $exterior)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/1.png')}}" style="width:100%; height: 250px; object-fit: contain;">
+											<img src="{{asset('images/products/'.$interior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<h4 class="text-left mt-4" style="color: black">{{$exteriors->name}}
+													<br><br>
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
+													data-bs-id="{{$exterior->id}}"
+													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 											</div>
 										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/6.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/2.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/7.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/3.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Grille
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/4.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Spoiler
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="{{asset('images/product-part-business/exterior/5.png')}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Mud Guard
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
+									@endforeach
+
 								</div>
 							</div>
 						</div>
@@ -349,11 +118,55 @@
 	
 				</div>
 			</div>
-			
+
+		<!-- Modal Vehicle -->
+		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
+		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+			<div class="modal-content">
+				<div class="modal-body">
+					
+				</div>
+			</div>
+			</div>
+		</div>
+
 		</section><!-- #content end -->
 @endsection
 
 @section('custom_js')
+
+
+<script>
+	$(document).ready(function () {
+	  $('#modalVehicle').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
+	
+		var modalBody = $(this).find('.modal-body');
+	
+		// Clear previous content
+		modalBody.empty().append('<p>Loading...</p>');
+	
+		$.ajax({
+		  url: "{{url('products')}}"+ "/"+ buttonId,
+		  method: 'GET',
+		  beforeSend: function () {
+			// Show loading or processing message if needed
+		  },
+		  success: function (data) {
+			// Handle successful response
+			modalBody.empty().html(data);
+		  },
+		  error: function () {
+			// Handle error
+			modalBody.empty().html('<p>Failed to fetch data. Please try again later.</p>');
+		  }
+		});
+	  });
+	});
+</script>
+
 <script>
 
 	setInterval(function () {

@@ -76,7 +76,7 @@
 													<br><br>
 													<a style="color: black" class="text-left" data-bs-toggle="modal" 
 													data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>
-													Explore More <i class="fa-solid fa-chevron-right"></i>
+													Explore More <i class="fa-solid fa-chevron-right">></i>
 													</a>
 											</div>
 										</div>
@@ -176,7 +176,7 @@
 			</div>
 		</div>
 		</div>
-
+{{-- 
 <!-- Modal Part -->
 <div class="modal style-modal style-modal-part fade" id="modalPart" tabindex="-1" aria-labelledby="modalPartLabel"
 aria-hidden="true">
@@ -273,7 +273,7 @@ aria-hidden="true">
 		</div>
 	</div>
 </div>
-</div>
+</div> --}}
 
 
 

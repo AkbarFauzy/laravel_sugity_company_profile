@@ -30,35 +30,42 @@
             <form method="POST" id="form" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="mb-3">
-                    <label  for="name">Name</label>
-                    <input name="name" 
-                    type="text" 
-                    class="form-control" 
-                    id="name" 
-                    placeholder="Lorem Ipsum"
-                    value="{{$data->name}}"
-                    >
-                </div>
-                <div class="mb-3">
-                    <div class="row"> 
-                        <label  for="name">Thumbnail</label>
-                        <div class="file-loading" style="height: 100%">
-                            <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label  for="name">Name</label>
+                            <input name="name" 
+                            type="text" 
+                            class="form-control" 
+                            id="name" 
+                            placeholder="Lorem Ipsum"
+                            value="{{$data->name}}"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Category</label>
+                            <select name="category" id="category" class="form-control">
+                            <option value="Public Transport" {{$data->category === "Public Transport" ? 'selected' : ''}} >Public Transport</option>
+                            <option value="Healthcare Vehicle" {{$data->category === "Healthcare Vehicle" ? 'selected' : ''}} >Healthcare Vehicle</option>
+                            <option value="Export Vehicle" {{$data->category === "Export Vehicle" ? 'selected' : ''}} >Export Vehicle</option>
+                            <option value="Interior Part" {{$data->category === "Interior Part" ? 'selected' : ''}} >Interior Part</option>
+                            <option value="Exterior Part" {{$data->category === "Exterior Part" ? 'selected' : ''}} >Exterior Part</option>
+                            <option value="Mold" {{$data->category === "Mold" ? 'selected' : ''}} >Mold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6"> 
+                        <div class="mb-3">
+                            <label  for="name">Thumbnail</label>
+                            <div class="file-loading" style="height: 100%">
+                                <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mb-3 col-md-12">
-                    <label>Category</label>
-                    <select name="category" id="category" class="form-control">
-                    <option value="Public Transport" {{$data->category === "Public Transport" ? 'selected' : ''}} >Public Transport</option>
-                    <option value="Healthcare Vehicle" {{$data->category === "Healthcare Vehicle" ? 'selected' : ''}} >Healthcare Vehicle</option>
-                    <option value="Export Vehicle" {{$data->category === "Export Vehicle" ? 'selected' : ''}} >Export Vehicle</option>
-                    <option value="Interior Part" {{$data->category === "Interior Part" ? 'selected' : ''}} >Interior Part</option>
-                    <option value="Exterior Part" {{$data->category === "Exterior Part" ? 'selected' : ''}} >Exterior Part</option>
-                    <option value="Mold" {{$data->category === "Mold" ? 'selected' : ''}} >Mold</option>
-                    </select>
-                </div>
+
                 <div class="mb-3">
                     <div class="row"> 
                         <div class="col-md-6">
@@ -79,13 +86,13 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Interior</label>
                     <div class="file-loading" style="height: 100%">
-                        <input id="interior" type="file" name="interior[]" multiple class="file" data-overwrite-initial="false">
+                        <input id="interior" type="file" name="interior[]" multiple class="file" data-overwrite-initial="true">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Exterior</label>
                     <div class="file-loading" style="height: 100%">
-                        <input id="exterior" type="file" name="exterior[]" multiple class="file" data-overwrite-initial="false">
+                        <input id="exterior" type="file" name="exterior[]" multiple class="file" data-overwrite-initial="true">
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -144,13 +151,11 @@
                 _token: $("input[name='_token']").val(),
             };
         },
-        url: '{{route("api.products.add")}}',
         allowedFileExtensions: ['jpg', 'png', 'gif'],
         overwriteInitial: true,
         initialPreview: ['{{asset("images/products/$data->img")}}'],
         initialPreviewAsData: true,
         initialPreviewFileType: 'image',
-        initialPreviewConfig: initialPreviewConfig,
         maxFileSize:2000,
         maxFilesNum: 1,
         minFilesNum: 1,
@@ -158,13 +163,13 @@
             return filename.replace('(', '_').replace(']', '_');
         },
         fileActionSettings: {
-                showDrag: true,
+                showDrag: false,
                 showZoom: true,
                 showUpload: false,
-                showRemove: true,
-                showDrag: true,
+                showRemove: false,
             },
-        browseOnZoneClick: true
+        browseOnZoneClick: true,
+        initialPreviewShowDelete: 0,
     });
 
 
@@ -176,7 +181,7 @@
         initialPreview.push(url);
         var config = {
             caption: "Image " + (index + 1),
-            url: "/delete-image", // Replace with delete route
+            url: "{{route('admin.news.delete.gallery')}}",
             key: index + 1
         };
         initialPreviewConfig.push(config);
@@ -185,10 +190,9 @@
     $("#interior").fileinput({
         uploadExtraData: function() {
             return {
-                _token: $("input[name='_token']").val(),
+                _token: $("input[name='_token']").val(),    
             };
         },
-        url: '{{route("admin.products.image")}}',
         allowedFileExtensions: ['jpg', 'png', 'gif'],
         overwriteInitial: false,
         maxFileSize:2000,
@@ -198,7 +202,7 @@
             return filename.replace('(', '_').replace(']', '_');
         },
         fileActionSettings: {
-                showDrag: true,
+                showDrag: false,
                 showZoom: true,
                 showUpload: false,
                 showRemove: true,
@@ -219,7 +223,7 @@
         initialPreview.push(url);
         var config = {
             caption: "Image " + (index + 1),
-            url: "/delete-image", // Replace with delete route
+            url: "{{route('admin.news.delete.gallery')}}",
             key: index + 1
         };
         initialPreviewConfig.push(config);
@@ -241,7 +245,7 @@
             return filename.replace('(', '_').replace(']', '_');
         },
         fileActionSettings: {
-                showDrag: true,
+                showDrag: false,
                 showZoom: true,
                 showUpload: false,
                 showRemove: true,
@@ -259,7 +263,12 @@
         event.preventDefault()
         
         var formData = new FormData($(this)[0]); // Get form data
-        
+        const displayedUrls = getDisplayedImageURLs();
+
+        displayedUrls.forEach(function(url, index) {
+            formData.append('uploadedGallery[]', url); // Adjust the key name as needed
+        });
+
         $.ajax({
             url: '{{route("api.products.update", $data->id)}}',
             type: 'POST',
@@ -294,6 +303,25 @@
             }
         });
     });
+
+    function getDisplayedImageURLs() {
+        const imageNames = [];
+        $('.kv-preview-thumb').each(function() {
+            // Find .kv-file-content and then .file-preview-image inside it
+            const $fileContent = $(this).find('.kv-file-content');
+            const $image = $fileContent.find('.file-preview-image');
+
+            // Extract the 'src' attribute from .file-preview-image
+            const imageUrl = $image.attr('src');
+            // Check if the image source is a link (http/https) and not a data:image
+            if (imageUrl && !imageUrl.startsWith('data:image')) {
+                const fileName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1); // Extract filename from URL
+                imageNames.push(fileName);
+            }
+        });
+
+        return imageNames;
+    }
 
 
 </script>

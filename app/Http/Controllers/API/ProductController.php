@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+
 
 use App\Models\Product;
 
@@ -15,7 +17,25 @@ class ProductController extends Controller
     use ApiHelpers;
     public function GetProducts(){
         try {
-            $product = Product::with('gallery')->get();
+            $customCategoryOrder = [
+                'Public Transport', 
+                'Healthcare Vehicle', 
+                'Export Vehicle', 
+                'Interior Part', 
+                'Exterior Part', 
+                'Mold'
+            ];
+
+            $orderByExpression = 'CASE category ';
+            foreach ($customCategoryOrder as $key => $category) {
+                $orderByExpression .= "WHEN '{$category}' THEN {$key} ";
+            }
+            $orderByExpression .= 'ELSE ' . count($customCategoryOrder) . ' END';
+
+            $product = Product::orderByRaw($orderByExpression)
+            ->with('gallery')
+            ->get();
+
         }catch(\Exception $exception){  
             return $this->onError("Can't Fetch Product", $exception->getMessage());
         }
@@ -87,6 +107,24 @@ class ProductController extends Controller
         return $this->onSuccess($parts, '');
     }
 
+    public function GetInteriorParts(){
+        try{
+            $vehicles = Product::where('category', 'Interior Part')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Parts", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+    public function GetExteriorParts(){
+        try{
+            $vehicles = Product::where('category', 'Exterior')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Parts", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
     public function GetMold(){
         try{
             $mold = Product::where('category', 'Mold')->get();
@@ -100,16 +138,16 @@ class ProductController extends Controller
         try{
             $req->validate([
                 'name' => 'required',
-                'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'interior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'exterior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-            
+
             if ($image = $req->file('img')) {
                 $originName = $req->file('img')->getClientOriginalName();
                 $fileName = pathinfo($originName, PATHINFO_FILENAME);
                 $extension = $req->file('img')->getClientOriginalExtension();
-                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $req->file('img')->move(public_path('images/products/'), $fileName);
                 $url = asset('images/products/' . $fileName);
             }
@@ -129,7 +167,7 @@ class ProductController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                     $file->move(public_path('images/products/content/'), $fileName);
                     $url = asset('images/products/content/' . $fileName);            
                     $product->gallery()->create([
@@ -144,7 +182,7 @@ class ProductController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                     $file->move(public_path('images/products/content/'), $fileName);
                     $url = asset('images/products/content/' . $fileName);            
                     $product->gallery()->create([
@@ -186,7 +224,7 @@ class ProductController extends Controller
                 $originName = $file->getClientOriginalName();
                 $fileName = pathinfo($originName, PATHINFO_FILENAME);
                 $extension = $file->getClientOriginalExtension();
-                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
 
                 $file->move(public_path('images/products/'), $fileName);
 
@@ -200,8 +238,8 @@ class ProductController extends Controller
                 'right_content' => $req->input('right_content')
             ]);
             
-            if ($req->hasFile('interior') || $req->hasFile('exterior')) {
-                $newGalleryImages = [];
+            $newGalleryImages = $req->uploadedGallery;
+            if ($req->hasFile('interior')) {
                 foreach ($req->file('interior') as $file) {
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
@@ -216,12 +254,14 @@ class ProductController extends Controller
                         'type' => 'interior'
                     ]);
                 }
-
+            }
+            
+            if($req->hasFile('exterior')){
                 foreach ($req->file('exterior') as $file){
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
 
                     $file->move(public_path('images/products/content/'), $fileName);
                     $newGalleryImages[] = $fileName;
@@ -230,18 +270,20 @@ class ProductController extends Controller
                         'img' => $fileName,
                         'type' => 'exterior'
                     ]);
-                }
-    
-                $existingGallery = $product->gallery()->pluck('img')->toArray();
+                }    
+            }
+
+            $existingGallery = $product->gallery()->pluck('img')->toArray();
+            if($newGalleryImages && $existingGallery){
+                
                 $imagesToDelete = array_diff($existingGallery, $newGalleryImages);
-    
                 foreach ($imagesToDelete as $image) {
-                    $imagePath = public_path('images/product/content/'.$image);
+                    $imagePath = public_path('images/products/content/'.$image);
     
                     if (file_exists($imagePath)) {
                         unlink($imagePath);
                     }
-    
+
                     $product->gallery()->where('img', $image)->delete();
                 }
             }
@@ -259,7 +301,24 @@ class ProductController extends Controller
     public function DeleteProduct($id){
         try {
             DB::beginTransaction();
-            $product = Product::findOrFail($id)->delete();
+            $product = Product::findOrFail($id);
+            $current_img_path = asset('images/products/'.$product->img);
+
+            $galleryImages = $product->gallery()->get();
+
+            if(file_exists($current_img_path)){
+                unlink($current_img_path);
+            }
+            
+            foreach ($galleryImages as $image) {
+                $imagePath = public_path('images/products/content/' . $image);
+                
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+            $product->delete();
+
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollback();

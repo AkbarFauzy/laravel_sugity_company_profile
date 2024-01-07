@@ -29,29 +29,36 @@
          <div class="card-body">
             <form method="POST" id="form" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                    <label  for="name">Name</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Lorem Ipsum">
-                </div>
-                <div class="mb-3">
-                    <div class="row"> 
-                        <label  for="name">Thumbnail</label>
-                        <div class="file-loading" style="height: 100%">
-                            <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label  for="name">Name</label>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Lorem Ipsum">
                         </div>
+
+                        <label>Category</label>
+                        <select name="category" id="category" class="form-control">
+                        <option value="Public Transport">Public Transport</option>
+                        <option value="Healthcare Vehicle">Healthcare Vehicle</option>
+                        <option value="Export Vehicle">Export Vehicle</option>
+                        <option value="Interior Part">Interior Part</option>
+                        <option value="Exterior Part">Exterior Part</option>
+                        <option value="Mold">Mold</option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <div class="row"> 
+                                <label  for="name">Thumbnail</label>
+                                <div class="file-loading" style="height: 100%">
+                                    <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
-                <div class="mb-3 col-md-12">
-                    <label>Category</label>
-                    <select name="category" id="category" class="form-control">
-                    <option value="Public Transport">Public Transport</option>
-                    <option value="Healthcare Vehicle">Healthcare Vehicle</option>
-                    <option value="Export Vehicle">Export Vehicle</option>
-                    <option value="Interior Part">Interior Part</option>
-                    <option value="Exterior Part">Exterior Part</option>
-                    <option value="Mold">Mold</option>
-                    </select>
-                </div>
+ 
                 <div class="mb-3">
                     <div class="row"> 
                         <div class="col-md-6">
@@ -103,7 +110,7 @@
     ClassicEditor
             .create( document.querySelector( '#left-editor' ), 
             {
-       
+
             })
             .then( editor => {
                 console.log( editor );
@@ -115,7 +122,7 @@
     ClassicEditor
             .create( document.querySelector( '#right-editor' ), 
             {
-       
+
             })
             .then( editor => {
                 console.log( editor );
@@ -126,7 +133,7 @@
 </script>
 <script type="text/javascript">
     $("#img").fileinput({
-        uploadUrl: '{{route("admin.products.image")}}',
+        url: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
@@ -150,7 +157,7 @@
     });
    
    $("#interior").fileinput({
-        uploadUrl: '{{route("admin.products.image")}}',
+        // uploadUrl: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
@@ -174,7 +181,7 @@
     });
 
     $("#exterior").fileinput({
-        uploadUrl: '{{route("admin.products.image")}}',
+        // uploadUrl: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
@@ -200,7 +207,7 @@
     $('#form').submit(function(event) {
         event.preventDefault()
         
-        var formData = new FormData($(this)); // Get form data
+        var formData = new FormData($(this)[0]); // Get form data
         
         $.ajax({
             url: '{{route("api.products.add")}}',

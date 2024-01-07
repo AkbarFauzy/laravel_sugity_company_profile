@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 use App\Models\BOD;
@@ -79,17 +80,20 @@ class BODController extends Controller
                 'position' => 'required',
                 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
             if ($image = $req->file('img')) {
-                $destinationPath = 'images/bod';
-                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
+                $originName = $image->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $req->file('img')->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $req->file('img')->move(public_path('images/bod/'), $fileName);
             }
 
             DB::beginTransaction();
             $bod = BOD::create([
                 'name' => $req->input('name'),
                 'position' => $req->input('position'),
-                'img' => $profileImage,
+                'img' => $fileName,
                 'affiliation' => $req->input('affiliation')
             ]);
             DB::commit();
@@ -112,18 +116,21 @@ class BODController extends Controller
             DB::beginTransaction();
             $bod = BOD::findOrFail($id);
 
-            if($req->has('img') && $req->file('img') != null){
+            if($req->has('img')){
                 $file = $req->file('img');
-                $image_name = $file->getClientOriginalName();
-            }else{
-                $image_name = $bod->img;
-            }
+                $current_img_path = public_path('images/bod/'.$bod->headline_img);
+                if (file_exists($current_img_path)) {
+                    unlink($current_img_path);
+                }
 
-            if($req->has('img') && $req->file('img') != null)
-                $current_img_path = public_path('images/bod/'.$bod->img);
-                $bod->update([
-                    'img' => $image_name,
-                ]);
+                $originName = $file->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $file->move(public_path('images/bod/'), $fileName);
+
+                $bod->headline_img = $fileName;
+            }
 
             $bod->update([
                 'name' => $req->input('name'),
@@ -131,12 +138,6 @@ class BODController extends Controller
                 'affiliation' => $req->input('affiliation') 
             ]);
 
-            if($req->has('img') && $req->file('img') != null)
-              if(file_exists($current_img_path)){
-                unlink($current_img_path);
-              }
-            if($req->has('img') && $req->file('img') != null)
-                $file->move(public_path('images/bod/'), $image_name);
             DB::commit();
         }
         catch(\Exception $exception){

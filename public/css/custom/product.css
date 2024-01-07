@@ -396,43 +396,80 @@ body {
     z-index: 10;
 }
 
-.style-owl-banner-slider .style-banner-content.slide-1 {
-    opacity: 1;
-    z-index: 111;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: end;
-    bottom: 5vh;
-    left: 6vw;
-    right: 2vw;
+@media only screen and (min-width: 992px) {
+    .style-owl-banner-slider .style-banner-content.slide-1 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        bottom: 5vh;
+        left: 6vw;
+        right: 2vw;
+    }
+
+    .style-owl-banner-slider .style-banner-content.slide-2 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        bottom: 5vh;
+        left: 6vw;
+        right: 8vw;
+    }
+
+    .style-owl-banner-slider .style-banner-content.slide-3 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+        top: 6vw;
+        left: 6vw;
+        right: 8vw;
+    }
 }
 
-.style-owl-banner-slider .style-banner-content.slide-2 {
-    opacity: 1;
-    z-index: 111;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    bottom: 5vh;
-    left: 6vw;
-    right: 8vw;
-}
-
-.style-owl-banner-slider .style-banner-content.slide-3 {
-    opacity: 1;
-    z-index: 111;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
-    top: 6vw;
-    left: 6vw;
-    right: 8vw;
+@media only screen and (max-width: 991px) {
+    .style-owl-banner-slider .style-banner-content.slide-1 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+    }
+    
+    .style-owl-banner-slider .style-banner-content.slide-2 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+    }
+    
+    .style-owl-banner-slider .style-banner-content.slide-3 {
+        opacity: 1;
+        z-index: 111;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+    }
 }
 
 /* first text */
@@ -464,7 +501,7 @@ body {
         font-size: 26px;
     }
 
-    .style-owl-banner-slider .style-banner-content.slide-3 {
+    /* .style-owl-banner-slider .style-banner-content.slide-3 {
         top: 20vw;
-    }
+    } */
 }

@@ -41,6 +41,9 @@ Route::get('/board-directors', [FrontendController::class, 'BoardOfDirectors']);
 Route::get('/company-history', [FrontendController::class, 'CompanyHistory']);
 Route::get('/products', [FrontendController::class, 'Products']);
 Route::get('/products/{id}', [FrontendController::class, 'ProductsModal']);
+Route::get('/products-vehicle', [FrontendController::class, 'ProductVehicles']);
+Route::get('/products-part', [FrontendController::class, 'ProductParts']);
+Route::get('/products-mold', [FrontendController::class, 'Mold']);
 
 Route::get('/company-value', function(){
     return view('company-value');
@@ -50,15 +53,6 @@ Route::get('/company-business', function(){
     return view('company-business');
 });
 
-Route::get('/products-mold', [FrontendController::class, 'Mold']);
-
-Route::get('/products-part', function(){
-    return view('product-part-business');
-});
-
-Route::get('/products-vehicle', function(){
-    return view('product-vehicle-business');
-});
 
 Route::get('/company-plant', function(){
    return view('company-plant'); 
@@ -98,6 +92,9 @@ Route::prefix('admin')->group(function () {
     Route::post('news/add', [AdminNewsController::class, 'add'])->name('admin.news.add');
     Route::get('news/edit/{id}', [AdminNewsController::class, 'edit'])->name('admin.news.edit');
     Route::delete('news/delete/{id}',[AdminNewsController::class, 'delete'])->name('admin.news.delete');
+    Route::put('news/preview-form', [AdminNewsController::class, 'previewForm'])->name('admin.news.preview-form');
+    Route::post('news/preview-form', [AdminNewsController::class, 'previewForm'])->name('admin.news.preview-form');
+    Route::get('news/preview/{id}', [AdminNewsController::class, 'preview'])->name('admin.news.preview');
     Route::get('/get-uploaded-images', [AdminNewsController::class, 'getUploadedImages']);
     Route::post('/news/upload-content', [NewsController::class, 'UploadContent'])->name("ckeditor.news-content-upload");
     
@@ -105,15 +102,17 @@ Route::prefix('admin')->group(function () {
     Route::get('csr/create',  [AdminCSRController::class, 'create'])->name('admin.csr.create');
     Route::post('csr/add', [AdminCSRController::class, 'add'])->name('admin.csr.add');
     Route::get('csr/edit/{id}', [AdminCSRController::class, 'edit'])->name('admin.csr.edit');
-    Route::put('csr/update/{id}', [AdminCSRController::class, 'edit'])->name('admin.csr.update');
     Route::delete('csr/delete/{id}',[AdminCSRController::class, 'delete'])->name('admin.csr.delete');
+    Route::put('csr/preview-form', [AdminCSRController::class, 'previewForm'])->name('admin.csr.preview-form');
+    Route::post('csr/preview-form', [AdminCSRController::class, 'previewForm'])->name('admin.csr.preview-form');
+    Route::get('csr/preview/{id}', [AdminCSRController::class, 'preview'])->name('admin.csr.preview');
+    Route::get('/get-uploaded-images', [AdminCSRController::class, 'getUploadedImages']);
     Route::post('/csr/upload-content', [CSRController::class, 'UploadContent'])->name("ckeditor.csr-content-upload");
 
     Route::get('products',  [AdminProductsController::class, 'view'])->name('admin.products');
     Route::get('products/create',  [AdminProductsController::class, 'create'])->name('admin.products.create');
     Route::post('products/add', [AdminProductsController::class, 'add'])->name('admin.products.add');
     Route::get('products/edit/{id}', [AdminProductsController::class, 'edit'])->name('admin.products.edit');
-    Route::delete('products/delete/{id}',[AdminProductsController::class, 'delete'])->name('admin.products.delete');
     Route::post('product/image-view', [AdminProductsController::class, 'store'])->name('admin.products.image');
     // Route::post('products/upload-content', [CSRController::class, 'UploadContent'])->name("ckeditor.csr-content-upload");
     

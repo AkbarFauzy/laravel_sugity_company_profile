@@ -32,11 +32,6 @@
            <i class="nav-icon bi bi-speedometer"></i>
             Dashboard</a></li>
         <li class="nav-title">Customization</li>
-        <li class="nav-item"><a class="nav-link" href="">
-            <svg class="nav-icon">
-              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
-            </svg> Landing Pages</a>
-          </li>
 
         <li class="nav-item"><a class="nav-link" href="{{route('admin.sliders')}}">
             <svg class="nav-icon">

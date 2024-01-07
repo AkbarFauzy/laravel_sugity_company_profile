@@ -110,7 +110,7 @@ $(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url:"{{route('admin.products.delete','')}}/"+id,
+              url:"{{route('api.products.delete','')}}/"+id,
               headers:{
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
@@ -119,7 +119,7 @@ $(function() {
                 id:id
               },
               success: function(response){
-                if(response.message["success"]){
+                if(response["success"]){
                   Swal.fire(
                     'Deleted!',
                     'Your record has been deleted.',
@@ -130,7 +130,7 @@ $(function() {
                   Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: response.message["message"],
+                    text: response["message"],
                   })
                 }
               },
@@ -138,7 +138,7 @@ $(function() {
                 Swal.fire({
                   icon: 'error',
                   title: 'Oops...',
-                  text: response.message["message"],
+                  text: response["message"],
                 })
               },
             })

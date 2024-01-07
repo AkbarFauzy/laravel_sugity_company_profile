@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}" type="text/css" />
 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css" />
+    
     
     @yield('custom_css')
     
@@ -182,231 +184,232 @@
 
         @yield('content')
 
-        	<!-- Footer
+		<!-- Footer
 		============================================= -->
 		<footer id="footer" class="background-footer dark"
-        style="background-image: url('{{asset('images/banner/banner-footer.png')}}');">
-        <div class="container-fluid container-md">
+			style="background-image: url('{{asset('images/banner/banner-footer.png')}}');">
+			<div class="container-fluid container-md">
 
-            <!-- Footer Widgets
-            ============================================= -->
-            <div class="footer-widgets-wrap">
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
 
-                <div class="row col-mb-30">
-                    <div class="col-lg-8">
+					<div class="row col-mb-30">
+						<div class="col-lg-8">
 
-                        <div class="row col-mb-50">
-                            <div class="col-sm-4">
+							<div class="row col-mb-50">
+								<div class="col-sm-4">
 
-                                <div class="widget widget_links clearfix">
+									<div class="widget widget_links clearfix">
 
-                                    <!-- <a href="#"> -->
-                                        <h3 class="entry-title mb-1">Contact Us</h3>
-                                    <!-- </a> -->
+										<!-- <a href="#"> -->
+											<h3 class="entry-title mb-1">Contact Us</h3>
+										<!-- </a> -->
 
-                                    <div class="row mb-3">
-                                        <div class="col-12">
-                                            <a href="mailto: info@sugity.co.id">
-                                                <i class="icon-envelope"></i> info@sugity.co.id
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="tel:(021) 898 0307">
-                                                <i class="icon-phone"></i> (021) 898 0307
-                                            </a>
-                                        </div>
-                                    </div>
+										<div class="row mb-3">
+											<div class="col-12">
+												<a href="mailto: info@sugity.co.id">
+													<i class="icon-envelope"></i> info@sugity.co.id
+												</a>
+											</div>
+											<div class="col-12">
+												<a href="tel:(021) 898 0307">
+													<i class="icon-phone"></i> (021) 898 0307
+												</a>
+											</div>
+										</div>
 
-                                    <a href="#">
-                                        <h3 class="entry-title mb-1">Social Media</h3>
-                                    </a>
+										<a href="#">
+											<h3 class="entry-title mb-1">Social Media</h3>
+										</a>
 
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <a href="https://www.youtube.com/@sugitycreatives8335" target="_blank">
-                                                <i class="icon-youtube"></i> Sugity Creatives
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="https://www.instagram.com/ptsugitycreatives/" target="_blank">
-                                                <i class="icon-instagram"></i> ptsugitycreatives
-                                            </a>
-                                        </div>
-                                    </div>
+										<div class="row">
+											<div class="col-12">
+												<a href="https://www.youtube.com/@sugitycreatives8335" target="_blank">
+													<i class="icon-youtube"></i> Sugity Creatives
+												</a>
+											</div>
+											<div class="col-12">
+												<a href="https://www.instagram.com/ptsugitycreatives/" target="_blank">
+													<i class="icon-instagram"></i> ptsugitycreatives
+												</a>
+											</div>
+										</div>
 
-                                </div>
+									</div>
 
-                            </div>
+								</div>
 
-                            <div class="col-sm-4">
+								<div class="col-sm-4">
 
-                                <div class="widget widget_links clearfix">
+									<div class="widget widget_links clearfix">
 
-                                    <h3 class="entry-title">
-                                        <a href="{{url('company-profile')}}">
-                                            Company Profile
-                                        </a>
-                                    </h3>
+										<h3 class="entry-title mb-1">
+											<a href="{{url('company-profile')}}">
+												Company Profile
+											</a>
+										</h3>
 
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <a href="{{url('company-value')}}">Company Value</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('company-profile')}}#president-message">President Message</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('board-directors')}}">Board of Director</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('company-history')}}">Company History</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('company-business')}}">Company Business</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('company-plant')}}">Company Plant</a>
-                                        </div>
-                                    </div>
+										<div class="row">
+											<div class="col-12">
+												<a href="{{url('company-value')}}">Company Value</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('company-profile')}}#president-message">President Message</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('board-of-director')}}">Board of Director</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('company-history')}}">Company History</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('company-business')}}">Company Business</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('company-plant')}}">Company Plant</a>
+											</div>
+										</div>
 
-                                </div>
+									</div>
 
-                            </div>
+								</div>
 
-                            <div class="col-sm-4">
+								<div class="col-sm-4">
 
-                                <div class="widget widget_links clearfix">
+									<div class="widget widget_links clearfix">
 
-                                    <h3 class="entry-title">
-                                        <a href="{{url('products')}}">
-                                            Product
-                                        </a>
-                                    </h3>
+										<h3 class="entry-title mb-1">
+											<a href="{{url('products')}}">
+												Product
+											</a>
+										</h3>
 
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <a href="{{url('products-vehicle')}}">Vehicle Business</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('products-part')}}">Part Business</a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="{{url('products-mold')}}">Mold Business</a>
-                                        </div>
-                                    </div>
+										<div class="row">
+											<div class="col-12">
+												<a href="{{url('products-vehicle')}}">Vehicle Business</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('products-part')}}">Part Business</a>
+											</div>
+											<div class="col-12">
+												<a href="{{url('products-mold')}}">Mold Business</a>
+											</div>
+										</div>
 
-                                </div>
+									</div>
 
-                            </div>
-                        </div>
+								</div>
+							</div>
 
-                    </div>
+						</div>
 
-                    <div class="col-lg-4">
+						<div class="col-lg-4">
 
-                        <div class="row">
-                            <div class="col-md-4 col-lg-12">
-                                <div class="widget clearfix pt-5 ps-2 pt-md-0 ps-md-0" style="margin-bottom: -20px;">
+							<div class="row">
+								<div class="col-md-4 col-lg-12">
+									<div class="widget clearfix pt-5 ps-2 pt-md-0 ps-md-0" style="margin-bottom: -20px;">
 
-                                    <div class="row">
-                                        <div class="col-lg-6 bottommargin-sm">
-                                            <div class="widget widget_links clearfix">
+										<div class="row">
+											<div class="col-lg-6 bottommargin-sm">
+												<div class="widget widget_links clearfix">
 
-                                                <h3 class="entry-title">
-                                                    <a href="{{url('csr')}}">
-                                                        CSR
-                                                    </a>
-                                                </h3>
+													<h3 class="entry-title">
+														<a href="{{url('csr')}}">
+															CSR
+														</a>
+													</h3>
 
-                                                <!-- <div class="row">
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Tree Planting</a>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Story Book (Ehon)</a>
-                                                    </div>
-                                                </div> -->
+													<!-- <div class="row">
+														<div class="col-12">
+															<a href="coming-soon.html">Tree Planting</a>
+														</div>
+														<div class="col-12">
+															<a href="coming-soon.html">Story Book (Ehon)</a>
+														</div>
+													</div> -->
 
-                                            </div>
-                                        </div>
+												</div>
+											</div>
 
-                                        <div class="col-lg-6 bottommargin-sm">
-                                            <div class="widget widget_links clearfix">
+											<div class="col-lg-6 bottommargin-sm">
+												<div class="widget widget_links clearfix">
 
-                                                <h3 class="entry-title">
-                                                    <a href="{{url('news-page')}}">
-                                                        News
-                                                    </a>
-                                                </h3>	
+													<h3 class="entry-title">
+														<a href="{{url('news')}}">
+															News
+														</a>
+													</h3>	
 
-                                                <!-- <div class="row">
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Achievement</a>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Product & Exhibition</a>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Internal Event</a>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <a href="coming-soon.html">Other Information</a>
-                                                    </div>
-                                                </div> -->
+													<!-- <div class="row">
+														<div class="col-12">
+															<a href="coming-soon.html">Achievement</a>
+														</div>
+														<div class="col-12">
+															<a href="coming-soon.html">Product & Exhibition</a>
+														</div>
+														<div class="col-12">
+															<a href="coming-soon.html">Internal Event</a>
+														</div>
+														<div class="col-12">
+															<a href="coming-soon.html">Other Information</a>
+														</div>
+													</div> -->
 
-                                            </div>
-                                        </div>
-                                    </div>
+												</div>
+											</div>
+										</div>
 
-                                </div>
-                            </div>
+									</div>
+								</div>
 
-                            <!-- <div class="col-md-5 col-lg-12">
-                                <div class="widget subscribe-widget clearfix">
-                                    <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                                    <div class="widget-subscribe-form-result"></div>
-                                    <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
-                                        <div class="input-group mx-auto">
-                                            <div class="input-group-text"><i class="icon-email2"></i></div>
-                                            <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                                            <button class="btn btn-success" type="submit">Subscribe</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+								<!-- <div class="col-md-5 col-lg-12">
+									<div class="widget subscribe-widget clearfix">
+										<h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+										<div class="widget-subscribe-form-result"></div>
+										<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+											<div class="input-group mx-auto">
+												<div class="input-group-text"><i class="icon-email2"></i></div>
+												<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+												<button class="btn btn-success" type="submit">Subscribe</button>
+											</div>
+										</form>
+									</div>
+								</div>
 
-                            <div class="col-md-3 col-lg-12">
-                                <div class="widget clearfix" style="margin-bottom: -20px;">
+								<div class="col-md-3 col-lg-12">
+									<div class="widget clearfix" style="margin-bottom: -20px;">
 
-                                    <div class="row">
-                                        <div class="col-6 col-md-12 col-lg-6 clearfix bottommargin-sm">
-                                            <a href="#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
-                                                <i class="icon-facebook"></i>
-                                                <i class="icon-facebook"></i>
-                                            </a>
-                                            <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-                                        </div>
-                                        <div class="col-6 col-md-12 col-lg-6 clearfix">
-                                            <a href="#" class="social-icon si-dark si-colored si-rss mb-0" style="margin-right: 10px;">
-                                                <i class="icon-rss"></i>
-                                                <i class="icon-rss"></i>
-                                            </a>
-                                            <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-                                        </div>
-                                    </div>
+										<div class="row">
+											<div class="col-6 col-md-12 col-lg-6 clearfix bottommargin-sm">
+												<a href="#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
+													<i class="icon-facebook"></i>
+													<i class="icon-facebook"></i>
+												</a>
+												<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+											</div>
+											<div class="col-6 col-md-12 col-lg-6 clearfix">
+												<a href="#" class="social-icon si-dark si-colored si-rss mb-0" style="margin-right: 10px;">
+													<i class="icon-rss"></i>
+													<i class="icon-rss"></i>
+												</a>
+												<a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
+											</div>
+										</div>
 
-                                </div>
-                            </div> -->
+									</div>
+								</div> -->
 
-                        </div>
+							</div>
 
-                    </div>
-                </div>
+						</div>
+					</div>
 
-            </div><!-- .footer-widgets-wrap end -->
+				</div><!-- .footer-widgets-wrap end -->
 
-        </div>
-    </footer><!-- #footer end -->
+			</div>
+
+		</footer><!-- #footer end -->
 
 </div><!-- #wrapper end -->
 

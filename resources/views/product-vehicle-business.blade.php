@@ -17,139 +17,139 @@
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-content slide-1">
+				<div class="style-banner-content slide">
 					<div>
-						<p class="first-text-slider-product mb-0">Gran Max Wira-Wiri Surabaya</p>
-						<p class="second-text-slider-product mt-0 text-center"><i>Spacious & Comfort</i></p>
+						<p class="first-text-slider-vehicle mb-0 text-center">HiAce JakLingko</p>
+						<p class="second-text-slider-vehicle mt-0"><i>Spacious & Comfort</i></p>
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/1.png')}}');">
-				</div>
-			</div>
-			<div class="item min-vh-100 min-vh-md-100 slide-2">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-content slide-2">
-					<!-- <p class="first-text-slider-product mb-0">Gran Max Wira-Wiri Surabaya</p> -->
-					<p class="second-text-slider-product mt-0"><i>Proficient and Agile</i></p>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/2.png')}}');">
-				</div>
-			</div>
-			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
-				<div class="style-banner-content slide-3">
-					<!-- <p class="first-text-slider-product mb-0">Gran Max Wira-Wiri Surabaya</p> -->
-					<p class="second-text-slider-product mt-0"><i>Quality and Precious</i></p>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/3.png')}}');">
+				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/s-vehicle.png')}}');">
 				</div>
 			</div>
 		</div><!-- #Banner Slider end -->
 		<!-- <br><br> -->
 
-
 		<!-- Content
 		============================================= -->
-		<section id="content" class="style-background-vector">
+		<section id="content" class="style-bg-dot">
 			<div class="container clearfix">
-				<h1 class="fs-1 pt-5 text-center" style="color: #000000;">Explore Our Product</h1>
+				<h1 class="fs-1 pt-5 text-center">Vehicle Conversion</h1>
 			</div>
-			<div class="container">
-				<div class="tabs tabs-bb clearfix" id="tab-9">
-
-					<ul class="tab-nav clearfix mb-4" style="justify-content: center;">
+			<div class="container pb-5">
+				<div class="tabs tabs-bb clearfix tab-vehicle-business" id="tab-9" style="z-index: 10;">
+	
+					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
 						<li><a href="#tabs-all" class="text-size-sm">All</a></li>
-						<li><a href="#tabs-vehicle" class="text-size-sm">Vehicle</a></li>
-						<li><a href="#tabs-part" class="text-size-sm">Part</a></li>
-						<li><a href="#tabs-mold" class="text-size-sm">Mold</a></li>
+						<li><a href="#tabs-public-transport" class="text-size-sm">Public Transport</a></li>
+						<li><a href="#tabs-healthcare" class="text-size-sm">Healthcare Vehicle</a></li>
+						<li><a href="#tabs-export" class="text-size-sm">Export Vehicle</a></li>
+						<li><a href="#tabs-other" class="text-size-sm">Other</a></li>
 					</ul>
-
+	
 					<div class="tab-container">
-
+	
 						<!-- tab all -->
 						<div class="tab-content clearfix" id="tabs-all">
 							<div class="style-section-product-overview">
 								<div class="row">
+
+									@foreach($vehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/6.png" style="width:100%; height: 250px; object-fit: contain;">
+											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max JakLingko
+												<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
+													data-bs-id="{{$vehicle->id}}"
+													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 											</div>
 										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/public-transport/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max Wira-Wiri SBY
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+									@endforeach
+
+								</div>
+							</div>
+						</div>
+
+						<!-- tab public transport -->
+						<div class="tab-content clearfix" id="tabs-public-transport">
+							<div class="style-section-product-overview">
+								<div class="row">
+										@foreach($publicTransport->data as $vehicle)
+										<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
+											<div class="style-content">
+												<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+												<div class="style-footer px-4 px-md-0">
+													<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
+														<br><br>
+														<a style="color: black" class="text-left" href="#" 
+														data-bs-toggle="modal" 
+														data-bs-id="{{$vehicle->id}}"
+														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												</div>
 											</div>
 										</div>
-									</div>
+										@endforeach
+								</div>
+							</div>
+						</div>
+
+						<!-- tab healthcare -->
+						<div class="tab-content clearfix" id="tabs-healthcare">
+							<div class="style-section-product-overview">
+								<div class="row">
+
+									@foreach($healthcareVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Wira-Wiri SBY
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
+									<div class="style-content">
+										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+										<div class="style-footer px-4 px-md-0">
+											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
+												<br><br>
+												<a style="color: black" class="text-left" href="#" 
+												data-bs-toggle="modal" 
+												data-bs-id="{{$vehicle->id}}"
+												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 										</div>
 									</div>
+									</div>
+									@endforeach
+
+								</div>
+							</div>
+						</div>
+
+						<!-- tab export -->
+						<div class="tab-content clearfix" id="tabs-export">
+							<div class="style-section-product-overview">
+								<div class="row">
+
+									@foreach($exportVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Voxy Welcab
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
+									<div class="style-content">
+										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+										<div class="style-footer px-4 px-md-0">
+											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
+												<br><br>
+												<a style="color: black" class="text-left" href="#" 
+												data-bs-toggle="modal" 
+												data-bs-id="{{$vehicle->id}}"
+												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Medical Mover
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/8.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Innova Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
+									@endforeach
+
+								</div>
+							</div>
+						</div>
+
+						<!-- tab other -->
+						<div class="tab-content clearfix" id="tabs-other">
+							<div class="style-section-product-overview">
+								<div class="row">
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
 											<img src="./asset/images/product-vehicle-business/other/2.png" style="width:100%; height: 250px; object-fit: contain;">
@@ -160,641 +160,61 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/export-vehicle/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Cash Carrier Fortuner
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/export-vehicle/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Fortuner Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/9.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Fortuner Patrol
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/9.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Vios Patrol
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Sub Assy Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/3.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Box Console
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Quarter Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/6.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Glove
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/7.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Register
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/6.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/7.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/3.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Grille
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Spoiler
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Mud Guard
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/1.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer">
-												<h4 class="text-left mt-4" style="color: black">Big Mold
-													<!-- <br>
-													(1300Ton-3500Ton) -->
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/2.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer">
-												<h4 class="text-left mt-4" style="color: black">Medium Mold
-													<!-- <br>
-													(350Ton - 1050Ton) -->
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/3.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Small Mold
-													<!-- <br>
-												(30Ton-175Ton) -->
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
-
-						<!-- tab vehicle -->
-						<div class="tab-content clearfix" id="tabs-vehicle">
-							<div class="style-section-product-overview">
-								<div class="row">
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/6.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max JakLingko
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/public-transport/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max Wira-Wiri SBY
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Wira-Wiri SBY
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Voxy Welcab
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Medical Mover
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">HiAce Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/8.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Gran Max Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/healthcare/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Innova Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/other/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Car Promotion
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/export-vehicle/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Cash Carrier Fortuner
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/export-vehicle/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Fortuner Ambulance
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/9.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Fortuner Patrol
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/all/9.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Vios Patrol
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- tab part -->
-						<div class="tab-content clearfix" id="tabs-part">
-							<div class="style-section-product-overview">
-								<div class="row">
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Sub Assy Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Intrument Panel
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/3.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Box Console
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Quarter Door Trim
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/6.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Door Glove
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/interior/7.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Register
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/1.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/6.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Rear Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/7.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Front Bumper Yaris Cross
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/3.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Grille
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/4.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Spoiler
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-part-business/exterior/5.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Mud Guard
-												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalPart">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- tab mold -->
-						<div class="tab-content clearfix" id="tabs-mold">
-							<!-- sec 1 -->
-							<div class="style-section-product-overview">
-								<div class="row">
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/1.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer">
-												<h4 class="text-left mt-4" style="color: black">Big Mold
-													<br>
-													(1300Ton-3500Ton)
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/2.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer">
-												<h4 class="text-left mt-4" style="color: black">Medium Mold
-													<br>
-													(350Ton - 1050Ton)
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product/mold/3.png"
-												style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer">
-												<h4 class="text-left mt-4" style="color: black">Small Mold
-													<br>
-													(30Ton-175Ton)
-													<br><br>
-													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold">Explore
-														More <i class="fa-solid fa-chevron-right"></i>></a>
-												</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
+	
 					</div>
-
+	
 				</div>
 			</div>
-			<!-- <div class="vector-background"></div> -->
-
-			<!-- <div class="container-fluid px-3 py-5 p-md-5">
-				<div class="d-flex justify-content-center mb-md-2">
-					<h2 class="fs-2 m-0 text-black text-center" style="z-index: 10;">Discover Our Product</h2>
-				</div>
-				<div class="d-flex justify-content-center mb-2">
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the Mold of our Vehicle Product</p>
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the Part of our Vehicle Product</p>
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the model of our Vehicle Product, HiAce Wira-Wiri Surabaya.</p>
-					duplicate
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the Mold of our Vehicle Product</p>
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the Part of our Vehicle Product</p>
-					<p class="style-discover-desc mb-0 text-dark text-center">This is the model of our Vehicle Product, HiAce Wira-Wiri Surabaya.</p>
-				</div>
-				<div class="style-carousel-discover">
-					<div class="style-item">
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/mold discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/part discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/vehicle discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-						Duplicate
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/mold discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/part discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-						<div class="style-carousel-item">
-							<img src="./asset/images/product/discover-our-product/vehicle discover.png" alt="">
-							<div class="style-carousel-overlay"></div>
-						</div>
-					</div>
-					<div class="style-nav">
-						<button class="style-carousel-prev"><i class="bi bi-arrow-left"></i></button>
-						<button class="style-carousel-next"><i class="bi bi-arrow-right"></i></button>
-					</div>
-				</div>
-			</div> -->
-
 		</section><!-- #content end -->
+
+		<!-- Modal Vehicle -->
+		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
+		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-body">
+					
+				</div>
+			</div>
+		</div>
+		</div>
 
 @endsection
 
 @section('custom_js')
 
+<script>
+	$(document).ready(function () {
+	  $('#modalVehicle').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
+	
+		var modalBody = $(this).find('.modal-body');
+	
+		// Clear previous content
+		modalBody.empty().append('<p>Loading...</p>');
+	
+		$.ajax({
+		  url: "{{url('products')}}"+ "/"+ buttonId,
+		  method: 'GET',
+		  beforeSend: function () {
+			// Show loading or processing message if needed
+		  },
+		  success: function (data) {
+			// Handle successful response
+			modalBody.empty().html(data);
+		  },
+		  error: function () {
+			// Handle error
+			modalBody.empty().html('<p>Failed to fetch data. Please try again later.</p>');
+		  }
+		});
+	  });
+	});
+</script>
 <script>
 
 	setInterval(function () {
@@ -808,15 +228,15 @@
 	}, 5000);
 
 	$('.style-owl-banner-slider').owlCarousel({
-		loop: true,
+		// loop: true,
 		margin: 0,
 		nav: false,
 		items: 1,
-		autoplay: true,
-		autoplayTimeout: 5000,
-		autoplayHoverPause: false,
-		animateOut: 'slideOutLeft',
-		animateIn: 'slideInRight',
+		// autoplay: true,
+		// autoplayTimeout: 5000,
+		// autoplayHoverPause: false,
+		// animateOut: 'slideOutLeft',
+		// animateIn: 'slideInRight',
 	});
 
 	$('.owl-dot').on('click', function () {
@@ -850,10 +270,6 @@
 		}
 
 	});
-
-
-
-
 
 	var intervalFacilityId = null;
 
@@ -1029,4 +445,49 @@
 		}, 1000);
 	});
 </script>
+
+<!-- 360 VIewer -->
+<script>
+	//	build scene
+	let loaded = 0;
+	let countImage = 43;
+	const content360 = document.querySelector('.style-content-360');
+	const viewer = document.querySelector('.viewer');
+	const images = [];
+	for (let i = 1; i <= countImage; ++i) {
+		const img = new Image();
+		img.src = `./asset/images/product/product-360/medical-mover/` + i + `.png`;
+		images.push(img);
+		viewer.appendChild(img);
+	}
+
+	//	rotation handler
+	//	http://chrisbateman.github.io/impetus/
+	//	https://github.com/chrisbateman/impetus
+	const threshold = 10;
+	const total = images.length - 1;
+	let frame = 38;
+	const impetus = new Impetus({
+		source: content360,
+		update(x) {
+			// console.log(x)
+			images[frame].classList.remove('active')
+			frame = Math.floor(-x / threshold) % total;
+			frame = frame <= 0 ? total + frame : frame;
+			images[frame].classList.add('active');
+		}
+	});
+	images[frame].classList.add('active');
+
+	//	cursor
+	addEventListener('mousedown', e => content360.style.cursor = 'grabbing');
+	addEventListener('mouseup', e => content360.style.cursor = 'grab');
+</script>
+
+<script>
+	$('#modalVehicle').on('hidden.bs.modal', function () {
+		$('#modaVehicle360Tab').tab('show');
+	});
+</script>
+
 @endsection

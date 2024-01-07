@@ -41,10 +41,12 @@ Route::get('/public-transport', [ProductController::class, 'GetPublicTransport']
 Route::get('/healthcare-vehicles', [ProductController::class, 'GetHealthcareVehicles']);
 Route::get('/export-vehicles', [ProductController::class, 'GetExportVehicles']);
 Route::get('/parts', [ProductController::class, 'GetParts']);
+Route::get('/interior-parts', [ProductController::class, 'GetInteriorParts']);
+Route::get('/exterior-parts', [ProductController::class, 'GetExteriorParts']);
 Route::get('/mold', [ProductController::class, 'GetMold']);
 Route::post('/products/add', [ProductController::class, 'AddProduct'])->name('api.products.add');
 Route::put('/products/udpate/{id}', [ProductController::class, 'UpdateProduct'])->name('api.products.update');
-Route::delete('/products/delete/{id}', [ProductController::class, 'DeleteProduct']);
+Route::delete('/products/delete/{id}', [ProductController::class, 'DeleteProduct'])->name('api.products.delete');
 
 Route::get('/sliders', [SlidersController::class, 'GetSliders']);
 Route::get('/sliders/{id}', [SlidersController::class, 'GetSlidersById']);
@@ -59,14 +61,18 @@ Route::post('/news/add', [NewsController::class, 'AddNews'])->name('api.news.add
 Route::put('/news/update/{id}', [NewsController::class, 'UpdateNews'])->name('api.news.update');
 Route::put('/news/publish/{id}', [NewsController::class, 'TogglePublishNews'])->name('admin.api.news.publish');
 Route::delete('/news/delete/{id}', [NewsController::class, 'DeleteNews'])->name('admin.news.delete');
+Route::post('/news/delete/gallery',  [NewsController::class, 'DeleteNewsGallery'])->name('admin.news.delete.gallery');
 Route::get('/latest-news', [NewsController::class, 'GetLatestNews']);
 
-Route::get('/csr', [CSRController::class, 'GetCSR']);
-Route::get('/csr/{id}', [CSRController::class, 'GetCSRById']);
-Route::post('/csr/add', [CSRController::class, 'AddCSR']);
+Route::get('/csr', [CSRController::class, 'GetNews']);
+Route::get('/csr/get-all', [CSRController::class, 'GetAllNews']);
+Route::get('/csr/{id}', [CSRController::class, 'GetNewsById']);
+Route::post('/csr/add', [CSRController::class, 'AddNews'])->name('api.csr.add');
+Route::put('/csr/update/{id}', [CSRController::class, 'UpdateNews'])->name('api.csr.update');
 Route::put('/csr/publish/{id}', [CSRController::class, 'TogglePublishNews'])->name('admin.api.csr.publish');
-// Route::put('/csr/{id}', [CSRController::class, 'UpdateCSR']);
-Route::delete('/csr/delete/{id}', [CSRController::class, 'DeleteCSR']);
+Route::delete('/csr/delete/{id}', [CSRController::class, 'DeleteNews'])->name('admin.csr.delete');
+Route::post('/csr/delete/gallery',  [CSRController::class, 'DeleteNewsGallery'])->name('admin.csr.delete.gallery');
+Route::get('/latest-csr', [CSRController::class, 'GetLatestNews']);
 
 Route::get('/events', [EventController::class, 'GetEvents']);
 Route::get('/event/{id}', [EventController::class, 'GetEventById']);

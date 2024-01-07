@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\History;
 
@@ -46,17 +47,21 @@ class HistoryController extends Controller
                 'year' => 'required',
                 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+
             if ($image = $req->file('img')) {
-                $destinationPath = 'images/brief-history/';
-                $historyImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $historyImage);
+                $originName = $image->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $req->file('img')->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $req->file('img')->move(public_path('images/brief-history/'), $fileName);
+                $url = asset('images/brief-history/' . $fileName);
             }
 
             DB::beginTransaction();
             $history = History::create([
                 'title' => $req->input('title'),
                 'year' => $req->input('year'),
-                'img' => $historyImage,
+                'img' => $fileName,
             ]);
             DB::commit();
         }catch(\Exception $exception){  
@@ -78,30 +83,27 @@ class HistoryController extends Controller
             DB::beginTransaction();
             $history = History::findOrFail($id);
 
-            if($req->has('img') && $req->file('img') != null){
+            if($req->has('img')){
                 $file = $req->file('img');
-                $image_name = $file->getClientOriginalName();
-            }else{
-                $image_name = $history->img;
-            }
-
-            if($req->has('img') && $req->file('img') != null)
                 $current_img_path = public_path('images/brief-history/'.$history->img);
-                $history->update([
-                    'img' => $image_name,
-                ]);
+                if (file_exists($current_img_path)) {
+                    unlink($current_img_path);
+                }
+
+                $originName = $file->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $file->move(public_path('images/brief-history/'), $fileName);
+
+                $history->img = $fileName;
+            }
 
             $history->update([
                 'title' => $req->input('title'),
                 'year' => $req->input('year'),
             ]);
 
-            if($req->has('img') && $req->file('img') != null)
-              if(file_exists($current_img_path)){
-                unlink($current_img_path);
-              }
-            if($req->has('img') && $req->file('img') != null)
-                $file->move(public_path('images/brief-history/'), $image_name);
             DB::commit();
 
         }

@@ -18,43 +18,60 @@
 @section('content')
 <div class="col-12">
     <div class="card mb-4">
-      <div class="card-header"><strong>News</strong><span class="small ms-1">Create a News</span></div>
+      <div class="card-header"><strong>News</strong><span class="small ms-1">Update a News</span></div>
          <div class="card-body">
-            <form method="POST" id="form" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Headline</label>
-                    <input name="headline" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Lorem Ipsum" required >
-                </div>
-                <div class="mb-3">
-                    <div class="row"> 
-                        <label  for="name">Thumbnail</label>
-                        <div class="file-loading" style="height: 100%">
-                            <input id="thumbnail" type="file" name="thumbnail" class="file" data-overwrite-initial="true">
+            <form method="POST" id ="form" runat="server" enctype="multipart/form-data">
+                @csrf 
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="exampleFormControlInput1" class="form-label">Headline</label>
+                            <input name="headline" 
+                            type="text" 
+                            class="form-control" 
+                            id="exampleFormControlInput1" 
+                            placeholder="Lorem Ipsum"
+                            value=""
+                            >
+                        </div>
+        
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                                <label  for="name">Thumbnail</label>
+                                <div class="file-loading" style="height: 100%">
+                                    <input id="thumbnail" type="file" name="thumbnail" class="file" data-overwrite-initial="true">
+                                </div>
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                    <textarea class="form-control" id="editor" rows="3" name="content">
-                    </textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Gallery</label>
-                    <div class="file" style="height: 100%">
-                        <input id="gallery" type="file" name="gallery[]"  
-                        data-overwrite-initial="false" multiple>
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                        <textarea 
+                        class="form-control" 
+                        id="editor" 
+                        rows="3" 
+                        name="content"
+                        >
+    
+                        </textarea>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Gallery</label>
+                        <div class="file-loading" style="height: 100%">
+                            <input id="gallery" type="file" name="gallery[]"  
+                            data-overwrite-initial="false" multiple>
+                        </div>
                     </div>
                 </div>
-
+    
                 <div class="d-flex justify-content-end">
                     <select class="border-2 border-gray-300 border-r p-2" name="isPublish">
                         <option value="1">Save and Publish</option>
                         <option value="0">Save Draft</option>
                     </select>
-                    <button class="p-2 btn-warning text-white" >Preview</button>
-                    <button type="submit" class="p-2 btn-primary text-white">Submit</button>
+                    <button type="button" class="p-2 btn-warning text-white" id="previewButton">Preview</button>
+                    <button role="submit" class="p-2 btn-primary text-white" required="">Submit</button>
                 </div>
             </form>
             </div>
@@ -74,6 +91,9 @@
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/fileinput.min.js"></script>
 
 <script>
+   let editor;
+
+
     ClassicEditor
             .create( document.querySelector( '#editor' ), 
             {
@@ -81,14 +101,16 @@
                     uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
                 }
             })
-            .then( editor => {
-                console.log( editor );
+            .then( newEditor => {
+                console.log( newEditor );
+                newEditor.config.autoParagraph = false;
+                editor = newEditor;
             } )
             .catch( error => {
                     console.error( error );
             });
-</script>
-<script>
+
+
  $("#thumbnail").fileinput({
         uploadUrl: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
@@ -173,6 +195,30 @@
         });
     });
 
+    $(document).ready(function() {
+        $('#previewButton').on('click', function() {
+            // Prepare form data
+            var formData = new FormData($('#form')[0]);
+            const editorData = editor.getData();
+
+            formData.set('content', editorData);
+
+            // Submit form asynchronously
+            $.ajax({
+                url: "{{ route('admin.news.preview-form') }}",
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(response) {
+                    // Open a new tab with the preview content
+                    var newTab = window.open('');
+                    newTab.document.write(response);
+                    newTab.document.close();
+                }
+            });
+        });
+    });
 </script>
 
 @endsection

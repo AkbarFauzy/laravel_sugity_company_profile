@@ -19,7 +19,7 @@ class AdminCSRController extends Controller
           return Datatables::of($data)
                   ->addIndexColumn()
                   ->addColumn('headline_img', function($img){
-                        return "<img src=".asset("csr/thumbnail/".$img->headline_img).">";
+                        return "<img src=".asset("images/csr/".$img->headline_img).">";
                   })->addColumn('isPublish', function($isPublish){
                         return  '<div class="form-check form-switch d-flex justify-content-center">
                         <input class="form-check-input" id="publish-switch" data-id='.$isPublish->id.' type="checkbox"'.($isPublish->isPublish ? 'checked': '').'> 
@@ -49,29 +49,7 @@ class AdminCSRController extends Controller
         return view('admin/csr/create');
     }
 
-    public function add(Request $request){
-        $response = Http::withToken(Session::get('token'))
-            ->attach('thumbnail', $request->file('thumbnail'), 
-                                  $request->file('thumbnail')->getClientOriginalName());
-        
-        if ($request->hasFile('gallery')) {
-            $galleryFiles = $request->file('gallery');
-            
-            foreach ($galleryFiles as $index => $file) {
-                $response->attach("gallery[]", 
-                                file_get_contents($file->getRealPath()), 
-                                $file->getClientOriginalName(),
-                                ['Content-Type' => Storage::mimeType($file->getRealPath())]
-                            );
-            }
-        }
 
-        return $response->post(env('API_DOMAIN').'/api/csr/add', [
-            'headline' => $request->input('headline'),
-            'content' => $request->input('content'),
-            'isPublish' => $request->input('isPublish')
-        ]);
-    }
     
     public function edit($id){
         $API = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/csr/'.$id);
@@ -89,32 +67,53 @@ class AdminCSRController extends Controller
               ->with('imageUrls', $imageUrls);
     }
 
-    public function update(Request $request, $id){
-        $response = Http::withToken(Session::get('token'))
-            ->attach('thumbnail', $request->file('thumbnail'), 
-                                  $request->file('thumbnail')->getClientOriginalName());
-        
-        if ($request->hasFile('gallery')) {
-            $galleryFiles = $request->file('gallery');
-            
-            foreach ($galleryFiles as $index => $file) {
-                $response->attach("gallery[]", 
-                                file_get_contents($file->getRealPath()), 
-                                $file->getClientOriginalName(),
-                                ['Content-Type' => Storage::mimeType($file->getRealPath())]
-                            );
-            }
-        }
-
-        return $response->post(env('API_DOMAIN').'/api/csr/update/'.$id, [
-            'headline' => $request->input('headline'),
-            'content' => $request->input('content'),
-            'isPublish' => $request->input('isPublish')
-        ]);
-    }
 
     public function delete($id){
         $response = Http::withToken(Session::get('token'))->delete(env('API_DOMAIN').'/api/csr/delete/'.$id);
         return $response->body();
     }
+
+
+    public function previewForm(Request $request)
+    {
+        // Retrieve form data from the request
+        $formData = $request->except('_token');
+        
+        // Handle multiple images
+        if ($request->hasFile('thumbnail')) {
+            $imagePath = $request->file('thumbnail')->store('temp', 'public');
+            $imagePaths = Storage::url($imagePath);
+        }
+
+        $galleries = [];
+        if ($request->hasFile('gallery')){
+            foreach($request->file('gallery') as $image){
+                $imagePath = $image->store('temp', 'public');
+                $galleries[] = Storage::url($imagePath);
+            }
+        }
+
+        // Pass form data and image paths to the view
+        return view('admin/csr/preview-form', [
+                                    'formData' => $formData, 
+                                    'thumbnail' => $imagePaths,
+                                    'galleries' => $galleries,
+                                ]);
+        
+    }
+
+    public function preview($id){
+        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
+        $currentNewsData = json_decode($currentNewsAPI->body());
+        
+        if($currentNewsData->success){     
+            return view('admin/csr/preview')->with([
+                'current_news' => $currentNewsData, 
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+
+
 }

@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-		<!-- Banner Slider
+<!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll>
 			<div class="item min-vh-100 min-vh-md-100">
@@ -20,16 +20,40 @@
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
+				<div class="style-banner-content slide-1">
+					<div>
+						<p class="first-text-slider-landing mb-0">HiAce Wira-Wiri</p>
+						<p class="second-text-slider-landing mt-2">
+							The TOYOTA HiAce Wira-Wiri has been developed specifically for the secure and efficient transportation <br> of cash, valuables, and passengers, prioritizing a seamless blend of security and operational <br> effectiveness.
+						</p>
+					</div>
+				</div>
 				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-2-v3.png')}}');">
 				</div>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
+				<div class="style-banner-content slide-2">
+					<div>
+						<p class="first-text-slider-landing mb-0">Instrument Panel</p>
+						<p class="second-text-slider-landing mt-2">
+							The instrument panel sub-assembly: a vital component orchestrating crucial vehicle data and controls, <br> ensuring seamless functionality and convenience at your fingertips.
+						</p>
+					</div>
+				</div>
 				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-3-v3.png')}}');">
 				</div>
 			</div>
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Company.</h2> -->
+				<div class="style-banner-content slide-3">
+					<div>
+						<p class="first-text-slider-landing mb-0 text-end">Vehicle Assembly</p>
+						<p class="second-text-slider-landing mt-0 text-end">
+							Sugity, linked to Toyota Autobody, shifted from assembly to innovative vehicle conversions since 2017, <br> prioritizing quality, safety, and durability.
+						</p>
+					</div>
+				</div>
 				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-4-v4.png')}}');">
 				</div>
 			</div>
@@ -46,87 +70,86 @@
 		<section id="content">
 			<!-- image divider -->
 			<img src="{{asset('images/divider-black.png')}}" alt="" srcset="" data-scroll>
-
-			<!-- parallax -->
-			<div data-scroll class="section style-paralax style-paralax-bg-dark section-image dark m-0 border-0"
-				style="background-image: url('{{asset('images/parallax/parallax-sugity-creatives.png')}}');">
-				<div class="row" style="height: 100%;">
-					<div class="col-lg-9 col-12 px-5 pt-0">
-						<div data-aos="fade-right" data-aos-duration="900" class="p-0 px-5">
-							<h2 class="mb-0" style="color: #C5C2C3;">Welcome</h2>
-							<h1 class="mt-0 mb-2 sugity-creative-text">Sugity Creatives</h1>
-							<p style="line-height: 25px;">
-								Join us on a journey where precision meets passion, shaping the future of automotive
-								creativity with integrity and innovation.
-								Driven by a profound mission, we aspire to elevate the human experience through
-								meticulously crafted products that not only meet but exceed customer expectations.
-								Concurrently, we remain steadfast in our commitment to address environmental concerns,
-								ensuring a harmonious balance between automotive innovation and sustainable practices.
-							</p>
-							<div class="row">
-								<div class="col-md-3 text-first-parallax">1995
-									<span class="hide-txt-par-landing">Year Established</span>
-								</div>
-								<div class="col-md-3 text-first-parallax">1270
-									<span class="hide-txt-par-landing">Professional Employees</span>
-								</div>
-								<div class="col-md-3 text-first-parallax text-second-parallax-3">31
-									<span class="hide-txt-par-landing text-second-parallax-3">
-										<a href="index.html#client" style="color: #fff;">CUSTOMER</a> 
-										<!-- <i style="font-size: 12px;">
-											<a href="index.html#client" style="color:white">(Click for Details)</a>
-										</i> -->
-									</span>
-								</div>
-								<div class="col-md-3 text-first-parallax text-second-parallax-3">148
-									<span class="hide-txt-par-landing text-second-parallax-3">
-										<a href="index.html#supply-chain" style="color: #fff;">SUPPLY CHAIN</a>
-										<!-- <i style="font-size: 12px;">
-											<a href="index.html#supply-chain" style="color:white">(Click for Details)</a>
-										</i> -->
-									</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3 text-second-parallax">
-									<!-- <br> -->
-									Year Established
-								</div>
-								<div class="col-md-3 text-second-parallax">
-									<!-- <br> -->
-									Professional Employees
-								</div>
-								<div class="col-md-3 text-second-parallax text-second-parallax-3">
-									<!-- <i><a href="index.html#client" style="color:white">Click for Details</a></i><br> -->
-									<!-- <br> -->
-									<a href="index.html#client" class="text-link">
-										CUSTOMER
-									</a>
-								</div>
-								<div class="col-md-3 text-second-parallax text-second-parallax-3">
-									<!-- <i><a href="index.html#supply-chain" style="color:white">Click for Details</a></i><br> -->
-									<!-- <br> -->
-									<a href="index.html#supply-chain" class="text-link">
-										SUPPLY CHAIN
-									</a>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
-								</div>
-								<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
-								</div>
-								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
-								</div>
-								<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
-										alt="">
-								</div>
-							</div>
-						</div>
+	<!-- parallax -->
+	<div data-scroll class="section style-paralax style-paralax-bg-dark section-image dark m-0 border-0"
+	style="background-image: url('{{asset('images/parallax/parallax-sugity-creatives.png')}}');">
+	<div class="row" style="height: 100%;">
+		<div class="col-lg-9 col-12 px-5 pt-0">
+			<div data-aos="fade-right" data-aos-duration="900" class="p-0 px-5">
+				<h2 class="mb-0" style="color: #C5C2C3;">Welcome</h2>
+				<h1 class="mt-0 mb-2 sugity-creative-text">Sugity Creatives</h1>
+				<p style="line-height: 25px;">
+					Join us on a journey where precision meets passion, shaping the future of automotive
+					creativity with integrity and innovation.
+					Driven by a profound mission, we aspire to elevate the human experience through
+					meticulously crafted products that not only meet but exceed customer expectations.
+					Concurrently, we remain steadfast in our commitment to address environmental concerns,
+					ensuring a harmonious balance between automotive innovation and sustainable practices.
+				</p>
+				<div class="row">
+					<div class="col-md-3 text-first-parallax">1995
+						<span class="hide-txt-par-landing">Year Established</span>
+					</div>
+					<div class="col-md-3 text-first-parallax">1270
+						<span class="hide-txt-par-landing">Professional Employees</span>
+					</div>
+					<div class="col-md-3 text-first-parallax text-second-parallax-3">31
+						<span class="hide-txt-par-landing text-second-parallax-3">
+							<a href="#" data-anchor="#client" style="color: #fff;">CUSTOMER</a> 
+							<!-- <i style="font-size: 12px;">
+								<a href="{{url('/')}}#client" style="color:white">(Click for Details)</a>
+							</i> -->
+						</span>
+					</div>
+					<div class="col-md-3 text-first-parallax text-second-parallax-3">148
+						<span class="hide-txt-par-landing text-second-parallax-3">
+							<a href="#" data-anchor="#supply-chain" style="color: #fff;">SUPPLY CHAIN</a>
+							<!-- <i style="font-size: 12px;">
+								<a href="{{url('/')}}#supply-chain" style="color:white">(Click for Details)</a>
+							</i> -->
+						</span>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-3 text-second-parallax">
+						<!-- <br> -->
+						Year Established
+					</div>
+					<div class="col-md-3 text-second-parallax">
+						<!-- <br> -->
+						Professional Employees
+					</div>
+					<div class="col-md-3 text-second-parallax text-second-parallax-3">
+						<!-- <i><a href="{{url('/')}}#client" style="color:white">Click for Details</a></i><br> -->
+						<!-- <br> -->
+						<a href="#" data-anchor="#client" class="text-link">
+							CUSTOMER
+						</a>
+					</div>
+					<div class="col-md-3 text-second-parallax text-second-parallax-3">
+						<!-- <i><a href="{{url('/')}}#supply-chain" style="color:white">Click for Details</a></i><br> -->
+						<!-- <br> -->
+						<a href="#" data-anchor="#supply-chain" class="text-link">
+							SUPPLY CHAIN
+						</a>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+						</div>
+						<div class="col-md-3 vec-line"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+						</div>
+						<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
+						</div>
+						<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
+								alt="">
+						</div>
+				</div>
 			</div>
-			<!-- end parallax -->
+			</div>
+		</div>
+	</div>
+		<!-- end parallax -->
 
 			<!-- our services section -->
 			<div class="services-section my-5" data-scroll>
@@ -171,7 +194,7 @@
 									Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and Hiace
 									Medical Mover, emphasizing our commitment to advanced, tailored conversion vehicles.
 								</p>
-								<a class="btn-primary style-btn mb-5" href="product-vehicle-business.html">Read More</a>
+								<a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
@@ -192,7 +215,7 @@
 									& sub assy processes which are advancing toward automation.
 
 								</p>
-								<a class="btn btn-primary style-btn mb-5" href="product-part-business.html">Read More</a>
+								<a class="btn btn-primary style-btn mb-5" href="{{url('/products-part')}}">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
@@ -214,7 +237,7 @@
 									one of our business pillars that contributes to the company's profit, we targeted to
 									be the No.1 Mold Maker all over the ASEAN.
 								</p>
-								<a class="btn btn-primary style-btn mb-5" href="product-mold-business.html">Read More</a>
+								<a class="btn btn-primary style-btn mb-5" href="{{url('/products-mold')}}">Read More</a>
 							</div>
 						</div>
 						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
@@ -223,8 +246,6 @@
 						</div>
 					</div>
 				</div>
-
-
 
 			</div>
 			<!-- end our services section -->
@@ -250,7 +271,7 @@
 								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
 								<div class="style-description mt-2 mb-3" style="color:white">
-									{!!  \Illuminate\Support\Str::limit($news->data[0]->content, 450) !!}
+									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news->data[0]->content, 450)) !!}
 								</div>
 								<a href="{{url('detail-news', $news->data[0]->id)}}">
 									<button class="btn style-btn">Read More -></button>
@@ -272,7 +293,9 @@
 										class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
 										<h3 class="style-title m-0">{{$item->headline}}</h3>
 										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
-										<p class="style-description mt-2 mb-3" style="color:white">{!!   \Illuminate\Support\Str::limit($item->content, 350) !!}</p>
+										<div class="style-description mt-2 mb-3" style="color:white">
+											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 250)) !!}
+										</div>
 										<a href="{{url('detail-news', $item->id)}}">
 											<button class="btn style-btn">Read More -></button>
 										</a>
@@ -775,5 +798,14 @@
 		}
 
 	});
+	
+	$('[data-anchor]').click(function(e) {
+		e.preventDefault();
+		var goToAnchor = $(this).attr("data-anchor");
+	$('html, body').animate({
+		scrollTop: $(goToAnchor).offset().top
+	}, 1000);
+	});
+
 </script>
 @stop

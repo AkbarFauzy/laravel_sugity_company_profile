@@ -142,7 +142,7 @@ body {
     bottom: 50px;
     height: 700px;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
     background-image: url('../../images/board-of-director/group-dots-orange.png');
     background-repeat: no-repeat;
     background-position: left bottom;

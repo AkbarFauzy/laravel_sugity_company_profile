@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
 use DataTables;
 use Session;
 
@@ -30,7 +31,7 @@ class AdminNewsController extends Controller
                     // $btn .='<a class="edit btn btn-warning btn-md" id="btn-update" data-id='.$row->id.' style="margin-right:10px">Update</a>';
                     $btn = "<a class='view btn btn-secondary btn-md text-white' 
                             id='btn-view' data-id='$row->id' 
-                            style='margin-right:10px' href=".route('admin.news.edit', ['id' => $row->id ]).">
+                            style='margin-right:10px' target='_blank' rel='noopener noreferrer' href=".route('admin.news.preview', ['id' => $row->id ]).">
                             Preview
                             </a>";
                     $btn .= "<a class='edit btn btn-warning btn-md text-white' 
@@ -55,32 +56,6 @@ class AdminNewsController extends Controller
         return view('admin/news/create');
     }
 
-    // public function add(Request $request){
-    //     $response = Http::withToken(Session::get('token'))
-    //         ->attach('thumbnail', file_get_contents($request->file('thumbnail')->getRealPath()), 
-    //                               $request->file('thumbnail')->getClientOriginalName(),
-    //                               ['Content-Type' => Storage::mimeType($request->file('thumbnail')->getRealPath())]
-    //                             );
-        
-    //     if ($request->hasFile('gallery')) {
-    //         $galleryFiles = $request->file('gallery');
-            
-    //         foreach ($galleryFiles as $index => $file) {
-    //             $response->attach("gallery[]", 
-    //                             file_get_contents($file->getRealPath()), 
-    //                             $file->getClientOriginalName(),
-    //                             ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                         );
-    //         }
-    //     }
-
-    //     return $response->post(env('API_DOMAIN').'/api/news/add', [
-    //         'headline' => $request->input('headline'),
-    //         'content' => $request->input('content'),
-    //         'isPublish' => $request->input('isPublish')
-    //     ]);
-    // }
-
     public function edit($id){
         $API = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/news/'.$id);
         $data = json_decode($API->body())->data;
@@ -97,42 +72,50 @@ class AdminNewsController extends Controller
               ->with('imageUrls', $imageUrls);
     }          
 
-
-    // public function update(Request $request, $id){
-    //     $response = Http::withToken(Session::get('token'))
-    //     ->attach('thumbnail', $request->file('thumbnail'), 
-    //                           $request->file('thumbnail')->getClientOriginalName());
-    
-    //     if ($request->hasFile('gallery')) {
-    //         $galleryFiles = $request->file('gallery');
-            
-    //         foreach ($galleryFiles as $index => $file) {
-    //             $response->attach("gallery[]", 
-    //                             file_get_contents($file->getRealPath()), 
-    //                             $file->getClientOriginalName(),
-    //                             ['Content-Type' => Storage::mimeType($file->getRealPath())]
-    //                         );
-    //         }
-    //     }
-
-    //     return $response->post(env('API_DOMAIN').'/api/news/add/'.$id, [
-    //         'headline' => $request->input('headline'),
-    //         'content' => $request->input('content'),
-    //         'isPublish' => $request->input('isPublish')
-    //     ]);
-
-    // }
-
     public function delete($id){
         $response = Http::withToken(Session::get('token'))->delete(env('API_DOMAIN').'/api/news/delete/'.$id);
         return $response->body();
     }
 
-    public function getUploadedImages()
+    public function previewForm(Request $request)
     {
-        // Logic to fetch the URLs of uploaded images from your storage or database
-     
-    
-        return response()->json(['images' => $imageUrls]);
+        // Retrieve form data from the request
+        $formData = $request->except('_token');
+        
+        // Handle multiple images
+        if ($request->hasFile('thumbnail')) {
+            $imagePath = $request->file('thumbnail')->store('temp', 'public');
+            $imagePaths = Storage::url($imagePath);
+        }
+
+        $galleries = [];
+        if ($request->hasFile('gallery')){
+            foreach($request->file('gallery') as $image){
+                $imagePath = $image->store('temp', 'public');
+                $galleries[] = Storage::url($imagePath);
+            }
+        }
+
+        // Pass form data and image paths to the view
+        return view('admin/news/preview-form', [
+                                    'formData' => $formData, 
+                                    'thumbnail' => $imagePaths,
+                                    'galleries' => $galleries,
+                                ]);
+        
     }
+
+    public function preview($id){
+        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/news/'.$id);
+        $currentNewsData = json_decode($currentNewsAPI->body());
+        
+        if($currentNewsData->success){     
+            return view('admin/news/preview')->with([
+                'current_news' => $currentNewsData, 
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+
 }
