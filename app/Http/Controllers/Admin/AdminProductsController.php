@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use ZipArchive;
 use DataTables;
 use Session;
 
@@ -85,6 +87,35 @@ class AdminProductsController extends Controller
       request()->file->move(public_path('upload'), $imageName);
 
     	return response()->json(['uploaded' => "upload/".$imageName]);
+    }
+
+    public function upload360(Request $request){
+        // Validate the uploaded file
+        $request->validate([
+            '360' => 'mimes:zip', // Validate for ZIP file
+        ]);
+
+        // Handle the uploaded file
+        $zipFile = $request->file('360');
+        $tempPath = public_path('images/products/360/temp/');
+
+        // Create a unique folder name for extracting contents
+        $extractedFolder = uniqid('extracted_', true);
+        $extractedPath = $tempPath . $extractedFolder;
+
+        // Create the directory if it doesn't exist
+        File::makeDirectory($extractedPath, 0777, true, true);
+
+        // Extract the ZIP file
+        $zip = new ZipArchive;
+        if ($zip->open($zipFile)) {
+            $zip->extractTo($extractedPath);
+            $zip->close();
+
+            return response()->json(['extracted_path' => $extractedPath]);
+        } else {
+            return response()->json(['error' => 'Failed to extract ZIP file'], 500);
+        }
     }
 
 }

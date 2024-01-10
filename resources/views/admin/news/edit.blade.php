@@ -13,7 +13,12 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
+<link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
 @endsection
+<!-- Loading overlay -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+</div>
 
 @section('content')
 <div class="col-12">
@@ -33,7 +38,19 @@
                             placeholder="Lorem Ipsum"
                             value="{{$data->headline}}"
                             >
+                        
+                            <label for="date" class="col-form-label">Posting Date</label>
+                            <div class="input-group date" id="datepicker">
+                              <div class="input-group date" id="datepicker">
+                                  <input type="date" id="date" class="form-control" name="date" value="{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d')}}">
+                                  <span class="input-group-append">
+                                  </span>
+                              </div>
+                            </div> 
                         </div>
+
+                   
+
         
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -209,7 +226,8 @@
         const displayedUrls = getDisplayedImageURLs();
 
         var formData = new FormData($(this)[0]); // Get form data
-        
+        $('#loadingOverlay').show();
+
         displayedUrls.forEach(function(url, index) {
             formData.append('uploadedGallery[]', url); // Adjust the key name as needed
         });
@@ -221,6 +239,7 @@
             contentType: false,
             processData: false,
             success: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your news has been updated successfully.',
@@ -236,6 +255,7 @@
                 });
             },
             error: function(xhr, status, error) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Failed!',
                     text: 'Your news has Failed to Updated. ' + console.error(xhr.responseText),

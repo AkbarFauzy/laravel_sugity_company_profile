@@ -2,6 +2,19 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/landing-page.css') }}" type="text/css" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+	
+</style>
 @stop
 
 @section('title')
@@ -18,6 +31,94 @@
 					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
 				</video>
 			</div>
+
+			@foreach ($sliders->data as $key => $slider)
+			<div class="item min-vh-100 min-vh-md-100">
+				
+				@if($slider->position === "Top Right")
+					<div class="custom-banner" style="opacity: 1;
+							z-index: 111;
+							position: absolute;
+							display: flex;
+							flex-direction: column;
+							align-items: end;
+							justify-content: end;
+							top: 15vh;
+							left: 8vw;
+							right: 10vw;
+							text-align: right;"
+						>
+						<div style="color: rgba(255, 255, 255, 0.95)">
+							{!!$slider->tagline!!}
+						</div>
+					</div>
+					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+					</div>
+
+				@elseif($slider->position === "Bottom Right")
+					<div class="custom-banner" style="opacity: 1;
+								z-index: 111;
+								position: absolute;
+								display: flex;
+								flex-direction: column;
+								align-items: end;
+								justify-content: end;
+								bottom: 5vh;
+								left: 6vw;
+								right: 2vw;"
+							>
+						<div style="color: rgba(255, 255, 255, 0.95)">
+							{!!$slider->tagline!!}
+						</div>
+					</div>
+					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+					</div>
+
+				@elseif($slider->position === "Top Left")
+					<div class="custom-banner mb-5" style="opacity: 1;
+							z-index: 111;
+							position: absolute;
+							display: flex;
+							flex-direction: column;
+							align-items: start;
+							justify-content: end;
+							top: 6vw;
+							left: 6vw;
+							right: 8vw;"
+						>
+						<div style="color: rgba(255, 255, 255, 0.95)">
+							{!!$slider->tagline!!}
+						</div>
+					</div>
+					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+					</div>
+				@elseif($slider->position === "Bottom Left")
+					<div class="custom-banner mb-5" style="opacity: 1;
+							z-index: 111;
+							position: absolute;
+							display: flex;
+							flex-direction: column;
+							align-items: start;
+							justify-content: start;
+							bottom: 5vh;
+							left: 10vw;
+							right: 8vw;
+							"
+						>
+						<div style="color: rgba(255, 255, 255, 0.95)">
+							{!!$slider->tagline!!}
+						</div>
+					</div>
+					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+					</div>
+
+				@endif
+
+				
+			</div>
+			@endforeach
+
+{{-- 
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
 				<div class="style-banner-content slide-1">
@@ -56,7 +157,7 @@
 				</div>
 				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-4-v4.png')}}');">
 				</div>
-			</div>
+			</div> --}}
 			<div class="item min-vh-100 min-vh-md-100">
 				<video autoplay="" muted="" loop=""
 					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
@@ -261,26 +362,26 @@
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-recent-news row m-0 pb-5 px-lg-4" style="width: 100%;">
 					<div class="col-12 col-md-8">
 						<div class="style-content style-content-1 d-flex justify-content-start align-items-end"
-							style="background-image: url('{{ asset('/images/news/'.$news->data[0]->headline_img) }}');">
+							style="background-image: url('{{ asset('/images/news/'.$news[0]->headline_img) }}');">
 							<div class="style-content-text ms-5 mb-4">
-								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
-								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
+								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
+								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
 							</div>
 							<div
 								class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
-								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
-								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
+								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
+								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
 								<div class="style-description mt-2 mb-3" style="color:white">
-									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news->data[0]->content, 450)) !!}
+									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
 								</div>
-								<a href="{{url('detail-news', $news->data[0]->id)}}">
+								<a href="{{url('detail-news', $news[0]->id)}}">
 									<button class="btn style-btn">Read More -></button>
 								</a>
 							</div>
 						</div>
 
 						<div class="row">
-							@foreach (array_slice($news->data, 1,2) as $item)
+							@foreach (array_slice($news, 1,2) as $item)
 
 							<div class="col-md-6">
 								<div class="style-content mt-3 style-content-2 d-flex justify-content-start align-items-end"
@@ -294,7 +395,7 @@
 										<h3 class="style-title m-0">{{$item->headline}}</h3>
 										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
 										<div class="style-description mt-2 mb-3" style="color:white">
-											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 250)) !!}
+											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
 										</div>
 										<a href="{{url('detail-news', $item->id)}}">
 											<button class="btn style-btn">Read More -></button>
@@ -309,7 +410,7 @@
 
 					<div class="col-12 col-md-4 hide-mobile-width scroll-news-landing">
 
-						@foreach (array_slice($news->data, 3,7) as $item)
+						@foreach (array_slice($news, 3,7) as $item)
 
 						<div class="row pb-3">
 							<div class="col-md-6 img-small-news" style="background-image: url('{{ asset('images/news/'.$item->headline_img)}}');">

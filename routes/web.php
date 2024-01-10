@@ -62,7 +62,7 @@ Route::get('/news-page',[FrontendController::class, 'News']);
 Route::get('/detail-news/{id}', [FrontendController::class, 'DetailNews']);
 
 Route::get('/csr', [FrontendController::class, 'CSR']);
-
+Route::get('/detail-news/csr/{id}', [FrontendController::class, 'DetailCSR']);
 
 Route::get('/admin/login', function(){
     return view('admin/login');
@@ -114,6 +114,7 @@ Route::prefix('admin')->group(function () {
     Route::post('products/add', [AdminProductsController::class, 'add'])->name('admin.products.add');
     Route::get('products/edit/{id}', [AdminProductsController::class, 'edit'])->name('admin.products.edit');
     Route::post('product/image-view', [AdminProductsController::class, 'store'])->name('admin.products.image');
+    Route::post('product/upload360', [AdminProductsController::class, 'upload360'])->name('admin.products.upload360');
     // Route::post('products/upload-content', [CSRController::class, 'UploadContent'])->name("ckeditor.csr-content-upload");
     
     Route::get('bod', [AdminBODController::class, 'view'])->name('admin.bod');

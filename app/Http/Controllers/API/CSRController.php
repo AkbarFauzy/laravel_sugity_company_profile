@@ -13,7 +13,7 @@ use App\Models\CSR;
 class CSRController extends Controller
 {
     use ApiHelpers;
-    public function GetNews(){
+    public function GetCSR(){
         try {
             $csr = CSR::with('gallery')->get();
         }catch(\Exception $exception){  
@@ -22,7 +22,7 @@ class CSRController extends Controller
         return $this->onSuccess($csr, '');
     }
 
-    public function GetAllNews(){
+    public function GetAllCSR(){
         try {
             $csr = CSR::with('gallery')->get();
         }catch(\Exception $exception){  
@@ -31,7 +31,7 @@ class CSRController extends Controller
         return $this->onSuccess($csr, '');
     }
 
-    public function GetNewsById($id){
+    public function GetCSRById($id){
         try{
             $csr = CSR::with('gallery')->findOrFail($id);
         }catch(\Exception $exception){
@@ -40,7 +40,7 @@ class CSRController extends Controller
         return $this->onSuccess($csr, '');
     }
     
-    public function GetLatestNews(){
+    public function GetLatestCSR(){
         try {
             $csr = CSR::orderBy('created_at', 'DESC')->where('isPublish', true)->get();
         }catch(\Exception $exception){  
@@ -49,7 +49,7 @@ class CSRController extends Controller
         return $this->onSuccess($csr, '');
     }
 
-    public function AddNews(Request $req){
+    public function AddCSR(Request $req){
         try{         
             $req->validate([
                 'headline' => 'required',
@@ -72,7 +72,8 @@ class CSRController extends Controller
                 'headline' => $req->input('headline'),
                 'headline_img' => $fileName,
                 'content' => $req->input('content'),
-                'isPublish' => $req->input('isPublish')
+                'isPublish' => $req->input('isPublish'),
+                'created_at' => Carbon::parse($req->input('date'))
             ]);
      
             if ($files = $req->file('gallery')) {
@@ -99,7 +100,7 @@ class CSRController extends Controller
     }
 
 
-    public function UpdateNews(Request $req, $id){
+    public function UpdateCSR(Request $req, $id){
         try{
             $req->validate([
                 'headline' => 'required',
@@ -113,7 +114,7 @@ class CSRController extends Controller
             if($req->has('thumbnail')){
                 $file = $req->file('thumbnail');
                 $current_img_path = public_path('images/csr/'.$csr->headline_img);
-                if (file_exists($current_img_path)) {
+                if (is_file($current_img_path)) {
                     unlink($current_img_path);
                 }
 
@@ -129,7 +130,8 @@ class CSRController extends Controller
             $csr->update([
                 'headline' => $req->input('headline'),
                 'content' => $req->input('content'),
-                'isPublish' => $req->input('isPublish') 
+                'isPublish' => $req->input('isPublish'),
+                'created_at' => Carbon::parse($req->input('date'))
             ]);
 
             $newGalleryImages = $req->uploadedGallery;
@@ -175,7 +177,7 @@ class CSRController extends Controller
 
     }
 
-    public function TogglePublishNews($id){
+    public function TogglePublishCSR($id){
         try{
             $csr = CSR::findOrFail($id);
             if($csr->isPublish){
@@ -192,15 +194,15 @@ class CSRController extends Controller
         return $this->onSuccess($csr, 'Toggle CSR Success! CSR '.$message);
     }
 
-    public function DeleteNews($id){
+    public function DeleteCSR($id){
         try {
             DB::beginTransaction();
             $csr = CSR::findOrFail($id);
-            $current_img_path = asset('images/csr'.$csr->headline_img);
+            $current_img_path = asset('images/csr/'.$csr->headline_img);
 
             $galleryImages = $csr->gallery()->get();
             
-            if(file_exists($current_img_path)){
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             
@@ -236,7 +238,7 @@ class CSRController extends Controller
         }
     }
 
-    public function DeleteNewsGallery(){
+    public function DeleteCSRGallery(){
         return $this->onSuccess('', 'Delete CSR Success!');
     }
 }

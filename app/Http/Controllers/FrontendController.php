@@ -10,33 +10,23 @@ class FrontendController extends Controller
 {
     public function index(){
         $newsAPI = Http::get(env('API_DOMAIN').'/api/latest-news');
+        $csrAPI = Http::get(env('API_DOMAIN').'/api/latest-csr');
         $serviceAPI = Http::get(env('API_DOMAIN').'/api/services');
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Home');
 
         $newsData = json_decode($newsAPI->body());
+        $csrData = json_decode($csrAPI->body());
         $serviceData = json_decode($serviceAPI->body());
+        $slidersData = json_decode($slidersAPI->body());
+
+        $combinedData = collect($newsData->data)->merge($csrData->data);
+        $sortedData = $combinedData->sortByDesc('created_at')->values()->all();
 
         return view('landing-page')->with([
-           'news' => $newsData, 
+           'news' => $sortedData, 
            'services' => $serviceData,
+           'sliders' => $slidersData,
         ]);
-    }
-
-    public function DetailNews($id){
-        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/news/'.$id);
-        $newsAPI = Http::get(env('API_DOMAIN').'/api/news/');
-
-        $currentNewsData = json_decode($currentNewsAPI->body());
-        $newsData = json_decode($newsAPI->body());
-        
-
-        if($currentNewsData->success){     
-            return view('detail-news')->with([
-                'current_news' => $currentNewsData, 
-                'news' => $newsData
-            ]);
-        }else{
-            abort(404);
-        }
     }
 
     public function BoardOfDirectors(){
@@ -110,9 +100,11 @@ class FrontendController extends Controller
 
         $interiorExists = false;
         $exteriorExists = false;
+        $view360Exists = false;
 
         $interiors = [];
         $exteriors = [];
+        $view360 = [];
 
         foreach ($gallery as $image) {
             if ($image->type === 'interior') {
@@ -121,6 +113,9 @@ class FrontendController extends Controller
             } elseif ($image->type === 'exterior') {
                 $exteriorExists = true;
                 $exteriors[] = $image->img;
+            }elseif($image->type === '360'){
+                $view360Exists = true;
+                $view360[] = $image->img;
             }
         }
 
@@ -128,8 +123,10 @@ class FrontendController extends Controller
             'products' => $productsData,
             'isInterior' => $interiorExists,
             'isExterior' => $exteriorExists,
+            'is360' => $view360Exists,
             'interiors' => $interiors,
             'exteriors' => $exteriors,
+            'view360' => $view360,
         ]);
     }
 
@@ -146,12 +143,16 @@ class FrontendController extends Controller
         $exportVehiclesAPI = Http::get(env('API_DOMAIN').'/api/export-vehicles');
         $exportVehiclesData = json_decode($exportVehiclesAPI->body());
 
+        $otherVehiclesAPI = Http::get(env('API_DOMAIN').'/api/other-vehicles');
+        $otherVehiclesData = json_decode($otherVehiclesAPI->body());
+
         
         return view('product-vehicle-business')->with([
             'vehicles' => $vehiclesData,
             'publicTransport' => $publicTransportData,
             'healthcareVehicles' => $healthcareVehiclesData,
             'exportVehicles'=> $exportVehiclesData,
+            'otherVehicles'=> $otherVehiclesData,
         ]);
 
     }
@@ -185,12 +186,34 @@ class FrontendController extends Controller
     
     public function CSR(){
         $csrAPI = Http::get(env('API_DOMAIN').'/api/csr/');
+        
         $csrData = json_decode($csrAPI);
+        $randomCSR = $csrData->data;
+        shuffle($randomCSR);
 
         return view('csr')->with([
             'csr' => $csrData,
+            'randomCSR' => $randomCSR
         ]);
     }
+
+    public function DetailCSR($id){
+        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
+        $newsAPI = Http::get(env('API_DOMAIN').'/api/csr/');
+
+        $currentNewsData = json_decode($currentNewsAPI->body());
+        $newsData = json_decode($newsAPI->body());
+
+        if($currentNewsData->success){     
+            return view('detail-news')->with([
+                'current_news' => $currentNewsData, 
+                'news' => $newsData
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+
 
     public function News(){
         $newsAPI = Http::get(env('API_DOMAIN').'/api/latest-news');
@@ -203,5 +226,24 @@ class FrontendController extends Controller
            'randomNews' => $randomNews,
         ]);
     }
+
+    public function DetailNews($id){
+        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/news/'.$id);
+        $newsAPI = Http::get(env('API_DOMAIN').'/api/news/');
+
+        $currentNewsData = json_decode($currentNewsAPI->body());
+        $newsData = json_decode($newsAPI->body());
+        
+
+        if($currentNewsData->success){     
+            return view('detail-news')->with([
+                'current_news' => $currentNewsData, 
+                'news' => $newsData
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+
 
 }

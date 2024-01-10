@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\Sliders;
 
@@ -22,25 +23,46 @@ class SlidersController extends Controller
         return $this->onSuccess($slider, '');
     }
 
+    public function GetSlidersByPage($page){
+        try{
+            $slider = Sliders::where('page', $page)->get();
+        }catch(\Exception $exception){  
+            return $this->onError("Can't Fetch Sliders", $exception->getMessage());
+        } 
+        return $this->onSuccess($slider, '');
+    }
+
+    public function GetSlidersById($id){
+        try {
+            $slider = Sliders::findOrFail($id);
+        }catch(\Exception $exception){  
+            return $this->onError("Can't Fetch Sliders", $exception->getMessage());
+        } 
+        return $this->onSuccess($slider, '');
+    }
+
     public function AddSliders(Request $req){
         try{
             $req->validate([
-                'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5124',
             ]);
 
             if ($image = $req->file('img')) {
-                $destinationPath = 'images/sliders';
-                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
+                $originName = $req->file('img')->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $req->file('img')->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $req->file('img')->move(public_path('images/sliders/'), $fileName);
             }
 
             DB::beginTransaction();
             $slider = Sliders::create([
                 'tagline' => $req->input('tagline'),
-                'img' => $profileImage,
+                'img' => $fileName,
                 'page' => $req->input('page'),
-                'width' => $req->input('width'),
-                'height' => $req->input('height')
+                'position' => $req->input('position'),
+                'x_offset' => $req->input('x_offset'),
+                'y_offset' => $req->input('y_offset')
             ]);
             DB::commit();
         }catch(\Exception $exception){  
@@ -51,39 +73,41 @@ class SlidersController extends Controller
         return $this->onSuccess($slider, 'Add Sliders Success!');
     }
 
-    public function EditSliders(Reqeust $req, $id){
+    public function UpdateSliders(Request $req, $id){
         try{
             $req->validate([
-                'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'img' => '|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             DB::beginTransaction();
             $slider = Sliders::findOrFail($id);
 
-            if($req->has('img') && $req->file('img') != null){
+            if($req->has('img')){
                 $file = $req->file('img');
-                $image_name = $file->getClientOriginalName();
-            }else{
-                $image_name = $slider->img;
-            }
+                
+                $current_img_path = public_path('images/sliders/'.$slider->img);
+                if (is_file($current_img_path) && !empty($slider->img)) {
+                    unlink($current_img_path);
+                }
 
-            if($req->has('img') && $req->file('img') != null)
-                $current_img_path = public_path('images/sliders'.$slider->img);
+                $originName = $file->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+
+                $file->move(public_path('images/sliders/'), $fileName);
+
+                $slider->img = $fileName;
+            }
 
             $slider->update([
                 'tagline' => $req->input('tagline'),
-                'img' =>  $image_name,
                 'page' => $req->input('page'),
-                'width' => $req->input('width'),
-                'height' => $req->input('height')
+                'position' => $req->input('position'),
+                'x_offset' => $req->input('x_offset'),
+                'y_offset' => $req->input('y_offset')
             ]);
-
-            if($req->has('img') && $req->file('img') != null)
-              if(file_exists($current_img_path)){
-                unlink($current_img_path);
-              }
-            if($req->has('img') && $req->file('img') != null)
-                $file->move(public_path('images/sliders'), $image_name);
+            
             DB::commit();
 
         }
@@ -97,9 +121,9 @@ class SlidersController extends Controller
         try {
             DB::beginTransaction();
             $slider = Sliders::findOrFail($id);
-            $current_img_path = asset('images/sliders'.$slider->img);
+            $current_img_path = asset('images/sliders/'.$slider->img);
             $slider->delete();
-            if(file_exists($current_img_path)){
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             DB::commit();

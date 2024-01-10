@@ -61,6 +61,7 @@ $(function() {
         processing: true,
         serverSide: true,
         ajax: "{{route('admin.products')}}",
+        order: [[ 0, "desc" ]],
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },

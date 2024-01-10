@@ -13,9 +13,17 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
+<link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
+
 @endsection
 
+<!-- Loading overlay -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+</div>
+
 @section('content')
+
 <div class="col-12">
     <div class="card mb-4">
       <div class="card-header"><strong>News</strong><span class="small ms-1">Update a News</span></div>
@@ -25,14 +33,23 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="exampleFormControlInput1" class="form-label">Headline</label>
-                            <input name="headline" 
-                            type="text" 
-                            class="form-control" 
-                            id="exampleFormControlInput1" 
-                            placeholder="Lorem Ipsum"
-                            value=""
-                            >
-                        </div>
+                        <input name="headline" 
+                        type="text" 
+                        class="form-control" 
+                        id="exampleFormControlInput1" 
+                        placeholder="Lorem Ipsum"
+                        value=""
+                        >
+
+                        <label for="date" class="col-form-label">Posting Date</label>
+                          <div class="input-group date" id="datepicker">
+                            <div class="input-group date" id="datepicker">
+                                <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
+                                <span class="input-group-append">
+                                </span>
+                            </div>
+                          </div>  
+                    </div>
         
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -92,8 +109,6 @@
 
 <script>
    let editor;
-
-
     ClassicEditor
             .create( document.querySelector( '#editor' ), 
             {
@@ -110,8 +125,7 @@
                     console.error( error );
             });
 
-
- $("#thumbnail").fileinput({
+    $("#thumbnail").fileinput({
         uploadUrl: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
             return {
@@ -153,13 +167,12 @@
         initialPreviewAsData: true,
     });
 
-
-
     $('#form').submit(function(event) {
         event.preventDefault()
         
         var formData = new FormData($(this)[0]); // Get form data
-        
+        $('#loadingOverlay').show();
+
         $.ajax({
             url: '{{route("api.news.add")}}',
             type: 'POST',
@@ -167,6 +180,7 @@
             contentType: false,
             processData: false,
             success: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your news has been submitted successfully.',
@@ -182,6 +196,7 @@
                 });
             },
             error: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Failed!',
                     text: 'Your news has Failed to Submitted. ' + console.error(response["errormsg"]),
@@ -194,6 +209,7 @@
             }
         });
     });
+    
 
     $(document).ready(function() {
         $('#previewButton').on('click', function() {

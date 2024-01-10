@@ -86,7 +86,7 @@ class HistoryController extends Controller
             if($req->has('img')){
                 $file = $req->file('img');
                 $current_img_path = public_path('images/brief-history/'.$history->img);
-                if (file_exists($current_img_path)) {
+                if (is_file($current_img_path)) {
                     unlink($current_img_path);
                 }
 
@@ -121,7 +121,7 @@ class HistoryController extends Controller
             $history = History::findOrFail($id);
             $current_img_path = asset('images/brief-history/'.$history->img);
             $history->delete();
-            if(file_exists($current_img_path)){
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             DB::commit();

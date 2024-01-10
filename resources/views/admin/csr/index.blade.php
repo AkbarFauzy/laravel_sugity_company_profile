@@ -63,6 +63,7 @@ $(function() {
         processing: true,
         serverSide: true,
         ajax: "{{route('admin.csr')}}",
+        order: [[ 0, "desc" ]],
         columns: [
             { data: 'id', name: 'id' },
             { data: 'headline', name: 'headline' },
@@ -80,6 +81,7 @@ $(function() {
     });
 
     $(document).ready(function(){
+      
     }).on('click', '#btn-delete', function(e){
         let id = $(this).data('id');
         Swal.fire({
@@ -93,7 +95,7 @@ $(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url:"{{route('admin.csr.delete','')}}/"+id,
+              url:"{{route('api.csr.delete','')}}/"+id,
               headers:{
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },

@@ -12,7 +12,7 @@
 @section('content')
 <!-- Banner Slider
 		============================================= -->
-		<div class="owl-carousel owl-theme style-owl-banner-slider">
+		<div class="owl-carousel owl-theme style-owl-banner-slider" style="background-color: #000;">
 
             @foreach(array_slice($news->data, 0, 3) as $item)
             <div class="item min-vh-75 min-vh-md-75">
@@ -28,7 +28,7 @@
                         {!!$firstSentence!!}
                     </div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/news/'.$item->headline_img)}}');">
+				<div class="style-banner-image" style="background-image: url('{{asset('images/news/'.$item->headline_img)}}'); opacity: 0.5;">
 				</div>
 			</div>
             @endforeach
@@ -61,7 +61,7 @@
 								<h3 class="style-title m-0">{{$news->data[0]->headline}}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news->data[0]->created_at))}}</h3>
 								<div class="style-description mt-2 mb-3">
-                                    {!!  \Illuminate\Support\Str::limit($news->data[0]->content, 450) !!}
+                                    {!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news->data[0]->content, 350)) !!}
                                 </div>
                                 <a href="{{url('detail-news', $news->data[0]->id)}}">
 								    <button class="btn style-btn">Read More -></button>
@@ -83,7 +83,7 @@
 										<h3 class="style-title m-0">{{$item->headline}}</h3>
 										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
 										<div class="style-description mt-2 mb-3">
-                                            {!!  \Illuminate\Support\Str::limit($item->content, 200) !!}
+                                            {!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
                                         </div>
                                         <a href="{{url('detail-news', $item->id)}}">
                                             <button class="btn style-btn">Read More -></button>
@@ -108,7 +108,7 @@
                                     <h3 class="style-title m-0">Muara Gembong Mangrove Forest</h3>
                                     <p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
                                     <div class="style-description mt-2 mb-3">
-                                        {!!  \Illuminate\Support\Str::limit($item->content, 100) !!}
+                                        {!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
                                     </div>
                                     <a href="{{url('detail-news', $item->id)}}">
                                         <button class="btn style-btn">Read More -></button>

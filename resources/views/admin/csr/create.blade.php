@@ -32,8 +32,17 @@
                             placeholder="Lorem Ipsum"
                             value=""
                             >
+                        <label for="date" class="col-form-label">Posting Date</label>
+                        <div class="input-group date" id="datepicker">
+                            <div class="input-group date" id="datepicker">
+                                <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
+                                <span class="input-group-append">
+                                </span>
+                            </div>
+                        </div> 
+
                         </div>
-        
+
                     <div class="col-md-6">
                         <div class="mb-3">
                                 <label  for="name">Thumbnail</label>

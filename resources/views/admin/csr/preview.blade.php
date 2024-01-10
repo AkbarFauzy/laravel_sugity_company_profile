@@ -27,28 +27,28 @@
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-recent-news row m-0 pb-5 px-lg-4" style="width: 100%;">
 					<div class="col-12 col-md-9" style="overflow-y: scroll; max-height: 100%; height: 800px;">
                         <div class="container-big-img px-4 pb-3">
-                            <img src={{ asset('/images/news/'.$current_news->data->headline_img) }} alt="">
+                            <img src={{ asset('/images/csr/'.$current_csr->data->headline_img) }} alt="">
                         </div>
                         <div class="container-content-news px-4 pt-4">
                             <h2 class="title-detail-news m-0 pb-1" style="color: #000;">
-                                {{$current_news->data->headline}}
+                                {{$current_csr->data->headline}}
                             </h2>
                             <h5 class="date-detail-news pb-2">
-                                {{date('F j, Y', strtotime($current_news->data->created_at))}}
+                                {{date('F j, Y', strtotime($current_csr->data->created_at))}}
                             </h5>
                             <div class="desc-detail-news">
-                                {!! $current_news->data->content !!}
+                                {!! $current_csr->data->content !!}
                             </div>
                                   
-                            @if(count($current_news->data->gallery) > 0)
+                            @if(count($current_csr->data->gallery) > 0)
 
                                 <div class="image-slider-detail-news d-flex align-items-center flex-column justify-content-center pt-5">
                                     <div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll style="width: 60%;">
 
-                                        @foreach($current_news->data->gallery as $gallery)
+                                        @foreach($current_csr->data->gallery as $gallery)
 
                                         <div class="item min-vh-40 min-vh-md-40">
-                                            <div class="style-banner-image" style="background-image: url('{{asset('images/news/content/'.$gallery->img)}}');">
+                                            <div class="style-banner-image" style="background-image: url('{{asset('images/csr/content/'.$gallery->img)}}');">
                                             </div>
                                         </div>
 

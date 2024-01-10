@@ -61,7 +61,11 @@
 												@endif
 									
 												<br><br>
-												<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalMold">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<a style="color: black" class="text-left"
+													data-bs-toggle="modal" 
+													data-bs-target="#modalVehicle"
+													data-bs-id="{{$item->id}}"
+												>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 											</div>
 										</div>
 									</div>
@@ -111,7 +115,17 @@
 					</div>
 				</div>
 			</div> -->
-			
+			<!-- Modal Vehicle -->
+		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
+		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+			<div class="modal-content">
+				<div class="modal-body">
+					
+				</div>
+			</div>
+			</div>
+		</div>
 		</section><!-- #content end -->
 
 
@@ -119,6 +133,34 @@
 @section('custom_js')
 <script src="{{asset('js/custom/landing-page.js')}}"></script>
 <script>
+
+	$(document).ready(function () {
+	  $('#modalVehicle').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
+	
+		var modalBody = $(this).find('.modal-body');
+	
+		// Clear previous content
+		modalBody.empty().append('<p>Loading...</p>');
+	
+		$.ajax({
+		  url: "{{url('products')}}"+ "/"+ buttonId,
+		  method: 'GET',
+		  beforeSend: function () {
+			// Show loading or processing message if needed
+		  },
+		  success: function (data) {
+			// Handle successful response
+			modalBody.empty().html(data);
+		  },
+		  error: function () {
+			// Handle error
+			modalBody.empty().html('<p>Failed to fetch data. Please try again later.</p>');
+		  }
+		});
+	  });
+	});
 
 	setInterval(function () {
 		if ($('#pills-vehicle-tab').hasClass('active')) {

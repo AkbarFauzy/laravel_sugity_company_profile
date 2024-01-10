@@ -93,7 +93,7 @@ $(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url:"{{route('admin.sliders.delete','')}}/"+id,
+              url:"{{route('api.sliders.delete','')}}/"+id,
               headers:{
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
@@ -102,7 +102,7 @@ $(function() {
                 id:id
               },
               success: function(response){
-                if(JSON.parse(response)["success"]){
+                if(response["success"]){
                   Swal.fire(
                     'Deleted!',
                     'Your record has been deleted.',

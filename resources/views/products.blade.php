@@ -74,10 +74,13 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$item->name}}
 													<br><br>
-													<a style="color: black" class="text-left" data-bs-toggle="modal" 
-													data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>
-													Explore More <i class="fa-solid fa-chevron-right">></i>
-													</a>
+												
+													@if(!empty($item->left_content) || !empty($item->right_content) || !empty($gallery) )
+														<a style="color: black" class="text-left" data-bs-toggle="modal" 
+														data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>
+														Explore More <i class="fa-solid fa-chevron-right">></i>
+														</a>
+													@endif
 											</div>
 										</div>
 									</div>
@@ -122,7 +125,7 @@
 												<br><br>
 												<a style="color: black" class="text-left" href="#" 
 												data-bs-toggle="modal" 
-												data-bs-target="#modalPart"
+												data-bs-target="#modalVehicle"
 												data-bs-id={{$part->id}}
 												>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 											</div>
@@ -149,7 +152,7 @@
 													{{-- (1300Ton-3500Ton) --}}
 													<br><br>
 													<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal" data-bs-target="#modalMold" data-bs-id={{$part->id}}>Explore
+														data-bs-toggle="modal" data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>Explore
 														More <i class="fa-solid fa-chevron-right"></i>></a>
 												</h4>
 											</div>
@@ -419,7 +422,6 @@ $(document).ready(function () {
     var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
 
     var modalBody = $(this).find('.modal-body');
-
     // Clear previous content
     modalBody.empty().append('<p>Loading...</p>');
 
@@ -432,6 +434,7 @@ $(document).ready(function () {
       success: function (data) {
         // Handle successful response
         modalBody.empty().html(data);
+		initialize360View();
       },
       error: function () {
         // Handle error
@@ -440,44 +443,44 @@ $(document).ready(function () {
     });
   });
 });
-</script>
 
-<!-- 360 VIewer -->
-<script>
-	//	build scene
-	let loaded = 0;
-	let countImage = 43;
-	const content360 = document.querySelector('.style-content-360');
-	const viewer = document.querySelector('.viewer');
-	const images = [];
-	for (let i = 1; i <= countImage; ++i) {
-		const img = new Image();
-		img.src = `./asset/images/product/product-360/medical-mover/` + i + `.png`;
-		images.push(img);
-		viewer.appendChild(img);
-	}
 
-	//	rotation handler
-	//	http://chrisbateman.github.io/impetus/
-	//	https://github.com/chrisbateman/impetus
-	const threshold = 10;
-	const total = images.length - 1;
-	let frame = 38;
-	const impetus = new Impetus({
-		source: document,
-		update(x) {
-			// console.log(x)
-			images[frame].classList.remove('active')
-			frame = Math.floor(-x / threshold) % total;
-			frame = frame <= 0 ? total + frame : frame;
-			images[frame].classList.add('active');
-		}
-	});
-	images[frame].classList.add('active');
+function initialize360View() {
+  // Build scene for 360 view
+//   let loaded = 0;
+  let countImage = 43;
+  const content360 = $('.style-content-360');
+  const viewer = content360.find('.viewer');
+  const images = [];
+  const baseUrl = '{{ asset("images/product/product-360/medical-mover/") }}'+"/";
 
-	//	cursor
-	addEventListener('mousedown', e => content360.style.cursor = 'grabbing');
-	addEventListener('mouseup', e => content360.style.cursor = 'grab');
+  for (let i = 1; i <= countImage; ++i) {
+    const img = new Image();
+    img.src = baseUrl + i + '.png';
+    images.push(img);
+    viewer.append(img);
+  }
+
+  // Rotation handler
+  const threshold = 10;
+  const total = images.length - 1;
+  let frame = 38;
+  const impetus = new Impetus({
+    source: document,
+    update(x) {
+      images[frame].classList.remove('active');
+      frame = Math.floor(-x / threshold) % total;
+      frame = frame <= 0 ? total + frame : frame;
+      images[frame].classList.add('active');
+    }
+  });
+  images[frame].classList.add('active');
+
+  // Cursor
+  content360.on('mousedown', e => content360.css('cursor', 'grabbing'));
+  content360.on('mouseup', e => content360.css('cursor', 'grab'));
+}
+
 </script>
 
 @endsection

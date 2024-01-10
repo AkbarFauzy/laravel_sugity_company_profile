@@ -128,8 +128,45 @@ body {
 
 @media screen and (max-width: 800px) {}
 
-@media screen and (max-width: 1265px) and (min-width: 651px) {}
 
+
+
+.style-background-director-image {
+    width: 260px;
+    background: linear-gradient(#0F3985, #4767A4, #9BAED7);
+    border-radius: 50%;
+}
+
+.style-background-director-image img {
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 1265px) and (min-width: 501px) {
+    .style-background-director-image {
+        width: 220px;
+    }
+
+    .style-background-director-image img {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .style-background-director-image {
+        width: 200px;
+    }
+
+    .style-background-director-image img {
+        width: 200px;
+    }
+}
+
+.style-bg-dot {
+    position: relative;
+}
 
 .style-bg-dot .tab-content>div>div>div {
     z-index: 10;
@@ -138,11 +175,12 @@ body {
 .style-bg-dot::before {
     content: '';
     position: absolute;
-    left: -230px;
-    bottom: 50px;
-    height: 700px;
-    width: 100%;
+    left: 0;
+    bottom: 25px;
+    width: 25%;
+    height: 100%;
     z-index: 0;
+    background-size: contain;
     background-image: url('../../images/board-of-director/group-dots-orange.png');
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -151,12 +189,12 @@ body {
 .style-bg-dot::after {
     content: '';
     position: absolute;
-    right: -250px;
-    top: -100px;
-    height: 500px;
-    width: 100%;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
     z-index: 1;
+    background-size: contain;
     background-image: url('../../images/board-of-director/group-dots-green.png');
     background-repeat: no-repeat;
-    background-position: right center;
 }

@@ -12,34 +12,26 @@
 @section('content')
 	<!-- Banner Slider
 		============================================= -->
-		<div class="owl-carousel owl-theme style-owl-banner-slider">
+		<div class="owl-carousel owl-theme style-owl-banner-slider" style="background-color: #000;">
+			
+			@foreach(array_slice($csr->data, 0, 3) as $item)
 			<div class="item min-vh-75 min-vh-md-75">
 				<div class="style-banner-content">
-					<p class="style-date-slider">November 11, 2023</p>
-					<p class="style-title-slider">Planting 45,000 Mangrove Trees in Muara Gembong</p>
-					<p class="style-desc-slider">Continued planting mangrove trees in Kampung Beting, Pantai Bahagia Village, Muaragembong District</p>
+					<p class="style-date-slider">{{ date('F j, Y', strtotime($item->created_at))}}</p>
+					<p class="style-title-slider">{{$item->headline}}</p>
+                    @php
+                        $sentences = preg_split('/(?<=[.?!])\s+/', $item->content, -1, PREG_SPLIT_NO_EMPTY);
+                        $firstSentence = isset($sentences[0]) ? $sentences[0] : '';
+                    @endphp
+
+					<div class="style-desc-slider">
+                        {!!$firstSentence!!}
+                    </div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/csr/1.png')}}');">
-				</div>
-			</div>
-			<div class="item min-vh-75 min-vh-md-75">
-				<div class="style-banner-content">
-					<p class="style-date-slider">June 28, 2023</p>
-					<p class="style-title-slider">Handover of Qurban Animals to Jamiul Khoir Mosque, Rawajulang</p>
-					<p class="style-desc-slider">Submission of Sacrificial Animals to the Jamiul Khoir Rrawajulang Mosque by Sugity</p>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/csr/2.png')}}');">
+				<div class="style-banner-image" style="background-image: url('{{asset('images/csr/'.$item->headline_img)}}'); opacity: 0.5;">
 				</div>
 			</div>
-			<div class="item min-vh-75 min-vh-md-75">
-				<div class="style-banner-content">
-					<p class="style-date-slider">January 21, 2023</p>
-					<p class="style-title-slider">Ehon Literacy Space</p>
-					<p class="style-desc-slider">PT Sugity Creatives held an Early Childhood Literacy Space program</p>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/csr/3.png')}}');">
-				</div>
-			</div>
+            @endforeach
 		</div><!-- #Banner Slider end -->
 
 		<!-- Content
@@ -53,23 +45,26 @@
 				<div class="container">
 					<div id="carouselLatestEvent" class="carousel slide style-carousel">
 						<div data-aos="fade-in" data-aos-duration="1000" class="carousel-inner">
-							<div class="carousel-item active">
+							
+							@foreach(array_slice($csr->data, 0, 3) as $key => $item)
+							
+							<div class="carousel-item {{$key === 0 ? 'active' : ''}}">
 								<div class="row m-0 style-carousel-item">
 									<div class="col-md-6 p-4" style="z-index: 11;">
 										<div class="style-carousel-content">
-											<img class="img-fluid d-block d-md-none" src="{{asset('images/csr/event_1.jpg')}}"
+											<img class="img-fluid d-block d-md-none" src="{{asset('images/csr/'.$item->headline_img)}}"
 												alt="...">
 											<div class="p-4 p-md-0">
-												<h3 class="style-title pb-2 pe-xl-5 m-0">Planting 45,000 Mangrove Trees</h3>
-												<p class="style-subtitle pb-4 pe-xl-5 mb-2">Against the backdrop of the current global issue of increasing CO2 emissions and the local environmental concern of coastal abrasion in the Bekasi region, there is a need for tangible activities that can contribute to the environment, biodiversity, and the socio-economic well-being of the surrounding community. One such initiative is being undertaken by TAB Group Indonesia (SUGITY, TTEC, RPT), which involves the ongoing planting of mangrove trees in Kampung Beting, Desa Pantai Bahagia...</p>
-												<a href="#" class="style-button">Read More <i
+												<h3 class="style-title pb-2 pe-xl-5 m-0">{{$item->headline}}</h3>
+												<p class="style-subtitle pb-4 pe-xl-5 mb-2">{!!  strip_tags(\Illuminate\Support\Str::limit($item->content, 450)) !!}</p>
+												<a href="{{url('detail-news/csr', $item->id)}}" class="style-button">Read More <i
 														class="bi bi-chevron-right"></i></a>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-6 p-0">
 										<img class="style-carousel-image d-none d-md-block"
-											src="{{asset('images/csr/event_1.jpg')}}" alt="...">
+											src="{{asset('images/csr/'.$item->headline_img)}}" alt="...">
 										<div class="style-carousel-nav mx-auto mx-md-0">
 											<button class="carousel-control-prev" type="button"
 												data-bs-target="#carouselLatestEvent" data-bs-slide="prev">
@@ -83,66 +78,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="carousel-item">
-								<div class="row m-0 style-carousel-item">
-									<div class="col-md-6 p-4" style="z-index: 11;">
-										<div class="style-carousel-content">
-											<img class="img-fluid d-block d-md-none" src="{{asset('images/csr/event_2.jpg')}}"
-												alt="...">
-											<div class="p-4 p-md-0">
-												<h3 class="style-title pb-2 pe-xl-5 m-0">Handover of Qurban Animals</h3>
-												<p class="style-subtitle pb-4 pe-xl-5 mb-2">Every year, Sugity carries out its Corporate Social Responsibility (CSR) program in the religious domain, specifically in the form of animal sacrifice donations. This initiative serves as a manifestation of social responsibility towards the surrounding community, with benefits that can be felt by the local residents. This year, Sugity donated a total of 2 cows, distributed in the vicinity of Sugity's locations in Cibitung and Karawang. In his address, Mr. Suzuki, the President Director of Sugity, conveyed the following...</p>
-												<a href="#" class="style-button">Read More <i
-														class="bi bi-chevron-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-6 p-0">
-										<img class="style-carousel-image d-none d-md-block"
-											src="{{asset('images/csr/event_2.jpg')}}" alt="...">
-										<div class="style-carousel-nav mx-auto mx-md-0">
-											<button class="carousel-control-prev" type="button"
-												data-bs-target="#carouselLatestEvent" data-bs-slide="prev">
-												<i class="bi bi-arrow-left"></i>
-											</button>
-											<button class="carousel-control-next" type="button"
-												data-bs-target="#carouselLatestEvent" data-bs-slide="next">
-												<i class="bi bi-arrow-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="row m-0 style-carousel-item">
-									<div class="col-md-6 p-4" style="z-index: 11;">
-										<div class="style-carousel-content">
-											<img class="img-fluid d-block d-md-none" src="{{asset('images/csr/event_3.jpg')}}"
-												alt="...">
-											<div class="p-4 p-md-0">
-												<h3 class="style-title pb-2 pe-xl-5 m-0">Ehon Literacy Space</h3>
-												<p class="style-subtitle pb-4 pe-xl-5 mb-2">To foster a culture of reading interest among children, SUGITY collaborates with the COMMUNITY READING FORUM to organize drawing and storytelling competitions for children aged 4 to 7. The theme of the event is inspired by the picture books (EHON) created by Motoko Matsuda. Through this activity, it is hoped that the children of employees and the local community can develop a strong passion for reading from an early age...</p>
-												<a href="#" class="style-button">Read More <i
-														class="bi bi-chevron-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-6 p-0">
-										<img class="style-carousel-image d-none d-md-block"
-											src="{{asset('images/csr/event_3.jpg')}}" alt="...">
-										<div class="style-carousel-nav mx-auto mx-md-0">
-											<button class="carousel-control-prev" type="button"
-												data-bs-target="#carouselLatestEvent" data-bs-slide="prev">
-												<i class="bi bi-arrow-left"></i>
-											</button>
-											<button class="carousel-control-next" type="button"
-												data-bs-target="#carouselLatestEvent" data-bs-slide="next">
-												<i class="bi bi-arrow-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							@endforeach
+							
 						</div>
 					</div>
 				</div>

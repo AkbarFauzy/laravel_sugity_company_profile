@@ -14,7 +14,7 @@
 		============================================= -->
 		<section id="content" class="pt-5">
             <div class="container-button-back px-4 px-md-5 pt-5">
-                <a href="index.html" class="px-2 btn-back">
+                <a href="{{ url()->previous() }}" class="px-2 btn-back">
                     <img src="{{asset('icon/back.png')}}" height="22" alt=""> &nbsp;back
                 </a>
             </div>

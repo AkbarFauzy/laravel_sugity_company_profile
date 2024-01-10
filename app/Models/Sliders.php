@@ -14,8 +14,10 @@ class Sliders extends Model
         'page',
         'tagline',
         'img',
-        'width',
-        'height',
+        'page',
+        'position',
+        'x_offset',
+        'y_offset',
     ];
 
 }

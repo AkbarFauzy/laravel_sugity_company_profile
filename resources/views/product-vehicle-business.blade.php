@@ -150,16 +150,22 @@
 						<div class="tab-content clearfix" id="tabs-other">
 							<div class="style-section-product-overview">
 								<div class="row">
+									@foreach($otherVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-										<div class="style-content">
-											<img src="./asset/images/product-vehicle-business/other/2.png" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">Car Promotion
-													<br><br>
-													<a style="color: black" class="text-left" href="#" data-bs-toggle="modal" data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-											</div>
+									<div class="style-content">
+										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+										<div class="style-footer px-4 px-md-0">
+											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
+												<br><br>
+												<a style="color: black" class="text-left" href="#" 
+												data-bs-toggle="modal" 
+												data-bs-id="{{$vehicle->id}}"
+												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 										</div>
 									</div>
+									</div>
+									@endforeach
+
 								</div>
 							</div>
 						</div>

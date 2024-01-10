@@ -33,8 +33,16 @@
                             placeholder="Lorem Ipsum"
                             value="{{$data->headline}}"
                             >
+                        <label for="date" class="col-form-label">Posting Date</label>
+                        <div class="input-group date" id="datepicker">
+                            <div class="input-group date" id="datepicker">
+                                <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
+                                <span class="input-group-append">
+                                </span>
+                            </div>
+                        </div> 
+
                         </div>
-        
                     <div class="col-md-6">
                         <div class="mb-3">
                                 <label  for="name">Thumbnail</label>
@@ -214,6 +222,8 @@
             formData.append('uploadedGallery[]', url); // Adjust the key name as needed
         });
 
+        $('#loadingOverlay').show();
+
         $.ajax({
             url: '{{route("api.csr.update", $data->id)}}',
             type: 'POST',
@@ -221,6 +231,7 @@
             contentType: false,
             processData: false,
             success: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your csr has been updated successfully.',
@@ -236,6 +247,7 @@
                 });
             },
             error: function(xhr, status, error) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Failed!',
                     text: 'Your csr has Failed to Updated. ' + console.error(xhr.responseText),

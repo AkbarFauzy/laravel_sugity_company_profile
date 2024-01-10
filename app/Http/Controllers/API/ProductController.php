@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Library\ApiHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -20,6 +21,7 @@ class ProductController extends Controller
             $customCategoryOrder = [
                 'Public Transport', 
                 'Healthcare Vehicle', 
+                'Other',
                 'Export Vehicle', 
                 'Interior Part', 
                 'Exterior Part', 
@@ -94,6 +96,16 @@ class ProductController extends Controller
         return $this->onSuccess($vehicles, '');
     }
 
+    public function GetOtherVehicles(){
+        try{
+            $vehicles = Product::where('category', 'Other')->get();
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
+        }
+        return $this->onSuccess($vehicles, '');
+    }
+
+
     public function GetParts(){
         try{
             $categories = [
@@ -134,6 +146,18 @@ class ProductController extends Controller
         return $this->onSuccess($mold, '');
     }
 
+    public function Get360($id){
+        try{
+            $mold = Product::with('gallery')->whereHas('gallery', function ($query) {
+                $query->where('type', '360');
+            })
+            ->findOrFail($id);
+        }catch(\Exception $exception){
+            return $this->onError("Can't Fetch Mold", $exception->getMessage());
+        }
+        return $this->onSuccess($mold, '');
+    }
+
     public function AddProduct(Request $req){
         try{
             $req->validate([
@@ -149,7 +173,6 @@ class ProductController extends Controller
                 $extension = $req->file('img')->getClientOriginalExtension();
                 $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $req->file('img')->move(public_path('images/products/'), $fileName);
-                $url = asset('images/products/' . $fileName);
             }
 
             DB::beginTransaction();
@@ -167,9 +190,8 @@ class ProductController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                    $fileName = 'interior_'.Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                     $file->move(public_path('images/products/content/'), $fileName);
-                    $url = asset('images/products/content/' . $fileName);            
                     $product->gallery()->create([
                         'img' => $fileName,
                         'type' => "interior",
@@ -182,14 +204,45 @@ class ProductController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
-                    $file->move(public_path('images/products/content/'), $fileName);
-                    $url = asset('images/products/content/' . $fileName);            
+                    $fileName = 'exterior_'.Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                    $file->move(public_path('images/products/content/'), $fileName);   
                     $product->gallery()->create([
                         'img' => $fileName,
                         'type' => "exterior",
                     ]);
                 }
+            }
+
+            if ($req->input('360_path')) {
+                $files = File::allFiles($req->input('360_path'));
+                foreach($files as $file){
+                    if ($file->isFile() && $this->isImage($file)) {
+                        $fileName = $file->getFilename();
+                        $directoryPath = public_path('images/products/content/360/').$req->input('name').'/';
+                
+                        if (!File::exists($directoryPath)) {
+                            File::makeDirectory($directoryPath, 0777, true);
+                        }
+                        $destinationPath = $directoryPath . $fileName;
+                        File::move($file->getPathname(), $destinationPath);
+
+                        $product->gallery()->create([
+                            'img' => $fileName,
+                            'type' => "360",
+                        ]);
+
+                    }
+                }
+
+                $tempExtractPath = $req->input('360_path');
+                $files = glob( $tempExtractPath . '*');
+                foreach ($files as $file) {
+                    if (is_file($file)) {
+                        unlink($file);
+                    }
+                }
+                // Remove the temporary directory itself
+                rmdir($tempExtractPath);
             }
 
             DB::commit();
@@ -209,7 +262,7 @@ class ProductController extends Controller
                 'interior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'exterior.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-
+            
             DB::beginTransaction();
             $product = Product::findOrFail($id);
 
@@ -231,20 +284,13 @@ class ProductController extends Controller
                 $product->img = $fileName;
             }
             
-            $product->update([
-                'name' => $req->input('name'),
-                'category' => $req->input('category'),
-                'left_content' => $req->input('left_content'),
-                'right_content' => $req->input('right_content')
-            ]);
-            
             $newGalleryImages = $req->uploadedGallery;
             if ($req->hasFile('interior')) {
                 foreach ($req->file('interior') as $file) {
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = $fileName . '_' . time() . '.' . $extension;
+                    $fileName = 'interior_'.$fileName . '_' . time() . '.' . $extension;
                     
                     $file->move(public_path('images/products/content/'), $fileName);
                     $newGalleryImages[] = $fileName;
@@ -261,11 +307,10 @@ class ProductController extends Controller
                     $originName = $file->getClientOriginalName();
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
-                    $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                    $fileName = 'exterior_'.Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
 
                     $file->move(public_path('images/products/content/'), $fileName);
                     $newGalleryImages[] = $fileName;
-
                     $product->gallery()->create([
                         'img' => $fileName,
                         'type' => 'exterior'
@@ -273,7 +318,8 @@ class ProductController extends Controller
                 }    
             }
 
-            $existingGallery = $product->gallery()->pluck('img')->toArray();
+            $existingGallery = $product->gallery()->where('type', "!=" ,"360")->pluck('img')->toArray();
+
             if($newGalleryImages && $existingGallery){
                 
                 $imagesToDelete = array_diff($existingGallery, $newGalleryImages);
@@ -287,6 +333,57 @@ class ProductController extends Controller
                     $product->gallery()->where('img', $image)->delete();
                 }
             }
+
+            if (!empty($req->input('360_path'))) {
+                $product->gallery()->where('type', "360")->delete();
+                $files = glob( public_path('images/products/content/360/').$product->name.'/' . '*');
+                foreach ($files as $file) {
+                    if (is_file($file)) {
+                        unlink($file);
+                    }
+                }
+
+                rmdir(public_path('images/products/content/360/').$product->name);
+                $files = File::allFiles($req->input('360_path'));
+
+                foreach($files as $file){
+                    if ($file->isFile() && $this->isImage($file)) {
+                        $fileName = $file->getFilename();
+                        $directoryPath = public_path('images/products/content/360/').$req->input('name').'/';
+                        
+                        if (!File::exists($directoryPath)) {
+                            File::makeDirectory($directoryPath, 0777, true);
+                        }
+                        $destinationPath = $directoryPath . $fileName;
+                        File::move($file->getPathname(), $destinationPath);
+                        
+                        $product->gallery()->create([
+                            'img' => $fileName,
+                            'type' => "360",
+                        ]);
+                        
+                    }
+                }
+                
+                $tempExtractPath = $req->input('360_path');
+                $files = glob( $tempExtractPath . '*');
+                foreach ($files as $file) {
+                    if (is_file($file)) {
+                        unlink($file);
+                    }
+                }
+                rmdir($tempExtractPath);
+            
+            }else{
+                rename(public_path('images/products/content/360/').$product->name.'/', public_path('images/products/content/360/').$req->input('name').'/');
+            }
+
+            $product->update([
+                'name' => $req->input('name'),
+                'category' => $req->input('category'),
+                'left_content' => $req->input('left_content'),
+                'right_content' => $req->input('right_content')
+            ]);
             
             DB::commit();
         }catch(\Exception $exception){
@@ -311,8 +408,11 @@ class ProductController extends Controller
             }
             
             foreach ($galleryImages as $image) {
-                $imagePath = public_path('images/products/content/' . $image);
-                
+                if($image->type === "360"){
+                    $imagePath = public_path('images/products/content/360/'.$product->name."/". $image->img);
+                }else{
+                   $imagePath = public_path('images/products/content/' . $image->img);
+                }
                 if (file_exists($imagePath)) {
                     unlink($imagePath);
                 }
@@ -325,6 +425,15 @@ class ProductController extends Controller
             return $this->onError("Can't Delete Product", $exception->getMessage());
         }
         return $this->onSuccess([],'');
+        
+    }
+
+    private function isImage($file)
+    {
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp']; // Add more if needed
+        $fileExtension = $file->getExtension();
+
+        return in_array(strtolower($fileExtension), $allowedExtensions);
     }
 
 }

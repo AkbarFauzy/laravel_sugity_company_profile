@@ -9,7 +9,7 @@
 
 <div class="d-flex justify-content-center">
     <ul class="nav style-nav-modal-vehicle pt-1 pb-1" id="modalVehicleTab" role="tablist">
-        @if($products->data->name === "Gran Max Jaklingko")
+        @if($is360)
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="modaVehicle360Tab" data-bs-toggle="pill"
                 data-bs-target="#modaVehicle360" type="button" role="tab"
@@ -19,7 +19,7 @@
 
         @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="modaVehicleInteriorTab" data-bs-toggle="pill"
+                <button class="nav-link {{$is360 ? '' : 'active'}}" id="modaVehicleInteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleInterior" type="button" role="tab"
                     aria-controls="modaVehicleInterior" aria-selected="false">Interior</button>
             </li>
@@ -38,7 +38,7 @@
 
 <div class="tab-content" id="modalVehicleTabContent">
 
-    @if($products->data->name === "Gran Max Jaklingko")
+    @if($is360)
         <div class="tab-pane fade show active" id="modaVehicle360" role="tabpanel"
             aria-labelledby="modaVehicle360Tab" tabindex="0">
             <div class="container" align="center">
@@ -49,46 +49,11 @@
                 </div>
             </div>
         </div>
-    @else
-    <div class="container pt-3 pb-5" align="center">
-        <div class="col-lg-7">
-            <div id="carouselModalVehicleInterior"
-                class="carousel carousel-dark style-carousel-modal style-carousel-modal-part slide">
-                
-                
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{asset('images/products/'.$products->data->img)}}"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    
-                    @foreach($interiors as $key => $interior)
-                        <div class="carousel-item">
-                            <img src="{{asset('images/products/content/'.$interior)}}"
-                                class="d-block w-100" alt="...">
-                        </div>
-                    @endforeach
-                </div>
 
-
-                <button class="carousel-control-prev" type="button"
-                    data-bs-target="#carouselModalVehicleInterior" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button"
-                    data-bs-target="#carouselModalVehicleInterior" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
     @endif
 
-
     @if($isInterior)
-    <div class="tab-pane fade" id="modaVehicleInterior" role="tabpanel"
+    <div class="tab-pane fade {{$is360 ? '' : 'show active'}}" id="modaVehicleInterior" role="tabpanel"
         aria-labelledby="modaVehicleInteriorTab" tabindex="0">
         <div class="container pt-3 pb-5" align="center">
             <div class="col-lg-8 px-3">
@@ -126,9 +91,7 @@
 
     @endif
 
-
     @if($isExterior)
-
     <div class="tab-pane fade" id="modaVehicleExterior" role="tabpanel"
         aria-labelledby="modaVehicleExteriorTab" tabindex="0">
         <div class="container pt-3 pb-5" align="center">
@@ -227,3 +190,42 @@
     </div>
 </div>
 @endif
+<!-- 360 VIewer -->
+<script>
+	//	build scene
+	let loaded = 0;
+	let countImage = 43;
+	const content360 = document.querySelector('.style-content-360');
+	const viewer = document.querySelector('.viewer');
+	const images = @json($view360);
+    alert('incoming');
+    console.log(images);
+	images.forEach(function(url, index){
+        const img = new Image();
+		img.src = '{{ asset("images/products/content/360/".$products->data->name) }}'+ '/' + url;
+        console.log(img.src);
+		images.push(img);
+		viewer.appendChild(img);
+    });
+	//	rotation handler
+	//	http://chrisbateman.github.io/impetus/
+	//	https://github.com/chrisbateman/impetus
+	const threshold = 10;
+	const total = images.length - 1;
+	let frame = 38;
+	const impetus = new Impetus({
+		source: document,
+		update(x) {
+			// console.log(x)
+			images[frame].classList.remove('active')
+			frame = Math.floor(-x / threshold) % total;
+			frame = frame <= 0 ? total + frame : frame;
+			images[frame].classList.add('active');
+		}
+	});
+	images[frame].classList.add('active');
+
+	//	cursor
+	addEventListener('mousedown', e => content360.style.cursor = 'grabbing');
+	addEventListener('mouseup', e => content360.style.cursor = 'grab');
+</script>

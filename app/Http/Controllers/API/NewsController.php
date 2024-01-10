@@ -7,6 +7,7 @@ use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+Use Carbon\Carbon;
 
 use App\Models\News;
 use App\Models\NewsContentGallery;
@@ -72,7 +73,8 @@ class NewsController extends Controller
                 'headline' => $req->input('headline'),
                 'headline_img' => $fileName,
                 'content' => $req->input('content'),
-                'isPublish' => $req->input('isPublish')
+                'isPublish' => $req->input('isPublish'),
+                'created_at' => Carbon::parse($req->input('date'))
             ]);
      
             if ($files = $req->file('gallery')) {
@@ -100,6 +102,8 @@ class NewsController extends Controller
 
     public function UpdateNews(Request $req, $id){
         try{
+      
+
             $req->validate([
                 'headline' => 'required',
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -112,7 +116,7 @@ class NewsController extends Controller
             if($req->has('thumbnail')){
                 $file = $req->file('thumbnail');
                 $current_img_path = public_path('images/news/'.$news->headline_img);
-                if (file_exists($current_img_path)) {
+                if (is_file($current_img_path)) {
                     unlink($current_img_path);
                 }
 
@@ -128,7 +132,8 @@ class NewsController extends Controller
             $news->update([
                 'headline' => $req->input('headline'),
                 'content' => $req->input('content'),
-                'isPublish' => $req->input('isPublish') 
+                'isPublish' => $req->input('isPublish'),
+                'created_at' => Carbon::parse($req->input('date'))
             ]);
 
             $newGalleryImages = $req->uploadedGallery;
@@ -195,11 +200,11 @@ class NewsController extends Controller
         try {
             DB::beginTransaction();
             $news = News::findOrFail($id);
-            $current_img_path = asset('images/news'.$news->headline_img);
+            $current_img_path = asset('images/news/'.$news->headline_img);
 
             $galleryImages = $news->gallery()->get();
             
-            if(file_exists($current_img_path)){
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             

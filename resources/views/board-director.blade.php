@@ -32,10 +32,10 @@
 			</div> -->
 		<!-- Content
 		============================================= -->
-		<section id="content" class="p-3 p-md-0">
+		<section id="content" class="p-0" style="position: relative;">
 			<!-- our board of director section -->
-			<div class="container pb-5 style-bg-dot">
-				<div class="services-section my-5 pt-md-5">
+			<div class="container-fluid py-5 style-bg-dot">
+				<div class="services-section mb-5 pt-md-5 mx-5 px-5">
 					<div data-aos="fade-in" data-aos-duration="1000" class="mb-5">
 						<h1 class="bod-title-text">Board of Directors</h1>
 					</div>
@@ -85,37 +85,43 @@
 					</div> -->
 					<!-- commisioner part -->
 					<div class="tab-pane fade show active w-100 text-center" id="pills-parts" role="tabpanel" aria-labelledby="pills-parts-tab" tabindex="0">
-						<div class="row mt-md-5 pt-5">
-							
+						<div class="row mt-md-5 pt-5 pb-4">					
 							<div data-aos="fade-in" data-aos-duration="1000" class="col-12 d-flex justify-content-center">
-								<div class="px-3 px-md-0">
+
+								<div class="px-3 px-md-0" align="center">
+									<div class="style-background-director-image">
 									<img class="director-image" src="{{asset('images/bod/'.$president_directors->data[0]->img)}}"
 										width="280" alt="">
-									<h3 class="mb-2 mt-3 director-title">{{$president_directors->data[0]->position}}</h3>
-									<h3 class="mb-2 director-name">{{$president_directors->data[0]->name}}</h3>
-									<h4 class="director-corp">{{$president_directors->data[0]->affiliation}}</h4>
+									</div>
+									<h3 class="mb-2 mt-3 director-title">{{strtoupper($president_directors->data[0]->position)}}</h3>
+									<h3 class="mb-2 director-name">{{strtoupper($president_directors->data[0]->name)}}</h3>
+									<h4 class="director-corp">{{strtoupper($president_directors->data[0]->affiliation)}}</h4>
 								</div>
 							</div>
 
 							<div data-aos="fade-in" data-aos-duration="1000" class="col-12 d-flex justify-content-center">
-								<div class="px-3 px-md-0">
+								<div class="px-3 px-md-0" align="center">
+									<div class="style-background-director-image">
 									<img class="director-image" src="{{asset('images/bod/'.$vice_president->data[0]->img)}}"
 										width="280" alt="">
-									<h3 class="mb-2 mt-3 director-title">{{$vice_president->data[0]->position}}</h3>
-									<h3 class="director-name">{{$vice_president->data[0]->name}}</h3>
+									</div>
+									<h3 class="mb-2 mt-3 director-title">{{strtoupper($vice_president->data[0]->position)}}</h3>
+									<h3 class="director-name">{{strtoupper($vice_president->data[0]->name)}}</h3>
 								</div>
 							</div>
 						</div>
 
-						<div data-aos="fade-in" data-aos-duration="1000" class="row">
+						<div data-aos="fade-in" data-aos-duration="1000" class="row mx-lg-5">
 							@foreach($directors->data as $director)
-							<div class="col-6 col-md-3 d-flex">
-								<div class="px-3 px-md-1">
+							<div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+								<div class="px-3 px-md-0"  align="center">
+									<div class="style-background-director-image">
 									<img class="director-image" src="{{asset('images/bod/'.$director->img)}}"
 										width="300" alt="">
-									<h3 class="mb-2 mt-3 director-title">{{$director->position}}</h3>
-									<h3 class="mb-2 director-name">{{$director->name}}</h3>
-									<h4 class="director-corp">{{$director->affiliation}}</h4>
+									</div>
+									<h3 class="mb-2 mt-3 director-title">{{strtoupper($director->position)}}</h3>
+									<h3 class="mb-2 director-name">{{strtoupper($director->name)}}</h3>
+									<h4 class="director-corp">{{strtoupper($director->affiliation)}}</h4>
 								</div>
 							</div>	
 							@endforeach
@@ -140,15 +146,15 @@
 							alt="">
 					</div>
 					<div data-aos="fade-left" data-aos-duration="1000" class="col-12 col-md-8 pt-xl-5 ps-md-5">
-						<div class="mb-2 mb-md-5 pt-4 pt-md-0">
+						<div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
 							<img src="{{asset('images/board-of-director/dot-blue.png')}}" alt="">
 							<span class="ps-2 desc-shareholder">Toyota Auto Body .CO, LTD (TAB)</span>
 						</div>
-						<div class="mb-2 my-md-5">
+						<div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
 							<img src="{{asset('images/board-of-director/dot-red.png')}}" alt="">
 							<span class="ps-2 desc-shareholder">PT. Toyota Motor Manufacturing Indonesia (TMMIN)</span>
 						</div>
-						<div class="">
+						<div class="wrap-shareholders">
 							<img src="{{asset('images/board-of-director/dot-orange.png')}}" alt="">
 							<span class="ps-2 desc-shareholder">Toyota Tsusho Corporation (TTC)</span>
 						</div>

@@ -14,12 +14,12 @@ class AdminCSRController extends Controller
         // $this->onUnauthorized();
 
         if($request->ajax()){
-          $URL = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/csr');
+          $URL = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/csr/get-all');
           $data = json_decode($URL->body())->data;
           return Datatables::of($data)
                   ->addIndexColumn()
                   ->addColumn('headline_img', function($img){
-                        return "<img src=".asset("images/csr/".$img->headline_img).">";
+                        return "<img src=".asset("images/csr/".$img->headline_img)." style='max-width: 200px;'>";
                   })->addColumn('isPublish', function($isPublish){
                         return  '<div class="form-check form-switch d-flex justify-content-center">
                         <input class="form-check-input" id="publish-switch" data-id='.$isPublish->id.' type="checkbox"'.($isPublish->isPublish ? 'checked': '').'> 
@@ -27,7 +27,12 @@ class AdminCSRController extends Controller
                   })->addColumn('action', function($row){
                     // $btn = '<a class="edit btn btn-primary btn-md" id="btn-view" data-id='.$row->id.' style="margin-right:10px">View</a>';
                     // $btn .='<a class="edit btn btn-warning btn-md" id="btn-update" data-id='.$row->id.' style="margin-right:10px">Update</a>';
-                    $btn ="<a class='edit btn btn-warning btn-md text-white' 
+                    $btn = "<a class='view btn btn-secondary btn-md text-white' 
+                            id='btn-view' data-id='$row->id' 
+                            style='margin-right:10px' target='_blank' rel='noopener noreferrer' href=".route('admin.csr.preview', ['id' => $row->id ]).">
+                            Preview
+                            </a>";
+                    $btn .= "<a class='edit btn btn-warning btn-md text-white' 
                             id='btn-update' data-id='$row->id' 
                             style='margin-right:10px' href=".route('admin.csr.edit', ['id' => $row->id ]).">
                             Update
@@ -45,6 +50,7 @@ class AdminCSRController extends Controller
         return view('admin/csr/index');
     }
     
+    
     public function create(){
         return view('admin/csr/create');
     }
@@ -58,7 +64,7 @@ class AdminCSRController extends Controller
         $imageUrls = [];
         if (!empty($data->gallery)){
             foreach($data->gallery as $gallery){
-                array_push($imageUrls, public_path('images/csr/content'), $gallery->img);
+                array_push($imageUrls, asset('/images/csr/content/'. $gallery->img));
             }
         }
 
@@ -103,12 +109,12 @@ class AdminCSRController extends Controller
     }
 
     public function preview($id){
-        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
-        $currentNewsData = json_decode($currentNewsAPI->body());
+        $currentCSRAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
+        $currentCSRData = json_decode($currentCSRAPI->body());
         
-        if($currentNewsData->success){     
+        if($currentCSRData->success){     
             return view('admin/csr/preview')->with([
-                'current_news' => $currentNewsData, 
+                'current_csr' => $currentCSRData, 
             ]);
         }else{
             abort(404);

@@ -14,7 +14,8 @@ class CSR extends Model
         'headline',
         'headline_img',
         'content',
-        'isPublish'
+        'isPublish',
+        'created_at'
     ];
 
     public function gallery()

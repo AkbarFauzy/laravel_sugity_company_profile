@@ -18,54 +18,77 @@
 @section('content')
 <div class="col-12">
     <div class="card mb-4">
-      <div class="card-header"><strong>News</strong><span class="small ms-1">Create a News</span></div>
+      <div class="card-header"><strong>Sliders</strong><span class="small ms-1">Create a Sliders</span></div>
          <div class="card-body">
-            <form method="PUT" runat="server" enctype="multipart/form-data">
+            <form method="POST" id="form" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Headline</label>
-                    <input name="headline" 
-                    type="text" 
-                    class="form-control" 
-                    id="exampleFormControlInput1" 
-                    placeholder="Lorem Ipsum"
-                    value="{{$data->headline}}"
-                    >
-                </div>
-                <div class="mb-3">
-                    <div class="row"> 
-                        <label  for="name">Thumbnail</label>
-                        <div class="file-loading" style="height: 100%">
-                            <input id="thumbnail" type="file" name="thumbnail" class="file" data-overwrite-initial="true">
+                @method('PUT')
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Tagline</label>
+                            <textarea class="form-control" id="editor" rows="3" name="tagline">
+                                {{$data->tagline}}
+                            </textarea>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                    <textarea 
-                    class="form-control" 
-                    id="editor" 
-                    rows="3" 
-                    name="content"
-                    >
-                    {{$data->content}}
 
-                    </textarea>
-                </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label  for="name">Image</label>
+                                <div class="file-loading" style="height: 100%">
+                                    <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="floatingInput">Pages</label>
+                                <select name="page" id="page" class="form-control">
+                                  <option value="Home" {{$data->page === "Home" ? 'selected' : ''}}>Home</option>
+                                  <option value="Products" {{$data->page === "Products" ? 'selected' : ''}}>Products</option>
+                                  <option value="Vehicle Business" {{$data->page === "Vehicle Business" ? 'selected' : ''}}>Vehicle Business</option>
+                                  <option value="Part Business" {{$data->page === "Part Business" ? 'selected' : ''}}>Part Business</option>
+                                  <option value="Mold Business" {{$data->page === "Mold Business" ? 'selected' : ''}}>Mold Business</option>
+                                </select>
+                            </div>
 
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Gallery</label>
-                    <div class="file-loading" style="height: 100%">
-                        <input id="file-1" type="file" name="file[]" multiple class="file" data-overwrite-initial="true">
+                            <div class="mb-3 col-md-6">
+                                <label for="floatingInput">Position</label>
+                                <select name="position" id="position" class="form-control">
+                                  <option value="Center" {{$data->position === "Center" ? 'selected' : ''}}>Center</option>
+                                  <option value="Top Left" {{$data->position === "Top Left" ? 'selected' : ''}}>Top Left</option>
+                                  <option value="Middle Left" {{$data->position === "Middle Left" ? 'selected' : ''}}>Middle Left</option>
+                                  <option value="Bottom Left" {{$data->position === "Bottom Left" ? 'selected' : ''}}>Bottom Left</option>
+                                  <option value="Top Right" {{$data->position === "Top Right" ? 'selected' : ''}}>Top Right</option>
+                                  <option value="Middle Right" {{$data->position === "Middle Right" ? 'selected' : ''}}>Middle Right</option>
+                                  <option value="Bottom Right" {{$data->position === "Bottom Right" ? 'selected' : ''}}>Bottom Right</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <div>
+                                    <label for="floatingInput">X-Offset</label>
+                                    <input type="number" class="form-control" name="x-offset" id="x-offset" placeholder="X-Offset" value={{$data->x_offset}}>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <div>
+                                    <label for="floatingInput">Y-Offset</label>
+                                    <input type="number" class="form-control" name="y-offset" id="y-offset" placeholder="Y-Offset" value{{$data->y_offset}}>
+                                </div> 
+                            </div>
+                        </div>
+              
+
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-end">
-                    <select class="border-2 border-gray-300 border-r p-2" name="action">
-                        <option {{$data->isPublish ? 'selected=selected' :''}}>Save and Publish</option>
-                        <option {{!$data->isPublish ? 'selected=selected' :''}}>Save Draft</option>
-                    </select>
-                    <button class="p-2 btn-warning text-white" required="">Preview</button>
+                    {{-- <select class="border-2 border-gray-300 border-r p-2" name="isPublish">
+                        <option value="1">Save and Publish</option>
+                        <option value="0">Save Draft</option>
+                    </select> --}}
+                    {{-- <button class="p-2 btn-warning text-white" required="">Preview</button> --}}
                     <button role="submit" class="p-2 btn-primary text-white" required="">Submit</button>
                 </div>
             </form>
@@ -78,7 +101,7 @@
 @endsection
 
 @section('custom_js')
-<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+<script src="{{asset('js/ckeditor.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/plugins/buffer.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/plugins/filetype.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/plugins/piexif.min.js" type="text/javascript"></script>
@@ -86,90 +109,109 @@
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/fileinput.min.js"></script>
 
 <script>
-      ClassicEditor
+    ClassicEditor
             .create( document.querySelector( '#editor' ), 
-            {
-                ckfinder:{
-                    uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
+            { fontSize: {
+                    options: [
+                        8,
+                        12,
+                        14,
+                        'default',
+                        18,
+                        21,
+                        24,
+                        32,
+                        48,
+                        56,
+                    ]
+                },
+                toolbar: {
+                    items: [
+                        'undo', 'redo',
+                        '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                        '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
+                        '|', 'link', 'uploadImage', 'blockQuote', 'codeBlock',
+                        '|', 'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
+                    ],
+                    shouldNotGroupWhenFull: false
                 }
             })
             .then( editor => {
+                console.log( Array.from( editor.ui.componentFactory.names() ) );
                 console.log( editor );
             } )
             .catch( error => {
                     console.error( error );
             });
-
-        $("#thumbnail").fileinput({
-            uploadExtraData: function() {
-                return {
-                    _token: $("input[name='_token']").val(),
-                };
-            },
-            allowedFileExtensions: ['jpg', 'png', 'gif'],
-            overwriteInitial: true,
-            initialPreview: ['{{asset("images/news/$data->headline_img")}}'],
-            initialPreviewAsData: true,
-            initialPreviewFileType: 'image',
-            initialPreviewConfig: initialPreviewConfig,
-            maxFileSize:2000,
-            maxFilesNum: 1,
-            minFilesNum: 1,
-            slugCallback: function (filename) {
-                return filename.replace('(', '_').replace(']', '_');
-            },
-            fileActionSettings: {
-                    showDrag: true,
-                    showZoom: true,
-                    showUpload: false,
-                    showRemove: true,
-                },
-            browseOnZoneClick: true,
-        });
-
-    var imageUrls = @json($imageUrls); // PHP array to JavaScript array
-
-    var initialPreview = [];
-    var initialPreviewConfig = [];
-    imageUrls.forEach(function(url, index) {
-        initialPreview.push(url);
-        var config = {
-            caption: "Image " + (index + 1),
-            url: "/delete-image", // Replace with delete route
-            key: index + 1
-        };
-        initialPreviewConfig.push(config);
-    });
-
-    
-    $("#file-1").fileinput({
+</script>
+<script>
+    $("#img").fileinput({
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
             };
         },
         allowedFileExtensions: ['jpg', 'png', 'gif'],
-        overwriteInitial: false,
+        overwriteInitial: true,
+        initialPreview: ['{{asset("images/sliders/$data->img")}}'],
+        initialPreviewAsData: true,
+        initialPreviewFileType: 'image',
         maxFileSize:2000,
-        maxFilesNum: 10,
-        minFilesNum: 0,
+        maxFilesNum: 1,
+        minFilesNum: 1,
         slugCallback: function (filename) {
             return filename.replace('(', '_').replace(']', '_');
         },
         fileActionSettings: {
-                showDrag: true,
+                showDrag: false,
                 showZoom: true,
                 showUpload: false,
-                showRemove: true,
+                showRemove: false,
             },
         browseOnZoneClick: true,
-        overwriteInitial: false,
-        initialPreview: initialPreview,
-        initialPreviewAsData: true,
-        initialPreviewFileType: 'image',
-        initialPreviewConfig: initialPreviewConfig,
-        
+        initialPreviewShowDelete: 0,
     });
-    
+
+    $('#form').submit(function(event) {
+        event.preventDefault()
+        
+        var formData = new FormData($(this)[0]); // Get form data
+        
+        $.ajax({
+            url: '{{route("api.sliders.update", $data->id)}}',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your sliders has been submitted successfully.',
+                    icon: 'success',
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '{{route("admin.sliders")}}';
+                    }
+                });
+            },
+            error: function(response) {
+                Swal.fire({
+                    title: 'Failed!',
+                    text: 'Your products has Failed to Submitted. ' + response["errormsg"],
+                    icon: 'error',
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+
 </script>
+
 @endsection

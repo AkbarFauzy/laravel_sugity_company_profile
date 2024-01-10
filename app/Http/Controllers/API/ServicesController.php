@@ -58,7 +58,7 @@ class ServicesController extends Controller
         return $this->onSuccess($services, 'Add Services Success!');
     }
 
-    public function EditServices(Reqeust $req, $id){
+    public function UpdateServices(Request $req, $id){
         try{
             $req->validate([
                 'name' => 'required',
@@ -68,36 +68,34 @@ class ServicesController extends Controller
             DB::beginTransaction();
             $services = Services::findOrFail($id);
 
-            if($req->has('img') && $req->file('img') != null){
+            if($req->has('img')){
                 $file = $req->file('img');
-                $image_name = $file->getClientOriginalName();
-            }else{
-                $image_name = $services->img;
-            }
-
-            if($req->has('img') && $req->file('img') != null)
                 $current_img_path = public_path('images/services/'.$services->img);
+                if (is_file($current_img_path)) {
+                    unlink($current_img_path);
+                }
 
+                $originName = $file->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
+                $file->move(public_path('images/services/'), $fileName);
+
+                $services->img = $fileName;
+            }
 
             $services->update([
                 'name' => $req->input('name'),
                 'description' => $req->input('description'),
-                'img' => $img,
             ]);
-
-            if($req->has('img') && $req->file('img') != null)
-              if(file_exists($current_img_path)){
-                unlink($current_img_path);
-              }
-            if($req->has('img') && $req->file('img') != null)
-                $file->move(public_path('images/services/'), $image_name);
             DB::commit();
-
         }
         catch(\Exception $exception){
             DB::rollback();
             return $this->onError("Can't Add Services", $exception->getMessage());
         }
+        
+        return $this->onSuccess($services, 'Update Services Success!');
     }
 
     public function DeleteServices($id){
@@ -105,7 +103,7 @@ class ServicesController extends Controller
             DB::beginTransaction();
             $services = Services::findOrFail($id);
             $current_img_path = asset('images/services/'.$services->img);
-            if(file_exists($current_img_path)){
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             $services->delete();

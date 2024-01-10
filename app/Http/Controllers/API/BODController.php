@@ -118,8 +118,8 @@ class BODController extends Controller
 
             if($req->has('img')){
                 $file = $req->file('img');
-                $current_img_path = public_path('images/bod/'.$bod->headline_img);
-                if (file_exists($current_img_path)) {
+                $current_img_path = public_path('images/bod/'.$bod->img);
+                if (is_file($current_img_path)) {
                     unlink($current_img_path);
                 }
 
@@ -129,7 +129,7 @@ class BODController extends Controller
                 $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $file->move(public_path('images/bod/'), $fileName);
 
-                $bod->headline_img = $fileName;
+                $bod->img = $fileName;
             }
 
             $bod->update([
@@ -152,8 +152,8 @@ class BODController extends Controller
         try {
             DB::beginTransaction();
             $bod = BOD::findOrFail($id);
-            $current_img_path = asset('images/bod'.$bod->img);
-            if(file_exists($current_img_path)){
+            $current_img_path = asset('images/bod/'.$bod->img);
+            if(is_file($current_img_path)){
                 unlink($current_img_path);
             }
             $bod->delete();

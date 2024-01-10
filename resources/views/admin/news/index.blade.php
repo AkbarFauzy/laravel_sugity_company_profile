@@ -62,7 +62,9 @@ $(function() {
     $('#datatables-ajax').DataTable({
         processing: true,
         serverSide: true,
+        responsive: true,
         ajax: "{{route('admin.news')}}",
+        order: [[ 0, "desc" ]],
         columns: [
             { data: 'id', name: 'id' },
             { data: 'headline', name: 'headline' },
@@ -74,12 +76,12 @@ $(function() {
                 name: 'action',
                 orderable: false,
                 searchable: false,
-                width:'30%'
             },
         ]
     });
 
     $(document).ready(function(){
+      
     }).on('click', '#btn-delete', function(e){
         let id = $(this).data('id');
         Swal.fire({
@@ -93,7 +95,7 @@ $(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url:"{{route('admin.news.delete','')}}/"+id,
+              url:"{{route('api.news.delete','')}}/"+id,
               headers:{
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
