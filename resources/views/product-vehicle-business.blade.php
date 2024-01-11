@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-vehicle-business.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 @endsection
 
@@ -11,7 +12,6 @@
 @section('content')
 
 <body class="stretched">
-
 		<!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
@@ -60,10 +60,12 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 													<br><br>
+													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 													<a style="color: black" class="text-left" href="#" 
 													data-bs-toggle="modal" 
 													data-bs-id="{{$vehicle->id}}"
 													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													@endif
 											</div>
 										</div>
 									</div>
@@ -84,10 +86,12 @@
 												<div class="style-footer px-4 px-md-0">
 													<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 														<br><br>
+														@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 														<a style="color: black" class="text-left" href="#" 
 														data-bs-toggle="modal" 
 														data-bs-id="{{$vehicle->id}}"
 														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+														@endif
 												</div>
 											</div>
 										</div>
@@ -108,10 +112,12 @@
 										<div class="style-footer px-4 px-md-0">
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
-												<a style="color: black" class="text-left" href="#" 
-												data-bs-toggle="modal" 
-												data-bs-id="{{$vehicle->id}}"
-												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
+													data-bs-id="{{$vehicle->id}}"
+													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@endif
 										</div>
 									</div>
 									</div>
@@ -133,10 +139,12 @@
 										<div class="style-footer px-4 px-md-0">
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
+												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a style="color: black" class="text-left" href="#" 
 												data-bs-toggle="modal" 
 												data-bs-id="{{$vehicle->id}}"
 												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@endif
 										</div>
 									</div>
 									</div>
@@ -157,10 +165,12 @@
 										<div class="style-footer px-4 px-md-0">
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
+												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a style="color: black" class="text-left" href="#" 
 												data-bs-toggle="modal" 
 												data-bs-id="{{$vehicle->id}}"
 												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@endif
 										</div>
 									</div>
 									</div>
@@ -176,7 +186,6 @@
 			</div>
 		</section><!-- #content end -->
 
-		<!-- Modal Vehicle -->
 		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
 		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

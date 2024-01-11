@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-mold-business.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 @endsection
 
 @section('title')
@@ -61,11 +62,13 @@
 												@endif
 									
 												<br><br>
-												<a style="color: black" class="text-left"
+												@if(!empty($item->left_content) || !empty($item->right_content) || !empty($item->gallery) )
+												<a href= "#" style="color: black" class="text-left"
 													data-bs-toggle="modal" 
 													data-bs-target="#modalVehicle"
 													data-bs-id="{{$item->id}}"
 												>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@endif
 											</div>
 										</div>
 									</div>
@@ -116,17 +119,16 @@
 				</div>
 			</div> -->
 			<!-- Modal Vehicle -->
-		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
-		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-			<div class="modal-content">
-				<div class="modal-body">
-					
+			<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
+			aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-body">
+						
+					</div>
 				</div>
 			</div>
 			</div>
-		</div>
-		</section><!-- #content end -->
 
 
 @endsection

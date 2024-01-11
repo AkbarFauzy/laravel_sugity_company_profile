@@ -7,6 +7,7 @@ use App\Http\Library\ApiHelpers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+Use Carbon\Carbon;
 
 use App\Models\CSR;
 
@@ -64,7 +65,6 @@ class CSRController extends Controller
                 $extension = $req->file('thumbnail')->getClientOriginalExtension();
                 $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
                 $req->file('thumbnail')->move(public_path('images/csr/'), $fileName);
-                $url = asset('images/csr/' . $fileName);
             }
 
             DB::beginTransaction();
@@ -82,8 +82,7 @@ class CSRController extends Controller
                     $fileName = pathinfo($originName, PATHINFO_FILENAME);
                     $extension = $file->getClientOriginalExtension();
                     $fileName = Str::slug($fileName, '_') . '_' . time() . '.' . $extension;
-                    $file->move(public_path('images/csr/content/'), $fileName);
-                    $url = asset('images/csr/content/' . $fileName);            
+                    $file->move(public_path('images/csr/content/'), $fileName);           
                     $csr->gallery()->create([
                         'img' => $fileName,
                     ]);
@@ -126,7 +125,7 @@ class CSRController extends Controller
 
                 $csr->headline_img = $fileName;
             }
-
+    
             $csr->update([
                 'headline' => $req->input('headline'),
                 'content' => $req->input('content'),

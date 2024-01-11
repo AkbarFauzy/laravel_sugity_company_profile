@@ -21,7 +21,6 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
-<link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
 @endsection
 
 <!-- Loading overlay -->
@@ -330,6 +329,7 @@
             formData.append('uploadedGallery[]', url); // Adjust the key name as needed
         });
         $('#loadingOverlay').show();
+        $(this).find(':submit').attr('disabled','disabled');
         $.ajax({
             url: '{{route("api.products.update", $data->id)}}',
             type: 'POST',
@@ -342,6 +342,7 @@
                     title: 'Success!',
                     text: 'Your products has been updated successfully.',
                     icon: 'success',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
@@ -358,11 +359,17 @@
                     title: 'Failed!',
                     text: 'Your products has Failed to Updated. ' + console.error(xhr.responseText),
                     icon: 'failed',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
+
             }
         });
     });

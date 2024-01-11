@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-part-business.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 @endsection
 
 @section('title')
@@ -53,10 +54,12 @@
 												<div class="style-footer px-4 px-md-0">
 													<h4 class="text-left mt-4" style="color: black">{{$part->name}}
 														<br><br>
+														@if(!empty($part->left_content) || !empty($part->right_content) || !empty($part->gallery) )
 														<a style="color: black" class="text-left" href="#" 
 														data-bs-toggle="modal" 
 														data-bs-id="{{$part->id}}"
 														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+														@endif
 												</div>
 											</div>
 										</div>
@@ -77,10 +80,12 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$interior->name}}
 													<br><br>
+													@if(!empty($interior->left_content) || !empty($interior->right_content) || !empty($interior->gallery) )
 													<a style="color: black" class="text-left" href="#" 
 													data-bs-toggle="modal" 
 													data-bs-id="{{$interior->id}}"
 													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													@endif
 											</div>
 										</div>
 									</div>
@@ -93,18 +98,19 @@
 						<div class="tab-content clearfix" id="tabs-exterior">
 							<div class="style-section-product-overview">
 								<div class="row">
-
 									@foreach($exteriors->data as $exterior)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
-											<img src="{{asset('images/products/'.$interior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+											<img src="{{asset('images/products/'.$exterior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$exteriors->name}}
+												<h4 class="text-left mt-4" style="color: black">{{$exterior->name}}
 													<br><br>
+													@if(!empty($exterior->left_content) || !empty($exterior->right_content) || !empty($exterior->gallery) )
 													<a style="color: black" class="text-left" href="#" 
 													data-bs-toggle="modal" 
 													data-bs-id="{{$exterior->id}}"
 													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													@endif
 											</div>
 										</div>
 									</div>
@@ -122,13 +128,13 @@
 		<!-- Modal Vehicle -->
 		<div class="modal style-modal style-modal-vehicle fade" id="modalVehicle" tabindex="-1"
 		aria-labelledby="modalVehicleLabel" aria-hidden="true" role="dialog">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-body">
 					
 				</div>
 			</div>
-			</div>
+		</div>
 		</div>
 
 		</section><!-- #content end -->

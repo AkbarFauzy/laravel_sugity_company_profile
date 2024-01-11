@@ -361,8 +361,14 @@
 
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-recent-news row m-0 pb-5 px-lg-4" style="width: 100%;">
 					<div class="col-12 col-md-8">
-						<div class="style-content style-content-1 d-flex justify-content-start align-items-end"
+						@if($news[0]->type === "news")
+							<div class="style-content style-content-1 d-flex justify-content-start align-items-end"
 							style="background-image: url('{{ asset('/images/news/'.$news[0]->headline_img) }}');">
+						@else
+							<div class="style-content style-content-1 d-flex justify-content-start align-items-end"
+							style="background-image: url('{{ asset('/images/csr/'.$news[0]->headline_img) }}');">
+						@endif
+		
 							<div class="style-content-text ms-5 mb-4">
 								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
@@ -374,9 +380,18 @@
 								<div class="style-description mt-2 mb-3" style="color:white">
 									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
 								</div>
-								<a href="{{url('detail-news', $news[0]->id)}}">
-									<button class="btn style-btn">Read More -></button>
-								</a>
+
+								@if($news[0]->type === "news")
+									<a href="{{url('detail-news', $news[0]->id)}}">
+										<button class="btn style-btn">Read More -></button>
+									</a>
+								@else
+									<a href="{{url('detail-news/csr', $news[0]->id)}}">
+										<button class="btn style-btn">Read More -></button>
+									</a>
+								@endif
+
+							
 							</div>
 						</div>
 

@@ -13,7 +13,6 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
-<link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
 @endsection
 <!-- Loading overlay -->
 <div id="loadingOverlay">
@@ -227,6 +226,7 @@
 
         var formData = new FormData($(this)[0]); // Get form data
         $('#loadingOverlay').show();
+        $(this).find(':submit').attr('disabled','disabled');
 
         displayedUrls.forEach(function(url, index) {
             formData.append('uploadedGallery[]', url); // Adjust the key name as needed
@@ -244,6 +244,7 @@
                     title: 'Success!',
                     text: 'Your news has been updated successfully.',
                     icon: 'success',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
@@ -261,10 +262,15 @@
                     text: 'Your news has Failed to Updated. ' + console.error(xhr.responseText),
                     icon: 'failed',
                     showCancelButton: false,
+                    allowOutsideClick: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
             }
         });
     });

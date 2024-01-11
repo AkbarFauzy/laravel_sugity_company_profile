@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
 @endsection
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+</div>
 
 @section('content')
 <div class="col-12">
@@ -34,11 +37,9 @@
                             >
                         <label for="date" class="col-form-label">Posting Date</label>
                         <div class="input-group date" id="datepicker">
-                            <div class="input-group date" id="datepicker">
-                                <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
-                                <span class="input-group-append">
-                                </span>
-                            </div>
+                            <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
+                            <span class="input-group-append">
+                            </span>
                         </div> 
 
                         </div>
@@ -168,6 +169,8 @@
         event.preventDefault()
         
         var formData = new FormData($(this)[0]); // Get form data
+        $('#loadingOverlay').show();
+        $(this).find(':submit').attr('disabled','disabled');
         
         $.ajax({
             url: '{{route("api.csr.add")}}',
@@ -180,6 +183,7 @@
                     title: 'Success!',
                     text: 'Your csr has been submitted successfully.',
                     icon: 'success',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
@@ -195,11 +199,15 @@
                     title: 'Failed!',
                     text: 'Your csr has Failed to Submitted. ' + console.error(response["errormsg"]),
                     icon: 'error',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
             }
         });
     });

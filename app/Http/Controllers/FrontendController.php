@@ -19,7 +19,17 @@ class FrontendController extends Controller
         $serviceData = json_decode($serviceAPI->body());
         $slidersData = json_decode($slidersAPI->body());
 
-        $combinedData = collect($newsData->data)->merge($csrData->data);
+        $newsDataWithType = collect($newsData->data)->map(function ($item) {
+            $item->type = 'news';
+            return $item;
+        });
+
+        $csrDataWithType = collect($csrData->data)->map(function ($item) {
+            $item->type = 'csr';
+            return $item;
+        });
+
+        $combinedData = $newsDataWithType->merge($csrDataWithType);
         $sortedData = $combinedData->sortByDesc('created_at')->values()->all();
 
         return view('landing-page')->with([
@@ -118,6 +128,12 @@ class FrontendController extends Controller
                 $view360[] = $image->img;
             }
         }
+
+        usort($view360, function($a, $b) {
+            $a = (int)explode('.', $a)[0];
+            $b = (int)explode('.', $b)[0];
+            return $a - $b;
+        });
 
         return view('products-modal')->with([
             'products' => $productsData,

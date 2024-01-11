@@ -176,7 +176,8 @@
         event.preventDefault()
         
         var formData = new FormData($(this)[0]); // Get form data
-        
+        $('#loadingOverlay').show();
+        $(this).find(':submit').attr('disabled','disabled');
         $.ajax({
             url: '{{route("api.sliders.update", $data->id)}}',
             type: 'POST',
@@ -184,10 +185,12 @@
             contentType: false,
             processData: false,
             success: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your sliders has been submitted successfully.',
                     icon: 'success',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
@@ -203,11 +206,16 @@
                     title: 'Failed!',
                     text: 'Your products has Failed to Submitted. ' + response["errormsg"],
                     icon: 'error',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
             }
         });
     });

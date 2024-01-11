@@ -13,8 +13,6 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
 
-<link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
-
 @endsection
 
 <!-- Loading overlay -->
@@ -172,7 +170,7 @@
         
         var formData = new FormData($(this)[0]); // Get form data
         $('#loadingOverlay').show();
-
+        $(this).find(':submit').attr('disabled','disabled');
         $.ajax({
             url: '{{route("api.news.add")}}',
             type: 'POST',
@@ -185,6 +183,7 @@
                     title: 'Success!',
                     text: 'Your news has been submitted successfully.',
                     icon: 'success',
+                    allowOutsideClick: false,
                     showCancelButton: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
@@ -195,17 +194,22 @@
                     }
                 });
             },
-            error: function(response) {
+            error: function(xhr, status, error) {
                 $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Failed!',
-                    text: 'Your news has Failed to Submitted. ' + console.error(response["errormsg"]),
+                    text: 'Your news has Failed to Submitted. ' +  console.error(xhr.responseText),
                     icon: 'error',
                     showCancelButton: false,
+                    allowOutsideClick: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
             }
         });
     });

@@ -171,6 +171,7 @@ $(function() {
         });
     }).on('submit', '#form', function(e){
       e.preventDefault();
+      $(this).find(':submit').attr('disabled','disabled');
       let data = new FormData(this),
           action = $(this).attr('action');
       $.ajax({
@@ -208,7 +209,10 @@ $(function() {
             icon: 'error',
             title: 'Oops...',
             text: response['responseJSON']['errormsg'],
-          })
+          });
+          setTimeout(function() {
+            $('#form').find(':submit').removeAttr('disabled');
+          }, 3000);
         }
       });
     })

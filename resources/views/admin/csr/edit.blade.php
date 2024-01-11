@@ -15,6 +15,11 @@
 
 @endsection
 
+<!-- Loading overlay -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+</div>
+
 @section('content')
 <div class="col-12">
     <div class="card mb-4">
@@ -36,7 +41,7 @@
                         <label for="date" class="col-form-label">Posting Date</label>
                         <div class="input-group date" id="datepicker">
                             <div class="input-group date" id="datepicker">
-                                <input type="date" id="date" class="form-control" name="date" value="{{date('Y-m-d')}}">
+                                <input type="date" id="date" class="form-control" name="date" value="{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d')}}">
                                 <span class="input-group-append">
                                 </span>
                             </div>
@@ -223,7 +228,7 @@
         });
 
         $('#loadingOverlay').show();
-
+        $(this).find(':submit').attr('disabled','disabled');
         $.ajax({
             url: '{{route("api.csr.update", $data->id)}}',
             type: 'POST',
@@ -237,6 +242,7 @@
                     text: 'Your csr has been updated successfully.',
                     icon: 'success',
                     showCancelButton: false,
+                    allowOutsideClick: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
@@ -253,10 +259,16 @@
                     text: 'Your csr has Failed to Updated. ' + console.error(xhr.responseText),
                     icon: 'failed',
                     showCancelButton: false,
+                    allowOutsideClick: false,
                     showConfirmButton: true,
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
+
+                setTimeout(function() {
+                    $('#form').find(':submit').removeAttr('disabled');
+                }, 3000);
+                
             }
         });
     });

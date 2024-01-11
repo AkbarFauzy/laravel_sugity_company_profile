@@ -27,7 +27,7 @@
 
         @if($isExterior)
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="modaVehicleExteriorTab" data-bs-toggle="pill"
+                <button class="nav-link {{$is360 || $isInterior ? '' : 'active'}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleExterior" type="button" role="tab"
                     aria-controls="modaVehicleExterior" aria-selected="false">Exterior</button>
             </li>
@@ -56,9 +56,9 @@
     <div class="tab-pane fade {{$is360 ? '' : 'show active'}}" id="modaVehicleInterior" role="tabpanel"
         aria-labelledby="modaVehicleInteriorTab" tabindex="0">
         <div class="container pt-3 pb-5" align="center">
-            <div class="col-lg-8 px-3">
+            <div class="px-3">
                 <div id="carouselModalVehicleInterior"
-                    class="carousel style-carousel-modal style-carousel-modal-vehicle slide">
+                    class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide">
                     <div class="carousel-inner">
                         @foreach($interiors as $key => $interior)
                             @if($key == 0)
@@ -92,23 +92,23 @@
     @endif
 
     @if($isExterior)
-    <div class="tab-pane fade" id="modaVehicleExterior" role="tabpanel"
+    <div class="tab-pane fade {{$is360 || $isInterior ? '' : 'show active'}}" id="modaVehicleExterior" role="tabpanel"
         aria-labelledby="modaVehicleExteriorTab" tabindex="0">
         <div class="container pt-3 pb-5" align="center">
-            <div class="col-lg-8 px-3">
+            <div class="px-3">
                 <div id="carouselModalVehicleExterior"
-                    class="carousel style-carousel-modal style-carousel-modal-vehicle slide modal-xl">
+                    class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide modal-xl">
                     <div class="carousel-inner">
 
                         @foreach($exteriors as $key => $exterior)
                             @if($key == 0)
                                 <div class="carousel-item active">
-                                    <img src="{{asset('images/products/content/'.$interior)}}"
+                                    <img src="{{asset('images/products/content/'.$exterior)}}"
                                         class="d-block w-100" alt="...">
                                 </div>
                             @else
                                 <div class="carousel-item">
-                                    <img src="{{asset('images/products/content/'.$interior)}}"
+                                    <img src="{{asset('images/products/content/'.$exterior)}}"
                                         class="d-block w-100" alt="...">
                                 </div>
                             @endif
@@ -193,14 +193,14 @@
 <!-- 360 VIewer -->
 <script>
 	//	build scene
-	let loaded = 0;
-	let countImage = 43;
-	const content360 = document.querySelector('.style-content-360');
-	const viewer = document.querySelector('.viewer');
-	const images = @json($view360);
-    alert('incoming');
+	var loaded = 0;
+	var countImage = 43;
+	var content360 = document.querySelector('.style-content-360');
+	var viewer = document.querySelector('.viewer');
+	var urls = @json($view360);
+    var images = []
     console.log(images);
-	images.forEach(function(url, index){
+	urls.forEach(function(url, index){
         const img = new Image();
 		img.src = '{{ asset("images/products/content/360/".$products->data->name) }}'+ '/' + url;
         console.log(img.src);
@@ -210,10 +210,10 @@
 	//	rotation handler
 	//	http://chrisbateman.github.io/impetus/
 	//	https://github.com/chrisbateman/impetus
-	const threshold = 10;
-	const total = images.length - 1;
-	let frame = 38;
-	const impetus = new Impetus({
+	var threshold = 10;
+	var total = images.length - 1;
+	var frame = 0;
+	var impetus = new Impetus({
 		source: document,
 		update(x) {
 			// console.log(x)

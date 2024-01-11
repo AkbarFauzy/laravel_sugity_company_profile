@@ -74,9 +74,8 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$item->name}}
 													<br><br>
-												
-													@if(!empty($item->left_content) || !empty($item->right_content) || !empty($gallery) )
-														<a style="color: black" class="text-left" data-bs-toggle="modal" 
+													@if(!empty($item->left_content) || !empty($item->right_content) || !empty($item->gallery))
+														<a href="#" style="color: black" class="text-left" data-bs-toggle="modal" 
 														data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>
 														Explore More <i class="fa-solid fa-chevron-right">></i>
 														</a>
@@ -99,11 +98,13 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 													<br><br>
+													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery))
 													<a style="color: black" class="text-left" href="#" 
 													data-bs-toggle="modal" 
 													data-bs-target="#modalVehicle"
 													data-bs-id={{$vehicle->id}}
 													>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													@endif
 											</div>
 										</div>
 									</div>
@@ -123,11 +124,13 @@
 											<div class="style-footer px-4 px-md-0">
 												<h4 class="text-left mt-4" style="color: black">{{$part->name}}
 												<br><br>
+												@if(!empty($part->left_content) || !empty($part->right_content) || !empty($part->gallery))
 												<a style="color: black" class="text-left" href="#" 
 												data-bs-toggle="modal" 
 												data-bs-target="#modalVehicle"
 												data-bs-id={{$part->id}}
 												>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												@endif
 											</div>
 										</div>
 									</div>
@@ -151,9 +154,11 @@
 													<br>
 													{{-- (1300Ton-3500Ton) --}}
 													<br><br>
+													@if(!empty($item->left_content) || !empty($item->right_content) || !empty($item->gallery))
 													<a style="color: black" class="text-left" href="#"
 														data-bs-toggle="modal" data-bs-target="#modalVehicle" data-bs-id={{$item->id}}>Explore
 														More <i class="fa-solid fa-chevron-right"></i>></a>
+													@endif
 												</h4>
 											</div>
 										</div>
@@ -434,7 +439,7 @@ $(document).ready(function () {
       success: function (data) {
         // Handle successful response
         modalBody.empty().html(data);
-		initialize360View();
+
       },
       error: function () {
         // Handle error
@@ -445,41 +450,6 @@ $(document).ready(function () {
 });
 
 
-function initialize360View() {
-  // Build scene for 360 view
-//   let loaded = 0;
-  let countImage = 43;
-  const content360 = $('.style-content-360');
-  const viewer = content360.find('.viewer');
-  const images = [];
-  const baseUrl = '{{ asset("images/product/product-360/medical-mover/") }}'+"/";
-
-  for (let i = 1; i <= countImage; ++i) {
-    const img = new Image();
-    img.src = baseUrl + i + '.png';
-    images.push(img);
-    viewer.append(img);
-  }
-
-  // Rotation handler
-  const threshold = 10;
-  const total = images.length - 1;
-  let frame = 38;
-  const impetus = new Impetus({
-    source: document,
-    update(x) {
-      images[frame].classList.remove('active');
-      frame = Math.floor(-x / threshold) % total;
-      frame = frame <= 0 ? total + frame : frame;
-      images[frame].classList.add('active');
-    }
-  });
-  images[frame].classList.add('active');
-
-  // Cursor
-  content360.on('mousedown', e => content360.css('cursor', 'grabbing'));
-  content360.on('mouseup', e => content360.css('cursor', 'grab'));
-}
 
 </script>
 

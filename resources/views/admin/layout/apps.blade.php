@@ -14,6 +14,7 @@
     {{-- <link rel="stylesheet" href="{{asset('backend/css/vendors/simplebar.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('backend/css/style.css')}}" >
     
+    <link rel="stylesheet" href="{{asset('css/custom/admin.css')}}">
     @yield('custom_css')
   </head>
 

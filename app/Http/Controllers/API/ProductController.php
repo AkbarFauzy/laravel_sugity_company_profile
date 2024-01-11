@@ -62,7 +62,7 @@ class ProductController extends Controller
                 'Export Vehicle',
                 'Other'
             ];
-            $vehicles = Product::whereIn('category', $categories)->get();
+            $vehicles = Product::with('gallery')->whereIn('category', $categories)->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
         }
@@ -71,7 +71,7 @@ class ProductController extends Controller
 
     public function GetPublicTransport(){
         try{
-            $vehicles = Product::where('category', 'Public Transport')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Public Transport')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
         }
@@ -80,7 +80,7 @@ class ProductController extends Controller
 
     public function GetHealthcareVehicles(){
         try{
-            $vehicles = Product::where('category', 'Healthcare Vehicle')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Healthcare Vehicle')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
         }
@@ -89,7 +89,7 @@ class ProductController extends Controller
 
     public function GetExportVehicles(){
         try{
-            $vehicles = Product::where('category', 'Export Vehicle')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Export Vehicle')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
         }
@@ -98,7 +98,7 @@ class ProductController extends Controller
 
     public function GetOtherVehicles(){
         try{
-            $vehicles = Product::where('category', 'Other')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Other')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Vehicles", $exception->getMessage());
         }
@@ -112,7 +112,7 @@ class ProductController extends Controller
                 'Exterior Part',
                 'Interior Part'
             ];
-            $parts = Product::whereIn('category', $categories)->get();
+            $parts = Product::with('gallery')->whereIn('category', $categories)->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Parts", $exception->getMessage());
         }
@@ -121,7 +121,7 @@ class ProductController extends Controller
 
     public function GetInteriorParts(){
         try{
-            $vehicles = Product::where('category', 'Interior Part')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Interior Part')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Parts", $exception->getMessage());
         }
@@ -130,7 +130,7 @@ class ProductController extends Controller
 
     public function GetExteriorParts(){
         try{
-            $vehicles = Product::where('category', 'Exterior')->get();
+            $vehicles = Product::with('gallery')->where('category', 'Exterior Part')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Parts", $exception->getMessage());
         }
@@ -139,7 +139,7 @@ class ProductController extends Controller
 
     public function GetMold(){
         try{
-            $mold = Product::where('category', 'Mold')->get();
+            $mold = Product::with('gallery')->where('category', 'Mold')->get();
         }catch(\Exception $exception){
             return $this->onError("Can't Fetch Mold", $exception->getMessage());
         }
@@ -375,7 +375,9 @@ class ProductController extends Controller
                 rmdir($tempExtractPath);
             
             }else{
-                rename(public_path('images/products/content/360/').$product->name.'/', public_path('images/products/content/360/').$req->input('name').'/');
+                if(file_exists(public_path('images/products/content/360/').$product->name)){
+                    rename(public_path('images/products/content/360/').$product->name.'/', public_path('images/products/content/360/').$req->input('name').'/');
+                }
             }
 
             $product->update([
