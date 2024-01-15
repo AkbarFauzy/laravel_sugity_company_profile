@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/custom/board-directors.css') }}" type="text/css" />
 <!-- AOS (Animate on Scroll) -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	
+
 @endsection
 
 @section('title')
@@ -35,11 +35,6 @@
 		<section id="content" class="p-0" style="position: relative;">
 			<!-- our board of director section -->
 			<div class="container-fluid py-5 style-bg-dot">
-				<div class="services-section mb-5 pt-md-5 mx-5 px-5">
-					<div data-aos="fade-in" data-aos-duration="1000" class="mb-5">
-						<h1 class="bod-title-text">Board of Directors</h1>
-					</div>
-				</div>
 				<ul data-aos="fade-in" data-aos-duration="800" class="nav nav-pills style-nav-pills-bod" id="pills-tab" role="tablist">
 					<!-- <li class="nav-item col-6 d-flex justify-content-end" role="presentation">
 						<button class="nav-link w-50 active" id="pills-vehicle-tab" data-bs-toggle="pill"
@@ -52,7 +47,7 @@
 						<button class="nav-link w-50 active" id="pills-vehicle-tab" data-bs-toggle="pill"
 							data-bs-target="#pills-parts" type="button" role="tab" aria-controls="pills-vehicle"
 							aria-selected="true">
-							Directors
+							Board of Directors
 						</button>
 					</li>
 				</ul>
@@ -85,7 +80,7 @@
 					</div> -->
 					<!-- commisioner part -->
 					<div class="tab-pane fade show active w-100 text-center" id="pills-parts" role="tabpanel" aria-labelledby="pills-parts-tab" tabindex="0">
-						<div class="row mt-md-5 pt-5 pb-4">					
+						<div class="row mt-md-5 pt-5 pb-4">
 							<div data-aos="fade-in" data-aos-duration="1000" class="col-12 d-flex justify-content-center">
 
 								<div class="px-3 px-md-0" align="center">
@@ -123,7 +118,7 @@
 									<h3 class="mb-2 director-name">{{strtoupper($director->name)}}</h3>
 									<h4 class="director-corp">{{strtoupper($director->affiliation)}}</h4>
 								</div>
-							</div>	
+							</div>
 							@endforeach
 						</div>
 					</div>
@@ -181,5 +176,5 @@
 			speed: 100, // Adjust the scrolling speed as needed
 		});
 	</script>
-	
+
 @endsection

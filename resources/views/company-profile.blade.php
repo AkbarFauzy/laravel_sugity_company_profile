@@ -1,6 +1,6 @@
 
 @extends('layout.app')
-@section('custom_css')	
+@section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/company-profile.css') }}" type="text/css" />
 <!-- AOS (Animate on Scroll) -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -53,8 +53,8 @@
 			<div class="section p-0" id="president-message" data-scroll>
 				<div class="row p-0 p-md-5 bg-white">
 					<div data-aos="fade-in" data-aos-duration="1300" class="col-12 col-xl-5 text-end parent-image-president">
-						<div class="container" style="width: 100%; height: 100%; display: flex; 
-						justify-content: center; 
+						<div class="container" style="width: 100%; height: 100%; display: flex;
+						justify-content: center;
 						align-items: center;">
 							<!-- <div style="background-image: url('./asset/images/pres-2.png'); height: 100%; width: 100%; background-repeat: no-repeat;"></div> -->
 							<img src="{{asset('images/president-img-v2.png')}}" class="president-image" alt="">
@@ -111,7 +111,7 @@
 			<!-- parallax -->
 			<div data-scroll class="section style-paralax-2 section-image m-0 border-0 d-none d-lg-block bg-white"
 				style="height: 700px; background-image: url('{{asset('images/parallax/parallax-company-profile.png')}}');"
-				data-bottom-top="background-position:0px 200px;" data-top-bottom="background-position:0px -200px;">
+				data-bottom-top="background-position:0px 200px;" data-top-bottom="background-position:0px -200px;" id="about_us">
 				<div class="row" style="height: 100%;">
 					<div data-aos="fade-right" data-aos-duration="1300" class="col-md-8 col-lg-6 col-xl-5 px-5 pt-5"
 						style="display: flex; justify-content: center; align-items: center;">
@@ -285,7 +285,7 @@
 						<p class="desc-values">Being a Sustainable Product Maker Company that Provides Customer Satisfaction & Contributes to Society Growth.</p>
 						<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
 					</div>
-					
+
 				</div>
 				<div class="col-lg-4 d-flex justify-content-center">
 					<div class="px-3 px-md-5 text-center border-thick">
