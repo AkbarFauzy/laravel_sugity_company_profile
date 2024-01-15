@@ -19,5 +19,4 @@ class Sliders extends Model
         'x_offset',
         'y_offset',
     ];
-
 }

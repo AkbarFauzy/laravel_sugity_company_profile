@@ -2,6 +2,19 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+<style>
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+</style>
 @endsection
 
 @section('title')
@@ -12,6 +25,22 @@
 		<!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
+			
+			@foreach($sliders->data as $slider)
+			
+			<div class="item min-vh-100 min-vh-md-100">
+				<div class="style-banner-content">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+				</div>
+			</div>
+
+
+			@endforeach
+{{-- 
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
 				<div class="style-banner-content slide-1">
@@ -23,6 +52,7 @@
 				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/1.png')}}');">
 				</div>
 			</div>
+
 			<div class="item min-vh-100 min-vh-md-100 slide-2">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
 				<div class="style-banner-content slide-2">
@@ -32,6 +62,7 @@
 				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/2.png')}}');">
 				</div>
 			</div>
+			
 			<div class="item min-vh-100 min-vh-md-100">
 				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
 				<div class="style-banner-content slide-3">
@@ -40,7 +71,9 @@
 				</div>
 				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/3.png')}}');">
 				</div>
-			</div>
+			</div> --}}
+
+
 		</div><!-- #Banner Slider end -->
 		<!-- <br><br> -->
 

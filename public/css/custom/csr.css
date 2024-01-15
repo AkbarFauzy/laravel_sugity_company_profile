@@ -1,3 +1,11 @@
+.slider-bg-dark {
+	background-color: #000 !important;
+}
+
+.opacity-half {
+	opacity: 0.5 !important;
+}
+
 .style-owl-banner-slider {
     --owl-nav-bg: var(--themecolor, rgba(0, 0, 0, 0.50));
 }

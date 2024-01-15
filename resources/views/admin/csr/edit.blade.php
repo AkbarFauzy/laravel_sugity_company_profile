@@ -214,7 +214,6 @@
         initialPreviewAsData: true,
         initialPreviewFileType: 'image',
         initialPreviewConfig: initialPreviewConfig,
-        initialPreviewShowDelete: 0,
     });
 
     $('#form').submit(function(event) {

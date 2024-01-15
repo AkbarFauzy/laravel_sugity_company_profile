@@ -1,99 +1,252 @@
 @extends('admin.layout.apps')
 
 @section('content')
+ <!-- Page Heading -->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+</div>
 
-<div class="wrapper d-flex flex-column min-vh-100 bg-light">
-    <header class="header header-sticky mb-4">
-      <div class="container-fluid">
-        <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
-          <svg class="icon icon-lg">
-            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
-          </svg>
-        </button><a class="header-brand d-md-none" href="#">
-          <svg width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-          </svg></a>
-        <ul class="header-nav d-none d-md-flex">
-          <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-        </ul>
-        <ul class="header-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
-              </svg></a></li>
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use>
-              </svg></a></li>
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
-              </svg></a></li>
-        </ul>
-        <ul class="header-nav ms-3">
-          <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com"></div></a>
-            <div class="dropdown-menu dropdown-menu-end pt-0">
-              <div class="dropdown-header bg-light py-2">
-                <div class="fw-semibold">Account</div>
-              </div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
-                </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
-                </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-task"></use>
-                </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-comment-square"></use>
-                </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
-              <div class="dropdown-header bg-light py-2">
-                <div class="fw-semibold">Settings</div>
-              </div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
-                </svg> Profile</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-settings"></use>
-                </svg> Settings</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-credit-card"></use>
-                </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-file"></use>
-                </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
-                </svg> Lock Account</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
-                </svg> Logout</a>
-            </div>
-          </li>
-        </ul>
+<!-- Content Row -->
+<div class="row">
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                          Products</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"> {{count($products->data)}}</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="header-divider"></div>
-      <div class="container-fluid">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb my-0 ms-2">
-            <li class="breadcrumb-item">
-              <!-- if breadcrumb is single--><span>Home</span>
-            </li>
-            <li class="breadcrumb-item active"><span>Dashboard</span></li>
-          </ol>
-        </nav>
-      </div>
-    </header>
-   
-    <footer class="footer">
-      <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> &copy; 2023 creativeLabs.</div>
-      <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
-    </footer>
   </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                          News </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{count($news->data)}}</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> CSR
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count($csr->data)}}</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Pending Requests Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                          Services</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{count($services->data)}}</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Content Row -->
+
+<div class="row">
+
+  <!-- Area Chart -->
+  <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div
+              class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Latest Products</h6>
+              <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+              </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+            <div class="row">
+            @foreach(array_slice($products->data, 0, 8) as $product)
+            <div class="col-12 col-md-4 col-xl-3 px-3 py-3">
+              <div class="card h-100" style="width:100%; height: 250px; object-fit: contain;">
+                <img src="{{asset("images/products/".$product->img)}}" class="card-img-top" alt="...">
+              
+                <div class="card-body">
+                  <h5 class="card-footer">{{$product->name}}</h5>
+                </div>
+              </div>
+            </div>
+            @endforeach
+            </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Pie Chart -->
+  <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div
+              class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Latest CSR</h6>
+              <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+              </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+              <div class="mt-4 text-center small">
+
+                @foreach(array_slice($csr->data, 0, 5) as $item)
+      
+                <div class="row m-3" style=" border:1px solid">
+                  <div class="col-md-6 img-small-detail-news" style="background-image: url('{{asset('images/news/'.$item->headline_img)}}'); background-size: contain; background-repeat:no-repeat">
+                  </div>
+                  <div class="col-6 col-md-6 d-flex flex-column justify-content-left">
+                      <div class="title-small-detail-news pb-2">{{$item->headline}}</div>
+                      <div class="date-small-detail-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
+                      <a href="{{url('detail-news', $item->id)}}">
+                          <div class="readmore-small-detail-news">Read More -></div>
+                      </a>
+                  </div>
+              </div>
+                @endforeach
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+
+  <!-- Area Chart -->
+  <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div
+              class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Latest Products</h6>
+              <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+              </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+            <div class="row">
+            @foreach(array_slice($products->data, 0, 8) as $product)
+            <div class="col-12 col-md-4 col-xl-3 px-3 py-3">
+              <div class="card h-100" style="width:100%; height: 250px; object-fit: contain;">
+                <img src="{{asset("images/products/".$product->img)}}" class="card-img-top" alt="...">
+              
+                <div class="card-body">
+                  <h5 class="card-footer">{{$product->name}}</h5>
+                </div>
+              </div>
+            </div>
+            @endforeach
+            </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Pie Chart -->
+  <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div
+              class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Latest News</h6>
+              <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+              </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+              <div class="mt-4 text-center small">
+
+                @foreach(array_slice($news->data, 0, 5) as $item)
+      
+                <div class="row m-3" style=" border:1px solid">
+                  <div class="col-md-6 img-small-detail-news" style="background-image: url('{{asset('images/news/'.$item->headline_img)}}'); background-size: contain; background-repeat:no-repeat">
+                  </div>
+                  <div class="col-6 col-md-6 d-flex flex-column justify-content-left">
+                      <div class="title-small-detail-news pb-2">{{$item->headline}}</div>
+                      <div class="date-small-detail-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
+                      <a href="{{url('detail-news', $item->id)}}">
+                          <div class="readmore-small-detail-news">Read More -></div>
+                      </a>
+                  </div>
+              </div>
+                @endforeach
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
 
 @endsection

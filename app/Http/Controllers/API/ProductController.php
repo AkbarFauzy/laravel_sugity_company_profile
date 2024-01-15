@@ -343,7 +343,10 @@ class ProductController extends Controller
                     }
                 }
 
-                rmdir(public_path('images/products/content/360/').$product->name);
+                if(file_exists(public_path('images/products/content/360/').$product->name)){
+                    rmdir(public_path('images/products/content/360/').$product->name);
+                }
+
                 $files = File::allFiles($req->input('360_path'));
 
                 foreach($files as $file){
@@ -372,7 +375,10 @@ class ProductController extends Controller
                         unlink($file);
                     }
                 }
-                rmdir($tempExtractPath);
+                
+                if(file_exists($tempExtractPath)){
+                    rmdir($tempExtractPath);
+                }
             
             }else{
                 if(file_exists(public_path('images/products/content/360/').$product->name)){
@@ -425,6 +431,33 @@ class ProductController extends Controller
         } catch (\Exception $exception) {
             DB::rollback();
             return $this->onError("Can't Delete Product", $exception->getMessage());
+        }
+        return $this->onSuccess([],'');     
+    }
+
+    public function DeleteProduct360($id){
+        try {
+            DB::beginTransaction();
+            $product = Product::findOrFail($id);
+
+
+            $galleryImages = $product->gallery()->where('type', "360")->get();
+            foreach ($galleryImages as $image) {
+                if($image->type === "360"){
+                    $imagePath = public_path('images/products/content/360/'.$product->name."/". $image->img);
+                    
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+            }
+
+            $product->gallery()->where('type', '360')->delete();
+            
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollback();
+            return $this->onError("Can't Delete Product's 360", $exception->getMessage());
         }
         return $this->onSuccess([],'');
         

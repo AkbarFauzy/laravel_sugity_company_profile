@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
 use DataTables;
 use Session;
 
@@ -54,8 +56,6 @@ class AdminCSRController extends Controller
     public function create(){
         return view('admin/csr/create');
     }
-
-
     
     public function edit($id){
         $API = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/csr/'.$id);

@@ -68,13 +68,13 @@
                             <div class="mb-3 col-md-6">
                                 <div>
                                     <label for="floatingInput">X-Offset</label>
-                                    <input type="number" class="form-control" name="x-offset" id="x-offset" placeholder="X-Offset" value={{$data->x_offset}}>
+                                    <input type="number" class="form-control" name="x_offset" id="x-offset" placeholder="X-Offset" value={{$data->x_offset}}>
                                 </div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <div>
                                     <label for="floatingInput">Y-Offset</label>
-                                    <input type="number" class="form-control" name="y-offset" id="y-offset" placeholder="Y-Offset" value{{$data->y_offset}}>
+                                    <input type="number" class="form-control" name="y_offset" id="y-offset" placeholder="Y-Offset" value={{$data->y_offset}}>
                                 </div> 
                             </div>
                         </div>

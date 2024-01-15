@@ -15,17 +15,20 @@
 		<!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
+			@foreach($sliders->data as $slider)
+			
 			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-content slide">
-					<div>
-						<p class="first-text-slider-vehicle mb-0 text-center">HiAce JakLingko</p>
-						<p class="second-text-slider-vehicle mt-0"><i>Spacious & Comfort</i></p>
+				<div class="style-banner-content">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+						{!!$slider->tagline!!}
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/s-vehicle.png')}}');">
+				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
 				</div>
 			</div>
+
+
+			@endforeach
 		</div><!-- #Banner Slider end -->
 		<!-- <br><br> -->
 
@@ -35,7 +38,7 @@
 			<div class="container clearfix">
 				<h1 class="fs-1 pt-5 text-center">Vehicle Conversion</h1>
 			</div>
-			<div class="container pb-5">
+			<div class="container">
 				<div class="tabs tabs-bb clearfix tab-vehicle-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
@@ -200,7 +203,9 @@
 @endsection
 
 @section('custom_js')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/impetus/0.8.8/impetus.min.js"
+integrity="sha512-t+0a9kGXas/mQ/ClLjnTts9UsalckNQfEHhvr+JN/R4t2ql79Q7pK81a2ltfbGpY7Q17ibaGPhHKQDukM+qM2A=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 	$(document).ready(function () {
 	  $('#modalVehicle').on('show.bs.modal', function (event) {
@@ -459,44 +464,6 @@
 			}, 3000);
 		}, 1000);
 	});
-</script>
-
-<!-- 360 VIewer -->
-<script>
-	//	build scene
-	let loaded = 0;
-	let countImage = 43;
-	const content360 = document.querySelector('.style-content-360');
-	const viewer = document.querySelector('.viewer');
-	const images = [];
-	for (let i = 1; i <= countImage; ++i) {
-		const img = new Image();
-		img.src = `./asset/images/product/product-360/medical-mover/` + i + `.png`;
-		images.push(img);
-		viewer.appendChild(img);
-	}
-
-	//	rotation handler
-	//	http://chrisbateman.github.io/impetus/
-	//	https://github.com/chrisbateman/impetus
-	const threshold = 10;
-	const total = images.length - 1;
-	let frame = 38;
-	const impetus = new Impetus({
-		source: content360,
-		update(x) {
-			// console.log(x)
-			images[frame].classList.remove('active')
-			frame = Math.floor(-x / threshold) % total;
-			frame = frame <= 0 ? total + frame : frame;
-			images[frame].classList.add('active');
-		}
-	});
-	images[frame].classList.add('active');
-
-	//	cursor
-	addEventListener('mousedown', e => content360.style.cursor = 'grabbing');
-	addEventListener('mouseup', e => content360.style.cursor = 'grab');
 </script>
 
 <script>

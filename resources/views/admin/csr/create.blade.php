@@ -179,6 +179,7 @@
             contentType: false,
             processData: false,
             success: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your csr has been submitted successfully.',
@@ -195,6 +196,7 @@
                 });
             },
             error: function(response) {
+                $('#loadingOverlay').hide();
                 Swal.fire({
                     title: 'Failed!',
                     text: 'Your csr has Failed to Submitted. ' + console.error(response["errormsg"]),

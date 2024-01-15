@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\Admin\LandingPageController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminNewsController;
 use App\Http\Controllers\Admin\AdminCSRController;
 use App\Http\Controllers\Admin\AdminHistoryController;
@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin\LoginController;
 */
 
 
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index'])->name('/');
 
 Route::get('/company-profile', function () {
     return view('company-profile');
@@ -70,16 +70,13 @@ Route::get('/admin/login', function(){
 
 
 
-Route::post('/admin/actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
-Route::get('/admin/actionLogout', [LoginController::class, 'actionLogout'])->name('actionLogout');
+Route::post('/admin/login', [LoginController::class, 'login'])->name('actionLogin');
+Route::post('/admin/logout', [LoginController::class, 'logout'])->name('actionLogout');
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('dashboard', function(){
-        return view('admin/dashboard');
-    });
-    
-    Route::get('landing-page', [LandingPageController::class, 'view']);
+Route::group(['prefix'=>'/admin', 'middleware' => ['auth:sanctum']], function (){
+
+    Route::get('dashboard', [DashboardController::class, 'view'])->name('admin.dashboard');
 
     Route::get('sliders', [AdminSlidersController::class, 'view'])->name('admin.sliders');
     Route::get('sliders/create', [AdminSlidersController::class, 'create'])->name('admin.sliders.create');

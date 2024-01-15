@@ -34,86 +34,13 @@
 
 			@foreach ($sliders->data as $key => $slider)
 			<div class="item min-vh-100 min-vh-md-100">
-				
-				@if($slider->position === "Top Right")
-					<div class="custom-banner" style="opacity: 1;
-							z-index: 111;
-							position: absolute;
-							display: flex;
-							flex-direction: column;
-							align-items: end;
-							justify-content: end;
-							top: 15vh;
-							left: 8vw;
-							right: 10vw;
-							text-align: right;"
-						>
-						<div style="color: rgba(255, 255, 255, 0.95)">
-							{!!$slider->tagline!!}
-						</div>
+				<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div style="color: rgba(255, 255, 255, 0.95)">
+						{!!$slider->tagline!!}
 					</div>
-					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
-					</div>
-
-				@elseif($slider->position === "Bottom Right")
-					<div class="custom-banner" style="opacity: 1;
-								z-index: 111;
-								position: absolute;
-								display: flex;
-								flex-direction: column;
-								align-items: end;
-								justify-content: end;
-								bottom: 5vh;
-								left: 6vw;
-								right: 2vw;"
-							>
-						<div style="color: rgba(255, 255, 255, 0.95)">
-							{!!$slider->tagline!!}
-						</div>
-					</div>
-					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
-					</div>
-
-				@elseif($slider->position === "Top Left")
-					<div class="custom-banner mb-5" style="opacity: 1;
-							z-index: 111;
-							position: absolute;
-							display: flex;
-							flex-direction: column;
-							align-items: start;
-							justify-content: end;
-							top: 6vw;
-							left: 6vw;
-							right: 8vw;"
-						>
-						<div style="color: rgba(255, 255, 255, 0.95)">
-							{!!$slider->tagline!!}
-						</div>
-					</div>
-					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
-					</div>
-				@elseif($slider->position === "Bottom Left")
-					<div class="custom-banner mb-5" style="opacity: 1;
-							z-index: 111;
-							position: absolute;
-							display: flex;
-							flex-direction: column;
-							align-items: start;
-							justify-content: start;
-							bottom: 5vh;
-							left: 10vw;
-							right: 8vw;
-							"
-						>
-						<div style="color: rgba(255, 255, 255, 0.95)">
-							{!!$slider->tagline!!}
-						</div>
-					</div>
-					<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
-					</div>
-
-				@endif
-
+				</div>
+				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+				</div>
 				
 			</div>
 			@endforeach
@@ -252,101 +179,49 @@
 	</div>
 		<!-- end parallax -->
 
-			<!-- our services section -->
-			<div class="services-section my-5" data-scroll>
-				<div data-aos="fade-in" data-aos-duration="1000" class="text-center mb-5">
-					<h2 class="our-services-text">Our Services</h2>
-					<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
-					<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
-						the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA
-						of every product we deliver</h5>
+		
+		
+		<!-- our services section -->
+		<div class="services-section my-5" data-scroll>
+			<div data-aos="fade-in" data-aos-duration="1000" class="text-center mb-5">
+				<h2 class="our-services-text">Our Services</h2>
+				<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
+				<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
+					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA
+					of every product we deliver</h5>
 				</div>
 			</div>
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
-				<li class="nav-item col-4" role="presentation">
-					<button class="nav-link w-100 active" id="pills-vehicle-tab" data-bs-toggle="pill"
-						data-bs-target="#pills-vehicle" type="button" role="tab" aria-controls="pills-vehicle"
-						aria-selected="true">Vehicle</button>
-				</li>
-				<li class="nav-item col-4" role="presentation">
-					<button class="nav-link w-100" id="pills-parts-tab" data-bs-toggle="pill"
-						data-bs-target="#pills-parts" type="button" role="tab" aria-controls="pills-parts"
-						aria-selected="false">Parts</button>
-				</li>
-				<li class="nav-item col-4" role="presentation">
-					<button class="nav-link w-100" id="pills-mold-tab" data-bs-toggle="pill"
-						data-bs-target="#pills-mold" type="button" role="tab" aria-controls="pills-mold"
-						aria-selected="false">Mold</button>
-				</li>
+				@foreach($services->data as $key=>$service)
+					<li class="nav-item col-4" role="presentation">
+						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" data-bs-toggle="pill"
+							data-bs-target="#pills-{{preg_replace('/\s+/', '',$service->name)}}" type="button" role="tab" aria-controls="pills-{{preg_replace('/\s+/', '',$service->name)}}"
+							aria-selected={{$key===0 ? "true":""}}>{{$service->name}}</button>
+					</li>
+				@endforeach
 			</ul>
 			<div data-scroll data-aos="fade-in" data-aos-duration="1000" class="tab-content style-tab-content" id="pills-tabContent"
 				style="background-image: url('{{asset('images/background/background-services-section.png')}}');">
-				
-				<div class="tab-pane fade show active" id="pills-vehicle" role="tabpanel"
-					aria-labelledby="pills-vehicle-tab" tabindex="0">
-					<div class="row me-0 ps-lg-5 h-bg-our-services">
-						<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
-							<div>
-								<h1 class="style-title my-5 title-services">Vehicle Business</h1>
-								<p class="style-description mb-5 desc-services">
-									Focused on vehicle assembly and conversion, our growth started with Kijang Krista
-									(1996-2022), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016).
-									Since 2017, our innovation expanded our offerings to Hiace Luxury, Fortuner CCV,
-									Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and Hiace
-									Medical Mover, emphasizing our commitment to advanced, tailored conversion vehicles.
-								</p>
-								<a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
-							<img src="{{asset('images/background/overlay/1.1-overlay-image-service-section.png')}}"
-								width="650" alt="">
+				@foreach($services->data as $key=>$service)
+				<div class="tab-pane fade {{ $key=== 0 ? "show active": ""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}" role="tabpanel"
+				aria-labelledby="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" tabindex="0">
+				<div class="row me-0 ps-lg-5 h-bg-our-services">
+					<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
+						<div>
+							<h1 class="style-title my-5 title-services">{{$service->name}}</h1>
+							<p class="style-description mb-5 desc-services">
+								{{$service->description}}
+							</p>
+							{{-- <a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a> --}}
 						</div>
 					</div>
-				</div>
-				<div class="tab-pane fade" id="pills-parts" role="tabpanel" aria-labelledby="pills-parts-tab"
-					tabindex="0">
-					<div class="row me-0 ps-lg-5 h-bg-our-services">
-						<div class="col-md-6 my-4 ps-5 d-flex justify-content-center align-items-center">
-							<div>
-								<h1 class="style-title my-5 title-services">Part Business</h1>
-								<p class="style-description mb-5 desc-services">
-									As the initial core business in Sugity, the automotive parts business has been
-									running resin injection since 1996, and along its process cultivating into painting
-									& sub assy processes which are advancing toward automation.
-
-								</p>
-								<a class="btn btn-primary style-btn mb-5" href="{{url('/products-part')}}">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
-							<img src="{{asset('images/background/overlay/2-overlay-image-service-section.png')}}" width="650"
-								alt="">
-						</div>
+					<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
+						<img src="{{asset('images/services/'.$service->img)}}"
+							width="650" alt="">
 					</div>
 				</div>
-				<div class="tab-pane fade" id="pills-mold" role="tabpanel" aria-labelledby="pills-mold-tab"
-					tabindex="0">
-					<div class="row me-0 ps-lg-5 h-bg-our-services">
-						<div class="col-md-6 my-4 ps-5 d-flex justify-content-center align-items-center">
-							<div>
-								<h1 class="style-title my-5 title-services">Mold Business</h1>
-								<p class="style-description mb-5 desc-services">
-									Mold Making Business is one of our core business that produces iron-based plastic
-									mold. Initiated in 2004 from in-house mold making by producing small mold, we
-									continued to make bumpers in 2014 to finally reached the ASEAN market in 2018. As
-									one of our business pillars that contributes to the company's profit, we targeted to
-									be the No.1 Mold Maker all over the ASEAN.
-								</p>
-								<a class="btn btn-primary style-btn mb-5" href="{{url('/products-mold')}}">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
-							<img src="{{asset('images/background/overlay/3-overlay-image-service-section.png')}}" width="650"
-								alt="">
-						</div>
-					</div>
 				</div>
+				@endforeach
 
 			</div>
 			<!-- end our services section -->

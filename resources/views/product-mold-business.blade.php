@@ -12,17 +12,19 @@
 	<!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
+			@foreach($sliders->data as $slider)
+			
 			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-content slide">
-					<div>
-						<p class="first-text-slider-mold mb-0 text-center">Mold Making</p>
-						<p class="second-text-slider-mold mt-0"><i>Quality and Precious</i></p>
+				<div class="style-banner-content">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+						{!!$slider->tagline!!}
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/slider/3.png')}}');">
+				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
 				</div>
 			</div>
+
+			@endforeach
 		</div><!-- #Banner Slider end -->
 
 		<!-- Content
@@ -133,6 +135,9 @@
 
 @endsection
 @section('custom_js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/impetus/0.8.8/impetus.min.js"
+integrity="sha512-t+0a9kGXas/mQ/ClLjnTts9UsalckNQfEHhvr+JN/R4t2ql79Q7pK81a2ltfbGpY7Q17ibaGPhHKQDukM+qM2A=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{asset('js/custom/landing-page.js')}}"></script>
 <script>
 

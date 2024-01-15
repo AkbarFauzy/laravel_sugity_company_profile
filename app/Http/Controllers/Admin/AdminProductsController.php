@@ -54,27 +54,37 @@ class AdminProductsController extends Controller
       $data = json_decode($API->body())->data;
       
       $interiorImageUrls = [];
+      $exteriorImageUrls = [];
+      $view360 = [];
+
+
       if (!empty($data->gallery)){
           foreach($data->gallery as $gallery){
               if($gallery->type === "interior"){
                 array_push($interiorImageUrls, asset('/images/products/content/'. $gallery->img));
-              }
-          }
-      }
-
-      $exteriorImageUrls = [];
-      if (!empty($data->gallery)){
-          foreach($data->gallery as $gallery){
-              if($gallery->type === "exterior"){
+              }else if($gallery->type === "exterior"){
                 array_push($exteriorImageUrls, asset('/images/products/content/'. $gallery->img));
+              }else if($gallery->type === "360"){
+                $view360[] = $gallery->img;
               }
           }
       }
+      usort($view360, function($a, $b) {
+        try{
+            $a = (int)explode('.', $a)[0];
+            $b = (int)explode('.', $b)[0];
+            return $a - $b;
+        }catch(\Exception $exception){
+            
+        }
+    });
 
       return view('admin/products/edit')
             ->with('data', $data)
             ->with('interiorImageUrls', $interiorImageUrls)
-            ->with('exteriorImageUrls', $exteriorImageUrls);
+            ->with('exteriorImageUrls', $exteriorImageUrls)
+            ->with('view360', $view360);
+            ;
     }
     
     public function store(Request $request)

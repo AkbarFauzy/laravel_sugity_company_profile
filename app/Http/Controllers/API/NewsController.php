@@ -102,8 +102,6 @@ class NewsController extends Controller
 
     public function UpdateNews(Request $req, $id){
         try{
-      
-
             $req->validate([
                 'headline' => 'required',
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -154,6 +152,7 @@ class NewsController extends Controller
                 }
             }
 
+            
             $existingGallery = $news->gallery()->pluck('img')->toArray();
             if($newGalleryImages && $existingGallery){
                 $imagesToDelete = array_diff($existingGallery, $newGalleryImages);

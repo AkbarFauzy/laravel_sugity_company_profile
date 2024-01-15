@@ -217,21 +217,20 @@
         initialPreviewAsData: true,
         initialPreviewFileType: 'image',
         initialPreviewConfig: initialPreviewConfig,
-        initialPreviewShowDelete: 0,
     });
 
     $('#form').submit(function(event) {
         event.preventDefault()
-        const displayedUrls = getDisplayedImageURLs();
-
+        
         var formData = new FormData($(this)[0]); // Get form data
-        $('#loadingOverlay').show();
-        $(this).find(':submit').attr('disabled','disabled');
-
+        const displayedUrls = getDisplayedImageURLs();
+        
         displayedUrls.forEach(function(url, index) {
             formData.append('uploadedGallery[]', url); // Adjust the key name as needed
         });
-
+        
+        $('#loadingOverlay').show();
+        $(this).find(':submit').attr('disabled','disabled');
         $.ajax({
             url: '{{route("api.news.update", $data->id)}}',
             type: 'POST',

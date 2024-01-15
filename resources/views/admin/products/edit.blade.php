@@ -1,5 +1,6 @@
 @extends('admin.layout.apps')
 @section('custom_css')
+<link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 <style rel="stylesheet">
 .ck-editor__editable {
   min-height: 500px;
@@ -32,7 +33,7 @@
 @section('content')
 <div class="col-12">
     <div class="card mb-4">
-      <div class="card-header"><strong>Products</strong><span class="small ms-1">Create a Products</span></div>
+      <div class="card-header"><strong>Products</strong><span class="small ms-1">Update Products {{$data->id}}</span></div>
          <div class="card-body">
             <form method="POST" id="form" enctype="multipart/form-data">
                 @csrf
@@ -112,6 +113,7 @@
                     </div>
                 </div>
                     <div class="tab-pane fade pt-4" id="nav-360" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                        <div class="row">
                         <div class="mb-3">
                             <label for="" class="form-label">360</label>
                             <div class="file-loading" style="height: 100%">
@@ -119,6 +121,27 @@
                             </div>
                         </div>
                         <input type="hidden" name="360_path" id="extractedPath">
+                        @if(!empty($view360))
+                        <div class="col-md-12 mb3">
+                            <label for="" class="form-label">Current 360</label>
+                            <button class="btn btn-danger text-white" id="delete-360" style="float:right">
+                                Delete 360
+                            </button>
+                            <div class="" id="modaVehicle360" role="tabpanel"
+                            aria-labelledby="modaVehicle360Tab" tabindex="0">
+                            <div class="container" align="center">
+                                <div class="style-content-360">
+                                    <figure>
+                                        <div class="viewer"></div>
+                                    </figure>
+                                </div>
+                            </div>
+                            </div>
+                        @endif
+                 
+                        </div>
+                        </div>
+
                     </div>
              
 
@@ -141,6 +164,10 @@
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/plugins/piexif.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/plugins/sortable.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.1/js/fileinput.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/impetus/0.8.8/impetus.min.js"
+integrity="sha512-t+0a9kGXas/mQ/ClLjnTts9UsalckNQfEHhvr+JN/R4t2ql79Q7pK81a2ltfbGpY7Q17ibaGPhHKQDukM+qM2A=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     ClassicEditor
@@ -374,6 +401,55 @@
         });
     });
 
+    $('#delete-360').on('click', function(e){
+        e.preventDefault();
+        let id = "{{$data->id}}";
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              url:"{{route('api.products.delete-360','')}}/"+id,
+              headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              type: 'DELETE',
+              data: {
+                id:id
+              },
+              success: function(response){
+                if(response["success"]){
+                  Swal.fire(
+                    'Deleted!',
+                    'Your record has been deleted.',
+                    'success'
+                  );
+                }else{
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: response["message"],
+                  })
+                }
+              },
+              error: function(response){
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: response["message"],
+                })
+              },
+            })
+          }
+        });
+    })
+
     function getDisplayedImageURLs() {
         const imageNames = [];
         $('.kv-preview-thumb').each(function() {
@@ -394,6 +470,46 @@
     }
 
 
+</script>
+
+
+<script>
+	//	build scene
+	var loaded = 0;
+	var countImage = 43;
+	var content360 = document.querySelector('.style-content-360');
+	var viewer = document.querySelector('.viewer');
+	var urls = @json($view360);
+    var images = []
+    console.log(images);
+	urls.forEach(function(url, index){
+        const img = new Image();
+		img.src = '{{ asset("images/products/content/360/".$data->name) }}'+ '/' + url;
+        console.log(img.src);
+		images.push(img);
+		viewer.appendChild(img);
+    });
+	//	rotation handler
+	//	http://chrisbateman.github.io/impetus/
+	//	https://github.com/chrisbateman/impetus
+	var threshold = 10;
+	var total = images.length - 1;
+	var frame = 0;
+	var impetus = new Impetus({
+		source: document,
+		update(x) {
+			// console.log(x)
+			images[frame].classList.remove('active')
+			frame = Math.floor(-x / threshold) % total;
+			frame = frame <= 0 ? total + frame : frame;
+			images[frame].classList.add('active');
+		}
+	});
+	images[frame].classList.add('active');
+
+	//	cursor
+	addEventListener('mousedown', e => content360.style.cursor = 'grabbing');
+	addEventListener('mouseup', e => content360.style.cursor = 'grab');
 </script>
 
 @endsection

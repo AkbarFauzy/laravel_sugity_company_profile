@@ -88,17 +88,20 @@ class FrontendController extends Controller
         $vehiclesAPI = Http::get(env('API_DOMAIN').'/api/vehicles');
         $partsAPI = Http::get(env('API_DOMAIN').'/api/parts');
         $moldAPI = Http::get(env('API_DOMAIN').'/api/mold');
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Products');
         
         $productsData = json_decode($productsAPI->body());
         $vehiclesData = json_decode($vehiclesAPI->body());
         $partsData = json_decode($partsAPI->body());
         $moldData = json_decode($moldAPI->body());
+        $slidersData = json_decode($slidersAPI->body());
 
         return view('products')->with([
             'products' => $productsData,
             'vehicles' => $vehiclesData,
             'parts' => $partsData,
             'mold' => $moldData,
+            'sliders' => $slidersData,
         ]);
     }
 
@@ -130,9 +133,13 @@ class FrontendController extends Controller
         }
 
         usort($view360, function($a, $b) {
-            $a = (int)explode('.', $a)[0];
-            $b = (int)explode('.', $b)[0];
-            return $a - $b;
+            try{
+                $a = (int)explode('.', $a)[0];
+                $b = (int)explode('.', $b)[0];
+                return $a - $b;
+            }catch(\Exception $exception){
+                
+            }
         });
 
         return view('products-modal')->with([
@@ -162,6 +169,9 @@ class FrontendController extends Controller
         $otherVehiclesAPI = Http::get(env('API_DOMAIN').'/api/other-vehicles');
         $otherVehiclesData = json_decode($otherVehiclesAPI->body());
 
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Vehicle Business');
+        $slidersData = json_decode($slidersAPI->body());
+
         
         return view('product-vehicle-business')->with([
             'vehicles' => $vehiclesData,
@@ -169,6 +179,7 @@ class FrontendController extends Controller
             'healthcareVehicles' => $healthcareVehiclesData,
             'exportVehicles'=> $exportVehiclesData,
             'otherVehicles'=> $otherVehiclesData,
+            'sliders' => $slidersData,
         ]);
 
     }
@@ -183,10 +194,14 @@ class FrontendController extends Controller
         $partExteriorAPI = Http::get(env('API_DOMAIN').'/api/exterior-parts');
         $partExteriorData = json_decode($partExteriorAPI->body());
 
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Part Business');
+        $slidersData = json_decode($slidersAPI->body());
+
         return view('product-part-business')->with([
             'parts' => $partsData,
             'interiors' => $partInteriorData,
             'exteriors' => $partExteriorData,
+            'sliders' => $slidersData,
         ]);
     }
 
@@ -194,8 +209,12 @@ class FrontendController extends Controller
         $moldAPI = Http::get(env('API_DOMAIN').'/api/mold');
         $moldData = json_decode($moldAPI->body());
 
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Mold');
+        $slidersData = json_decode($slidersAPI->body());
+
         return view('product-mold-business')->with([
             'mold' => $moldData,
+            'sliders' => $slidersData,
         ]);
 
     }
@@ -214,16 +233,16 @@ class FrontendController extends Controller
     }
 
     public function DetailCSR($id){
-        $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
-        $newsAPI = Http::get(env('API_DOMAIN').'/api/csr/');
+        $currentCSRAPI = Http::get(env('API_DOMAIN').'/api/csr/'.$id);
+        $csrAPI = Http::get(env('API_DOMAIN').'/api/latest-csr/');
 
-        $currentNewsData = json_decode($currentNewsAPI->body());
-        $newsData = json_decode($newsAPI->body());
+        $currentCSRData = json_decode($currentCSRAPI->body());
+        $csrData = json_decode($csrAPI->body());
 
-        if($currentNewsData->success){     
-            return view('detail-news')->with([
-                'current_news' => $currentNewsData, 
-                'news' => $newsData
+        if($currentCSRData->success){     
+            return view('detail-csr')->with([
+                'current_csr' => $currentCSRData, 
+                'csr' => $csrData
             ]);
         }else{
             abort(404);
@@ -245,7 +264,7 @@ class FrontendController extends Controller
 
     public function DetailNews($id){
         $currentNewsAPI = Http::get(env('API_DOMAIN').'/api/news/'.$id);
-        $newsAPI = Http::get(env('API_DOMAIN').'/api/news/');
+        $newsAPI = Http::get(env('API_DOMAIN').'/api/latest-news/');
 
         $currentNewsData = json_decode($currentNewsAPI->body());
         $newsData = json_decode($newsAPI->body());

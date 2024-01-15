@@ -25,9 +25,8 @@ class Authentication extends Controller
             ]);
 
             if (Auth::attempt($credentials)) {
-                $user = Auth::user();
-                $token = $user->createToken('userToken')->plainTextToken;
-                $user->save();   
+                $token = Auth::user()->createToken('auth-token')->plainTextToken;
+                return response()->json(['token' => $token]);
             }
             // $data = User::where('email', strtolower($req->input('inputEmail')))->first();
 
@@ -37,18 +36,21 @@ class Authentication extends Controller
 
             
         } catch (\Exception $exception) {
-            return $this->onError('User Login Failed!', $exception->getMessage());
+            return response()->json(['error' => 'Invalid credentials'], 401);
         }
-        return $this->onSuccess([
-            'user' => $user,
-            'token' => $token
-        ], 'User Login Success!');
+
     }
 
     public function logout(Request $req)
     {
         try {
-            auth('sanctum')->user()->currentAccessToken()->delete();
+            Auth::logout();
+
+            $req->session()->invalidate();
+            $req->session()->regenerateToken();
+    
+            return redirect('/');
+
         } catch (\Exception $exception) {
             return $this->onError('User Logout Failed!', $exception->getMessage());
         }

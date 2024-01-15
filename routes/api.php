@@ -49,6 +49,7 @@ Route::get('/products-360/{id}', [ProductController::class, 'Get360']);
 Route::post('/products/add', [ProductController::class, 'AddProduct'])->name('api.products.add');
 Route::put('/products/udpate/{id}', [ProductController::class, 'UpdateProduct'])->name('api.products.update');
 Route::delete('/products/delete/{id}', [ProductController::class, 'DeleteProduct'])->name('api.products.delete');
+Route::delete('/products/delete-360/{id}', [ProductController::class, 'DeleteProduct360'])->name('api.products.delete-360');
 
 Route::get('/sliders', [SlidersController::class, 'GetSliders']);
 Route::get('/sliders/pages/{page}', [SlidersController::class, 'GetSlidersByPage']);
