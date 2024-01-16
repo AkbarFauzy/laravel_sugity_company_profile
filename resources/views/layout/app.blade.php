@@ -21,10 +21,10 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css" />
-    
-    
+
+
     @yield('custom_css')
-    
+
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	<!-- Document Title
@@ -57,21 +57,24 @@
 								Company Profile
 							</a>
 							<ul class="style-sub-navbar-container">
+                                <li class="nav-item">
+									<a class="nav-link" href="{{url('company-profile')}}#about_us">About Us</a>
+								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('company-value')}}">Company Value</a>
+								</li>
+                                <li class="nav-item">
+									<a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('company-profile')}}#president-message">President
 										Message</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
+                                <li class="nav-item">
+									<a class="nav-link" href="{{url('company-business')}}">Company Business</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('company-history')}}">Company History</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="{{url('company-business')}}">Company Business</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('company-plant')}}">Company Plant</a>
@@ -129,25 +132,28 @@
 									Company Profile
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('company-value')}}">Company Value</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('company-profile')}}#president-message">President
-											Message</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('company-history')}}">Company History</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('company-business')}}">Company Business</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('company-plant')}}">Company Plant</a>
-									</li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-profile')}}#about_us">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-value')}}">Company Value</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-profile')}}#president-message">President
+                                            Message</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-business')}}">Company Business</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-history')}}">Company History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{url('company-plant')}}">Company Plant</a>
+                                    </li>
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -251,20 +257,23 @@
 										</h3>
 
 										<div class="row">
+                                            <div class="col-12">
+												<a href="{{url('company-profile')}}#about_us">About Us</a>
+											</div>
 											<div class="col-12">
 												<a href="{{url('company-value')}}">Company Value</a>
+											</div>
+                                            <div class="col-12">
+												<a href="{{url('board-of-director')}}">Board of Director</a>
 											</div>
 											<div class="col-12">
 												<a href="{{url('company-profile')}}#president-message">President Message</a>
 											</div>
-											<div class="col-12">
-												<a href="{{url('board-of-director')}}">Board of Director</a>
+                                            <div class="col-12">
+												<a href="{{url('company-business')}}">Company Business</a>
 											</div>
 											<div class="col-12">
 												<a href="{{url('company-history')}}">Company History</a>
-											</div>
-											<div class="col-12">
-												<a href="{{url('company-business')}}">Company Business</a>
 											</div>
 											<div class="col-12">
 												<a href="{{url('company-plant')}}">Company Plant</a>
@@ -339,7 +348,7 @@
 														<a href="{{url('news')}}">
 															News
 														</a>
-													</h3>	
+													</h3>
 
 													<!-- <div class="row">
 														<div class="col-12">

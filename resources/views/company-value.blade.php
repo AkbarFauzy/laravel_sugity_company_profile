@@ -2,7 +2,7 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/company-value.css') }}" type="text/css" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	
+
 @endsection
 
 @section('title')
@@ -11,7 +11,7 @@
 
 @section('content')
 <!-- For Desktop -->
-<section data-scroll class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 800px !important;">
+<section data-scroll class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 620px !important;">
 	<div class="row" data-aos="fade-in" data-aos-duration="1300">
 		<div class="col-12 col-xl-5 col-lg-6 pt-lg-5 pt-xl-0" style="text-align: center; align-items: center;">
 			<div class="dark mb-0 pt-5 mt-5 ps-xl-5 ps-lg-4">
@@ -27,7 +27,7 @@
 				<h1 class="title-layer-2 py-0 my-0">We Value Our PRIDE in Everywhere</h1> -->
 				<h1 class="title-layer-3">We Value Our PRIDE in Everywhere</h1>
 				<p class="fs-4">
-					The spirit that describes a "Sense of Belonging" a work spirit "Only Sugity Can Do" as well as synergy and respect to gain mutual trust from all stakeholders
+					The spirit that describes a "Sense of Belonging", a work spirit "Only Sugity Can Do" as well as synergy and respect to gain mutual trust from all stakeholders
 				</p>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 				<p class="desc-values">We protect our reputation with<br>great teamwork & working atmosphere</p>
 				<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
 			</div>
-			
+
 		</div>
 		<div class="col-12 col-lg-4 d-flex justify-content-center border-thick">
 			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
