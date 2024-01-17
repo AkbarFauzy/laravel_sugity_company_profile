@@ -48,65 +48,6 @@
     <!-- Content
       ============================================= -->
     <section id="content">
-        <!-- president section -->
-        <div class="section p-0" id="president-message" data-scroll>
-            <div class="row p-0 p-md-5 bg-white">
-                <div data-aos="fade-in" data-aos-duration="1300" class="col-12 col-xl-5 text-end parent-image-president">
-                    <div class="container"
-                        style="width: 100%; height: 100%; display: flex;
-						justify-content: center;
-						align-items: center;">
-                        <!-- <div style="background-image: url('./asset/images/pres-2.png'); height: 100%; width: 100%; background-repeat: no-repeat;"></div> -->
-                        <img src="{{ asset('images/president-img-v2.png') }}" class="president-image" alt="">
-                    </div>
-                </div>
-                <div class="col-12 col-xl-6 parent-president-message">
-                    <div data-aos="fade-left" data-aos-duration="1300" class="container pt-4 color-black">
-                        <h1 class="mb-2 president-message-text">President Message</h1>
-                        <p class="mb-3 president-speech">
-                            Dear Valued Members of the Sugity Creatives Community,
-                        </p>
-                        <p class="mb-3 president-speech">
-                            It is with great pleasure and pride that I extend a warm welcome to you on behalf of
-                            Sugity Creatives—a foundation of automotive excellence since our establishment in 1995.
-                        </p>
-                        <p class="mb-3 president-speech">
-                            As a premier manufacturer in Southeast Asia, specializing in an expansive array of
-                            automotive parts, Sugity Creatives has consistently set the bar for excellence in our
-                            industry. Our three-pillar business approach—Vehicle Conversion, Part, and Mold
-                            Business—forms the foundation of our commitment to innovation, precision, and customer
-                            satisfaction.
-                        </p>
-                        <p class="mb-3 president-speech">
-                            At Sugity Creatives, our mission goes beyond manufacturing exceptional products. We are
-                            driven by a profound commitment to elevate the human experience. Meticulously crafting
-                            products that not only meet but exceed customer expectations is at the heart of our
-                            endeavors. Concurrently, we understand the responsibility we bear towards the
-                            environment.
-                        </p>
-                        <p class="mb-3 president-speech">
-                            Our dedication to addressing environmental concerns reflects our commitment to a
-                            harmonious balance between automotive innovation and sustainable practices.
-                            As we navigate the future, Sugity Creatives is poised for continued growth and impact.
-                            Our unwavering commitment to quality, precision, and environmental stewardship remains
-                            resolute. I invite you to explore our website, discover the depth of our offerings, and
-                            join us on this journey of automotive excellence.
-                        </p>
-                        <p class="mb-3 president-speech">
-                            Thank you for being an integral part of the Sugity Creatives community.
-                        </p>
-                        <p class="president-signature mb-0">
-                            Warm regards,
-                            Masashi Suzuki
-                        </p>
-                        <span class="president-signature-sugity">
-                            President Director, Sugity Creatives
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end president section -->
 
         <!-- parallax -->
         <div data-scroll class="section style-paralax-2 section-image m-0 border-0 d-none d-lg-block bg-white"
@@ -171,15 +112,15 @@
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000" class="col-12 col-md-8 pt-xl-5 ps-md-5">
                     <div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
-                        <img src="{{ asset('images/board-of-director/dot-blue.png') }}" alt="">
+                        <img src="{{ asset('images/shareholders/TAB.png') }}" alt="" style="max-width:60px">
                         <span class="ps-2 desc-shareholder">Toyota Auto Body .CO, LTD (TAB)</span>
                     </div>
                     <div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
-                        <img src="{{ asset('images/board-of-director/dot-red.png') }}" alt="">
+                        <img src="{{ asset('images/shareholders/TMMIN.png') }}" alt="" style="max-width:60px">
                         <span class="ps-2 desc-shareholder">PT. Toyota Motor Manufacturing Indonesia (TMMIN)</span>
                     </div>
                     <div class="wrap-shareholders">
-                        <img src="{{ asset('images/board-of-director/dot-orange.png') }}" alt="">
+                        <img src="{{ asset('images/shareholders/TTC.png') }}" alt="" style="max-width:60px">
                         <span class="ps-2 desc-shareholder">Toyota Tsusho Corporation (TTC)</span>
                     </div>
                 </div>

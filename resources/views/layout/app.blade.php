@@ -53,12 +53,12 @@
 					<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto"
 						style="height: 100%;">
 						<li class="nav-item style-w-31">
-							<a class="nav-link" href="{{url('company-profile')}}">
+							<a class="nav-link" href="#">
 								Company Profile
 							</a>
 							<ul class="style-sub-navbar-container">
                                 <li class="nav-item">
-									<a class="nav-link" href="{{url('company-profile')}}#about_us">About Us</a>
+									<a class="nav-link" href="{{url('about-us')}}">About Us</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{url('company-value')}}">Company Value</a>
@@ -67,7 +67,7 @@
 									<a class="nav-link" href="{{url('board-directors')}}">Board of Director</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{url('company-profile')}}#president-message">President
+									<a class="nav-link" href="{{url('president-message')}}">President
 										Message</a>
 								</li>
                                 <li class="nav-item">

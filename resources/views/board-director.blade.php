@@ -129,34 +129,6 @@
 			<!-- <div>
 				<img src="./asset/images/board-of-director/group-dots-orange.png" style="position: absolute; z-index: 0;" alt="">
 			</div> -->
-			<!-- shareholder section -->
-			<div class="container mb-5 pb-5"
-				style="z-index: 10; border-radius: 10px; background: #FFF; box-shadow: 0px 5px 30px 0px rgba(23, 155, 52, 0.15);">
-				<div data-aos="fade-in" data-aos-duration="1000" class="pt-md-4 pt-3 ps-4">
-					<h1 class="shareholders-title-text">Shareholders</h1>
-				</div>
-				<div class="row px-3">
-					<div data-aos="fade-in" data-aos-duration="1000" class="col-12 col-md-4">
-						<img src="{{asset('images/board-of-director/new-chart-shareholder.png')}}" width="400"
-							alt="">
-					</div>
-					<div data-aos="fade-left" data-aos-duration="1000" class="col-12 col-md-8 pt-xl-5 ps-md-5">
-						<div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
-							<img src="{{asset('images/board-of-director/dot-blue.png')}}" alt="">
-							<span class="ps-2 desc-shareholder">Toyota Auto Body .CO, LTD (TAB)</span>
-						</div>
-						<div class="wrap-shareholders mb-2 mb-md-5 pt-4 pt-md-0">
-							<img src="{{asset('images/board-of-director/dot-red.png')}}" alt="">
-							<span class="ps-2 desc-shareholder">PT. Toyota Motor Manufacturing Indonesia (TMMIN)</span>
-						</div>
-						<div class="wrap-shareholders">
-							<img src="{{asset('images/board-of-director/dot-orange.png')}}" alt="">
-							<span class="ps-2 desc-shareholder">Toyota Tsusho Corporation (TTC)</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end shareholder section -->
 		</section>
 @endsection
 

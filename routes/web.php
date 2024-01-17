@@ -33,6 +33,14 @@ Route::get('/company-profile', function () {
     return view('company-profile');
 });
 
+Route::get('/president-message', function(){
+    return view('president-message');
+});
+
+Route::get('/about-us', function(){
+    return view('about-us');
+});
+
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 });
@@ -55,7 +63,7 @@ Route::get('/company-business', function(){
 
 
 Route::get('/company-plant', function(){
-   return view('company-plant'); 
+   return view('company-plant');
 });
 
 Route::get('/news-page',[FrontendController::class, 'News']);
@@ -94,7 +102,7 @@ Route::group(['prefix'=>'/admin', 'middleware' => ['auth:sanctum']], function ()
     Route::get('news/preview/{id}', [AdminNewsController::class, 'preview'])->name('admin.news.preview');
     Route::get('/get-uploaded-images', [AdminNewsController::class, 'getUploadedImages']);
     Route::post('/news/upload-content', [NewsController::class, 'UploadContent'])->name("ckeditor.news-content-upload");
-    
+
     Route::get('csr',  [AdminCSRController::class, 'view'])->name('admin.csr');
     Route::get('csr/create',  [AdminCSRController::class, 'create'])->name('admin.csr.create');
     Route::post('csr/add', [AdminCSRController::class, 'add'])->name('admin.csr.add');
@@ -113,7 +121,7 @@ Route::group(['prefix'=>'/admin', 'middleware' => ['auth:sanctum']], function ()
     Route::post('product/image-view', [AdminProductsController::class, 'store'])->name('admin.products.image');
     Route::post('product/upload360', [AdminProductsController::class, 'upload360'])->name('admin.products.upload360');
     // Route::post('products/upload-content', [CSRController::class, 'UploadContent'])->name("ckeditor.csr-content-upload");
-    
+
     Route::get('bod', [AdminBODController::class, 'view'])->name('admin.bod');
     Route::get('bod/create', [AdminBODController::class, 'create'])->name('admin.bod.create');
     Route::get('bod/form', [AdminBODController::class, 'loadForm'])->name('admin.bod.form');
