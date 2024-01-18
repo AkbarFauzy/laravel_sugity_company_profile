@@ -11,7 +11,7 @@
 
 @section('content')
 <!-- For Desktop -->
-<section data-scroll class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 620px !important;">
+<section data-scroll class="page-title-dark mb-0 d-none d-sm-block" style="background-image: url('{{asset('images/background/background-company-value.png')}}'); height: 700px !important;">
 	<div class="row" data-aos="fade-in" data-aos-duration="1300">
 		<div class="col-12 col-xl-5 col-lg-6 pt-lg-5 pt-xl-0" style="text-align: center; align-items: center;">
 			<div class="dark mb-0 pt-5 mt-5 ps-xl-5 ps-lg-4">
