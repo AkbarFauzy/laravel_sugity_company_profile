@@ -167,32 +167,29 @@
 			<h1 class="our-value-text fs-1 fw-bolder" style="color: #EE6D22;">Business Pillars</h1>
 		</div>
 	</div>
-	<div data-scroll class="row m-0 px-3 px-sm-5 px-md-0 pb-5" data-aos="fade-up" data-aos-duration="1300">
-		<div class="col-12 col-md-4 text-center px-2 px-lg-3 px-xl-5 py-4">
-			<div style="background-image: url('{{asset('images/card-image/comp-value-1.png')}}'); height: 420px; border-radius: 12px; box-shadow: 1px 5px 30px 0px rgba(0, 0, 0, 0.15);">
-				<div class="container dark text-start item-text-overlay-value pb-3">
-					<div>
-						<h3 class="mb-0">Vehicle Business</h3>
-					</div>
-				</div>
+
+    <div data-scroll class="row m-0 mt-5 py-md-5 row-section-visi-misi">
+		<div class="col-12 col-lg-4 d-flex justify-content-center">
+			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+				<img src="{{asset('images/vector/vehicle assembly.png')}}" width="50" alt="">
+				<h1 class="mb-md-5 mt-3 fs-2.5 title-values">Vehicle Assembly</h1>
+				<p class="desc-values">Starting with Kijang Krista, our growth now spans diverse vehicle conversions, showcasing innovation and commitment.</p>
+				<h2 class="mb-1 title-values">&nbsp;</h2>
 			</div>
 		</div>
-		<div class="col-12 col-md-4 text-center px-2 px-lg-3 px-xl-5 py-4">
-			<div style="background-image: url('{{asset('images/card-image/comp-value-2.png')}}'); height: 420px; border-radius: 12px; box-shadow: 1px 5px 30px 0px rgba(0, 0, 0, 0.15);">
-				<div class="container dark text-start item-text-overlay-value pb-3">
-					<div>
-						<h3 class="mb-0">Part Business</h3>
-					</div>
-				</div>
+		<div class="col-12 col-lg-4 d-flex justify-content-center border-thick">
+			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+				<img src="{{asset('images/vector/automotive part.png')}}" width="50" alt="">
+				<h1 class="mb-md-5 mt-3 fs-1 title-values">Automotive Part</h1>
+				<p class="desc-values">Since 1996, out automotive parts business has advanced from resin injection to automated painting and sub-assembly.</p>
+				<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
 			</div>
 		</div>
-		<div class="col-12 col-md-4 text-center px-2 px-lg-3 px-xl-5 py-4">
-			<div style="background-image: url('{{asset('images/card-image/comp-value-3.png')}}'); height: 420px; border-radius: 12px; box-shadow: 1px 5px 30px 0px rgba(0, 0, 0, 0.15);">
-				<div class="container dark text-start item-text-overlay-value pb-3">
-					<div>
-						<h3 class="mb-0">Mold Business</h3>
-					</div>
-				</div>
+		<div class="col-12 col-lg-4 d-flex justify-content-center">
+			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+				<img src="{{asset('images/vector/mold making.png')}}" width="50" alt="">
+				<h1 class="mb-md-5 mt-3 fs-1 title-values">Mold Making</h1>
+				<p class="desc-values">Since 2004, our Mold Making Business has grown from small molds to ASEAN market leadership in 2018.</p>
 			</div>
 		</div>
 	</div>
