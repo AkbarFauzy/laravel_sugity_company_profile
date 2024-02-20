@@ -26,7 +26,7 @@ class LoginController extends Controller
                 $token = Auth::user()->createToken('auth-token')->plainTextToken;
                 return redirect()->route('admin/dashboard')->with('token', $token);
             }
-            
+
         } catch (\Exception $exception) {
             return redirect()->route('admin.dashboard');
         }
@@ -40,7 +40,7 @@ class LoginController extends Controller
 
             $req->session()->invalidate();
             $req->session()->regenerateToken();
-    
+
             return redirect('/');
 
         } catch (\Exception $exception) {

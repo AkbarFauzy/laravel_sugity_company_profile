@@ -26,13 +26,13 @@ class AdminProductsController extends Controller
                   })->addColumn('action', function($row){
                     // $btn = '<a class="edit btn btn-primary btn-md" id="btn-view" data-id='.$row->id.' style="margin-right:10px">View</a>';
                     // $btn .='<a class="edit btn btn-warning btn-md" id="btn-update" data-id='.$row->id.' style="margin-right:10px">Update</a>';
-                    $btn ="<a class='edit btn btn-warning btn-md text-white' 
-                          id='btn-update' data-id='$row->id' 
+                    $btn ="<a class='edit btn btn-warning btn-md text-white'
+                          id='btn-update' data-id='$row->id'
                           style='margin-right:10px' href=".route('admin.products.edit', ['id' => $row->id ]).">
                           Update
                           </a>";
-                    $btn .= '<a class="edit btn btn-danger btn-md text-white" 
-                            id="btn-delete" data-id='.$row->id.' 
+                    $btn .= '<a class="edit btn btn-danger btn-md text-white"
+                            id="btn-delete" data-id='.$row->id.'
                             style="margin-right:10px">
                             Delete
                             </a>';
@@ -43,7 +43,7 @@ class AdminProductsController extends Controller
         }
         return view('admin/products/index');
     }
-   
+
     public function create(Request $request){
       return view('admin/products/create');
     }
@@ -52,7 +52,19 @@ class AdminProductsController extends Controller
     public function edit($id){
       $API = Http::withToken(Session::get('token'))->get(env('API_DOMAIN').'/api/products/'.$id);
       $data = json_decode($API->body())->data;
-      
+
+      $string = $data->left_content;
+
+      if (($string != "") && ($data->category == "Interior Part" || $data->category == "Exterior Part")) {
+        // Decode the JSON string to get an array
+        $array = json_decode($string);
+
+        // Convert the array to HTML
+        $htmlString = '<ul><li>' . implode('</li><li>', $array) . '</li></ul>';
+
+        $data->left_content = $htmlString ?? $data->left_content;
+      }
+
       $interiorImageUrls = [];
       $exteriorImageUrls = [];
       $view360 = [];
@@ -75,7 +87,7 @@ class AdminProductsController extends Controller
             $b = (int)explode('.', $b)[0];
             return $a - $b;
         }catch(\Exception $exception){
-            
+
         }
     });
 
@@ -86,7 +98,7 @@ class AdminProductsController extends Controller
             ->with('view360', $view360);
             ;
     }
-    
+
     public function store(Request $request)
     {
       $this->validate($request, [

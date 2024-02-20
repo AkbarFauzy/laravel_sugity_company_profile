@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="col">
-            <a style="float: right;" 
-            id="btn-create" name="tambah" 
+            <a style="float: right;"
+            id="btn-create" name="tambah"
             class="btn btn-success btn-md text-white" href="{{route('admin.products.create')}}">Create Products</a>
         </div>
     </div>

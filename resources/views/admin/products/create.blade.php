@@ -41,7 +41,7 @@
                       <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-360" type="button" role="tab" aria-controls="nav-360" aria-selected="false">360</button>
                     </div>
                 </nav>
-                
+
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active pt-4" id="nav-general" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                         <div class="row">
@@ -50,7 +50,7 @@
                                     <label  for="name">Name</label>
                                     <input name="name" type="text" class="form-control" id="name" placeholder="Lorem Ipsum">
                                 </div>
-        
+
                                 <label>Category</label>
                                 <select name="category" id="category" class="form-control">
                                 <option value="Public Transport">Public Transport</option>
@@ -61,22 +61,21 @@
                                 <option value="Exterior Part">Exterior Part</option>
                                 <option value="Mold">Mold</option>
                                 </select>
-        
+
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <div class="row"> 
+                                    <div class="row">
                                         <label  for="name">Thumbnail</label>
                                         <div class="file-loading" style="height: 100%">
                                             <input id="img" type="file" name="img" class="file" data-overwrite-initial="true">
                                         </div>
                                     </div>
-                                </div>                        
+                                </div>
                             </div>
                         </div>
-         
                         <div class="mb-3">
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="col-md-6">
                                     <label for="exampleFormControlTextarea1" class="form-label">Left Content</label>
                                     <textarea class="form-control" id="left-editor" rows="3" name="left_content">
@@ -89,7 +88,7 @@
                                 </div>
                              </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="" class="form-label">Interior</label>
                             <div class="file-loading" style="height: 100%">
@@ -115,7 +114,7 @@
                         <input type="hidden" name="360_path" id="extractedPath">
                     </div>
                 </div>
-                
+
 
                 <div class="d-flex justify-content-end">
                     <button role="submit" class="p-2 btn-primary text-white" id="submitButton">Submit</button>
@@ -139,7 +138,7 @@
 
 <script>
     ClassicEditor
-            .create( document.querySelector( '#left-editor' ), 
+            .create( document.querySelector( '#left-editor' ),
             {
 
             })
@@ -151,7 +150,7 @@
             });
 
     ClassicEditor
-            .create( document.querySelector( '#right-editor' ), 
+            .create( document.querySelector( '#right-editor' ),
             {
 
             })
@@ -186,7 +185,7 @@
             },
         browseOnZoneClick: true
     });
-   
+
    $("#interior").fileinput({
         // uploadUrl: '{{route("admin.products.image")}}',
         uploadExtraData: function() {
@@ -234,7 +233,7 @@
         browseOnZoneClick: true
     });
 
-    
+
     $("#360").fileinput({
         uploadUrl: '{{route("admin.products.upload360")}}',
         uploadExtraData: function() {
@@ -270,7 +269,7 @@
 
     $('#form').submit(function(event) {
         event.preventDefault()
-        
+
         var formData = new FormData($(this)[0]); // Get form data
         $('#loadingOverlay').show();
         $(this).find(':submit').attr('disabled','disabled');
@@ -309,7 +308,7 @@
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 });
-                
+
                 setTimeout(function() {
                     $('#form').find(':submit').removeAttr('disabled');
                 }, 3000);

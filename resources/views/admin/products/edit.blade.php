@@ -50,10 +50,10 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label  for="name">Name</label>
-                                <input name="name" 
-                                type="text" 
-                                class="form-control" 
-                                id="name" 
+                                <input name="name"
+                                type="text"
+                                class="form-control"
+                                id="name"
                                 placeholder="Lorem Ipsum"
                                 value="{{$data->name}}"
                                 >
@@ -72,7 +72,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6"> 
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label  for="name">Thumbnail</label>
                                 <div class="file-loading" style="height: 100%">
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <div class="row"> 
+                        <div class="row">
                             <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Left Content</label>
                                 <textarea class="form-control" id="left-editor" rows="3" name="left_content">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="mb-3" id="interior-file-input">
                         <label for="" class="form-label">Interior</label>
                         <div class="file-loading" style="height: 100%">
@@ -138,12 +138,12 @@
                             </div>
                             </div>
                         @endif
-                 
+
                         </div>
                         </div>
 
                     </div>
-             
+
 
                 <div class="d-flex justify-content-end">
                     <button role="submit" class="p-2 btn-primary text-white">Submit</button>
@@ -171,7 +171,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     ClassicEditor
-            .create( document.querySelector( '#left-editor' ), 
+            .create( document.querySelector( '#left-editor' ),
             {
                 ckfinder:{
                     uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
@@ -185,7 +185,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             });
 
     ClassicEditor
-            .create( document.querySelector( '#right-editor' ), 
+            .create( document.querySelector( '#right-editor' ),
             {
                 ckfinder:{
                     uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
@@ -244,7 +244,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     $("#interior").fileinput({
         uploadExtraData: function() {
             return {
-                _token: $("input[name='_token']").val(),    
+                _token: $("input[name='_token']").val(),
             };
         },
         allowedFileExtensions: ['jpg', 'png', 'gif'],
@@ -345,10 +345,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         $('#submitButton').removeClass('disabled').removeAttr('disabled');
     });;
 
-    
+
     $('#form').submit(function(event) {
         event.preventDefault()
-        
+
         var formData = new FormData($(this)[0]); // Get form data
         const displayedUrls = getDisplayedImageURLs();
 
