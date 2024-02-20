@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Product;
+
 class FrontendController extends Controller
 {
     public function index(){
@@ -33,7 +36,7 @@ class FrontendController extends Controller
         $sortedData = $combinedData->sortByDesc('created_at')->values()->all();
 
         return view('landing-page')->with([
-           'news' => $sortedData, 
+           'news' => $sortedData,
            'services' => $serviceData,
            'sliders' => $slidersData,
         ]);
@@ -54,7 +57,7 @@ class FrontendController extends Controller
 
 
         return view('board-director')->with([
-           'directors' => $directorsData, 
+           'directors' => $directorsData,
            'president_directors' => $president_directorsData,
            'commisioners' => $commisionersData,
            'vice_president' => $vice_presidentData
@@ -69,7 +72,7 @@ class FrontendController extends Controller
         $historyData = json_decode($historyAPI->body());
         $historyByYearData = json_decode($historyByYearAPI->body());
         $uniqueYears = [];
-        
+
         foreach ($historyData->data as $history) {
             $year = $history->year;
             if (!in_array($year, $uniqueYears)) {
@@ -89,7 +92,7 @@ class FrontendController extends Controller
         $partsAPI = Http::get(env('API_DOMAIN').'/api/parts');
         $moldAPI = Http::get(env('API_DOMAIN').'/api/mold');
         $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Products');
-        
+
         $productsData = json_decode($productsAPI->body());
         $vehiclesData = json_decode($vehiclesAPI->body());
         $partsData = json_decode($partsAPI->body());
@@ -106,8 +109,28 @@ class FrontendController extends Controller
     }
 
     public function ProductsModal($id){
+        // $productsAPI = Http::get('http://localhost:8000/api/products/13');
         $productsAPI = Http::get(env('API_DOMAIN').'/api/products/'.$id);
         $productsData = json_decode($productsAPI);
+        // $productsData->data->left_content = '["string1", "string2", "string3", "string4", "string5", "string6", "string7", "string8", "string9"]';
+
+        // $productsData = Product::find($id);
+
+        $string = $productsData->data->left_content;
+
+        if (($string != "") && ($productsData->data->category == "Interior Part" || $productsData->data->category == "Exterior Part")) {
+            // Decode the JSON string to get an array
+            $array = json_decode($string);
+
+            // Convert the array to HTML
+            // $htmlString = '<ul><li>' . implode('</li><li>', $array) . '</li></ul>';
+
+            // $productsData->data->left_content = $htmlString ?? $productsData->data->left_content;
+            $productsData->data->left_content = json_decode($string);
+        }
+
+        // return $productsData;
+        // die();
 
         $gallery = $productsData->data->gallery;
 
@@ -138,7 +161,7 @@ class FrontendController extends Controller
                 $b = (int)explode('.', $b)[0];
                 return $a - $b;
             }catch(\Exception $exception){
-                
+
             }
         });
 
@@ -172,7 +195,7 @@ class FrontendController extends Controller
         $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Vehicle Business');
         $slidersData = json_decode($slidersAPI->body());
 
-        
+
         return view('product-vehicle-business')->with([
             'vehicles' => $vehiclesData,
             'publicTransport' => $publicTransportData,
@@ -218,10 +241,10 @@ class FrontendController extends Controller
         ]);
 
     }
-    
+
     public function CSR(){
         $csrAPI = Http::get(env('API_DOMAIN').'/api/csr/');
-        
+
         $csrData = json_decode($csrAPI);
         $randomCSR = $csrData->data;
         shuffle($randomCSR);
@@ -239,9 +262,9 @@ class FrontendController extends Controller
         $currentCSRData = json_decode($currentCSRAPI->body());
         $csrData = json_decode($csrAPI->body());
 
-        if($currentCSRData->success){     
+        if($currentCSRData->success){
             return view('detail-csr')->with([
-                'current_csr' => $currentCSRData, 
+                'current_csr' => $currentCSRData,
                 'csr' => $csrData
             ]);
         }else{
@@ -252,12 +275,12 @@ class FrontendController extends Controller
 
     public function News(){
         $newsAPI = Http::get(env('API_DOMAIN').'/api/latest-news');
-    
+
         $newsData = json_decode($newsAPI->body());
         $randomNews = $newsData->data;
         shuffle($randomNews);
         return view('news')->with([
-           'news' => $newsData, 
+           'news' => $newsData,
            'randomNews' => $randomNews,
         ]);
     }
@@ -268,11 +291,11 @@ class FrontendController extends Controller
 
         $currentNewsData = json_decode($currentNewsAPI->body());
         $newsData = json_decode($newsAPI->body());
-        
 
-        if($currentNewsData->success){     
+
+        if($currentNewsData->success){
             return view('detail-news')->with([
-                'current_news' => $currentNewsData, 
+                'current_news' => $currentNewsData,
                 'news' => $newsData
             ]);
         }else{
