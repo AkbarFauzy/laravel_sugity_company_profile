@@ -17,7 +17,8 @@
         </li>
         @endif
 
-        @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
+        {{-- @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") ) --}}
+        @if($isInterior && ($products->data->category != "Mold" && $products->data->category != "Exterior Part") )
             <li class="nav-item" role="presentation">
                 <button class="nav-link {{$is360 ? '' : 'active'}}" id="modaVehicleInteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleInterior" type="button" role="tab"
@@ -25,9 +26,12 @@
             </li>
         @endif
 
-        @if($isExterior)
+        @if($isExterior || $products->data->category == "Exterior Part")
             <li class="nav-item" role="presentation">
-                <button class="nav-link {{$is360 || $isInterior ? '' : 'active'}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
+                {{-- <button class="nav-link {{$is360 || $isInterior ? '' : 'active'}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
+                    data-bs-target="#modaVehicleExterior" type="button" role="tab"
+                    aria-controls="modaVehicleExterior" aria-selected="false">Exterior</button> --}}
+                <button class="nav-link {{$is360 || $isInterior ? ($products->data->category == 'Exterior Part' ? 'active' : '') : ''}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleExterior" type="button" role="tab"
                     aria-controls="modaVehicleExterior" aria-selected="false">Exterior</button>
             </li>
@@ -113,7 +117,7 @@
                                 </div>
                             @endif
                         @endforeach
-                        
+
                     </div>
                     <button class="carousel-control-prev" type="button"
                         data-bs-target="#carouselModalVehicleExterior" data-bs-slide="prev">
@@ -134,61 +138,96 @@
 
 
 </div>
-@if(!empty($products->data->left_content) || (!empty($products->data->right_content)))
-<h2 class="modal-title style-title pt-5 text-center">{{$products->data->name}}</h2>
-
-<div class="container pt-3 pb-5" align="center">
-    <div class="row justify-content-between px-3 px-xl-5" align="left">
-        <div class="col-lg-6 col-xl-6">
-            
-            @if(!empty($products->data->left_content))
-                <h3 class="style-title-content m-0">Features</h3>
-                <div class="style-divider-content"></div>
-                <div class="style-list-content">
-            @endif
-                {!!$products->data->left_content!!}
-
-                {{-- <ul class="style-list-content">
-                    <li>Ergonomic Dashboard</li>
-                    <li>Spacious cabin</li>
-                    <li>Safety Body Structure</li>
-                    <li>Efficient Full Consumption</li>
-                    <li>Small Turning Radius</li>
-                    <li>Emergency Door</li>
-                </ul> --}}
-            </div>
-        </div>
-        <div class="col-lg-6 col-xl-6">
-            @if($products->data->right_content)
-                <h3 class="style-title-content m-0">Conversion Parts</h3>
-                <div class="style-divider-content"></div>
-                <div class="style-list-content">
-            @endif
-                {!!$products->data->right_content!!}
-                {{-- <div class="col-md-6">
-                    <ul class="style-list-content">
-                        <li>Power Slide Door</li>
-                        <li>Passanger Seats</li>
-                        <li>Cabin Partition</li>
-                        <li>3 LED Running Text</li>
-                        <li>OBU (On Board Unit)</li>
-                        <li>TV Monitor</li>
-                    </ul>
+@if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
+    <h2 class="modal-title style-title pt-5 text-center">Product on Car</h2>
+    <div class="container pt-3 pb-5" align="center">
+        <div class="row justify-content-between px-3 px-xl-5" align="left">
+            <div class="col-lg-12 col-xl-12">
+                <div class="row">
+                    @foreach ($products->data->left_content as $value)
+                        <div class="col-md-3"><ul><li>{{ $value }}</li></ul></div>
+                    @endforeach
                 </div>
-                <div class="col-md-6">
-                    <ul class="style-list-content">
-                        <li>A/C Double Blower</li>
-                        <li>4 CCTV Camera & DVR</li>
-                        <li>Vynil Floor</li>
-                        <li>Speed & Reverse Buzzer</li>
-                        <li>Emergency Door Access</li>
-                        <li>Fire Extinguisher</li>
-                    </ul>
-                </div> --}}
+                        {{-- @php
+                            $string = $products->data->left_content;
+
+                            if (($string != "") && ($products->data->category == "Interior Part" || $products->data->category == "Exterior Part")) {
+                                // Decode the JSON string to get an array
+                                $array = json_decode($string, true);
+
+                                // Check if $array is an array
+                                if (is_array($array)) {
+                                    // Convert the array to HTML
+                                    $htmlString = '<ul><li>' . implode('</li><li>', $array) . '</li></ul>';
+
+                                    echo $htmlString;
+                                } else {
+                                    // Handle the case when $array is not an array
+                                    echo $string; // Output the original string
+                                }
+                            }
+                        @endphp --}}
+                    {{-- {!! $products->data->left_content !!} --}}
+                </div>
             </div>
         </div>
     </div>
-</div>
+@else
+    @if(!empty($products->data->left_content) || (!empty($products->data->right_content)))
+    <h2 class="modal-title style-title pt-5 text-center">{{$products->data->name}}</h2>
+    <div class="container pt-3 pb-5" align="center">
+        <div class="row justify-content-between px-3 px-xl-5" align="left">
+            <div class="col-lg-6 col-xl-6">
+
+                @if(!empty($products->data->left_content))
+                    <h3 class="style-title-content m-0">Features</h3>
+                    <div class="style-divider-content"></div>
+                    <div class="style-list-content">
+                @endif
+                    {!!$products->data->left_content!!}
+
+                    {{-- <ul class="style-list-content">
+                        <li>Ergonomic Dashboard</li>
+                        <li>Spacious cabin</li>
+                        <li>Safety Body Structure</li>
+                        <li>Efficient Full Consumption</li>
+                        <li>Small Turning Radius</li>
+                        <li>Emergency Door</li>
+                    </ul> --}}
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-6">
+                @if($products->data->right_content)
+                    <h3 class="style-title-content m-0">Conversion Parts</h3>
+                    <div class="style-divider-content"></div>
+                    <div class="style-list-content">
+                @endif
+                    {!!$products->data->right_content!!}
+                    {{-- <div class="col-md-6">
+                        <ul class="style-list-content">
+                            <li>Power Slide Door</li>
+                            <li>Passanger Seats</li>
+                            <li>Cabin Partition</li>
+                            <li>3 LED Running Text</li>
+                            <li>OBU (On Board Unit)</li>
+                            <li>TV Monitor</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="style-list-content">
+                            <li>A/C Double Blower</li>
+                            <li>4 CCTV Camera & DVR</li>
+                            <li>Vynil Floor</li>
+                            <li>Speed & Reverse Buzzer</li>
+                            <li>Emergency Door Access</li>
+                            <li>Fire Extinguisher</li>
+                        </ul>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 @endif
 <!-- 360 VIewer -->
 <script>
