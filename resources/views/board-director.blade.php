@@ -13,16 +13,31 @@
 @section('content')
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title-dark d-none d-sm-block"
-			style="background-image: url('{{asset('images/background/background-board-of-director.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10;">
+		{{-- Desktop --}}
+		<section id="page-title" class="page-title-dark d-none d-xl-block"
+			style="background-image: url('{{asset('images/background/background-board-of-director-v2.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10; background-size: cover;">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-				<h1 style="font-size: 80px;">Board of Director</h1>
+				<h1 style="font-size: 80px; margin-top: -250px">Board of Director</h1>
 			</div>
 		</section>
+		{{-- Mobile --}}
 		<section id="page-title" class="page-title-dark d-block d-sm-none"
-			style="background-image: url('{{asset('images/background/background-board-of-director.png')}}'); padding: 325px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10;">
+			style="background-image: url('{{asset('images/background/background-board-of-director-v2.png')}}'); padding: 110px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-				<h1 style="font-size: 50px;">Board of Director</h1>
+				<h1 style="font-size: 20px; margin-top: -75px">Board of Director</h1>
+			</div>
+		</section>
+		{{-- Tablet --}}
+		<section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
+			style="background-image: url('{{asset('images/background/background-board-of-director-v2.png')}}'); padding: 200px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+				<h1 style="font-size: 30px; margin-top: -150px">Board of Director</h1>
+			</div>
+		</section>
+		<section id="page-title" class="page-title-dark d-none d-lg-block d-xl-none"
+			style="background-image: url('{{asset('images/background/background-board-of-director-v2.png')}}'); padding: 200px 0; margin-top: 65px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+				<h1 style="font-size: 30px; margin-top: -150px">Board of Director</h1>
 			</div>
 		</section>
 		<!-- #page-title end -->
@@ -34,7 +49,7 @@
 		============================================= -->
 		<section id="content" class="p-0" style="position: relative;">
 			<!-- our board of director section -->
-			<div class="container-fluid py-5 style-bg-dot">
+			<div class="container-fluid py-5 style-bg-abstract">
 				<ul data-aos="fade-in" data-aos-duration="800" class="nav nav-pills style-nav-pills-bod" id="pills-tab" role="tablist">
 					<!-- <li class="nav-item col-6 d-flex justify-content-end" role="presentation">
 						<button class="nav-link w-50 active" id="pills-vehicle-tab" data-bs-toggle="pill"
@@ -129,6 +144,11 @@
 			<!-- <div>
 				<img src="./asset/images/board-of-director/group-dots-orange.png" style="position: absolute; z-index: 0;" alt="">
 			</div> -->
+
+			<div style="background: linear-gradient(to bottom, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), linear-gradient(to top, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 30vh !important; opacity: 0.4; background-position-y: 36%; margin-top: -64px; margin-bottom: -64px;">
+	</div>
 		</section>
 @endsection
 
