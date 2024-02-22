@@ -257,7 +257,7 @@
 	var total = images.length - 1;
 	var frame = 0;
 	var impetus = new Impetus({
-		source: document,
+		source: content360,
 		update(x) {
 			// console.log(x)
 			images[frame].classList.remove('active')
