@@ -38,7 +38,7 @@
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
-						<li><a href="#tabs-all" class="text-size-sm">All</a></li>
+						{{-- <li><a href="#tabs-all" class="text-size-sm">All</a></li> --}}
 						<li><a href="#tabs-interior" class="text-size-sm">Interior</a></li>
 						<li><a href="#tabs-exterior" class="text-size-sm">Exterior</a></li>
 					</ul>
@@ -46,7 +46,7 @@
 					<div class="tab-container">
 	
 						<!-- tab all -->
-						<div class="tab-content clearfix" id="tabs-all">
+						{{-- <div class="tab-content clearfix" id="tabs-all">
 							<div class="style-section-product-overview">
 								<div class="row">
 									
@@ -70,7 +70,7 @@
 
 								</div>
 							</div>
-						</div>
+						</div> --}}
 
 						<!-- tab interior -->
 						<div class="tab-content clearfix" id="tabs-interior">

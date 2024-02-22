@@ -82,7 +82,7 @@
                             </div>
                             <div>
                                 <h4 class="style-text-business-title mt-5 mb-3">Vehicle Assembly</h4>
-                                <p class="style-text-business-description">As a core business within our business framework, encompassing vehicle assembly and conversion, our trajectory has been marked by continuous growth. Initially distinguished as the vehicle assembler for Kijang Krista (1996-2022), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016), we evolved dynamically.
+                                <p class="style-text-business-description">As a core business within our business framework, encompassing vehicle assembly and conversion, our trajectory has been marked by continuous growth. Initially distinguished as the vehicle assembler for Kijang Krista (1996-2002), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016), we evolved dynamically.
                                     Since 2017, our commitment to innovation has driven the expansion of our business into diverse vehicle conversions, including Hiace Luxury, Fortuner CCV, Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and the cutting-edge Hiace Medical Mover. This expansion is a testament to our dedication to providing unique and technologically advanced conversion vehicles tailored to meet the distinctive needs of our customers.</p>
                             </div>
                         </div>

@@ -26,8 +26,7 @@
 			<div class="dark pt-md-0 mt-md-0 pt-lg-5 mt-lg-5 pt-xl-0 mt-xl-0 ps-xl-5 pe-xl-5 me-5 ms-5 ms-md-5 ms-lg-0 ps-md-5 ps-lg-0">
 				<!-- <h1 class="title-layer-1 mb-0 mt-md-3 mt-lg-5 mt-xl-2 pt-md-3 pt-lg-5 pt-xl-2">COMPANY VALUE</h1>
 				<h1 class="title-layer-2 py-0 my-0">We Value Our PRIDE in Everywhere</h1> -->
-				<h1 class="title-layer-3" style="color: #CDA83D; margin-bottom: -8px">We Value Our PRIDE in Everywhere</h1>
-				<hr style="color: #CDA83D; height: 3px">
+				<h1 class="title-layer-3" style="color: #dfb542; text-underline-offset: 10px;"><u>&nbsp;&nbsp;&nbsp;We Value Our PRIDE in Everywhere&nbsp;&nbsp;&nbsp;</u></h1>
 				<p class="fs-4">
 					The spirit that describes a "Sense of Belonging", a work spirit "Only Sugity Can Do" as well as synergy and respect to gain mutual trust from all stakeholders
 				</p>

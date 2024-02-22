@@ -178,7 +178,7 @@ class ProductController extends Controller
                 // Extract values from the matches
                 $itemsArray = $matches[1];
 
-                $valueLeftContentForInteriorAndExterionPart = $itemsArray;
+                $valueLeftContentForInteriorAndExterionPart = json_encode($itemsArray);
             }
 
             if ($image = $req->file('img')) {
@@ -196,7 +196,7 @@ class ProductController extends Controller
                 'category' => $req->input('category'),
                 'left_content' => $valueLeftContentForInteriorAndExterionPart != "" ? $valueLeftContentForInteriorAndExterionPart : $req->input('left_content'),
                 'right_content' => $req->input('right_content'),
-                'img' => $fileName
+                'img' => $fileName ?? ""
             ]);
 
             if ($files = $req->file('interior')) {
