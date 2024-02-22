@@ -17,8 +17,8 @@
         </li>
         @endif
 
-        {{-- @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") ) --}}
-        @if($isInterior && ($products->data->category != "Mold" && $products->data->category != "Exterior Part") )
+        @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
+        {{-- @if($isInterior && ($products->data->category != "Mold" && $products->data->category != "Exterior Part") ) --}}
             <li class="nav-item" role="presentation">
                 <button class="nav-link {{$is360 ? '' : 'active'}}" id="modaVehicleInteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleInterior" type="button" role="tab"
@@ -26,7 +26,7 @@
             </li>
         @endif
 
-        @if($isExterior || $products->data->category == "Exterior Part")
+        @if($isExterior)
             <li class="nav-item" role="presentation">
                 {{-- <button class="nav-link {{$is360 || $isInterior ? '' : 'active'}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleExterior" type="button" role="tab"
@@ -59,7 +59,7 @@
     @if($isInterior)
     <div class="tab-pane fade {{$is360 ? '' : 'show active'}}" id="modaVehicleInterior" role="tabpanel"
         aria-labelledby="modaVehicleInteriorTab" tabindex="0">
-        <div class="container pt-3 pb-5" align="center">
+        <div class="container pt-3" align="center">
             <div class="px-3">
                 <div id="carouselModalVehicleInterior"
                     class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide">
@@ -78,16 +78,18 @@
                             @endif
                         @endforeach
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselModalVehicleInterior" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselModalVehicleInterior" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
+                        <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselModalVehicleInterior" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselModalVehicleInterior" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -98,7 +100,7 @@
     @if($isExterior)
     <div class="tab-pane fade {{$is360 || $isInterior ? '' : 'show active'}}" id="modaVehicleExterior" role="tabpanel"
         aria-labelledby="modaVehicleExteriorTab" tabindex="0">
-        <div class="container pt-3 pb-5" align="center">
+        <div class="container pt-3" align="center">
             <div class="px-3">
                 <div id="carouselModalVehicleExterior"
                     class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide modal-xl">
@@ -119,16 +121,18 @@
                         @endforeach
 
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselModalVehicleExterior" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselModalVehicleExterior" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
+                        <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselModalVehicleExterior" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselModalVehicleExterior" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -139,13 +143,13 @@
 
 </div>
 @if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
-    <h2 class="modal-title style-title pt-5 text-center">Product on Car</h2>
+    <h2 class="modal-title style-title text-center">Product on Car</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-lg-12 col-xl-12">
                 <div class="row">
                     @foreach ($products->data->left_content as $value)
-                        <div class="col-md-3"><ul><li>{{ $value }}</li></ul></div>
+                        <div class="col-md-3" style="font-size: 20px;"><ul><li>{{ $value }}</li></ul></div>
                     @endforeach
                 </div>
                         {{-- @php
