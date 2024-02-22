@@ -2,6 +2,18 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-mold-business.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
+<style>
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+</style>
 @endsection
 
 @section('title')
@@ -16,7 +28,7 @@
 
 			<div class="item min-vh-100 min-vh-md-100">
 				<div class="style-banner-content">
-					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 						{!!$slider->tagline!!}
 					</div>
 				</div>

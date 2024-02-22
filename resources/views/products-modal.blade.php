@@ -147,7 +147,7 @@
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-lg-12 col-xl-12">
-                <div class="row">
+                <div class="row" style="margin-left: 12%">
                     @foreach ($products->data->left_content as $value)
                         <div class="col-md-3" style="font-size: 20px;"><ul><li>{{ $value }}</li></ul></div>
                     @endforeach
