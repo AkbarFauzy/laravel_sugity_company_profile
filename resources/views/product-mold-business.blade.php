@@ -2,6 +2,18 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-mold-business.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
+<style>
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+</style>
 @endsection
 
 @section('title')
@@ -13,10 +25,10 @@
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
 			@foreach($sliders->data as $slider)
-			
+
 			<div class="item min-vh-100 min-vh-md-100">
 				<div class="style-banner-content">
-					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 						{!!$slider->tagline!!}
 					</div>
 				</div>
@@ -35,26 +47,26 @@
 			</div>
 			<div class="container">
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
-	
+
 					<ul class="tab-nav clearfix mb-4" style="justify-content: center;">
 						<li><a href="#tabs-all" class="text-size-sm">All</a></li>
 					</ul>
-	
+
 					<div class="tab-container">
-	
+
 						<!-- tab mold -->
 						<div class="tab-content clearfix" id="tabs-mold">
 							<!-- sec 1 -->
 							<div class="style-section-product-overview">
 								<div class="row">
-									
+
 									@foreach($mold->data as $item)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$item->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$item->name}} 
-												<br>	
+												<h4 class="text-left mt-4" style="color: black">{{$item->name}}
+												<br>
 												@if($item->name == "Big Mold")
 													(1300Ton-3500Ton)
 												@elseif($item->name == "Medium Mold")
@@ -62,11 +74,11 @@
 												@elseif($item->name == "Small Mold")
 													(30Ton-175Ton)
 												@endif
-									
+
 												<br><br>
 												@if(!empty($item->left_content) || !empty($item->right_content) || !empty($item->gallery) )
 												<a href= "#" style="color: black" class="text-left"
-													data-bs-toggle="modal" 
+													data-bs-toggle="modal"
 													data-bs-target="#modalVehicle"
 													data-bs-id="{{$item->id}}"
 												>Explore More <i class="fa-solid fa-chevron-right"></i>></a>
@@ -78,9 +90,9 @@
 								</div>
 							</div>
 						</div>
-	
+
 					</div>
-	
+
 				</div>
 			</div>
 
@@ -126,11 +138,12 @@
 			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 				<div class="modal-content">
 					<div class="modal-body">
-						
+
 					</div>
 				</div>
 			</div>
 			</div>
+        </section>
 
 
 @endsection
@@ -145,12 +158,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	  $('#modalVehicle').on('show.bs.modal', function (event) {
 		var button = $(event.relatedTarget); // Button that triggered the modal
 		var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
-	
+
 		var modalBody = $(this).find('.modal-body');
-	
+
 		// Clear previous content
 		modalBody.empty().append('<p>Loading...</p>');
-	
+
 		$.ajax({
 		  url: "{{url('products')}}"+ "/"+ buttonId,
 		  method: 'GET',

@@ -231,7 +231,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 				items: 6
 			}
 		}
-
 	});
 </script>
 
