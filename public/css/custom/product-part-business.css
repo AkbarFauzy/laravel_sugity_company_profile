@@ -1,3 +1,11 @@
+div.custom-banner > p > span {
+    color: #000;
+}
+
+div.custom-banner > p {
+    margin-bottom: 0;
+}
+
 /* .tab-nav {
     flex-wrap: nowrap !important;
     overflow-y: auto !important;

@@ -232,7 +232,7 @@ class FrontendController extends Controller
         $moldAPI = Http::get(env('API_DOMAIN').'/api/mold');
         $moldData = json_decode($moldAPI->body());
 
-        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Mold');
+        $slidersAPI = Http::get(env('API_DOMAIN').'/api/sliders/pages/Mold Business');
         $slidersData = json_decode($slidersAPI->body());
 
         return view('product-mold-business')->with([
