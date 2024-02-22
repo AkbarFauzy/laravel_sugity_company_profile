@@ -3,6 +3,18 @@
 <link rel="stylesheet" href="{{ asset('css/custom/product-vehicle-business.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+<style>
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+</style>
 @endsection
 
 @section('title')
@@ -16,10 +28,10 @@
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
 			@foreach($sliders->data as $slider)
-
+			
 			<div class="item min-vh-100 min-vh-md-100">
 				<div class="style-banner-content">
-					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 						{!!$slider->tagline!!}
 					</div>
 				</div>
@@ -40,19 +52,19 @@
 			</div>
 			<div class="container">
 				<div class="tabs tabs-bb clearfix tab-vehicle-business" id="tab-9" style="z-index: 10;">
-
+	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
-						<li><a href="#tabs-all" class="text-size-sm">All</a></li>
+						<!-- <li><a href="#tabs-all" class="text-size-sm">All</a></li> -->
 						<li><a href="#tabs-public-transport" class="text-size-sm">Public Transport</a></li>
 						<li><a href="#tabs-healthcare" class="text-size-sm">Healthcare Vehicle</a></li>
 						<li><a href="#tabs-export" class="text-size-sm">Export Vehicle</a></li>
 						<li><a href="#tabs-other" class="text-size-sm">Other</a></li>
 					</ul>
-
+	
 					<div class="tab-container">
-
+	
 						<!-- tab all -->
-						<div class="tab-content clearfix" id="tabs-all">
+						<!-- <div class="tab-content clearfix" id="tabs-all">
 							<div class="style-section-product-overview">
 								<div class="row">
 
@@ -64,8 +76,8 @@
 												<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 													<br><br>
 													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-													<a style="color: black" class="text-left" href="#"
-													data-bs-toggle="modal"
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
 													data-bs-id="{{$vehicle->id}}"
 													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 													@endif
@@ -76,7 +88,7 @@
 
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<!-- tab public transport -->
 						<div class="tab-content clearfix" id="tabs-public-transport">
@@ -90,8 +102,8 @@
 													<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 														<br><br>
 														@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-														<a style="color: black" class="text-left" href="#"
-														data-bs-toggle="modal"
+														<a style="color: black" class="text-left" href="#" 
+														data-bs-toggle="modal" 
 														data-bs-id="{{$vehicle->id}}"
 														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 														@endif
@@ -116,8 +128,8 @@
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-													<a style="color: black" class="text-left" href="#"
-													data-bs-toggle="modal"
+													<a style="color: black" class="text-left" href="#" 
+													data-bs-toggle="modal" 
 													data-bs-id="{{$vehicle->id}}"
 													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 												@endif
@@ -143,8 +155,8 @@
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-												<a style="color: black" class="text-left" href="#"
-												data-bs-toggle="modal"
+												<a style="color: black" class="text-left" href="#" 
+												data-bs-toggle="modal" 
 												data-bs-id="{{$vehicle->id}}"
 												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 												@endif
@@ -169,8 +181,8 @@
 											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
 												<br><br>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-												<a style="color: black" class="text-left" href="#"
-												data-bs-toggle="modal"
+												<a style="color: black" class="text-left" href="#" 
+												data-bs-toggle="modal" 
 												data-bs-id="{{$vehicle->id}}"
 												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
 												@endif
@@ -182,9 +194,9 @@
 								</div>
 							</div>
 						</div>
-
+	
 					</div>
-
+	
 				</div>
 			</div>
 		</section><!-- #content end -->
@@ -194,7 +206,7 @@
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-body">
-
+					
 				</div>
 			</div>
 		</div>
@@ -211,12 +223,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	  $('#modalVehicle').on('show.bs.modal', function (event) {
 		var button = $(event.relatedTarget); // Button that triggered the modal
 		var buttonId = button.data('bs-id'); // Extract the ID from data-attribute
-
+	
 		var modalBody = $(this).find('.modal-body');
-
+	
 		// Clear previous content
 		modalBody.empty().append('<p>Loading...</p>');
-
+	
 		$.ajax({
 		  url: "{{url('products')}}"+ "/"+ buttonId,
 		  method: 'GET',
@@ -224,7 +236,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 			// Show loading or processing message if needed
 		  },
 		  success: function (data) {
-            console.log("data+++++", data)
 			// Handle successful response
 			modalBody.empty().html(data);
 		  },

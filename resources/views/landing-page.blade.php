@@ -118,7 +118,7 @@
 					<div class="col-md-3 text-first-parallax">1995
 						<span class="hide-txt-par-landing">Year Established</span>
 					</div>
-					<div class="col-md-3 text-first-parallax">1270
+					<div class="col-md-3 text-first-parallax">1264
 						<span class="hide-txt-par-landing">Professional Employees</span>
 					</div>
 					<div class="col-md-3 text-first-parallax text-second-parallax-3">31
@@ -202,6 +202,7 @@
 			</ul>
 			<div data-scroll data-aos="fade-in" data-aos-duration="1000" class="tab-content style-tab-content" id="pills-tabContent"
 				style="background-image: url('{{asset('images/background/background-services-section.png')}}');">
+				
 				@foreach($services->data as $key=>$service)
 				<div class="tab-pane fade {{ $key=== 0 ? "show active": ""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}" role="tabpanel"
 				aria-labelledby="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" tabindex="0">
@@ -212,7 +213,15 @@
 							<p class="style-description mb-5 desc-services">
 								{{$service->description}}
 							</p>
-							{{-- <a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a> --}}
+							
+						    @if($service->name === "Vehicle Business")	
+							    <a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a>
+					        @elseif($service->name === "Part Business")
+					            <a class="btn-primary style-btn mb-5" href="{{url('/products-part')}}">Read More</a>
+					        @elseif($service->name === "Mold Business")
+					            <a class="btn-primary style-btn mb-5" href="{{url('/products-mold')}}">Read More</a>
+					        @endif
+						
 						</div>
 					</div>
 					<div class="col-md-6 ps-5 d-flex justify-content-center align-items-center style-content-image">
@@ -317,21 +326,24 @@
 						@endforeach
 
 					</div>
+					<div id="client">
+			    	</div>
 				</div>
-				<div data-aos="fade-in" data-aos-duration="1000" class="px-5 pt-5 pb-5 section-our-videos">
+				<!-- <div data-aos="fade-in" data-aos-duration="1000" class="px-5 pt-5 pb-5 section-our-videos">
 					<h3 class="our-video-text" style="color: #EE6D22">Check Our Videos!</h3>
 					<div class="parent-img-our-videos">
 						<iframe src="https://www.youtube.com/embed/W_qM4LOOhPk?si=vHas8ylV5CvVrcKE" frameborder="0" allowfullscreen></iframe>
-						<!-- <a href="https://www.youtube.com/@sugitycreatives8335&t=34s" target="_blank">
+						<a href="https://www.youtube.com/@sugitycreatives8335&t=34s" target="_blank">
 							<img src="./asset/images/our-news-img.png" class="img-our-videos" alt="">
-						</a> -->
+						</a>
 					</div>
-					<div id="client">
-					</div>
-				</div>
+				
+				</div> -->
+		
 			</div>
 			<!-- end recent news section -->
-
+        	<div id="supply-chain" class="pt-5">
+			</div>
 			<!-- slider client -->
 			<div class="slider-client pt-5 pt-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
@@ -485,8 +497,7 @@
 						</a>
 					</div>
 				</div>
-				<div id="supply-chain" class="pt-5">
-				</div>
+			
 			</div>
 			<!-- end slider client  -->
 
@@ -710,12 +721,12 @@
 </script>
 <script>
 	setInterval(function () {
-		if ($('#pills-vehicle-tab').hasClass('active')) {
-			$('#pills-parts-tab').trigger('click');
-		} else if ($('#pills-parts-tab').hasClass('active')) {
-			$('#pills-mold-tab').trigger('click');
-		} else if ($('#pills-mold-tab').hasClass('active')) {
-			$('#pills-vehicle-tab').trigger('click');
+		if ($('#pills-VehicleBusiness-tab').hasClass('active')) {
+			$('#pills-PartBusiness-tab').trigger('click');
+		} else if ($('#pills-PartBusiness-tab').hasClass('active')) {
+			$('#pills-MoldBusiness-tab').trigger('click');
+		} else if ($('#pills-MoldBusinesstab').hasClass('active')) {
+			$('#pills-VehicleBusiness-tab').trigger('click');
 		}
 	}, 5000);
 
