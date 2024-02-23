@@ -89,11 +89,11 @@
 						@foreach($uniqueYears as $year)
 							@if(count($history->data->$year) == 1)
 								<div class="style-item-content row d-flex justify-content-center align-items-center m-0">
-									<div class="col-md-10 col-lg-7 row d-flex justify-content-center align-items-center m-0">
-										<div class="col-md-8">
+									<div class="col-md-12 col-lg-8 row d-flex justify-content-center align-items-center m-0">
+										<div class="col-md-6">
 											<img src='{{asset('images/brief-history/'.$history->data->$year[0]->img)}}' alt="...">
 										</div>
-										<div class="col-md-4 pt-2 pb-4">
+										<div class="col-md-6 pt-2 pb-4">
 											<h3 class="m-0">{{$history->data->$year[0]->title}}</h3>
 										</div>
 									</div>

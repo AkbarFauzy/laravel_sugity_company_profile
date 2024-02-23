@@ -98,15 +98,14 @@
 										<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 											<div class="style-content">
 												<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-												<div class="style-footer px-4 px-md-0">
-													<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
-														<br><br>
-														@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-														<a style="color: black" class="text-left" href="#" 
-														data-bs-toggle="modal" 
-														data-bs-id="{{$vehicle->id}}"
-														data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-														@endif
+												<div class="px-4 px-md-0" style="display: grid;">
+													<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
+													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
+													<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
+														<span>Explore More</span>
+														<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+													</a>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -122,19 +121,18 @@
 
 									@foreach($healthcareVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-									<div class="style-content">
-										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-										<div class="style-footer px-4 px-md-0">
-											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
-												<br><br>
+										<div class="style-content">
+											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+											<div class="px-4 px-md-0" style="display: grid;">
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-													<a style="color: black" class="text-left" href="#" 
-													data-bs-toggle="modal" 
-													data-bs-id="{{$vehicle->id}}"
-													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
+													<span>Explore More</span>
+													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+												</a>
 												@endif
+											</div>
 										</div>
-									</div>
 									</div>
 									@endforeach
 
@@ -149,19 +147,18 @@
 
 									@foreach($exportVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-									<div class="style-content">
-										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-										<div class="style-footer px-4 px-md-0">
-											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
-												<br><br>
+										<div class="style-content">
+											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+											<div class="px-4 px-md-0" style="display: grid;">
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-												<a style="color: black" class="text-left" href="#" 
-												data-bs-toggle="modal" 
-												data-bs-id="{{$vehicle->id}}"
-												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
+													<span>Explore More</span>
+													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+												</a>
 												@endif
+											</div>
 										</div>
-									</div>
 									</div>
 									@endforeach
 
@@ -175,19 +172,18 @@
 								<div class="row">
 									@foreach($otherVehicles->data as $vehicle)
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
-									<div class="style-content">
-										<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-										<div class="style-footer px-4 px-md-0">
-											<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
-												<br><br>
+										<div class="style-content">
+											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
+											<div class="px-4 px-md-0" style="display: grid;">
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
-												<a style="color: black" class="text-left" href="#" 
-												data-bs-toggle="modal" 
-												data-bs-id="{{$vehicle->id}}"
-												data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
+													<span>Explore More</span>
+													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+												</a>
 												@endif
+											</div>
 										</div>
-									</div>
 									</div>
 									@endforeach
 

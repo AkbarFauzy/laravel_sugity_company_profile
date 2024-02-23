@@ -183,7 +183,7 @@
 		</div>
 	</div>
 
-    <div data-scroll class="row m-0 mt-3 mb-5 py-md-5  row-section-visi-misi">
+    <div data-scroll class="row m-0 mt-3 mb-5 py-md-5 row-section-visi-misi">
 		<div class="col-12 col-lg-4 d-flex justify-content-center">
 			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
 				<img src="{{asset('images/vector/vehicle assembly-v2.png')}}" width="150" height="150" alt="" style="object-fit: contain">
