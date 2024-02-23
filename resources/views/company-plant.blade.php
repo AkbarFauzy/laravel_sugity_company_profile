@@ -17,7 +17,7 @@
 	<!-- Page Title
 		============================================= -->
 		<section id="page-title" class="page-title-dark"
-			style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 300px 0; background-size: cover; background-position:100% auto; background-repeat: no-repeat;">
+			style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 300px 0; background-size: cover; background-position:100% auto; background-repeat: no-repeat; background-position: center;">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
 				<h1 style="font-size: 80px;">Company Plant</h1>
 			</div>

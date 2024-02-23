@@ -14,7 +14,7 @@
 	    <!-- Page Title
 		============================================= -->
         <section id="page-title" class="page-title-dark"
-            style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 50vh 0; background-size: cover; background-repeat: no-repeat; min-height: 100vh;">
+            style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 50vh 0; background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
                 <h1 class="text-banner">Company Business</h1>
             </div>

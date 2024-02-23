@@ -80,15 +80,14 @@
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$interior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$interior->name}}
-													<br><br>
-													@if(!empty($interior->left_content) || !empty($interior->right_content) || !empty($interior->gallery) )
-													<a style="color: black" class="text-left" href="#" 
-													data-bs-toggle="modal" 
-													data-bs-id="{{$interior->id}}"
-													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-													@endif
+											<div class="px-4 px-md-0" style="display: grid;">
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$interior->name}}</span>
+												@if(!empty($interior->left_content) || !empty($interior->right_content) || !empty($interior->gallery) )
+												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$interior->id}}" data-bs-target="#modalVehicle">
+													<span>Explore More</span>
+													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+												</a>
+												@endif
 											</div>
 										</div>
 									</div>
@@ -105,15 +104,14 @@
 									<div class="col-12 col-md-4 col-xl-3 px-3 py-3">
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$exterior->img)}}" style="width:100%; height: 250px; object-fit: contain;">
-											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$exterior->name}}
-													<br><br>
-													@if(!empty($exterior->left_content) || !empty($exterior->right_content) || !empty($exterior->gallery) )
-													<a style="color: black" class="text-left" href="#" 
-													data-bs-toggle="modal" 
-													data-bs-id="{{$exterior->id}}"
-													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
-													@endif
+											<div class="px-4 px-md-0" style="display: grid;">
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$exterior->name}}</span>
+												@if(!empty($exterior->left_content) || !empty($exterior->right_content) || !empty($exterior->gallery) )
+												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$exterior->id}}" data-bs-target="#modalVehicle">
+													<span>Explore More</span>
+													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
+												</a>
+												@endif
 											</div>
 										</div>
 									</div>

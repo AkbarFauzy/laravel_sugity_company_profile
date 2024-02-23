@@ -1,10 +1,8 @@
-
-
 <div align="right">
     <button type="button" class="style-btn-close" data-bs-dismiss="modal" aria-label="Close"><i
             class="bi bi-x"></i></button>
 </div>
-<h2 class="modal-title style-title pt-2 pb-2 text-center" id="modalVehicleLabel">{{$products->data->name}}
+<h2 class="modal-title pt-2 pb-2 text-center color-black" id="modalVehicleLabel">{{$products->data->name}}
 </h2>
 
 <div class="d-flex justify-content-center">
@@ -61,8 +59,11 @@
         aria-labelledby="modaVehicleInteriorTab" tabindex="0">
         <div class="container pt-3" align="center">
             <div class="px-3">
-                <div id="carouselModalVehicleInterior"
-                    class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide">
+                @if($products->data->category == "Interior Part")
+                <div id="carouselModalVehicleInterior" class="carousel carousel-dark style-carousel-modal-vehicle slide">
+                @else
+                <div id="carouselModalVehicleInterior" class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide">
+                @endif
                     <div class="carousel-inner">
                         @foreach($interiors as $key => $interior)
                             @if($key == 0)
@@ -102,8 +103,11 @@
         aria-labelledby="modaVehicleExteriorTab" tabindex="0">
         <div class="container pt-3" align="center">
             <div class="px-3">
-                <div id="carouselModalVehicleExterior"
-                    class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide modal-xl">
+                @if($products->data->category == "Exterior Part")
+                <div id="carouselModalVehicleExterior" class="carousel carousel-dark style-carousel-modal-vehicle slide modal-xl">
+                @else
+                <div id="carouselModalVehicleExterior" class="carousel carousel-dark style-carousel-modal style-carousel-modal-vehicle slide modal-xl">
+                @endif
                     <div class="carousel-inner">
 
                         @foreach($exteriors as $key => $exterior)
@@ -140,10 +144,10 @@
 
     @endif
 
-
 </div>
 @if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
-    <h2 class="modal-title style-title text-center">Product on Car</h2>
+    <img class="py-3" src='{{asset("images/vector/Rectangle.png")}}'></img>
+    <h2 class="modal-title text-center color-black mb-3">Product on Car</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-lg-12 col-xl-12">
@@ -178,13 +182,13 @@
     </div>
 @else
     @if(!empty($products->data->left_content) || (!empty($products->data->right_content)))
-    <h2 class="modal-title style-title pt-5 text-center">{{$products->data->name}}</h2>
+    <h2 class="modal-title pt-5 text-center color-black">{{$products->data->name}}</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-lg-6 col-xl-6">
 
                 @if(!empty($products->data->left_content))
-                    <h3 class="style-title-content m-0">Features</h3>
+                    <h3 class="m-0 color-black">Features</h3>
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif
@@ -202,7 +206,7 @@
             </div>
             <div class="col-lg-6 col-xl-6">
                 @if($products->data->right_content)
-                    <h3 class="style-title-content m-0">Conversion Parts</h3>
+                    <h3 class="m-0 color-black">Conversion Parts</h3>
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif
