@@ -203,9 +203,9 @@ body {
 }
 
 @media only screen and (max-width: 576px) {
-    #page-title h1 {
+    /* #page-title h1 {
         font-size: 50px !important;
-    }
+    } */
 
     .style-carousel-facility .style-item {
         height: 300px;

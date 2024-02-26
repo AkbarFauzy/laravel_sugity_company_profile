@@ -15,7 +15,7 @@
         </li>
         @endif
 
-        @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold") )
+        @if($isInterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold"))
         {{-- @if($isInterior && ($products->data->category != "Mold" && $products->data->category != "Exterior Part") ) --}}
             <li class="nav-item" role="presentation">
                 <button class="nav-link {{$is360 ? '' : 'active'}}" id="modaVehicleInteriorTab" data-bs-toggle="pill"
@@ -24,7 +24,7 @@
             </li>
         @endif
 
-        @if($isExterior)
+        @if($isExterior && ($products->data->category != "Interior Part" && $products->data->category != "Exterior Part" && $products->data->category != "Mold"))
             <li class="nav-item" role="presentation">
                 {{-- <button class="nav-link {{$is360 || $isInterior ? '' : 'active'}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleExterior" type="button" role="tab"
@@ -69,12 +69,12 @@
                             @if($key == 0)
                             <div class="carousel-item active">
                                 <img src="{{asset('images/products/content/'.$interior)}}"
-                                    class="d-block w-100" alt="...">
+                                    class="d-block" alt="..." style="width: 80%;">
                             </div>
                             @else
                             <div class="carousel-item">
                                 <img src="{{asset('images/products/content/'.$interior)}}"
-                                    class="d-block w-100" alt="...">
+                                    class="d-block" alt="..." style="width: 80%;">
                             </div>
                             @endif
                         @endforeach
@@ -114,12 +114,12 @@
                             @if($key == 0)
                                 <div class="carousel-item active">
                                     <img src="{{asset('images/products/content/'.$exterior)}}"
-                                        class="d-block w-100" alt="...">
+                                        class="d-block" alt="..." style="width: 80%;">
                                 </div>
                             @else
                                 <div class="carousel-item">
                                     <img src="{{asset('images/products/content/'.$exterior)}}"
-                                        class="d-block w-100" alt="...">
+                                        class="d-block" alt="..." style="width: 80%;">
                                 </div>
                             @endif
                         @endforeach
@@ -153,7 +153,7 @@
             <div class="col-lg-12 col-xl-12">
                 <div class="row" style="margin-left: 12%">
                     @foreach ($products->data->left_content as $value)
-                        <div class="col-md-3" style="font-size: 20px;"><ul><li>{{ $value }}</li></ul></div>
+                        <div class="col-md-3" style="font-size: 20px;">• {{ $value }}</div>
                     @endforeach
                 </div>
                         {{-- @php

@@ -16,12 +16,40 @@
 @section('content')
 	<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title-dark"
+		{{-- <section id="page-title" class="page-title-dark"
 			style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 300px 0; background-size: cover; background-position:100% auto; background-repeat: no-repeat; background-position: center;">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
 				<h1 style="font-size: 80px;">Company Plant</h1>
 			</div>
-		</section><!-- #page-title end -->
+		</section> --}}
+		{{-- Desktop --}}
+		<section id="page-title" class="page-title-dark d-none d-xl-block"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10; background-size: cover;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 80px;">Company Plant</h1>
+            </div>
+        </section>
+        {{-- Mobile --}}
+        <section id="page-title" class="page-title-dark d-block d-sm-none"
+            style="background-image: url('{{asset('images/background/background-company-plant-mobile.png')}}'); padding: 110px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 30px; margin-top: -50px">Company Plant</h1>
+            </div>
+        </section>
+        {{-- Tablet --}}
+        <section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+            </div>
+        </section>
+        <section id="page-title" class="page-title-dark d-none d-lg-block d-xl-none"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 65px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+            </div>
+        </section>
+	<!-- #page-title end -->
 
 		<!-- Content
 		============================================= -->

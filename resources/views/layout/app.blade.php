@@ -133,7 +133,7 @@
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-profile')) ? 'disabled' : '' }}" href="{{url('company-profile')}}#about_us">About Us</a>
+                                        <a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">Company Value</a>
@@ -142,7 +142,7 @@
                                         <a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">Board of Director</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-profile')) ? 'disabled' : '' }}" href="{{url('company-profile')}}#president-message">President
+                                        <a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">President
                                             Message</a>
                                     </li>
                                     <li class="nav-item">
@@ -152,7 +152,7 @@
                                         <a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">Company History</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('prcompany-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
+                                        <a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
                                     </li>
 								</ul>
 							</li>
