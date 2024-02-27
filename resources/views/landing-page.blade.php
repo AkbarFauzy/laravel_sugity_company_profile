@@ -187,14 +187,14 @@
 				<h2 class="our-services-text">Our Services</h2>
 				<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
 				<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
-					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA
+					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY integral elements forming the DNA
 					of every product we deliver</h5>
 				</div>
 			</div>
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
 				@foreach($services->data as $key=>$service)
 					<li class="nav-item col-4" role="presentation">
-						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" data-bs-toggle="pill"
+						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%;" data-bs-toggle="pill"
 							data-bs-target="#pills-{{preg_replace('/\s+/', '',$service->name)}}" type="button" role="tab" aria-controls="pills-{{preg_replace('/\s+/', '',$service->name)}}"
 							aria-selected={{$key===0 ? "true":""}}>{{$service->name}}</button>
 					</li>
@@ -265,7 +265,7 @@
 									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
 								</div>
 
-								@if($news[0]->type === "news")
+								{{-- @if($news[0]->type === "news")
 									<a href="{{url('detail-news', $news[0]->id)}}">
 										<button class="btn style-btn">Read More -></button>
 									</a>
@@ -273,7 +273,7 @@
 									<a href="{{url('detail-news/csr', $news[0]->id)}}">
 										<button class="btn style-btn">Read More -></button>
 									</a>
-								@endif
+								@endif --}}
 
 							
 							</div>
@@ -296,9 +296,9 @@
 										<div class="style-description mt-2 mb-3" style="color:white">
 											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
 										</div>
-										<a href="{{url('detail-news', $item->id)}}">
+										{{-- <a href="{{url('detail-news', $item->id)}}">
 											<button class="btn style-btn">Read More -></button>
-										</a>
+										</a> --}}
 									</div>
 								</div>
 							</div>
@@ -317,9 +317,9 @@
 							<div class="col-md-6 d-flex flex-column justify-content-center">
 								<div class="title-small-news pb-2">{{$item->headline}}</div>
 								<div class="date-small-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
-								<a href="{{url('detail-news', $item->id)}}">
+								{{-- <a href="{{url('detail-news', $item->id)}}">
 									<div class="readmore-small-news">Read More -></div>
-								</a>
+								</a> --}}
 							</div>
 						</div>
 

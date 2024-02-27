@@ -31,14 +31,14 @@
         </section>
         {{-- Mobile --}}
         <section id="page-title" class="page-title-dark d-block d-sm-none"
-            style="background-image: url('{{asset('images/background/background-company-plant-mobile.png')}}'); padding: 110px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            style="background-image: url('{{asset('images/background/background-company-plant-mobile.png')}}'); padding: 110px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
                 <h1 style="font-size: 30px; margin-top: -50px">Company Plant</h1>
             </div>
         </section>
         {{-- Tablet --}}
         <section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
-            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
                 <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
             </div>

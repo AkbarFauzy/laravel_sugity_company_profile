@@ -50,13 +50,14 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav" style="height: 100%;">
-					<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto"
-						style="height: 100%;">
+					{{-- <ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%;"> --}}
+						<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%; justify-content: end;">
 						<li class="nav-item style-w-31">
 							<a class="nav-link">
 								Company Profile
 							</a>
-							<ul class="style-sub-navbar-container">
+							{{-- <ul class="style-sub-navbar-container"> --}}
+								<ul class="style-sub-navbar-container" style="position: static; width: 100%;">
                                 <li class="nav-item">
 									<a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
 								</li>
@@ -85,7 +86,8 @@
 							<a class="nav-link style-dashed  {{ (request()->is('products')) ? 'disabled' : '' }}">
 								Product
 							</a>
-							<ul class="style-sub-navbar-container style-left-31">
+							{{-- <ul class="style-sub-navbar-container style-left-31""> --}}
+								<ul class="style-sub-navbar-container style-left-31" style="position: static; width: 100%;">
 								<li class="nav-item">
 									<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">Vehicle Business</a>
 								</li>
@@ -97,7 +99,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item style-w-23">
+						{{-- <li class="nav-item style-w-23">
 							<a class="nav-link style-dashed {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
 								CSR
 							</a>
@@ -106,7 +108,7 @@
 							<a class="nav-link style-dashed {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
 								News
 							</a>
-						</li>
+						</li> --}}
 					</ul>
 					<a class="lang ps-xl-2 ps-xxl-5">
 						EN
@@ -172,7 +174,7 @@
 									</li>
 								</ul>
 							</li>
-							<li class="nav-item"> 
+							{{-- <li class="nav-item"> 
 								<a class="nav-link {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
 									CSR
 								</a>
@@ -181,7 +183,7 @@
 								<a class="nav-link {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
 									News
 								</a>
-							</li>
+							</li> --}}
 						</ul>
 					</div>
 				</div>
