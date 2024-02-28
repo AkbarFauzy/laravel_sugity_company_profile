@@ -194,7 +194,7 @@
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
 				@foreach($services->data as $key=>$service)
 					<li class="nav-item col-4" role="presentation">
-						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%;" data-bs-toggle="pill"
+						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%; font-size: 17px;" data-bs-toggle="pill"
 							data-bs-target="#pills-{{preg_replace('/\s+/', '',$service->name)}}" type="button" role="tab" aria-controls="pills-{{preg_replace('/\s+/', '',$service->name)}}"
 							aria-selected={{$key===0 ? "true":""}}>{{$service->name}}</button>
 					</li>
@@ -347,7 +347,7 @@
 			<!-- slider client -->
 			<div class="slider-client pt-5 pt-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Client</h3>
+					<h3 class="our-client-text">Our Customers</h3>
 					<h2 class="we-build-text">We build long-term Partnerships</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-client-slider py-2">
@@ -504,7 +504,7 @@
 			<!-- slider supply chain -->
 			<div class="slider-client pb-5 pb-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Supplier</h3>
+					<h3 class="our-client-text">Our Supply Chain</h3>
 					<h2 class="we-build-text">Synergizing Excellence, Uniting Supply</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-supplier-slider py-2">
@@ -735,7 +735,7 @@
 		margin: 0,
 		nav: false,
 		items: 1,
-		autoplay: true,
+		// autoplay: true,
 		autoplayTimeout: 5000,
 		autoplayHoverPause: false,
 		animateOut: 'slideOutLeft',

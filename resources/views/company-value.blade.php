@@ -38,30 +38,50 @@
 	</div>
 </section>
 
-{{-- For Tablet --}}
-<section data-scroll class="page-title-dark mb-0 d-none d-sm-block d-xl-none" style="background-image: url('{{asset('images/background/background-company-value-v2.png')}}'); background-size: cover; height: 100vh !important; background-position-x: 10%;">
-	<div class="row" data-aos="fade-in" data-aos-duration="1300">
-		<div class="col-12 pt-2" style="text-align: center; align-items: center;">
-			<div class="dark mb-0 pt-5 mt-5 ps-xl-5 ps-lg-4">
-				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 30% !important;">
+{{-- For Tablet L --}}
+<section data-scroll class="page-title-dark mb-0 d-none d-lg-block d-xl-none" style="background-image: url('{{asset('images/background/background-company-value-v2.png')}}'); background-size: cover; height: 35vh !important; background-position: 20%; margin-top: 65px;">
+	<div class="row pt-4" data-aos="fade-in" data-aos-duration="1300">
+		<div class="col-4" style="text-align: center; align-items: center;">
+			<div class="dark ms-3">
+				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 70% !important;">
 			</div>
 		</div>
-		<div class="col-12" style="display: flex; justify-content: center;">
-			<div class="dark pt-3 mt-3 ps-xl-5 pe-xl-5 me-3 ms-3">
-				<div class="text-center">
-					<h1 class="title-layer-3" style="color: #dfb542; margin-bottom: -8px; font-weight: 900 !important;">We Value Our PRIDE in Everywhere s</h1>
-					<hr style="color: #C9A437; height: 3px; opacity: 1">
-					<span class="fs-4">
-						The spirit that describes a "Sense of Belonging",
-					</span>
-					<br>
-					<span class="fs-4">
-						a work spirit "Only Sugity Can Do" as well as synergy
-					</span>
-					<br>
-					<span class="fs-4">
-						and respect to gain mutual trust from all stakeholders
-					</span>
+		<div class="col-8" style="display: flex;">
+			<div class="dark me-3 pt-3">
+				<h1 class="title-layer-3" style="color: #dfb542; margin-bottom: 8px; font-weight: 900 !important; text-underline-offset: 10px;"><u>We Value Our PRIDE in Everywhere</u></h1>
+				<div class="fs-4">
+					The spirit that describes a "Sense of Belonging",
+				</div>
+				<div class="fs-4">
+					a work spirit "Only Sugity Can Do" as well as synergy
+				</div>
+				<div class="fs-4">
+					and respect to gain mutual trust from all stakeholders
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{{-- For Tablet M --}}
+<section data-scroll class="page-title-dark mb-0 d-none d-md-block d-lg-none" style="background-image: url('{{asset('images/background/background-company-value-v2.png')}}'); background-size: cover; height: 35vh !important; background-position: 20%; margin-top: 70px;">
+	<div class="row pt-3" data-aos="fade-in" data-aos-duration="1300">
+		<div class="col-4" style="text-align: center; align-items: center;">
+			<div class="dark ms-3">
+				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 70% !important;">
+			</div>
+		</div>
+		<div class="col-8" style="display: flex;">
+			<div class="dark me-3 pt-3">
+				<h1 class="title-layer-3" style="color: #dfb542; margin-bottom: 8px; font-weight: 900 !important; text-underline-offset: 10px;"><u>We Value Our PRIDE in Everywhere</u></h1>
+				<div style="font-size: 17px;">
+					The spirit that describes a "Sense of Belonging",
+				</div>
+				<div style="font-size: 17px;">
+					a work spirit "Only Sugity Can Do" as well as synergy
+				</div>
+				<div style="font-size: 17px;">
+					and respect to gain mutual trust from all stakeholders
 				</div>
 			</div>
 		</div>
@@ -69,30 +89,17 @@
 </section>
 
 <!-- For Mobile -->
-<section data-scroll class="page-title-dark mb-0 d-block d-sm-none" style="background-image: url('{{asset('images/background/background-company-value-mobile-v2.png')}}'); background-size: cover; height: 100vh !important;">
-	<div class="row" data-aos="fade-in" data-aos-duration="1300">
-		<div class="col-12 col-xl-5 col-lg-6 pt-lg-5 pt-xl-0" style="text-align: center; align-items: center;">
-			<div class="dark mb-0 pt-5 mt-5 ps-xl-5 ps-lg-4">
-				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 40% !important;">
+<section data-scroll class="page-title-dark mb-0 d-block d-sm-none" style="background-image: url('{{asset('images/background/background-company-value-v2.png')}}'); background-size: cover; height: 35vh !important; background-position: 20%; margin-top: 70px;">
+	<div class="row pt-4" data-aos="fade-in" data-aos-duration="1300">
+		<div class="col-3 pt-3" style="text-align: center; align-items: center;">
+			<div class="dark ms-3">
+				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 100% !important;">
 			</div>
 		</div>
-		<div class="col-12 col-xl-7 col-lg-6 pt-lg-5 mt-lg-5 pt-xl-0 mt-xl-0" style="display: flex; justify-content: center; align-items: center;">
-			<div class="dark pt-md-0 mt-md-0 pt-lg-5 mt-lg-5 pt-xl-0 mt-xl-0 ps-xl-5 pe-xl-5 me-5 ms-5 ms-md-5 ms-lg-0 ps-md-5 ps-lg-0">
-				<div class="text-center">
-					<h1 class="title-layer-3" style="color: #dfb542; margin-bottom: -8px; font-weight: 900 !important;">We Value Our PRIDE in Everywhere</h1>
-					<hr style="color: #C9A437; height: 3px; opacity: 1">
-					<span class="fs-5">The spirit that describes a</span>
-					<br>
-					<span class="fs-5">"Sense of Belonging",</span>
-					<br>
-					<span class="fs-5">
-						a work spirit "Only Sugity Can Do" as well as synergy
-					</span>
-					<br>
-					<span class="fs-5">
-						and respect to gain mutual trust from all stakeholders
-					</span>
-				</div>
+		<div class="col-9 pt-3" style="display: flex;">
+			<div class="dark me-2">
+				<h1 class="title-layer-3" style="color: #dfb542; margin-bottom: 8px; font-weight: 900 !important; text-underline-offset: 5px;"><u>We Value Our PRIDE in Everywhere</u></h1>
+				<div style="font-size: 9.5px; line-height: 1.4">The spirit that describes a "Sense of Belonging", a work spirit "Only Sugity Can Do" as well as synergy and respect to gain mutual trust from all stakeholders</div>
 			</div>
 		</div>
 	</div>

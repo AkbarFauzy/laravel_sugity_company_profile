@@ -87,7 +87,7 @@
 								Product
 							</a>
 							{{-- <ul class="style-sub-navbar-container style-left-31""> --}}
-								<ul class="style-sub-navbar-container style-left-31" style="position: static; width: 100%;">
+								<ul class="style-sub-navbar-container style-left-31" style="position: static; width: 125%;">
 								<li class="nav-item">
 									<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">Vehicle Business</a>
 								</li>
@@ -325,11 +325,11 @@
 											<div class="col-lg-6 bottommargin-sm">
 												<div class="widget widget_links clearfix">
 
-													<h3 class="entry-title">
+													{{-- <h3 class="entry-title">
 														<a href="{{url('csr')}}">
 															CSR
 														</a>
-													</h3>
+													</h3> --}}
 
 													<!-- <div class="row">
 														<div class="col-12">
@@ -346,11 +346,11 @@
 											<div class="col-lg-6 bottommargin-sm">
 												<div class="widget widget_links clearfix">
 
-													<h3 class="entry-title">
+													{{-- <h3 class="entry-title">
 														<a href="{{url('news')}}">
 															News
 														</a>
-													</h3>
+													</h3> --}}
 
 													<!-- <div class="row">
 														<div class="col-12">

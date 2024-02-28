@@ -147,13 +147,13 @@
 </div>
 @if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
     <img class="py-3" src='{{asset("images/vector/Rectangle.png")}}'></img>
-    <h2 class="modal-title text-center color-black mb-3">Product on Car</h2>
+    <h2 class="modal-title text-center color-black mb-1">Product on Car</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
-            <div class="col-lg-12 col-xl-12">
-                <div class="row" style="margin-left: 12%">
+            <div class="col-12">
+                <div class="row" style="padding-left: 8%">
                     @foreach ($products->data->left_content as $value)
-                        <div class="col-md-3" style="font-size: 20px;">• {{ $value }}</div>
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-3" style="font-size: 20px;">• {{ $value }}</div>
                     @endforeach
                 </div>
                         {{-- @php

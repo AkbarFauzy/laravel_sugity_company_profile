@@ -102,17 +102,17 @@
 											on our core business:</p>
 										<div class="row">
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_truck.png')}}"
+												<img src="{{asset('images/vector/vehicle assembly-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Vehicle Conversion</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_motor.png')}}"
+												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Automotive Part</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_molding-machine.png')}}"
+												<img src="{{asset('images/vector/mold making-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Mold Making</p>
 											</div>
@@ -298,7 +298,7 @@
 											on our core business:</p>
 										<div class="row">
 											<div class="col-md-12 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_molding-machine.png')}}"
+												<img src="{{asset('images/vector/mold making-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Automotive Part (Resin
 													Injection & Painting)</p>
