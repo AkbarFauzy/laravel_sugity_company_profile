@@ -194,7 +194,7 @@
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
 				@foreach($services->data as $key=>$service)
 					<li class="nav-item col-4" role="presentation">
-						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%; font-size: 17px;" data-bs-toggle="pill"
+						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%; font-size: 17.5px;" data-bs-toggle="pill"
 							data-bs-target="#pills-{{preg_replace('/\s+/', '',$service->name)}}" type="button" role="tab" aria-controls="pills-{{preg_replace('/\s+/', '',$service->name)}}"
 							aria-selected={{$key===0 ? "true":""}}>{{$service->name}}</button>
 					</li>

@@ -9,6 +9,14 @@ body {
     font-weight: 600;
 }
 
+@media only screen and (max-width: 576px) {
+    .style-plant-title {
+        font-size: 32px !important;
+        color: #000;
+        font-weight: 600;
+    }
+}
+
 .style-plant-tab .nav-link {
     font-weight: 600;
     font-size: 18px;
@@ -49,6 +57,20 @@ body {
     font-weight: 400;
     font-size: 18px;
     color: #000;
+}
+
+@media only screen and (max-width: 576px) {
+    .style-plant-tab .style-plant-tab-title {
+        font-weight: 700;
+        font-size: 20px !important;
+        color: #000;
+    }
+    
+    .style-plant-tab .style-plant-tab-description {
+        font-weight: 400;
+        font-size: 16px !important;
+        color: #000;
+    }
 }
 
 .style-plant-tab .style-plant-tab-icon {

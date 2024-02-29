@@ -89,8 +89,8 @@
 
         <div data-scroll class="d-block d-lg-none bg-white">
             <div data-aos="fade-right" data-aos-duration="1300" class="container px-4" style="height: 100%;">
-                <h1 class="mt-0 about-us-text">About Us</h1>
-                <p style="line-height: 25px;">
+                <h1 class="mt-0 mb-3" style="font-size: 35px;">About Us</h1>
+                <p style="line-height: 23px;">
                     Sugity Creatives is a leading manufacturer of automotive components. With a legacy
                     steeped in automotive excellence, our three-pillar business model encompasses Vehicle
                     Conversion, Part, and Mold Business.

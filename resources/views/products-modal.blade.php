@@ -57,7 +57,7 @@
     @if($isInterior)
     <div class="tab-pane fade {{$is360 ? '' : 'show active'}}" id="modaVehicleInterior" role="tabpanel"
         aria-labelledby="modaVehicleInteriorTab" tabindex="0">
-        <div class="container pt-3" align="center">
+        <div class="container" align="center">
             <div class="px-3">
                 @if($products->data->category == "Interior Part")
                 <div id="carouselModalVehicleInterior" class="carousel carousel-dark style-carousel-modal-vehicle slide">
@@ -69,12 +69,12 @@
                             @if($key == 0)
                             <div class="carousel-item active">
                                 <img src="{{asset('images/products/content/'.$interior)}}"
-                                    class="d-block" alt="..." style="width: 80%;">
+                                    class="d-block img-detail-part" alt="...">
                             </div>
                             @else
                             <div class="carousel-item">
                                 <img src="{{asset('images/products/content/'.$interior)}}"
-                                    class="d-block" alt="..." style="width: 80%;">
+                                    class="d-block img-detail-part" alt="...">
                             </div>
                             @endif
                         @endforeach
@@ -101,7 +101,7 @@
     @if($isExterior)
     <div class="tab-pane fade {{$is360 || $isInterior ? '' : 'show active'}}" id="modaVehicleExterior" role="tabpanel"
         aria-labelledby="modaVehicleExteriorTab" tabindex="0">
-        <div class="container pt-3" align="center">
+        <div class="container" align="center">
             <div class="px-3">
                 @if($products->data->category == "Exterior Part")
                 <div id="carouselModalVehicleExterior" class="carousel carousel-dark style-carousel-modal-vehicle slide modal-xl">
@@ -114,12 +114,12 @@
                             @if($key == 0)
                                 <div class="carousel-item active">
                                     <img src="{{asset('images/products/content/'.$exterior)}}"
-                                        class="d-block" alt="..." style="width: 80%;">
+                                        class="d-block img-detail-part" alt="...">
                                 </div>
                             @else
                                 <div class="carousel-item">
                                     <img src="{{asset('images/products/content/'.$exterior)}}"
-                                        class="d-block" alt="..." style="width: 80%;">
+                                        class="d-block img-detail-part" alt="...">
                                 </div>
                             @endif
                         @endforeach
@@ -146,7 +146,7 @@
 
 </div>
 @if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
-    <img class="py-3" src='{{asset("images/vector/Rectangle.png")}}'></img>
+    <img class="py-1" src='{{asset("images/vector/Rectangle.png")}}'></img>
     <h2 class="modal-title text-center color-black mb-1">Product on Car</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">

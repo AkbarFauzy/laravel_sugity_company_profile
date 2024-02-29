@@ -30,11 +30,11 @@
 
 		<!-- Content
 		============================================= -->
-		<section id="content" class="style-bg-dot">
+		<section id="content" class="style-bg-dot mb-5 pb-5">
 			<div class="container clearfix">
 				<h1 class="fs-1 pt-5 text-center">Part Business</h1>
 			</div>
-			<div class="container">
+			<div class="container mb-5 pb-5">
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">

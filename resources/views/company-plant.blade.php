@@ -54,8 +54,8 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div data-aos="fade-in" data-aos-duration="1000" class="container-fluid pt-5 pb-4 px-6">
-				<h2 class="style-plant-title text-center text-md-start pt-5 m-0">Our Plant</h2>
+			<div data-aos="fade-in" data-aos-duration="1000" class="container-fluid pt-3 pt-lg-4 pt-xl-5 pb-4 px-6">
+				<h2 class="style-plant-title text-center text-md-start m-0">Our Plant</h2>
 			</div>
 			<div class="container-fluid p-0">
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-plant-tab">

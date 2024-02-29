@@ -314,3 +314,15 @@ body {
         font-size: 13px;
     }
 }
+
+/* End Modal =========== */
+
+@media only screen and (max-width: 576px) {
+    div.custom-banner > p > span {
+        font-size: 12px !important;
+    }
+
+    /* div.custom-banner > p {
+        margin-bottom: 0;
+    } */
+}

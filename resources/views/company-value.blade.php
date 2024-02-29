@@ -12,7 +12,7 @@
 @section('content')
 <!-- For Desktop -->
 <section data-scroll class="page-title-dark mb-0 d-none d-xl-block" style="background-image: url('{{asset('images/background/background-company-value-v2.png')}}'); background-size: cover; height: 100vh !important; background-position-x: 20%;">
-	<div class="row" data-aos="fade-in" data-aos-duration="1300">
+	<div class="row pt-5" data-aos="fade-in" data-aos-duration="1300">
 		<div class="col-12 col-xl-4 col-lg-4 pt-2" style="text-align: center; align-items: center;">
 			<div class="dark mb-0 pt-5 mt-5 ps-xl-5 ps-lg-4">
 				<img class="img-banner-width" src="{{asset('images/background/overlay/overlay-image-company-value-v2.png')}}" alt="" style="max-width: 60% !important;">
@@ -108,8 +108,17 @@
 <!-- Content
 ============================================= -->
 <section data-scroll id="content">
-	<div style="background: linear-gradient(to bottom, rgba(255,255,255,0) 5%,
-	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 20vh !important; opacity: 0.4; margin-bottom: -8%">
+	{{-- For Desktop --}}
+	<div class="d-none d-xl-block" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 5%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 20vh !important; opacity: 0.4; margin-bottom: -16%">
+	</div>
+	{{-- For Tablet --}}
+	<div class="d-none d-lg-block d-xl-none" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 5%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 20vh !important; opacity: 0.4; margin-bottom: -24%">
+	</div>
+	{{-- For Mobile --}}
+	<div class="d-lg-none d-block" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 5%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 20vh !important; opacity: 0.4; margin-bottom: -32%">
 	</div>
 
 	<div data-scroll class="row m-0 mt-5 pt-md-5 row-section-visi-misi">
@@ -179,9 +188,20 @@
 		</div>
 	</div>
 
-	<div style="background: linear-gradient(to bottom, rgba(255,255,255,0) 40%,
+	{{-- For Desktop --}}
+	<div class="d-none d-xl-block" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 40%,
 	rgba(255,255,255,1)), linear-gradient(to top, rgba(255,255,255,0) 40%,
 	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 35vh !important; opacity: 0.4; background-position-y: 30%; margin-bottom: -12%; margin-top: -8%">
+	</div>
+	{{-- For Tablet --}}
+	<div class="d-none d-md-block d-xl-none" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), linear-gradient(to top, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 35vh !important; opacity: 0.4; background-position-y: 30%; margin-bottom: -28%; margin-top: -24%">
+	</div>
+	{{-- For Mobile --}}
+	<div class="d-md-none d-block" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), linear-gradient(to top, rgba(255,255,255,0) 40%,
+	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 35vh !important; opacity: 0.4; background-position-y: 30%; margin-bottom: -64%; margin-top: -24%">
 	</div>
 
 	<div data-scroll class="value-section mt-5 mt-md-0" data-aos="fade-down" data-aos-duration="1300">
