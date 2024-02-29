@@ -254,15 +254,25 @@ div.custom-banner > p {
     opacity: 1;
 }
 
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
 /* End Modal =========== */
 
 @media only screen and (max-width: 576px) {
-    div.custom-banner > p > span {
-        font-size: 30px !important;
+    .custom-banner p span {
+        font-size: 20px !important;
     }
 
-    div.custom-banner > p {
-        margin-bottom: 0;
+    .style-banner-mold {
+        height: 35vh !important;
+        margin-top: 70px !important;
     }
 
     .style-banner-content .first-text-slider-mold {
@@ -295,3 +305,9 @@ div.custom-banner > p {
         width: 100%;
     }
 }
+
+/* @media only screen and (max-width: 1199px) {
+    div.custom-banner > p > span {
+        font-size: 40px !important;
+    }
+} */

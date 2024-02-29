@@ -2,18 +2,6 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/product-mold-business.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" type="text/css" />
-<style>
-.custom-banner p{
-	margin: 0;
-	color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
-    font-family: Inter;
-    font-style: normal;
-    line-height: normal;
-}
-
-
-</style>
 @endsection
 
 @section('title')
@@ -26,13 +14,32 @@
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
 			@foreach($sliders->data as $slider)
 
-			<div class="item min-vh-100 min-vh-md-100">
-				<div class="style-banner-content">
+			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
+		    	{{-- Desktop --}}
+				<div class="style-banner-content d-none d-xl-block">
 					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 						{!!$slider->tagline!!}
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+            	{{-- Mobile --}}
+				<div class="style-banner-content d-block d-sm-none">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-6)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet M --}}
+				<div class="style-banner-content d-none d-md-block d-lg-none">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-4)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet L --}}
+				<div class="style-banner-content d-none d-lg-block d-xl-none">
+					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-4)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				<div class="style-banner-image style-banner-mold" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
 				</div>
 			</div>
 

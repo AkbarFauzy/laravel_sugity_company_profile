@@ -277,11 +277,7 @@ div.custom-banner > p {
 
 @media only screen and (max-width: 576px) {
     div.custom-banner > p > span {
-        font-size: 30px !important;
-    }
-
-    div.custom-banner > p {
-        margin-bottom: 0;
+        font-size: 20px !important;
     }
 
     .style-banner-content .first-text-slider-part {
@@ -312,5 +308,16 @@ div.custom-banner > p {
 
     .style-content-360 .viewer img {
         width: 100%;
+    }
+
+    .style-banner-part {
+        height: 35vh !important;
+        margin-top: 70px !important;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    div.custom-banner > p > span {
+        font-size: 40px !important;
     }
 }
