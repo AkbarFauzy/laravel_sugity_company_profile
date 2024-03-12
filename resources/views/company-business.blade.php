@@ -13,12 +13,40 @@
 @section('content')
 	    <!-- Page Title
 		============================================= -->
-        <section id="page-title" class="page-title-dark"
+        {{-- <section id="page-title" class="page-title-dark"
             style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 50vh 0; background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
                 <h1 class="text-banner">Company Business</h1>
             </div>
-        </section><!-- #page-title end -->
+        </section> --}}
+        {{-- Desktop --}}
+        <section id="page-title" class="page-title-dark d-none d-xl-block"
+            style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10; background-size: cover;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 80px;">Company Business</h1>
+            </div>
+        </section>
+        {{-- Mobile --}}
+        <section id="page-title" class="page-title-dark d-block d-sm-none"
+            style="background-image: url('{{asset('images/background/background-company-business-mobile.png')}}'); padding: 110px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 30px; margin-top: -50px">Company Business</h1>
+            </div>
+        </section>
+        {{-- Tablet --}}
+        <section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
+            style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 200px 0; margin-top: 69px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Business</h1>
+            </div>
+        </section>
+        <section id="page-title" class="page-title-dark d-none d-lg-block d-xl-none"
+            style="background-image: url('{{asset('images/background/background-company-business.png')}}'); padding: 200px 0; margin-top: 65px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Business</h1>
+            </div>
+        </section>
+        <!-- #page-title end -->
 
         <!-- Content
 		============================================= -->
@@ -33,7 +61,7 @@
                     </div>
                     <div data-aos="fade-in" data-aos-duration="1000" class="col-12 col-md-8 col-xl-9">
                         <p class="style-text-business-description m-0">As a leading manufacturer of automotive components,
-                            our three core businesses—Vehicle Conversion, Part, and Mold—reflect our commitment to
+                            our three core businesses Vehicle Conversion, Part, and Mold reflect our commitment to
                             innovation and excellence.</p>
                     </div>
                 </div>
@@ -83,7 +111,7 @@
                             <div>
                                 <h4 class="style-text-business-title mt-5 mb-3">Vehicle Assembly</h4>
                                 <p class="style-text-business-description">As a core business within our business framework, encompassing vehicle assembly and conversion, our trajectory has been marked by continuous growth. Initially distinguished as the vehicle assembler for Kijang Krista (1996-2002), Toyota Dyna & Hino Dutro (1996-2009), and Toyota NAV1 (2012-2016), we evolved dynamically.
-                                    Since 2017, our commitment to innovation has driven the expansion of our business into diverse vehicle conversions, including Hiace Luxury, Fortuner CCV, Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and the cutting-edge Hiace Medical Mover. This expansion is a testament to our dedication to providing unique and technologically advanced conversion vehicles tailored to meet the distinctive needs of our customers.</p>
+                                    Since 2017, our commitment to innovation has driven the expansion of our business into diverse vehicle conversions, including Hiace Luxury, Fortuner CCV, Welcab Vehicles (Sienta & Voxy), Public Transport (Hiace & Granmax), and the cutting edge Hiace Medical Mover. This expansion is a testament to our dedication to providing unique and technologically advanced conversion vehicles tailored to meet the distinctive needs of our customers.</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-automotive" role="tabpanel" aria-labelledby="v-pills-automotive-tab" tabindex="0">
@@ -143,7 +171,7 @@
                             </div>
                             <div>
                                 <h4 class="style-text-business-title mt-5 ">Mold Making</h4>
-                                <p class="style-text-business-description">Mold Making Business is one of our core business that produces iron-based plastic mold. Initiated in 2004 from in-house mold making by producing small mold, we continued to make bumpers in 2014 to finally reached the ASEAN market in 2018. As one of our business pillars that contributes to the company's profit, we targeted to be the No.1 Mold Maker all over the ASEAN</p>
+                                <p class="style-text-business-description">Mold Making Business is one of our core business that produces iron-based plastic mold. Initiated in 2004 from in house mold making by producing small mold, we continued to make bumpers in 2014 to finally reached the ASEAN market in 2018. As one of our business pillars that contributes to the company's profit, we targeted to be the No.1 Mold Maker all over the ASEAN</p>
                             </div>
                         </div>
                     </div>

@@ -533,4 +533,12 @@ body {
     /* .style-owl-banner-slider .style-banner-content.slide-3 {
         top: 20vw;
     } */
+
+    .img-detail-part {
+        width: 100% !important;
+    }
+}
+
+.img-detail-part {
+    width: 80%;
 }

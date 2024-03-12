@@ -50,13 +50,14 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav" style="height: 100%;">
-					<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto"
-						style="height: 100%;">
+					{{-- <ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%;"> --}}
+						<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%; justify-content: end;">
 						<li class="nav-item style-w-31">
 							<a class="nav-link">
 								Company Profile
 							</a>
-							<ul class="style-sub-navbar-container">
+							{{-- <ul class="style-sub-navbar-container"> --}}
+								<ul class="style-sub-navbar-container" style="position: static; width: 100%;">
                                 <li class="nav-item">
 									<a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
 								</li>
@@ -85,7 +86,8 @@
 							<a class="nav-link style-dashed  {{ (request()->is('products')) ? 'disabled' : '' }}">
 								Product
 							</a>
-							<ul class="style-sub-navbar-container style-left-31">
+							{{-- <ul class="style-sub-navbar-container style-left-31""> --}}
+								<ul class="style-sub-navbar-container style-left-31" style="position: static; width: 125%;">
 								<li class="nav-item">
 									<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">Vehicle Business</a>
 								</li>
@@ -97,7 +99,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item style-w-23">
+						{{-- <li class="nav-item style-w-23">
 							<a class="nav-link style-dashed {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
 								CSR
 							</a>
@@ -106,7 +108,7 @@
 							<a class="nav-link style-dashed {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
 								News
 							</a>
-						</li>
+						</li> --}}
 					</ul>
 					<a class="lang ps-xl-2 ps-xxl-5">
 						EN
@@ -133,7 +135,7 @@
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-profile')) ? 'disabled' : '' }}" href="{{url('company-profile')}}#about_us">About Us</a>
+                                        <a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">Company Value</a>
@@ -142,7 +144,7 @@
                                         <a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">Board of Director</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-profile')) ? 'disabled' : '' }}" href="{{url('company-profile')}}#president-message">President
+                                        <a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">President
                                             Message</a>
                                     </li>
                                     <li class="nav-item">
@@ -152,7 +154,7 @@
                                         <a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">Company History</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('prcompany-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
+                                        <a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
                                     </li>
 								</ul>
 							</li>
@@ -172,7 +174,7 @@
 									</li>
 								</ul>
 							</li>
-							<li class="nav-item"> 
+							{{-- <li class="nav-item"> 
 								<a class="nav-link {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
 									CSR
 								</a>
@@ -181,7 +183,7 @@
 								<a class="nav-link {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
 									News
 								</a>
-							</li>
+							</li> --}}
 						</ul>
 					</div>
 				</div>
@@ -323,11 +325,11 @@
 											<div class="col-lg-6 bottommargin-sm">
 												<div class="widget widget_links clearfix">
 
-													<h3 class="entry-title">
+													{{-- <h3 class="entry-title">
 														<a href="{{url('csr')}}">
 															CSR
 														</a>
-													</h3>
+													</h3> --}}
 
 													<!-- <div class="row">
 														<div class="col-12">
@@ -344,11 +346,11 @@
 											<div class="col-lg-6 bottommargin-sm">
 												<div class="widget widget_links clearfix">
 
-													<h3 class="entry-title">
+													{{-- <h3 class="entry-title">
 														<a href="{{url('news')}}">
 															News
 														</a>
-													</h3>
+													</h3> --}}
 
 													<!-- <div class="row">
 														<div class="col-12">

@@ -14,13 +14,32 @@
 		<div class="owl-carousel owl-theme style-owl-banner-slider">
 			@foreach($sliders->data as $slider)
 			
-			<div class="item min-vh-100 min-vh-md-100">
-				<div class="style-banner-content">
+			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
+		    	{{-- Desktop --}}
+				<div class="style-banner-content d-none d-xl-block">
 					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 						{!!$slider->tagline!!}
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+            	{{-- Mobile --}}
+				<div class="style-banner-content d-block d-sm-none">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-5)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet M --}}
+				<div class="style-banner-content d-none d-md-block d-lg-none">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-7)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet L --}}
+				<div class="style-banner-content d-none d-lg-block d-xl-none">
+					<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-9)!!}">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+					<div class="style-banner-image style-banner-part" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
 				</div>
 			</div>
 
@@ -30,11 +49,11 @@
 
 		<!-- Content
 		============================================= -->
-		<section id="content" class="style-bg-dot">
+		<section id="content" class="style-bg-dot mb-5 pb-5">
 			<div class="container clearfix">
-				<h1 class="fs-1 pt-5 text-center">Part Business</h1>
+				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">Part Business</h1>
 			</div>
-			<div class="container">
+			<div class="container mb-5 pb-5">
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">

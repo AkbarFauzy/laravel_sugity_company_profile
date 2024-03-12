@@ -314,3 +314,33 @@ body {
         font-size: 13px;
     }
 }
+
+/* End Modal =========== */
+
+.custom-banner p{
+	margin: 0;
+	color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-style: normal;
+    line-height: normal;
+}
+
+@media only screen and (max-width: 576px) {
+    .custom-banner p span strong {
+        font-size: 18px !important;
+    }
+
+    .custom-banner p span {
+        font-size: 12px !important;
+    }
+
+    .custom-banner p {
+        margin-bottom: 0 !important;
+    }
+
+    .style-banner-landing {
+        height: 35vh !important;
+        margin-top: 70px !important;
+    }
+}

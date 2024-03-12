@@ -2,92 +2,90 @@
 @section('custom_css')
 <link rel="stylesheet" href="{{ asset('css/custom/landing-page.css') }}" type="text/css" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<style>
-.custom-banner p{
-	margin: 0;
-	color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
-    font-family: Inter;
-    font-style: normal;
-    line-height: normal;
-}
-
-	
-</style>
-@stop
+@endsection
 
 @section('title')
 <title>Sugity Creatives</title>
-@stop
+@endsection
 
 @section('content')
 <!-- Banner Slider
 		============================================= -->
 		<div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll>
-			<div class="item min-vh-100 min-vh-md-100">
-				<video autoplay="" muted="" loop=""
-					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
+			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
+		    	{{-- Desktop --}}
+				<video class="d-none d-xl-block" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position: absolute;">
+					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
+				</video>
+            	{{-- Mobile --}}
+				<video class="d-block d-sm-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 40vh; width: 100%; padding:0; margin:0; position: absolute; margin-top: 70px;">
+					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
+				</video>
+				{{-- Tablet M --}}
+				<video class="d-none d-md-block d-lg-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 50vh; width: 100%; padding:0; margin:0; position: absolute;">
+					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
+				</video>
+				{{-- Tablet L --}}
+				<video class="d-none d-lg-block d-xl-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 60vh; width: 100%; padding:0; margin:0; position: absolute;">
 					<source src="{{asset('videos/vid-slider-1-v3.mov')}}" type="video/mp4">
 				</video>
 			</div>
 
 			@foreach ($sliders->data as $key => $slider)
-			<div class="item min-vh-100 min-vh-md-100">
-				<div class="custom-banner mb-5" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
+		    	{{-- Desktop --}}
+				<div class="custom-banner mb-5 d-none d-xl-block" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 					<div style="color: rgba(255, 255, 255, 0.95)">
 						{!!$slider->tagline!!}
 					</div>
 				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset("images/sliders/".$slider->img)}}');">
+            	{{-- Mobile --}}
+				<div class="custom-banner d-block d-sm-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div style="color: rgba(255, 255, 255, 0.95)">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet M --}}
+				<div class="custom-banner d-md-block d-lg-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div style="color: rgba(255, 255, 255, 0.95)">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				{{-- Tablet L --}}
+				<div class="custom-banner d-lg-block d-xl-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
+					<div style="color: rgba(255, 255, 255, 0.95)">
+						{!!$slider->tagline!!}
+					</div>
+				</div>
+				<div class="style-banner-image style-banner-landing" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
 				</div>
 				
 			</div>
 			@endforeach
 
-{{-- 
-			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Team.</h2> -->
-				<div class="style-banner-content slide-1">
-					<div>
-						<p class="first-text-slider-landing mb-0">HiAce Wira-Wiri</p>
-						<p class="second-text-slider-landing mt-2">
-							The TOYOTA HiAce Wira-Wiri has been developed specifically for the secure and efficient transportation <br> of cash, valuables, and passengers, prioritizing a seamless blend of security and operational <br> effectiveness.
-						</p>
-					</div>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-2-v3.png')}}');">
-				</div>
-			</div>
-			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Work.</h2> -->
-				<div class="style-banner-content slide-2">
-					<div>
-						<p class="first-text-slider-landing mb-0">Instrument Panel</p>
-						<p class="second-text-slider-landing mt-2">
-							The instrument panel sub-assembly: a vital component orchestrating crucial vehicle data and controls, <br> ensuring seamless functionality and convenience at your fingertips.
-						</p>
-					</div>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-3-v3.png')}}');">
-				</div>
-			</div>
-			<div class="item min-vh-100 min-vh-md-100">
-				<!-- <h2 class="style-banner-title style-title-short">PRIDE of Company.</h2> -->
-				<div class="style-banner-content slide-3">
-					<div>
-						<p class="first-text-slider-landing mb-0 text-end">Vehicle Assembly</p>
-						<p class="second-text-slider-landing mt-0 text-end">
-							Sugity, linked to Toyota Autobody, shifted from assembly to innovative vehicle conversions since 2017, <br> prioritizing quality, safety, and durability.
-						</p>
-					</div>
-				</div>
-				<div class="style-banner-image" style="background-image: url('{{asset('images/banner/banner-4-v4.png')}}');">
-				</div>
-			</div> --}}
-			<div class="item min-vh-100 min-vh-md-100">
-				<video autoplay="" muted="" loop=""
-					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
+			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
+		    	{{-- Desktop --}}
+				<video class="d-none d-xl-block" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position: absolute">
+					<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
+				</video>
+            	{{-- Mobile --}}
+				<video class="d-block d-sm-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 40vh; width: 100%; padding:0; margin:0; position: absolute; margin-top: 70px;">
+					<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
+				</video>
+				{{-- Tablet M --}}
+				<video class="d-none d-md-block d-lg-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 50vh; width: 100%; padding:0; margin:0; position: absolute">
+					<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
+				</video>
+				{{-- Tablet L --}}
+				<video class="d-none d-lg-block d-xl-none" autoplay="" muted="" loop=""
+					style="object-fit: cover; height: 60vh; width: 100%; padding:0; margin:0; position: absolute">
 					<source src="{{asset('videos/vid-slider-5-v3.mp4')}}" type="video/mp4">
 				</video>
 			</div>
@@ -187,14 +185,14 @@
 				<h2 class="our-services-text">Our Services</h2>
 				<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
 				<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
-					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY—integral elements forming the DNA
+					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY integral elements forming the DNA
 					of every product we deliver</h5>
 				</div>
 			</div>
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
 				@foreach($services->data as $key=>$service)
 					<li class="nav-item col-4" role="presentation">
-						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" data-bs-toggle="pill"
+						<button class="nav-link w-100 {{$key === 0 ? "active":""}}" id="pills-{{preg_replace('/\s+/', '',$service->name)}}-tab" style="min-height: 100%; font-size: 17.5px;" data-bs-toggle="pill"
 							data-bs-target="#pills-{{preg_replace('/\s+/', '',$service->name)}}" type="button" role="tab" aria-controls="pills-{{preg_replace('/\s+/', '',$service->name)}}"
 							aria-selected={{$key===0 ? "true":""}}>{{$service->name}}</button>
 					</li>
@@ -265,7 +263,7 @@
 									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
 								</div>
 
-								@if($news[0]->type === "news")
+								{{-- @if($news[0]->type === "news")
 									<a href="{{url('detail-news', $news[0]->id)}}">
 										<button class="btn style-btn">Read More -></button>
 									</a>
@@ -273,7 +271,7 @@
 									<a href="{{url('detail-news/csr', $news[0]->id)}}">
 										<button class="btn style-btn">Read More -></button>
 									</a>
-								@endif
+								@endif --}}
 
 							
 							</div>
@@ -296,9 +294,9 @@
 										<div class="style-description mt-2 mb-3" style="color:white">
 											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
 										</div>
-										<a href="{{url('detail-news', $item->id)}}">
+										{{-- <a href="{{url('detail-news', $item->id)}}">
 											<button class="btn style-btn">Read More -></button>
-										</a>
+										</a> --}}
 									</div>
 								</div>
 							</div>
@@ -317,9 +315,9 @@
 							<div class="col-md-6 d-flex flex-column justify-content-center">
 								<div class="title-small-news pb-2">{{$item->headline}}</div>
 								<div class="date-small-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
-								<a href="{{url('detail-news', $item->id)}}">
+								{{-- <a href="{{url('detail-news', $item->id)}}">
 									<div class="readmore-small-news">Read More -></div>
-								</a>
+								</a> --}}
 							</div>
 						</div>
 
@@ -347,7 +345,7 @@
 			<!-- slider client -->
 			<div class="slider-client pt-5 pt-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Client</h3>
+					<h3 class="our-client-text">Our Customers</h3>
 					<h2 class="we-build-text">We build long-term Partnerships</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-client-slider py-2">
@@ -504,7 +502,7 @@
 			<!-- slider supply chain -->
 			<div class="slider-client pb-5 pb-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Supplier</h3>
+					<h3 class="our-client-text">Our Supply Chain</h3>
 					<h2 class="we-build-text">Synergizing Excellence, Uniting Supply</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-supplier-slider py-2">
@@ -702,7 +700,7 @@
 			</div>
 			<!-- end section location -->
 		</section><!-- #content end -->
-@stop
+@endsection
 
 @section('custom_js')
 <script src="{{asset('js/custom/landing-page.js')}}"></script>
@@ -725,7 +723,7 @@
 			$('#pills-PartBusiness-tab').trigger('click');
 		} else if ($('#pills-PartBusiness-tab').hasClass('active')) {
 			$('#pills-MoldBusiness-tab').trigger('click');
-		} else if ($('#pills-MoldBusinesstab').hasClass('active')) {
+		} else if ($('#pills-MoldBusiness-tab').hasClass('active')) {
 			$('#pills-VehicleBusiness-tab').trigger('click');
 		}
 	}, 5000);
@@ -810,4 +808,4 @@
 	});
 
 </script>
-@stop
+@endsection

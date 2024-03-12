@@ -14,14 +14,23 @@
     <!-- Banner Slider
                       ============================================= -->
     <div class="owl-carousel owl-theme style-owl-banner-slider" data-scroll>
-        <div class="item min-vh-100 min-vh-md-100">
-            <video autoplay="" muted="" loop=""
-                style="object-fit: cover; height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
+        <div class="item min-vh-25 min-vh-lg-60 min-vh-xl-100">
+		    {{-- Desktop --}}
+            <video class="d-none d-xl-block" autoplay="" muted="" loop="" style="object-fit: cover; min-height: 100vh; width: 100%; padding:0; margin:0; position:absolute">
                 <source src="{{ asset('videos/banner-video-profile.mov') }}" type="video/mp4">
             </video>
-            <div class="style-banner-image is-mobile-show"
-                style="background-image: url('{{ asset('videos/banner-video-profile.mov') }}');">
-            </div>
+            {{-- Mobile --}}
+            <video class="d-block d-sm-none" autoplay="" muted="" loop="" style="object-fit: cover; min-height: 25vh; margin-top: 70px; margin-bottom: 10px; width: 100%;">
+                <source src="{{ asset('videos/banner-video-profile.mov') }}" type="video/mp4">
+            </video>
+            {{-- Tablet M --}}
+            <video class="d-none d-md-block d-lg-none" autoplay="" muted="" loop="" style="object-fit: cover; min-height: 25vh; margin-top: 70px; margin-bottom: 20px; width: 100%;">
+                <source src="{{ asset('videos/banner-video-profile.mov') }}" type="video/mp4">
+            </video>
+            {{-- Tablet L --}}
+            <video class="d-none d-lg-block d-xl-none" autoplay="" muted="" loop="" style="object-fit: cover; min-height: 60vh; margin-top: 65px; width: 100%;">
+                <source src="{{ asset('videos/banner-video-profile.mov') }}" type="video/mp4">
+            </video>
         </div>
     </div>
     <!-- #Banner Slider end -->
@@ -80,8 +89,8 @@
 
         <div data-scroll class="d-block d-lg-none bg-white">
             <div data-aos="fade-right" data-aos-duration="1300" class="container px-4" style="height: 100%;">
-                <h1 class="mt-0 about-us-text">About Us</h1>
-                <p style="line-height: 25px;">
+                <h1 class="mt-0 mb-3" style="font-size: 35px;">About Us</h1>
+                <p style="line-height: 23px;">
                     Sugity Creatives is a leading manufacturer of automotive components. With a legacy
                     steeped in automotive excellence, our three-pillar business model encompasses Vehicle
                     Conversion, Part, and Mold Business.

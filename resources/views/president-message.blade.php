@@ -60,7 +60,7 @@
 							<img src="{{asset('images/president-img-v2.png')}}" class="president-image" alt="">
 						</div>
 					</div>
-					<div class="col-12 col-xl-6 parent-president-message">
+					<div class="col-12 col-xl-7 parent-president-message">
 						<div data-aos="fade-left" data-aos-duration="1300" class="container pt-4 color-black">
 							<h1 class="mb-2 president-message-text">President Message</h1>
 							<p class="mb-3 president-speech">
@@ -68,13 +68,13 @@
 							</p>
 							<p class="mb-3 president-speech">
 								It is with great pleasure and pride that I extend a warm welcome to you on behalf of
-								Sugity Creatives—a foundation of automotive excellence since our establishment in 1995.
+								Sugity Creatives a foundation of automotive excellence since our establishment in 1995.
 							</p>
 							<p class="mb-3 president-speech">
 								As a premier manufacturer in Southeast Asia, specializing in an expansive array of
 								automotive parts, Sugity Creatives has consistently set the bar for excellence in our
-								industry. Our three-pillar business approach—Vehicle Conversion, Part, and Mold
-								Business—forms the foundation of our commitment to innovation, precision, and customer
+								industry. Our three pillar business approach Vehicle Conversion, Part, and Mold
+								Business forms the foundation of our commitment to innovation, precision, and customer
 								satisfaction.
 							</p>
 							<p class="mb-3 president-speech">

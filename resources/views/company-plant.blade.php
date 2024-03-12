@@ -16,18 +16,46 @@
 @section('content')
 	<!-- Page Title
 		============================================= -->
-		<section id="page-title" class="page-title-dark"
+		{{-- <section id="page-title" class="page-title-dark"
 			style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 300px 0; background-size: cover; background-position:100% auto; background-repeat: no-repeat; background-position: center;">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
 				<h1 style="font-size: 80px;">Company Plant</h1>
 			</div>
-		</section><!-- #page-title end -->
+		</section> --}}
+		{{-- Desktop --}}
+		<section id="page-title" class="page-title-dark d-none d-xl-block"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10; background-size: cover;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 80px;">Company Plant</h1>
+            </div>
+        </section>
+        {{-- Mobile --}}
+        <section id="page-title" class="page-title-dark d-block d-sm-none"
+            style="background-image: url('{{asset('images/background/background-company-plant-mobile.png')}}'); padding: 110px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 30px; margin-top: -50px">Company Plant</h1>
+            </div>
+        </section>
+        {{-- Tablet --}}
+        <section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+            </div>
+        </section>
+        <section id="page-title" class="page-title-dark d-none d-lg-block d-xl-none"
+            style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 65px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
+            <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
+                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+            </div>
+        </section>
+	<!-- #page-title end -->
 
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div data-aos="fade-in" data-aos-duration="1000" class="container-fluid pt-5 pb-4 px-6">
-				<h2 class="style-plant-title text-center text-md-start pt-5 m-0">Our Plant</h2>
+			<div data-aos="fade-in" data-aos-duration="1000" class="container-fluid pt-3 pt-lg-4 pt-xl-5 pb-4 px-6">
+				<h2 class="style-plant-title text-center text-md-start m-0">Our Plant</h2>
 			</div>
 			<div class="container-fluid p-0">
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-plant-tab">
@@ -74,17 +102,17 @@
 											on our core business:</p>
 										<div class="row">
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_truck.png')}}"
+												<img src="{{asset('images/vector/vehicle assembly-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Vehicle Conversion</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_motor.png')}}"
+												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Automotive Part</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_molding-machine.png')}}"
+												<img src="{{asset('images/vector/mold making-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Mold Making</p>
 											</div>
@@ -270,7 +298,7 @@
 											on our core business:</p>
 										<div class="row">
 											<div class="col-md-12 p-2 d-flex align-items-center">
-												<img src="{{asset('images/company-plant/icon_molding-machine.png')}}"
+												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Automotive Part (Resin
 													Injection & Painting)</p>
