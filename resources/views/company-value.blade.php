@@ -121,25 +121,24 @@
 	rgba(255,255,255,1)), url('{{asset('images/vector_1/v2.png')}}'); background-size: cover ; height: 20vh !important; opacity: 0.4; margin-bottom: -32%">
 	</div>
 
-	<div data-scroll class="row m-0 mt-5 pt-md-5 row-section-visi-misi">
+	<div data-scroll data-aos="fade-up" data-aos-duration="1300" class="row m-0 mt-5 pt-md-5 row-section-visi-misi">
 		<div class="col-12 col-lg-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/pride-1-v2.png')}}" width="120" alt="">
 				<h1 class="mb-md-3 mt-3 fs-1 title-values">PRIDE OF TEAM</h1>
 				<p class="desc-values">We protect our reputation with great teamwork & working atmosphere</p>
 				<h2 class="mb-1 title-values d-none d-sm-block">&nbsp;</h2>
 			</div>
-
 		</div>
 		<div class="col-12 col-lg-4 d-flex justify-content-center border-thick">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/pride-2-v2.png')}}" width="120" alt="">
 				<h1 class="mb-md-3 mt-3 fs-1 title-values">PRIDE OF WORK</h1>
 				<p class="desc-values">We share our vision & work on it together to always be ready to face the challenges & remain great performance</p>
 			</div>
 		</div>
 		<div class="col-12 col-lg-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/pride-3-v2.png')}}" width="120" alt="">
 				<h1 class="mb-md-3 mt-3 fs-1 title-values">PRIDE OF COMPANY</h1>
 				<p class="desc-values">We maintain mutual happiness & focus on building our positive environment</p>
@@ -162,9 +161,9 @@
 		</div>
 	</div>
 
-	<div data-scroll class="row m-0 mt-5 py-md-5 row-section-visi-misi">
+	<div data-scroll data-aos="fade-up" data-aos-duration="1300" class="row m-0 mt-5 py-md-5 row-section-visi-misi">
 		<div class="col-12 col-xl-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/vector-philosophy-v2.png')}}" width="100" alt="">
 				<h1 class="mb-md-3 mt-3 fs-2 title-values">Our Philosophy</h1>
 				<p class="desc-values">Create continuous collaboration between Indonesia and Japan by contributing in various innovations for future mobility technology.</p>
@@ -172,7 +171,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-xl-4 d-flex justify-content-center border-thick">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/vector-mission-v2.png')}}" width="100" alt="">
 				<h1 class="mb-md-3 mt-3 fs-2 title-values">Our Mission</h1>
 				<p class="desc-values">Being a Sustainable Product Maker Company that Provides Customer Satisfaction & Contributes to Society Growth.</p>
@@ -180,7 +179,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-xl-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/vector-vision-v2.png')}}" width="100" alt="">
 				<h1 class="mb-md-3 mt-3 fs-2 title-values">Our Vision</h1>
 				<p class="desc-values">Become a Model of Automotive Manufacturing Company that Leads the industrial ecosystem development.</p>
@@ -210,9 +209,9 @@
 		</div>
 	</div>
 
-    <div data-scroll class="row m-0 mt-3 mb-5 py-md-5 row-section-visi-misi">
+    <div data-scroll data-aos="fade-up" data-aos-duration="1300" class="row m-0 mt-3 mb-5 py-md-5 row-section-visi-misi">
 		<div class="col-12 col-xl-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/vehicle assembly-v2.png')}}" width="150" height="150" alt="" style="object-fit: contain">
 				<h1 class="mb-md-3 mt-0 fs-2 title-values">Vehicle Assembly</h1>
 				<p class="desc-values">Starting with Kijang Krista, our growth now spans diverse vehicle conversions, showcasing innovation and commitment.</p>
@@ -220,7 +219,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-xl-4 d-flex justify-content-center border-thick">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/automotive part-v2.png')}}" width="150" height="150" alt="" style="object-fit: contain">
 				<h1 class="mb-md-3 mt-0 fs-2 title-values">Automotive Part</h1>
 				<p class="desc-values">Since 1996, out automotive parts business has advanced from resin injection to automated painting and sub-assembly.</p>
@@ -228,7 +227,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-xl-4 d-flex justify-content-center">
-			<div class="px-3 px-md-5 text-center" data-aos="fade-up" data-aos-duration="1300">
+			<div class="px-3 px-md-5 text-center">
 				<img src="{{asset('images/vector/mold making-v2.png')}}" width="150" height="150" alt="" style="object-fit: contain">
 				<h1 class="mb-md-3 mt-0 fs-2 title-values">Mold Making</h1>
 				<p class="desc-values">Since 2004, our Mold Making Business has grown from small molds to ASEAN market leadership in 2018.</p>
