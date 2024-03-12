@@ -64,6 +64,8 @@ body {
 
     .director-title {
         font-size: 15px;
+        font-weight: 800;
+        color: #d55810 !important;
     }
 
     .director-name {
@@ -104,6 +106,8 @@ body {
 
     .director-title {
         font-size: 15px;
+        font-weight: 800;
+        color: #d55810 !important;
     }
 
     .director-name {
@@ -232,4 +236,9 @@ body {
     background-size: contain;
     background-image: url('../../images/board-of-director/bg-abstarct.png');
     background-repeat: no-repeat;
+}
+
+.director-title {
+    font-weight: 800;
+    color: #d55810 !important;
 }

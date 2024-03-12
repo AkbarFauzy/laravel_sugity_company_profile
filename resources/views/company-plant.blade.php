@@ -298,7 +298,7 @@
 											on our core business:</p>
 										<div class="row">
 											<div class="col-md-12 p-2 d-flex align-items-center">
-												<img src="{{asset('images/vector/mold making-v2.png')}}"
+												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
 												<p class="style-plant-tab-text m-0 ps-3">Automotive Part (Resin
 													Injection & Painting)</p>

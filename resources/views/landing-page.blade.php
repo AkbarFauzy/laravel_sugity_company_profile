@@ -723,7 +723,7 @@
 			$('#pills-PartBusiness-tab').trigger('click');
 		} else if ($('#pills-PartBusiness-tab').hasClass('active')) {
 			$('#pills-MoldBusiness-tab').trigger('click');
-		} else if ($('#pills-MoldBusinesstab').hasClass('active')) {
+		} else if ($('#pills-MoldBusiness-tab').hasClass('active')) {
 			$('#pills-VehicleBusiness-tab').trigger('click');
 		}
 	}, 5000);
@@ -733,7 +733,7 @@
 		margin: 0,
 		nav: false,
 		items: 1,
-		// autoplay: true,
+		autoplay: true,
 		autoplayTimeout: 5000,
 		autoplayHoverPause: false,
 		animateOut: 'slideOutLeft',
