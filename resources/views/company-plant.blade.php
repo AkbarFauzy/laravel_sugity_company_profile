@@ -26,27 +26,27 @@
 		<section id="page-title" class="page-title-dark d-none d-xl-block"
             style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 375px 0; background-repeat: no-repeat; background-attachment: fixed; background-position: center; z-index: 10; background-size: cover;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-                <h1 style="font-size: 80px;">Company Plant</h1>
+                <h1 style="font-size: 80px;">{{ __('company-plant.header') }}</h1>
             </div>
         </section>
         {{-- Mobile --}}
         <section id="page-title" class="page-title-dark d-block d-sm-none"
             style="background-image: url('{{asset('images/background/background-company-plant-mobile.png')}}'); padding: 110px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-                <h1 style="font-size: 30px; margin-top: -50px">Company Plant</h1>
+                <h1 style="font-size: 30px; margin-top: -50px">{{ __('company-plant.header') }}</h1>
             </div>
         </section>
         {{-- Tablet --}}
         <section id="page-title" class="page-title-dark d-none d-md-block d-lg-none"
             style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 70px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+                <h1 style="font-size: 40px; margin-top: -70px">{{ __('company-plant.header') }}</h1>
             </div>
         </section>
         <section id="page-title" class="page-title-dark d-none d-lg-block d-xl-none"
             style="background-image: url('{{asset('images/background/background-company-plant.png')}}'); padding: 200px 0; margin-top: 65px; background-repeat: no-repeat; z-index: 10; background-size: cover; background-position: 50%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="container clearfix text-center">
-                <h1 style="font-size: 40px; margin-top: -70px">Company Plant</h1>
+                <h1 style="font-size: 40px; margin-top: -70px">{{ __('company-plant.header') }}</h1>
             </div>
         </section>
 	<!-- #page-title end -->
@@ -55,7 +55,7 @@
 		============================================= -->
 		<section id="content">
 			<div data-aos="fade-in" data-aos-duration="1000" class="container-fluid pt-3 pt-lg-4 pt-xl-5 pb-4 px-6">
-				<h2 class="style-plant-title text-center text-md-start m-0">Our Plant</h2>
+				<h2 class="style-plant-title text-center text-md-start m-0">{{ __('company-plant.title') }}</h2>
 			</div>
 			<div class="container-fluid p-0">
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-plant-tab">
@@ -64,13 +64,12 @@
 						<li class="col-6 nav-item px-3" role="presentation">
 							<button class="nav-link active ms-md-auto" id="pills-head-office-tab" data-bs-toggle="pill"
 								data-bs-target="#pills-head-office" type="button" role="tab"
-								aria-controls="pills-head-office" aria-selected="true">Head Office / Plant
-								Cibitung</button>
+								aria-controls="pills-head-office" aria-selected="true">{{ __('company-plant.tabPlant1') }}</button>
 						</li>
 						<li class="col-6 nav-item px-3" role="presentation">
 							<button class="nav-link" id="pills-karawang-tab" data-bs-toggle="pill"
 								data-bs-target="#pills-karawang" type="button" role="tab" aria-controls="pills-karawang"
-								aria-selected="false">Plant Karawang</button>
+								aria-selected="false">{{ __('company-plant.tabPlant2') }}</button>
 						</li>
 					</ul>
 					<div class="tab-content" id="pills-tabContent">
@@ -84,37 +83,29 @@
 								</div>
 								<div class="col-md-6 p-3 ps-md-5">
 									<div class="ps-md-4">
-										<h3 class="style-plant-tab-title mb-4">PT. SUGITY CREATIVES HEAD OFFICE / PLANT
-											CIBITUNG
+										<h3 class="style-plant-tab-title mb-4">
+											{{ __('company-plant.titlePlant1') }}
 										</h3>
-										<p class="style-plant-tab-description mb-3">Since 1995, located in Cibitung,
-											Bekasi,
-											West
-											Java, our facilities showcase our
-											dedication to excellence. With four advanced factories, an innovative
-											Education
-											Center, and meticulously designed facilities supporting our operations, we
-											prioritize both process efficiency and employee well-being. In Cibitung,
-											we're
-											more than a site; we're an innovation hub, embodying our commitment to our
-											business and the thriving local community.<br><br>In this plant we are
-											working
-											on our core business:</p>
+										<p class="style-plant-tab-description mb-3">
+											{{ __('company-plant.text1Plant1') }}
+											<br><br>
+											{{ __('company-plant.text2Plant1') }}
+										</p>
 										<div class="row">
 											<div class="col-lg-6 p-2 d-flex align-items-center">
 												<img src="{{asset('images/vector/vehicle assembly-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
-												<p class="style-plant-tab-text m-0 ps-3">Vehicle Conversion</p>
+												<p class="style-plant-tab-text m-0 ps-3">{{ __('company-plant.tIcon1Plant1') }}</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
 												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
-												<p class="style-plant-tab-text m-0 ps-3">Automotive Part</p>
+												<p class="style-plant-tab-text m-0 ps-3">{{ __('company-plant.tIcon2Plant1') }}</p>
 											</div>
 											<div class="col-lg-6 p-2 d-flex align-items-center">
 												<img src="{{asset('images/vector/mold making-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
-												<p class="style-plant-tab-text m-0 ps-3">Mold Making</p>
+												<p class="style-plant-tab-text m-0 ps-3">{{ __('company-plant.tIcon3Plant1') }}</p>
 											</div>
 										</div>
 									</div>
@@ -123,40 +114,24 @@
 
 							<div data-aos="fade-in" data-aos-duration="1000" class="float-left px-3 py-5 p-md-5">
 								<div class="d-flex justify-content-center mb-md-2">
-									<h2 class="fs-1 m-0 text-black text-center">Facility</h2>
+									<h2 class="fs-1 m-0 text-black text-center">{{ __('company-plant.facility') }}</h2>
 								</div>
 								<div class="d-flex justify-content-center mb-2">
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">An-Nur Mosque, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Canteen, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Meeting Room, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Football Field,
-										Sugity Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">SC Mart, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Lobby, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Education Center,
-										Sugity Creatives
-									</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility1') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility2') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility3') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility4') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility5') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility6') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility7') }}</p>
 									<!-- duplicate -->
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">An-Nur Mosque, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Canteen, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Meeting Room, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Football Field,
-										Sugity Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">SC Mart, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Lobby, Sugity
-										Creatives</p>
-									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">Education Center,
-										Sugity Creatives
-									</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility1') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility2') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility3') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility4') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility5') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility6') }}</p>
+									<p class="style-facility-desc fs-4 mb-0 text-dark text-center">{{ __('company-plant.tFacility7') }}</p>
 								</div>
 								<div class="style-carousel-facility">
 									<div class="style-item">
@@ -285,23 +260,19 @@
 								</div>
 								<div data-aos="fade-in" data-aos-duration="1000" class="col-md-6 p-3 ps-md-5">
 									<div class="ps-md-4">
-										<h3 class="style-plant-tab-title mb-4">PT. SUGITY CREATIVES PLANT 2, KARAWANG
+										<h3 class="style-plant-tab-title mb-4">
+											{{ __('company-plant.titlePlant2') }}
 										</h3>
-										<p class="style-plant-tab-description mb-3">Located within the Toyota Motor
-											Manufacturing Indonesia plant in Karawang, West Java since 2011, our
-											facility embodies a harmonious blend of innovation and collaboration. As an
-											integral part of this dynamic industrial landscape, our state-of-the-art
-											facilities not only support our business operations but also prioritize the
-											well-being of our dedicated employees, fostering an environment that
-											resonates with both efficiency and care.<br><br>In this plant we are
-											working
-											on our core business:</p>
+										<p class="style-plant-tab-description mb-3">
+											{{ __('company-plant.text1Plant2') }}
+											<br><br>
+											{{ __('company-plant.text2Plant2') }}
+										</p>
 										<div class="row">
 											<div class="col-md-12 p-2 d-flex align-items-center">
 												<img src="{{asset('images/vector/automotive part-v2.png')}}"
 													class="style-plant-tab-icon" alt="">
-												<p class="style-plant-tab-text m-0 ps-3">Automotive Part (Resin
-													Injection & Painting)</p>
+												<p class="style-plant-tab-text m-0 ps-3">{{ __('company-plant.tIcon1Plant2') }}</p>
 											</div>
 										</div>
 									</div>

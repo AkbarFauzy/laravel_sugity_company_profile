@@ -20,7 +20,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link {{$is360 ? '' : 'active'}}" id="modaVehicleInteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleInterior" type="button" role="tab"
-                    aria-controls="modaVehicleInterior" aria-selected="false">Interior</button>
+                    aria-controls="modaVehicleInterior" aria-selected="false">{{ __('product-vehicle.interior') }}</button>
             </li>
         @endif
 
@@ -31,7 +31,7 @@
                     aria-controls="modaVehicleExterior" aria-selected="false">Exterior</button> --}}
                 <button class="nav-link {{$is360 || $isInterior ? ($products->data->category == 'Exterior Part' ? 'active' : '') : ''}}" id="modaVehicleExteriorTab" data-bs-toggle="pill"
                     data-bs-target="#modaVehicleExterior" type="button" role="tab"
-                    aria-controls="modaVehicleExterior" aria-selected="false">Exterior</button>
+                    aria-controls="modaVehicleExterior" aria-selected="false">{{ __('product-vehicle.exterior') }}</button>
             </li>
         @endif
     </ul>
@@ -147,7 +147,7 @@
 </div>
 @if(($products->data->category == "Interior Part" || $products->data->category == "Exterior Part") && !empty($products->data->left_content))
     <img class="py-1" src='{{asset("images/vector/Rectangle.png")}}'></img>
-    <h2 class="modal-title text-center color-black mb-1">Product on Car</h2>
+    <h2 class="modal-title text-center color-black mb-1">{{ __('product-part.tModal') }}</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-12">
@@ -188,7 +188,7 @@
             <div class="col-lg-6 col-xl-6">
 
                 @if(!empty($products->data->left_content))
-                    <h3 class="m-0 color-black">Features</h3>
+                    <h3 class="m-0 color-black">{{ __('product-vehicle.features') }}</h3>
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif
@@ -206,7 +206,7 @@
             </div>
             <div class="col-lg-6 col-xl-6">
                 @if($products->data->right_content)
-                    <h3 class="m-0 color-black">Conversion Parts</h3>
+                    <h3 class="m-0 color-black">{{ __('product-vehicle.conversionParts') }}</h3>
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif

@@ -62,45 +62,30 @@
 					</div>
 					<div class="col-12 col-xl-7 parent-president-message">
 						<div data-aos="fade-left" data-aos-duration="1300" class="container pt-4 color-black">
-							<h1 class="mb-2 president-message-text">President Message</h1>
+							<h1 class="mb-2 president-message-text">{{ __('president-message.title') }}</h1>
 							<p class="mb-3 president-speech">
-								Dear Valued Members of the Sugity Creatives Community,
+								{{ __('president-message.p1') }}
 							</p>
 							<p class="mb-3 president-speech">
-								It is with great pleasure and pride that I extend a warm welcome to you on behalf of
-								Sugity Creatives a foundation of automotive excellence since our establishment in 1995.
+								{{ __('president-message.p2') }}
 							</p>
 							<p class="mb-3 president-speech">
-								As a premier manufacturer in Southeast Asia, specializing in an expansive array of
-								automotive parts, Sugity Creatives has consistently set the bar for excellence in our
-								industry. Our three pillar business approach Vehicle Conversion, Part, and Mold
-								Business forms the foundation of our commitment to innovation, precision, and customer
-								satisfaction.
+								{{ __('president-message.p3') }}
 							</p>
 							<p class="mb-3 president-speech">
-								At Sugity Creatives, our mission goes beyond manufacturing exceptional products. We are
-								driven by a profound commitment to elevate the human experience. Meticulously crafting
-								products that not only meet but exceed customer expectations is at the heart of our
-								endeavors. Concurrently, we understand the responsibility we bear towards the
-								environment.
+								{{ __('president-message.p4') }}
 							</p>
 							<p class="mb-3 president-speech">
-								Our dedication to addressing environmental concerns reflects our commitment to a
-								harmonious balance between automotive innovation and sustainable practices.
-								As we navigate the future, Sugity Creatives is poised for continued growth and impact.
-								Our unwavering commitment to quality, precision, and environmental stewardship remains
-								resolute. I invite you to explore our website, discover the depth of our offerings, and
-								join us on this journey of automotive excellence.
+								{{ __('president-message.p5') }}
 							</p>
 							<p class="mb-3 president-speech">
-								Thank you for being an integral part of the Sugity Creatives community.
+								{{ __('president-message.p6') }}
 							</p>
 							<p class="president-signature mb-0">
-								Warm regards,
-								Masashi Suzuki
+								{{ __('president-message.p7') }}
 							</p>
 							<span class="president-signature-sugity">
-								President Director, Sugity Creatives
+								{{ __('president-message.p8') }}
 							</span>
 						</div>
 					</div>

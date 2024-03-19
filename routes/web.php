@@ -26,51 +26,58 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('/', [FrontendController::class, 'index'])->name('/');
+        
+        Route::get('/company-profile', function () {
+            return view('company-profile');
+        });
+        
+        Route::get('/president-message', function(){
+            return view('president-message');
+        });
+        
+        Route::get('/about-us', function(){
+            return view('about-us');
+        });
+        
+        Route::get('/coming-soon', function () {
+            return view('coming-soon');
+        });
+        
+        Route::get('/board-directors', [FrontendController::class, 'BoardOfDirectors']);
+        Route::get('/company-history', [FrontendController::class, 'CompanyHistory']);
+        Route::get('/products', [FrontendController::class, 'Products']);
+        Route::get('/products/{id}', [FrontendController::class, 'ProductsModal']);
+        Route::get('/products-vehicle', [FrontendController::class, 'ProductVehicles']);
+        Route::get('/products-part', [FrontendController::class, 'ProductParts']);
+        Route::get('/products-mold', [FrontendController::class, 'Mold']);
+        
+        Route::get('/company-value', function(){
+            return view('company-value');
+        });
+        
+        Route::get('/company-business', function(){
+            return view('company-business');
+        });
+        
+        
+        Route::get('/company-plant', function(){
+           return view('company-plant');
+        });
+        
+        Route::get('/news-page',[FrontendController::class, 'News']);
+        Route::get('/detail-news/{id}', [FrontendController::class, 'DetailNews']);
+        
+        Route::get('/csr', [FrontendController::class, 'CSR']);
+        Route::get('/detail-news/csr/{id}', [FrontendController::class, 'DetailCSR']);
+    }
+);
 
-Route::get('/', [FrontendController::class, 'index'])->name('/');
-
-Route::get('/company-profile', function () {
-    return view('company-profile');
-});
-
-Route::get('/president-message', function(){
-    return view('president-message');
-});
-
-Route::get('/about-us', function(){
-    return view('about-us');
-});
-
-Route::get('/coming-soon', function () {
-    return view('coming-soon');
-});
-
-Route::get('/board-directors', [FrontendController::class, 'BoardOfDirectors']);
-Route::get('/company-history', [FrontendController::class, 'CompanyHistory']);
-Route::get('/products', [FrontendController::class, 'Products']);
-Route::get('/products/{id}', [FrontendController::class, 'ProductsModal']);
-Route::get('/products-vehicle', [FrontendController::class, 'ProductVehicles']);
-Route::get('/products-part', [FrontendController::class, 'ProductParts']);
-Route::get('/products-mold', [FrontendController::class, 'Mold']);
-
-Route::get('/company-value', function(){
-    return view('company-value');
-});
-
-Route::get('/company-business', function(){
-    return view('company-business');
-});
-
-
-Route::get('/company-plant', function(){
-   return view('company-plant');
-});
-
-Route::get('/news-page',[FrontendController::class, 'News']);
-Route::get('/detail-news/{id}', [FrontendController::class, 'DetailNews']);
-
-Route::get('/csr', [FrontendController::class, 'CSR']);
-Route::get('/detail-news/csr/{id}', [FrontendController::class, 'DetailCSR']);
 
 Route::get('/admin/login', function(){
     return view('admin/login');

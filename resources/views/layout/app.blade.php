@@ -54,69 +54,68 @@
 						<ul class="navbar-nav col-12 col-md-12 col-lg-11 col-xxl-7 text-center ms-auto" style="height: 100%; justify-content: end;">
 						<li class="nav-item style-w-31">
 							<a class="nav-link">
-								Company Profile
+								{{ __('layout.companyProfile') }}
 							</a>
 							{{-- <ul class="style-sub-navbar-container"> --}}
 								<ul class="style-sub-navbar-container" style="position: static; width: 100%;">
                                 <li class="nav-item">
-									<a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
+									<a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">{{ __('layout.aboutUs') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">Company Value</a>
+									<a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">{{ __('layout.companyValue') }}</a>
 								</li>
                                 <li class="nav-item">
-									<a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">Board of Director</a>
+									<a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">{{ __('layout.bod') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">President
-										Message</a>
+									<a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">{{ __('layout.presidentMessage') }}</a>
 								</li>
                                 <li class="nav-item">
-									<a class="nav-link {{ (request()->is('company-business')) ? 'disabled' : '' }}" href="{{url('company-business')}}">Company Business</a>
+									<a class="nav-link {{ (request()->is('company-business')) ? 'disabled' : '' }}" href="{{url('company-business')}}">{{ __('layout.companyBusiness') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">Company History</a>
+									<a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">{{ __('layout.companyHistory') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
+									<a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">{{ __('layout.companyPlant') }}</a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item style-w-23">
-							<a class="nav-link style-dashed  {{ (request()->is('products')) ? 'disabled' : '' }}">
-								Product
+							<a class="nav-link style-dashed {{ (request()->is('products')) ? 'disabled' : '' }}">
+								{{ __('layout.product') }}
 							</a>
 							{{-- <ul class="style-sub-navbar-container style-left-31""> --}}
 								<ul class="style-sub-navbar-container style-left-31" style="position: static; width: 125%;">
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">Vehicle Business</a>
+									<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">{{ __('layout.vehicleBusiness') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('products-part')) ? 'disabled' : '' }}" href="{{url('products-part')}}">Part Business</a>
+									<a class="nav-link {{ (request()->is('products-part')) ? 'disabled' : '' }}" href="{{url('products-part')}}">{{ __('layout.partBusiness') }}</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {{ (request()->is('products-mold')) ? 'disabled' : '' }}" href="{{url('products-mold')}}">Mold Business</a>
+									<a class="nav-link {{ (request()->is('products-mold')) ? 'disabled' : '' }}" href="{{url('products-mold')}}">{{ __('layout.moldBusiness') }}</a>
 								</li>
 							</ul>
 						</li>
 						{{-- <li class="nav-item style-w-23">
 							<a class="nav-link style-dashed {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
-								CSR
+								{{ __('layout.csr') }}
 							</a>
 						</li>
 						<li class="nav-item style-w-23">
 							<a class="nav-link style-dashed {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
-								News
+								{{ __('layout.news') }}
 							</a>
 						</li> --}}
 					</ul>
-					<a class="lang ps-xl-2 ps-xxl-5">
+					<a class="lang ps-xl-2 ps-xxl-5 {{ request()->segment(1) == 'en' ? 'color-active' : '' }}" href="{{ LaravelLocalization::getLocalizedURL('en') }}">
 						EN
 					</a>
 					<div class="color-white px-2">
 						|
 					</div>
-					<a class="lang pe-5">
+					<a class="lang pe-5 {{ request()->segment(1) == 'id' ? 'color-active' : '' }}" href="{{ LaravelLocalization::getLocalizedURL('id') }}">
 						ID
 					</a>
 				</div>
@@ -131,57 +130,56 @@
 						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 							<li class="nav-item">
 								<a class="nav-link">
-									Company Profile
+									{{ __('layout.companyProfile') }}
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">About Us</a>
+                                        <a class="nav-link {{ (request()->is('about-us')) ? 'disabled' : '' }}" href="{{url('about-us')}}">{{ __('layout.aboutUs') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">Company Value</a>
+                                        <a class="nav-link {{ (request()->is('company-value')) ? 'disabled' : '' }}" href="{{url('company-value')}}">{{ __('layout.companyValue') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">Board of Director</a>
+                                        <a class="nav-link {{ (request()->is('board-directors')) ? 'disabled' : '' }}" href="{{url('board-directors')}}">{{ __('layout.bod') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">President
-                                            Message</a>
+                                        <a class="nav-link {{ (request()->is('president-message')) ? 'disabled' : '' }}" href="{{url('president-message')}}">{{ __('layout.presidentMessage') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-business')) ? 'disabled' : '' }}" href="{{url('company-business')}}">Company Business</a>
+                                        <a class="nav-link {{ (request()->is('company-business')) ? 'disabled' : '' }}" href="{{url('company-business')}}">{{ __('layout.companyBusiness') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">Company History</a>
+                                        <a class="nav-link {{ (request()->is('company-history')) ? 'disabled' : '' }}" href="{{url('company-history')}}">{{ __('layout.companyHistory') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">Company Plant</a>
+                                        <a class="nav-link {{ (request()->is('company-plant')) ? 'disabled' : '' }}" href="{{url('company-plant')}}">{{ __('layout.companyPlant') }}</a>
                                     </li>
 								</ul>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link {{ (request()->is('products')) ? 'disabled' : '' }}">
-									Product
+									{{ __('layout.product') }}
 								</a>
 								<ul class="style-sub-navbar-offcanvas-container">
 									<li class="nav-item">
-										<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">Vehicle Business</a>
+										<a class="nav-link {{ (request()->is('products-vehicle')) ? 'disabled' : '' }}" href="{{url('products-vehicle')}}">{{ __('layout.vehicleBusiness') }}</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link {{ (request()->is('products-part')) ? 'disabled' : '' }}" href="{{url('products-part')}}">Part Business</a>
+										<a class="nav-link {{ (request()->is('products-part')) ? 'disabled' : '' }}" href="{{url('products-part')}}">{{ __('layout.partBusiness') }}</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link {{ (request()->is('products-mold')) ? 'disabled' : '' }}" href="{{url('products-mold')}}">Mold Business</a>
+										<a class="nav-link {{ (request()->is('products-mold')) ? 'disabled' : '' }}" href="{{url('products-mold')}}">{{ __('layout.moldBusiness') }}</a>
 									</li>
 								</ul>
 							</li>
 							{{-- <li class="nav-item"> 
 								<a class="nav-link {{ (request()->is('csr')) ? 'disabled' : '' }}" href="{{url('csr')}}">
-									CSR
+									{{ __('layout.csr') }}
 								</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link {{ (request()->is('news-page')) ? 'disabled' : '' }}" href="{{url('news-page')}}">
-									News
+									{{ __('layout.news') }}
 								</a>
 							</li> --}}
 						</ul>
@@ -211,7 +209,7 @@
 									<div class="widget widget_links clearfix">
 
 										<!-- <a href="#"> -->
-											<h3 class="entry-title mb-1">Contact Us</h3>
+											<h3 class="entry-title mb-1">{{ __('layout.contactUs') }}</h3>
 										<!-- </a> -->
 
 										<div class="row mb-3">
@@ -228,7 +226,7 @@
 										</div>
 
 										<a href="#">
-											<h3 class="entry-title mb-1">Social Media</h3>
+											<h3 class="entry-title mb-1">{{ __('layout.socialMedia') }}</h3>
 										</a>
 
 										<div class="row">
@@ -253,32 +251,32 @@
 									<div class="widget widget_links clearfix">
 
 										<h3 class="entry-title mb-1">
-											<a href="{{url('company-profile')}}">
-												Company Profile
-											</a>
+											{{-- <a href="{{url('company-profile')}}"> --}}
+												{{ __('layout.companyProfile') }}
+											{{-- </a> --}}
 										</h3>
 
 										<div class="row">
                                             <div class="col-12">
-												<a href="{{url('company-profile')}}#about_us">About Us</a>
+												<a href="{{url('company-profile')}}#about_us">{{ __('layout.aboutUs') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('company-value')}}">Company Value</a>
+												<a href="{{url('company-value')}}">{{ __('layout.companyValue') }}</a>
 											</div>
                                             <div class="col-12">
-												<a href="{{url('board-of-director')}}">Board of Director</a>
+												<a href="{{url('board-of-director')}}">{{ __('layout.bod') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('company-profile')}}#president-message">President Message</a>
+												<a href="{{url('company-profile')}}#president-message">{{ __('layout.presidentMessage') }}</a>
 											</div>
                                             <div class="col-12">
-												<a href="{{url('company-business')}}">Company Business</a>
+												<a href="{{url('company-business')}}">{{ __('layout.companyBusiness') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('company-history')}}">Company History</a>
+												<a href="{{url('company-history')}}">{{ __('layout.companyHistory') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('company-plant')}}">Company Plant</a>
+												<a href="{{url('company-plant')}}">{{ __('layout.companyPlant') }}</a>
 											</div>
 										</div>
 
@@ -291,20 +289,20 @@
 									<div class="widget widget_links clearfix">
 
 										<h3 class="entry-title mb-1">
-											<a href="{{url('products')}}">
-												Product
-											</a>
+											{{-- <a href="{{url('products')}}"> --}}
+												{{ __('layout.product') }}
+											{{-- </a> --}}
 										</h3>
 
 										<div class="row">
 											<div class="col-12">
-												<a href="{{url('products-vehicle')}}">Vehicle Business</a>
+												<a href="{{url('products-vehicle')}}">{{ __('layout.vehicleBusiness') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('products-part')}}">Part Business</a>
+												<a href="{{url('products-part')}}">{{ __('layout.partBusiness') }}</a>
 											</div>
 											<div class="col-12">
-												<a href="{{url('products-mold')}}">Mold Business</a>
+												<a href="{{url('products-mold')}}">{{ __('layout.moldBusiness') }}</a>
 											</div>
 										</div>
 
@@ -327,7 +325,7 @@
 
 													{{-- <h3 class="entry-title">
 														<a href="{{url('csr')}}">
-															CSR
+															{{ __('layout.csr') }}
 														</a>
 													</h3> --}}
 
@@ -348,7 +346,7 @@
 
 													{{-- <h3 class="entry-title">
 														<a href="{{url('news')}}">
-															News
+															{{ __('layout.news') }}
 														</a>
 													</h3> --}}
 

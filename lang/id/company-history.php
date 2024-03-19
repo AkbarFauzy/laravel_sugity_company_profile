@@ -1,0 +1,5 @@
+<?php
+
+return [
+    'text' => 'Sugity, yang didirikan pada tahun 1995 sebagai usaha kolaboratif antara Superior Coach dan Toyota Auto Body, memulai perjalanan transformatif yang menjadi saksi komitmen kami terhadap inovasi dan presisi. Pada tahun 1996, Sugity meresmikan produksi Kijang SCM dan Resin & Painting Parts, diikuti dengan perakitan Dyna dan Heavy Cabin pada tahun 1997. Tahun 2012 menandai dimulainya Perakitan NAV1, dilengkapi dengan produksi di lokasi di Pabrik TMMIN Karawang sejak tahun 2011. Dedikasi kami terhadap kemajuan mengambil langkah penting pada tahun 1997 dengan pendirian Extrusion, sebuah usaha yang berkembang menjadi entitas yang sekarang dikenal sebagai TTEC (Toyota Auto Body - Tokai Extrusion) pada tahun 2005. Tahun 2000 menjadi saksi dimulainya produksi Plating, yang kemudian berkembang menjadi perusahaan yang dikenal sebagai RPT (Resin Plating Technology) pada tahun 2013. Untuk lebih meningkatkan kemampuan kami, kami merangkul pembuatan cetakan internal pada tahun 2004, memperkuat warisan Sugity di lanskap otomotif.',
+];

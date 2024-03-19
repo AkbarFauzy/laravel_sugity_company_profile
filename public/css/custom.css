@@ -384,6 +384,10 @@
 	color: #000000;
 }
 
+.color-active {
+	color: #EE6D22;
+}
+
 /* .style-navbar .style-navbar-offcanvas .navbar-nav .nav-item:hover .style-sub-navbar-offcanvas-container {
 	height: 100%;
 	visibility: visible;
