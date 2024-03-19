@@ -102,26 +102,21 @@
 	<div class="row" style="height: 100%;">
 		<div class="col-lg-9 col-12 px-5 pt-0">
 			<div data-aos="fade-right" data-aos-duration="900" class="p-0 px-5">
-				<h2 class="mb-0" style="color: #C5C2C3;">Welcome</h2>
+				<h2 class="mb-0" style="color: #C5C2C3;">{{ __('landing-page.welcome') }}</h2>
 				<h1 class="mt-0 mb-2 sugity-creative-text">Sugity Creatives</h1>
 				<p style="line-height: 25px;">
-					Join us on a journey where precision meets passion, shaping the future of automotive
-					creativity with integrity and innovation.
-					Driven by a profound mission, we aspire to elevate the human experience through
-					meticulously crafted products that not only meet but exceed customer expectations.
-					Concurrently, we remain steadfast in our commitment to address environmental concerns,
-					ensuring a harmonious balance between automotive innovation and sustainable practices.
+					{{ __('landing-page.descWelcome') }}
 				</p>
 				<div class="row">
 					<div class="col-md-3 text-first-parallax">1995
-						<span class="hide-txt-par-landing">Year Established</span>
+						<span class="hide-txt-par-landing">{{ __('landing-page.yearEstablished') }}</span>
 					</div>
 					<div class="col-md-3 text-first-parallax">1264
-						<span class="hide-txt-par-landing">Professional Employees</span>
+						<span class="hide-txt-par-landing">{{ __('landing-page.professionalEmployees') }}</span>
 					</div>
 					<div class="col-md-3 text-first-parallax text-second-parallax-3">31
 						<span class="hide-txt-par-landing text-second-parallax-3">
-							<a href="#" data-anchor="#client" style="color: #fff;">CUSTOMER</a> 
+							<a href="#" data-anchor="#client" style="color: #fff;">{{ __('landing-page.customer') }}</a> 
 							<!-- <i style="font-size: 12px;">
 								<a href="{{url('/')}}#client" style="color:white">(Click for Details)</a>
 							</i> -->
@@ -129,7 +124,7 @@
 					</div>
 					<div class="col-md-3 text-first-parallax text-second-parallax-3">148
 						<span class="hide-txt-par-landing text-second-parallax-3">
-							<a href="#" data-anchor="#supply-chain" style="color: #fff;">SUPPLY CHAIN</a>
+							<a href="#" data-anchor="#supply-chain" style="color: #fff;">{{ __('landing-page.supplyChain') }}</a>
 							<!-- <i style="font-size: 12px;">
 								<a href="{{url('/')}}#supply-chain" style="color:white">(Click for Details)</a>
 							</i> -->
@@ -139,24 +134,24 @@
 				<div class="row">
 					<div class="col-md-3 text-second-parallax">
 						<!-- <br> -->
-						Year Established
+						{{ __('landing-page.yearEstablished') }}
 					</div>
 					<div class="col-md-3 text-second-parallax">
 						<!-- <br> -->
-						Professional Employees
+						{{ __('landing-page.professionalEmployees') }}
 					</div>
 					<div class="col-md-3 text-second-parallax text-second-parallax-3">
 						<!-- <i><a href="{{url('/')}}#client" style="color:white">Click for Details</a></i><br> -->
 						<!-- <br> -->
 						<a href="#" data-anchor="#client" class="text-link">
-							CUSTOMER
+							{{ __('landing-page.customer') }}
 						</a>
 					</div>
 					<div class="col-md-3 text-second-parallax text-second-parallax-3">
 						<!-- <i><a href="{{url('/')}}#supply-chain" style="color:white">Click for Details</a></i><br> -->
 						<!-- <br> -->
 						<a href="#" data-anchor="#supply-chain" class="text-link">
-							SUPPLY CHAIN
+							{{ __('landing-page.supplyChain') }}
 						</a>
 					</div>
 				</div>
@@ -167,8 +162,7 @@
 						</div>
 						<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
 						</div>
-						<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}"
-								alt="">
+						<div class="col-md-3 vec-line text-second-parallax-3"><img src="{{asset('images/vector/vector-bottom-line.svg')}}" alt="">
 						</div>
 				</div>
 			</div>
@@ -177,16 +171,12 @@
 	</div>
 		<!-- end parallax -->
 
-		
-		
 		<!-- our services section -->
 		<div class="services-section my-5" data-scroll>
 			<div data-aos="fade-in" data-aos-duration="1000" class="text-center mb-5">
-				<h2 class="our-services-text">Our Services</h2>
-				<h1 class="integrity-text">Committed to Bringing You Excellent Products Only We Can Create</h1>
-				<h5 class="embeded-text">Embedded in the essence of Sugity, as an affiliate of Toyota Autobody, is
-					the unwavering commitment to QUALITY, SAFETY, AND DURABILITY integral elements forming the DNA
-					of every product we deliver</h5>
+				<h2 class="our-services-text">{{ __('landing-page.ourServices') }}</h2>
+				<h1 class="integrity-text">{{ __('landing-page.ourServicesDesc') }}</h1>
+				<h5 class="embeded-text">{{ __('landing-page.ourServicesDesc2') }}</h5>
 				</div>
 			</div>
 			<ul data-scroll data-aos="fade-in" data-aos-duration="1000" class="nav nav-pills style-nav-pills" id="pills-tab" role="tablist">
@@ -213,11 +203,11 @@
 							</p>
 							
 						    @if($service->name === "Vehicle Business")	
-							    <a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">Read More</a>
+							    <a class="btn-primary style-btn mb-5" href="{{url('/products-vehicle')}}">{{ __('landing-page.readMore') }}</a>
 					        @elseif($service->name === "Part Business")
-					            <a class="btn-primary style-btn mb-5" href="{{url('/products-part')}}">Read More</a>
+					            <a class="btn-primary style-btn mb-5" href="{{url('/products-part')}}">{{ __('landing-page.readMore') }}</a>
 					        @elseif($service->name === "Mold Business")
-					            <a class="btn-primary style-btn mb-5" href="{{url('/products-mold')}}">Read More</a>
+					            <a class="btn-primary style-btn mb-5" href="{{url('/products-mold')}}">{{ __('landing-page.readMore') }}</a>
 					        @endif
 						
 						</div>
@@ -237,8 +227,8 @@
 			<div data-scroll class="recent-news-section style-recent-news-section px-2"
 				style="background-image: url('{{asset('images/Polygon.png')}}');">
 				<div data-aos="fade-in" data-aos-duration="1000" class="px-5 pt-5">
-					<h3 class="our-services-text">Our Recent News</h3>
-					<h2 class="integrity-text">Check out our latest events and information</h2>
+					<h3 class="our-services-text">{{ __('landing-page.ourRecentNews') }}</h3>
+					<h2 class="integrity-text">{{ __('landing-page.ourRecentNewsText') }}</h2>
 				</div>
 
 				<div data-aos="fade-in" data-aos-duration="1000" class="style-recent-news row m-0 pb-5 px-lg-4" style="width: 100%;">
@@ -260,16 +250,16 @@
 								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
 								<div class="style-description mt-2 mb-3" style="color:white">
-									{!!  str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
+									{!! str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
 								</div>
 
 								{{-- @if($news[0]->type === "news")
 									<a href="{{url('detail-news', $news[0]->id)}}">
-										<button class="btn style-btn">Read More -></button>
+										<button class="btn style-btn">{{ __('landing-page.readMore') }} -></button>
 									</a>
 								@else
 									<a href="{{url('detail-news/csr', $news[0]->id)}}">
-										<button class="btn style-btn">Read More -></button>
+										<button class="btn style-btn">{{ __('landing-page.readMore') }} -></button>
 									</a>
 								@endif --}}
 
@@ -295,7 +285,7 @@
 											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
 										</div>
 										{{-- <a href="{{url('detail-news', $item->id)}}">
-											<button class="btn style-btn">Read More -></button>
+											<button class="btn style-btn">{{ __('landing-page.readMore') }} -></button>
 										</a> --}}
 									</div>
 								</div>
@@ -316,7 +306,7 @@
 								<div class="title-small-news pb-2">{{$item->headline}}</div>
 								<div class="date-small-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
 								{{-- <a href="{{url('detail-news', $item->id)}}">
-									<div class="readmore-small-news">Read More -></div>
+									<div class="readmore-small-news">{{ __('landing-page.readMore') }} -></div>
 								</a> --}}
 							</div>
 						</div>
@@ -345,8 +335,8 @@
 			<!-- slider client -->
 			<div class="slider-client pt-5 pt-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Customers</h3>
-					<h2 class="we-build-text">We build long-term Partnerships</h2>
+					<h3 class="our-client-text">{{ __('landing-page.ourCustomer') }}</h3>
+					<h2 class="we-build-text">{{ __('landing-page.ourCustomerText') }}</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-client-slider py-2">
 					<div class="item">
@@ -502,8 +492,8 @@
 			<!-- slider supply chain -->
 			<div class="slider-client pb-5 pb-md-3" data-scroll>
 				<div data-aos="fade-in" data-aos-duration="1000" class="text-center">
-					<h3 class="our-client-text">Our Supply Chain</h3>
-					<h2 class="we-build-text">Synergizing Excellence, Uniting Supply</h2>
+					<h3 class="our-client-text">{{ __('landing-page.ourSupplyChain') }}</h3>
+					<h2 class="we-build-text">{{ __('landing-page.ourSupplyChainText') }}</h2>
 				</div>
 				<div data-aos="fade-in" data-aos-duration="1000" class="owl-carousel owl-theme style-owl-supplier-slider py-2">
 					<div class="item">
@@ -661,7 +651,7 @@
 							<div class="style-content">
 								<img src="{{asset('images/cibitung-plant.png')}}" alt="" srcset="" class="style-image">
 								<div class="style-title">
-									Head Office / Cibitung Plant
+									{{ __('landing-page.cibitungPlant') }}
 								</div>
 								<div class="style-description d-none d-sm-block">
 									Kawasan Industri, Jl. Bali I Jl. Mm 2100 No.17-20,<br />
@@ -681,7 +671,7 @@
 							<div class="style-content">
 								<img src="{{asset('images/karawang-plant.png')}}" alt="" srcset="" class="style-image">
 								<div class="style-title">
-									Karawang Plant
+									{{ __('landing-page.karawangPlant') }}
 								</div>
 								<div class="style-description d-none d-sm-block">
 									Kawasan Industri KIIC, Jl. Permata 3, Telukjambe Timur, <br />

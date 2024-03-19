@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'header' => 'COMPANY PLANT',
+    'title' => 'Our Plant',
+    'tabPlant1' => 'Head Office / Cibitung Plant',
+    'titlePlant1' => 'PT. SUGITY CREATIVES HEAD OFFICE / PLANT CIBITUNG',
+    'text1Plant1' => 'Since 1995, located in Cibitung, Bekasi, West Java, our facilities showcase our dedication to excellence. With four advanced factories, an innovative Education Center, and meticulously designed facilities supporting our operations, we prioritize both process efficiency and employee well-being. In Cibitung, we`re more than a site; we`re an innovation hub, embodying our commitment to our business and the thriving local community.',
+    'text2Plant1' => 'In this plant we are working on our core business:',
+    'tIcon1Plant1' => 'Vehicle Conversion',
+    'tIcon2Plant1' => 'Automotive Part',
+    'tIcon3Plant1' => 'Mold Making',
+    'tabPlant2' => 'Karawang Plant',
+    'titlePlant2' => 'PT. SUGITY CREATIVES PLANT 2, KARAWANG',
+    'text1Plant2' => 'Located within the Toyota Motor Manufacturing Indonesia plant in Karawang, West Java since 2011, our facility embodies a harmonious blend of innovation and collaboration. As an integral part of this dynamic industrial landscape, our state-of-the-art facilities not only support our business operations but also prioritize the well-being of our dedicated employees, fostering an environment that resonates with both efficiency and care.',
+    'text2Plant2' => 'In this plant we are working on our core business:',
+    'tIcon1Plant2' => 'Automotive Part (Resin Injection & Painting)',
+    'facility' => 'Facility',
+    'tFacility1' => 'An-Nur Mosque, SugityCreatives',
+    'tFacility2' => 'Canteen, SugityCreatives',
+    'tFacility3' => 'Meeting Room, SugityCreatives',
+    'tFacility4' => 'Football Field, SugityCreatives',
+    'tFacility5' => 'SC Mart, SugityCreatives',
+    'tFacility6' => 'Lobby, SugityCreatives',
+    'tFacility7' => 'Education Center, SugityCreatives',
+];

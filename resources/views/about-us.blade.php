@@ -68,19 +68,9 @@
                 <div data-aos="fade-right" data-aos-duration="1300" class="col-md-8 col-lg-6 col-xl-5 px-5 pt-5"
                     style="display: flex; justify-content: center; align-items: center;">
                     <div class="container px-5" style="height: 100%;">
-                        <h1 class="mt-0 about-us-text">About Us</h1>
+                        <h1 class="mt-0 about-us-text">{{ __('about-us.aboutUs') }}</h1>
                         <p style="line-height: 25px;">
-                            Sugity Creatives is a leading manufacturer of automotive components. With a legacy
-                            steeped in automotive excellence, our three-pillar business model encompasses Vehicle
-                            Conversion, Part, and Mold Business.
-
-                            As a distinguished subsidiary of TOYOTA AUTO BODY JAPAN, renowned for crafting iconic
-                            vehicles, our commitment to innovation is woven into the fabric of our heritage.
-                            Driven by a profound mission, we meticulously craft product that not only meet but
-                            exceed customer expectations.
-
-                            Join us on a journey where precision meets passion, shaping the future of automotive
-                            creativity with integrity and innovation.
+                            {{ __('about-us.aboutUsDesc') }}
                         </p>
                     </div>
                 </div>
@@ -89,19 +79,9 @@
 
         <div data-scroll class="d-block d-lg-none bg-white">
             <div data-aos="fade-right" data-aos-duration="1300" class="container px-4" style="height: 100%;">
-                <h1 class="mt-0 mb-3" style="font-size: 35px;">About Us</h1>
+                <h1 class="mt-0 mb-3" style="font-size: 35px;">{{ __('about-us.aboutUs') }}</h1>
                 <p style="line-height: 23px;">
-                    Sugity Creatives is a leading manufacturer of automotive components. With a legacy
-                    steeped in automotive excellence, our three-pillar business model encompasses Vehicle
-                    Conversion, Part, and Mold Business.
-
-                    As a distinguished subsidiary of TOYOTA AUTO BODY JAPAN, renowned for crafting iconic
-                    vehicles, our commitment to innovation is woven into the fabric of our heritage.
-                    Driven by a profound mission, we meticulously craft product that not only meet but
-                    exceed customer expectations.
-
-                    Join us on a journey where precision meets passion, shaping the future of automotive
-                    creativity with integrity and innovation.
+                    {{ __('about-us.aboutUsDesc') }}
                 </p>
             </div>
             <div class="img-bg-about-us"
@@ -113,7 +93,7 @@
         <div class="container mb-5 pb-5 mt-5"
             style="z-index: 10; border-radius: 10px; background: #FFF; box-shadow: 0px 5px 30px 0px rgba(23, 155, 52, 0.15); width: 100%;">
             <div data-aos="fade-in" data-aos-duration="1000" class="pt-md-4 pt-3 ps-4">
-                <h1 class="shareholders-title-text">Shareholders</h1>
+                <h1 class="shareholders-title-text">{{ __('about-us.shareholders') }}</h1>
             </div>
             <div class="row px-3">
                 <div data-aos="fade-in" data-aos-duration="1000" class="col-12 col-md-4">

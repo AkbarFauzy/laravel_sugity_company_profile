@@ -36,17 +36,17 @@
 		============================================= -->
 		<section id="content" class="style-bg-dot mb-5 pb-5">
 			<div class="container clearfix">
-				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">Vehicle Conversion</h1>
+				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">{{ __('product-vehicle.title') }}</h1>
 			</div>
 			<div class="container mb-5 pb-5">
 				<div class="tabs tabs-bb clearfix tab-vehicle-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
 						<!-- <li><a href="#tabs-all" class="text-size-sm">All</a></li> -->
-						<li><a href="#tabs-public-transport" class="text-size-sm">Public Transport</a></li>
-						<li><a href="#tabs-healthcare" class="text-size-sm">Healthcare Vehicle</a></li>
-						<li><a href="#tabs-export" class="text-size-sm">Export Vehicle</a></li>
-						<li><a href="#tabs-other" class="text-size-sm">Other</a></li>
+						<li><a href="#tabs-public-transport" class="text-size-sm">{{ __('product-vehicle.tab1') }}</a></li>
+						<li><a href="#tabs-healthcare" class="text-size-sm">{{ __('product-vehicle.tab2') }}</a></li>
+						<li><a href="#tabs-export" class="text-size-sm">{{ __('product-vehicle.tab3') }}</a></li>
+						<li><a href="#tabs-other" class="text-size-sm">{{ __('product-vehicle.tab4') }}</a></li>
 					</ul>
 	
 					<div class="tab-container">
@@ -67,7 +67,7 @@
 													<a style="color: black" class="text-left" href="#" 
 													data-bs-toggle="modal" 
 													data-bs-id="{{$vehicle->id}}"
-													data-bs-target="#modalVehicle">Explore More <i class="fa-solid fa-chevron-right"></i>></a>
+													data-bs-target="#modalVehicle">{{ __('product-vehicle.exploreMore') }} <i class="fa-solid fa-chevron-right"></i>></a>
 													@endif
 											</div>
 										</div>
@@ -90,7 +90,7 @@
 													<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 													<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
-														<span>Explore More</span>
+														<span>{{ __('product-vehicle.exploreMore') }}</span>
 														<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 													</a>
 													@endif
@@ -115,7 +115,7 @@
 												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
-													<span>Explore More</span>
+													<span>{{ __('product-vehicle.exploreMore') }}</span>
 													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 												</a>
 												@endif
@@ -141,7 +141,7 @@
 												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
-													<span>Explore More</span>
+													<span>{{ __('product-vehicle.exploreMore') }}</span>
 													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 												</a>
 												@endif
@@ -166,7 +166,7 @@
 												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
-													<span>Explore More</span>
+													<span>{{ __('product-vehicle.exploreMore') }}</span>
 													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 												</a>
 												@endif

@@ -50,13 +50,13 @@
 		============================================= -->
 		<section id="content" class="style-bg-dot mb-5 pb-5">
 			<div class="container clearfix">
-				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">Mold Business</h1>
+				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">{{ __('product-mold.title') }}</h1>
 			</div>
 			<div class="container mb-5 pb-5">
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
 
 					<ul class="tab-nav clearfix mb-4" style="justify-content: center;">
-						<li><a href="#tabs-all" class="text-size-sm">All</a></li>
+						<li><a href="#tabs-all" class="text-size-sm">{{ __('product-mold.tab1') }}</a></li>
 					</ul>
 
 					<div class="tab-container">

@@ -51,15 +51,15 @@
 		============================================= -->
 		<section id="content" class="style-bg-dot mb-5 pb-5">
 			<div class="container clearfix">
-				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">Part Business</h1>
+				<h1 class="fs-1 pt-3 pt-md-5 mb-1 mb-md-5 text-center">{{ __('product-part.title') }}</h1>
 			</div>
 			<div class="container mb-5 pb-5">
 				<div class="tabs tabs-bb clearfix tab-part-business" id="tab-9" style="z-index: 10;">
 	
 					<ul class="tab-nav clearfix mb-4 tab-nav-justify">
 						{{-- <li><a href="#tabs-all" class="text-size-sm">All</a></li> --}}
-						<li><a href="#tabs-interior" class="text-size-sm">Interior</a></li>
-						<li><a href="#tabs-exterior" class="text-size-sm">Exterior</a></li>
+						<li><a href="#tabs-interior" class="text-size-sm">{{ __('product-part.tab1') }}</a></li>
+						<li><a href="#tabs-exterior" class="text-size-sm">{{ __('product-part.tab2') }}</a></li>
 					</ul>
 	
 					<div class="tab-container">
@@ -103,7 +103,7 @@
 												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$interior->name}}</span>
 												@if(!empty($interior->left_content) || !empty($interior->right_content) || !empty($interior->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$interior->id}}" data-bs-target="#modalVehicle">
-													<span>Explore More</span>
+													<span>{{ __('product-part.exploreMore') }}</span>
 													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 												</a>
 												@endif
@@ -127,7 +127,7 @@
 												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$exterior->name}}</span>
 												@if(!empty($exterior->left_content) || !empty($exterior->right_content) || !empty($exterior->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$exterior->id}}" data-bs-target="#modalVehicle">
-													<span>Explore More</span>
+													<span>{{ __('product-part.exploreMore') }}</span>
 													<i class="icon-chevron-right" style="vertical-align: -2px; margin-left: 5px;"></i>
 												</a>
 												@endif
