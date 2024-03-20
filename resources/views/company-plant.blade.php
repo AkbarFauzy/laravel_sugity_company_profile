@@ -136,60 +136,60 @@
 								<div class="style-carousel-facility">
 									<div class="style-item">
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/1 An-Nur Mosque.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/1 An-Nur Mosque.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/2 Canteen.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/2 Canteen.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/4 Meeting Room.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/4 Meeting Room.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/5 Football Field.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/5 Football Field.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/6 SC Mart.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/6 SC Mart.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/8 Lobby.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/8 Lobby.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/9 Education Center.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/9 Education Center.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<!-- Duplicate -->
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/1 An-Nur Mosque.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/1 An-Nur Mosque.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/2 Canteen.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/2 Canteen.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/4 Meeting Room.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/4 Meeting Room.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/5 Football Field.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/5 Football Field.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/6 SC Mart.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/6 SC Mart.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/8 Lobby.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/8 Lobby.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 										<div class="style-carousel-item">
-											<img src="{{asset('images/company-plant/9 Education Center.jpg')}}" alt="">
+											<img src="{{asset('images/company-plant/9 Education Center.png')}}" alt="">
 											<div class="style-carousel-overlay"></div>
 										</div>
 									</div>
