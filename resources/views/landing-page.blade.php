@@ -197,9 +197,11 @@
 				<div class="row me-0 ps-lg-5 h-bg-our-services">
 					<div class="col-md-6 my-4 px-5 d-flex justify-content-center align-items-center">
 						<div>
-							<h1 class="style-title my-5 title-services">{{$service->name}}</h1>
+							{{-- <h1 class="style-title my-5 title-services">{{$service->name}}</h1> --}}
+							<h1 class="style-title my-5 title-services">{{ request()->segment(1) == 'en' ? $service->name : $service->name_ind }}</h1>
 							<p class="style-description mb-5 desc-services">
-								{{$service->description}}
+								{{-- {{$service->description}} --}}
+								{{ request()->segment(1) == 'en' ? $service->description : $service->description_ind }}
 							</p>
 							
 						    @if($service->name === "Vehicle Business")	

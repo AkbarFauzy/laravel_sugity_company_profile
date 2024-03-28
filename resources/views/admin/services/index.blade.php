@@ -57,7 +57,9 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
+            { data: 'name_ind', name: 'name_ind' },
             { data: 'description', name: 'description' },
+            { data: 'description_ind', name: 'description_ind' },
             { data: 'Img', name:'Img'},
             {
                 data: 'action',

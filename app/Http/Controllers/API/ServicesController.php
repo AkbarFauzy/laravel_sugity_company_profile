@@ -36,6 +36,7 @@ class ServicesController extends Controller
         try{
             $req->validate([
                 'name' => 'required',
+                'name_ind' => 'required',
                 'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             if ($image = $req->file('img')) {
@@ -47,7 +48,9 @@ class ServicesController extends Controller
             DB::beginTransaction();
             $services = Services::create([
                 'name' => $req->input('name'),
+                'name_ind' => $req->input('name_ind'),
                 'description' => $req->input('description'),
+                'description_ind' => $req->input('description_ind'),
                 'img' => $img,
             ]);
             DB::commit();
@@ -63,6 +66,7 @@ class ServicesController extends Controller
         try{
             $req->validate([
                 'name' => 'required',
+                'name_ind' => 'required',
                 'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -87,7 +91,9 @@ class ServicesController extends Controller
 
             $services->update([
                 'name' => $req->input('name'),
+                'name_ind' => $req->input('name_ind'),
                 'description' => $req->input('description'),
+                'description_ind' => $req->input('description_ind'),
             ]);
             DB::commit();
         }

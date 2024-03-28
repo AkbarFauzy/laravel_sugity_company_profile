@@ -137,7 +137,7 @@
                                 </button>
                             </div>
                             <div>
-                                <h4 class="style-text-business-title mt-5 mb-3">{{ __('company-business.content2Text') }}</h4>
+                                <h4 class="style-text-business-title mt-5 mb-3">{{ __('company-business.content2') }}</h4>
                                 <p class="style-text-business-description">{{ __('company-business.content2Text') }}</p>
                             </div>
                         </div>
