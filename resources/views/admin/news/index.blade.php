@@ -29,6 +29,7 @@
               <tr>
                   <th>ID</th>
                   <th>Headline</th>
+                  <th>Headline (Bahasa Indonesia)</th>
                   <th>Thumbnail</th>
                   <th>Published</th>
                   {{-- <th>Description</th> --}}
@@ -68,6 +69,7 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'headline', name: 'headline' },
+            { data: 'headline_ind', name: 'headline_ind' },
             { data: 'headline_img', name: 'headline_img' },
             { data: 'isPublish', name: 'isPublish'},
             // { data: 'description', name: 'description', width:'50%' },

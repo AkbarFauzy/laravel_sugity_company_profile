@@ -244,15 +244,15 @@
 						@endif
 		
 							<div class="style-content-text ms-5 mb-4">
-								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
+								<h3 class="style-title m-0">{{ request()->segment(1) == 'en' ? $news[0]->headline : $news[0]->headline_ind }}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
 							</div>
 							<div
 								class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
-								<h3 class="style-title m-0">{{$news[0]->headline}}</h3>
+								<h3 class="style-title m-0">{{ request()->segment(1) == 'en' ? $news[0]->headline : $news[0]->headline_ind }}</h3>
 								<p class="style-date m-0">{{ date('F j, Y', strtotime($news[0]->created_at))}}</h3>
 								<div class="style-description mt-2 mb-3" style="color:white">
-									{!! str_replace('<p>', '', \Illuminate\Support\Str::limit($news[0]->content, 250)) !!}
+									{!! str_replace('<p>', '', \Illuminate\Support\Str::limit(request()->segment(1) == 'en' ? $news[0]->content : $news[0]->content_ind, 250)) !!}
 								</div>
 
 								{{-- @if($news[0]->type === "news")
@@ -276,15 +276,15 @@
 								<div class="style-content mt-3 style-content-2 d-flex justify-content-start align-items-end"
 									style="background-image: url('{{ asset('images/news/'.$item->headline_img) }}');">
 									<div class="style-content-text ms-5 mb-4">
-										<h3 class="style-title m-0">{{$item->headline}}</h3>
+										<h3 class="style-title m-0">{{ request()->segment(1) == 'en' ? $item->headline : $item->headline_ind }}</h3>
 										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
 									</div>
 									<div
 										class="style-content-animation d-flex flex-column justify-content-center align-items-start p-5 mb-4">
-										<h3 class="style-title m-0">{{$item->headline}}</h3>
+										<h3 class="style-title m-0">{{ request()->segment(1) == 'en' ? $item->headline : $item->headline_ind }}</h3>
 										<p class="style-date m-0">{{ date('F j, Y', strtotime($item->created_at))}}</h3>
 										<div class="style-description mt-2 mb-3" style="color:white">
-											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit($item->content, 100)) !!}
+											{!!   str_replace('<p>', '', \Illuminate\Support\Str::limit(request()->segment(1) == 'en' ? $item->content : $item->content_ind, 100)) !!}
 										</div>
 										{{-- <a href="{{url('detail-news', $item->id)}}">
 											<button class="btn style-btn">{{ __('landing-page.readMore') }} -></button>
@@ -305,7 +305,7 @@
 							<div class="col-md-6 img-small-news" style="background-image: url('{{ asset('images/news/'.$item->headline_img)}}');">
 							</div>
 							<div class="col-md-6 d-flex flex-column justify-content-center">
-								<div class="title-small-news pb-2">{{$item->headline}}</div>
+								<div class="title-small-news pb-2">{{ request()->segment(1) == 'en' ? $item->headline : $item->headline_ind }}</div>
 								<div class="date-small-news pb-3">{{ date('F j, Y', strtotime($item->created_at))}}</div>
 								{{-- <a href="{{url('detail-news', $item->id)}}">
 									<div class="readmore-small-news">{{ __('landing-page.readMore') }} -></div>
