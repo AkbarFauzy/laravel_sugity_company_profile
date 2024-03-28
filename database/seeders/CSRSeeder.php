@@ -5,10 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\News;
+use App\Models\CSR;
 
-
-class NewsSeeder extends Seeder
+class CSRSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +15,11 @@ class NewsSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('news')->truncate();
-        // DB::table('news_content_gallery')->truncate();
+        DB::table('csr')->truncate();
+        // DB::table('csr_content_gallery')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        News::create([
+        CSR::create([
             'headline' => 'Early Childhood Literacy Space',
             'headline_ind' => 'Ruang Literasi Anak Usia Dini',
             'headline_img' => 'small-card-7.jpg',
@@ -31,7 +30,7 @@ class NewsSeeder extends Seeder
         ]);
 
 
-        News::create([
+        CSR::create([
             'headline' => 'Aid Shipment for Cianjur Earthquake Victims',
             'headline_ind' => 'Pengiriman Bantuan untuk Korban Gempa Cianjur',
             'headline_img' => 'small_card_6_1704631502.jpg',
@@ -41,7 +40,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2021-12-31 02:47:40',
         ]);
         
-        News::create([
+        CSR::create([
             'headline' => 'Donation for Cianjur Earthquake Victims',
             'headline_ind' => 'Donasi untuk Korban Gempa Bumi Cianjur',
             'headline_img' => 'small-card-5_1704419736.jpg',
@@ -51,7 +50,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2021-12-31 02:47:41',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Pemda Bekasi and Sugity Creatives Tree Planting Event',
             'headline_ind' => 'Pemda Bekasi dan Sugity Mengadakan Acara Penanaman Pohon',
             'headline_img' => 'small_card_4_1704631412.png',
@@ -61,7 +60,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2021-12-31 02:47:39',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Sugity Creative CSR in Muara Gembong',
             'headline_ind' => 'CSR Sugity Creative di Muara Gembong',
             'headline_img' => 'SugityCreativeCSRinMuaraGembong.png',
@@ -71,7 +70,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2021-12-31 02:47:40',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Muara Gembong Mangrove Forest',
             'headline_ind' => 'Hutan Mangrove Muara Gembong',
             'headline_img' => 'MuaraGembongMangroveForest.png',
@@ -81,7 +80,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2022-12-17 02:47:41',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Ehon Literacy Space',
             'headline_ind' => 'Ruang Literasi Ehon',
             'headline_img' => 'RuangLiterasiEhon.png',
@@ -91,7 +90,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2023-01-21 02:47:39',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Ehon Storytelling Frame',
             'headline_ind' => 'Bingkai Bercerita Ehon',
             'headline_img' => 'BingkaiCeritaStorytellingEhon.png',
@@ -101,7 +100,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2023-01-21 02:47:39',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Handover of Sacrificial Animals to Jamiul Khoir Rawajulang Mosque',
             'headline_ind' => 'Penyerahan Hewan Kurban ke Masjid Jamiul Khoir Rawajulang',
             'headline_img' => 'medium_card_1_1704631568.jpg',
@@ -111,7 +110,7 @@ class NewsSeeder extends Seeder
             'created_at'=>'2023-06-28 02:47:39',
         ]);
 
-        News::create([
+        CSR::create([
             'headline' => 'Planting 45,000 Mangrove Trees in Muara Gembong',
             'headline_ind' => 'Penanaman 45.000 Pohon Mangrove di Muara Gembong',
             'headline_img' => 'mangrove_1_1704700506.jpg',

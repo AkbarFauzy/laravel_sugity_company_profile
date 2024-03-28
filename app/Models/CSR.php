@@ -12,8 +12,10 @@ class CSR extends Model
 
     protected $fillable = [
         'headline',
+        'headline_ind',
         'headline_img',
         'content',
+        'content_ind',
         'isPublish',
         'created_at'
     ];

@@ -30,13 +30,13 @@
                 @method('PUT')
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label for="exampleFormControlInput1" class="form-label">Headline</label>
-                            <input name="headline" 
+                        <label for="exampleFormControlInput1" class="form-label">Headline (Bahasa Indonesia)</label>
+                            <input name="headline_ind" 
                             type="text" 
                             class="form-control" 
                             id="exampleFormControlInput1" 
                             placeholder="Lorem Ipsum"
-                            value="{{$data->headline}}"
+                            value="{{$data->headline_ind}}"
                             >
                         <label for="date" class="col-form-label">Posting Date</label>
                         <div class="input-group date" id="datepicker">
@@ -67,6 +67,19 @@
                         name="content"
                         >
                         {{$data->content}}
+    
+                        </textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Content (Bahasa Indonesia)</label>
+                        <textarea 
+                        class="form-control" 
+                        id="editor" 
+                        rows="3" 
+                        name="content_ind"
+                        >
+                        {{$data->content_ind}}
     
                         </textarea>
                     </div>
