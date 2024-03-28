@@ -8,9 +8,21 @@
     </div>
 
     <div class="form-floating mb-3 col-md-12">
+      <input type="text" class="form-control" name="name_ind" id="name_ind" placeholder="Services Name (bahasa indonesia)" value="{{$data->name_ind ?? ''}}">
+      <label for="floatingInput">Name (bahasa indonesia)</label>
+    </div>
+
+    <div class="form-floating mb-3 col-md-12">
       <div class="input-group">
         <span class="input-group-text">Description</span>
         <textarea rows="10" class="form-control" name="description" id="description">{{$data->description}}</textarea>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3 col-md-12">
+      <div class="input-group">
+        <span class="input-group-text">Description (bahasa indonesia)</span>
+        <textarea rows="10" class="form-control" name="description_ind" id="description_ind">{{$data->description_ind}}</textarea>
       </div>
     </div>
 

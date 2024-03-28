@@ -28,9 +28,10 @@
               <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Name (Bahasa Indonesia)</th>
                   <th>Description</th>
+                  <th>Description (Bahasa Indonesia)</th>
                   <th>Img</th>
-                  {{-- <th>Description</th> --}}
                   <th>Action</th>
               </tr>
           </thead>
@@ -57,7 +58,9 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
+            { data: 'name_ind', name: 'name_ind' },
             { data: 'description', name: 'description' },
+            { data: 'description_ind', name: 'description_ind' },
             { data: 'Img', name:'Img'},
             {
                 data: 'action',
