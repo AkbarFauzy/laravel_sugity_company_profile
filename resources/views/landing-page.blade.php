@@ -40,25 +40,25 @@
 		    	{{-- Desktop --}}
 				<div class="custom-banner mb-5 d-none d-xl-block" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 					<div style="color: rgba(255, 255, 255, 0.95)">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
             	{{-- Mobile --}}
 				<div class="custom-banner d-block d-sm-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 					<div style="color: rgba(255, 255, 255, 0.95)">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				{{-- Tablet M --}}
 				<div class="custom-banner d-md-block d-lg-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 					<div style="color: rgba(255, 255, 255, 0.95)">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				{{-- Tablet L --}}
 				<div class="custom-banner d-lg-block d-xl-none" style="{!! \App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
 					<div style="color: rgba(255, 255, 255, 0.95)">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				<div class="style-banner-image style-banner-landing" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
