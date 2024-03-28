@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('sliders', function (Blueprint $table) {
-            $table->text('tagline');
+            $table->text('tagline')->change();
             $table->text('tagline_ind');
         });
     }
@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('sliders', function (Blueprint $table) {
-            $table->dropColumn('tagline');
+            $table->string('tagline')->change();
         });
     }
 };
