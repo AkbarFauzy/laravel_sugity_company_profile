@@ -30,6 +30,7 @@
                   <th>ID</th>
                   <th>Image</th>
                   <th>Tagline</th>
+                  <th>Tagline (Bahasa Indonesia)</th>
                   <th>Page</th>
                   {{-- <th>Description</th> --}}
                   <th>Action</th>
@@ -67,6 +68,7 @@ $(function() {
             { data: 'id', name: 'id' },
             { data: 'Img', name: 'Img'},
             { data: 'tagline', name: 'tagline' },
+            { data: 'tagline_ind', name: 'tagline_ind' },
             { data: 'page', name: 'page' },
             // { data: 'description', name: 'description', width:'50%' },
             {
