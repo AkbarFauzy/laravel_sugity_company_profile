@@ -28,9 +28,10 @@
               <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Name (Bahasa Indonesia)</th>
                   <th>Description</th>
+                  <th>Description (Bahasa Indonesia)</th>
                   <th>Img</th>
-                  {{-- <th>Description</th> --}}
                   <th>Action</th>
               </tr>
           </thead>
