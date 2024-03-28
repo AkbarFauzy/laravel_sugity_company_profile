@@ -26,9 +26,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Tagline</label>
-                            <textarea class="form-control" id="editor" rows="3" name="tagline">
-                                {{$data->tagline}}
+                            <label for="exampleFormControlTextarea1" class="form-label">Tagline (Bahasa Indonesia)</label>
+                            <textarea class="form-control" id="editor" rows="3" name="tagline_ind">
+                                {{$data->tagline_ind}}
                             </textarea>
                         </div>
                     </div>

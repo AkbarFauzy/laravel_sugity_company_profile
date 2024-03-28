@@ -32,6 +32,12 @@
                             <textarea class="form-control" id="editor" rows="3" name="tagline">
                             </textarea>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Tagline (Bahasa Indonesia)</label>
+                            <textarea class="form-control" id="editor" rows="3" name="tagline_ind">
+                            </textarea>
+                        </div>
                     </div>
 
                     <div class="col-md-6">

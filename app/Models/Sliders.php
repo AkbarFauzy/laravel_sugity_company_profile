@@ -13,6 +13,7 @@ class Sliders extends Model
     protected $fillable = [
         'page',
         'tagline',
+        'tagline_ind',
         'img',
         'page',
         'position',
