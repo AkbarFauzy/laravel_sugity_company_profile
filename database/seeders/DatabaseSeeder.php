@@ -13,11 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Event::factory(10)->create();
-        \App\Models\CSR::factory(10)->create();
-
+        // \App\Models\Event::factory(10)->create();
+        // \App\Models\CSR::factory(10)->create();
         // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -26,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             BODSeeder::class,
+            CSRSeeder::class,
             NewsSeeder::class,
             HistorySeeder::class,
             ProductsSeed::class,

@@ -104,7 +104,8 @@
 										width="280" alt="">
 									</div>
 									{{-- <h3 class="mb-2 mt-3 director-title">{{strtoupper($president_directors->data[0]->position)}}</h3> --}}
-									<h3 class="mb-2 mt-3 director-title">{{$president_directors->data[0]->position}}</h3>
+									{{-- <h3 class="mb-2 mt-3 director-title">{{$president_directors->data[0]->position}}</h3> --}}
+									<h3 class="mb-2 mt-3 director-title">{{request()->segment(1) == 'en' ? $president_directors->data[0]->position : 'Direktur Utama'}}</h3>
 									<u><h3 class="mb-2 director-name">{{strtoupper($president_directors->data[0]->name)}}</h3></u>
 									{{-- <h4 class="director-corp mb-2">{{strtoupper($president_directors->data[0]->affiliation)}}</h4> --}}
 									<img class="mb-5" src="{{asset('images/board-of-director/jpn-flag.png')}}" width="50" alt="" style="box-shadow: 0px 1px 5px #d9d9d9;">
@@ -118,7 +119,8 @@
 										width="280" alt="">
 									</div>
 									{{-- <h3 class="mb-2 mt-3 director-title">{{strtoupper($vice_president->data[0]->position)}}</h3> --}}
-									<h3 class="mb-2 mt-3 director-title">{{$vice_president->data[0]->position}}</h3>
+									{{-- <h3 class="mb-2 mt-3 director-title">{{$vice_president->data[0]->position}}</h3> --}}
+									<h3 class="mb-2 mt-3 director-title">{{request()->segment(1) == 'en' ? $vice_president->data[0]->position : 'Wakil Presiden Eksekutif'}}</h3>
 									<u><h3 class="director-name mb-2">{{strtoupper($vice_president->data[0]->name)}}</h3></u>
 									<img class="mb-5" src="{{asset('images/board-of-director/ina-flag.png')}}" width="50" alt="" style="box-shadow: 0px 1px 5px #d9d9d9;">
 								</div>
@@ -134,7 +136,13 @@
 										width="300" alt="">
 									</div>
 									{{-- <h3 class="mb-2 mt-3 director-title">{{strtoupper($director->position)}}</h3> --}}
-									<h3 class="mb-2 mt-3 director-title">{{$director->position}}</h3>
+									<h3 class="mb-2 mt-3 director-title">
+										@if($director->position == 'Director')
+											{{ request()->segment(1) == 'en' ? $director->position : 'Direktur' }}
+										@else
+											{{ request()->segment(1) == 'en' ? $director->position : 'Komisaris' }}
+										@endif
+									</h3>
 									<u><h3 class="mb-2 director-name">{{strtoupper($director->name)}}</h3></u>
 									{{-- <h4 class="director-corp">{{strtoupper($director->affiliation)}}</h4> --}}
 									@if($loop->index === 1)

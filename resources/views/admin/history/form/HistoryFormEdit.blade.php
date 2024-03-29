@@ -7,6 +7,11 @@
     </div>
 
     <div class="form-floating mb-3 col-md-12">
+      <input type="text" class="form-control" name="title_ind" id="title_ind" placeholder="Title (Bahasa Indonesia)" value="{{$data->title_ind ?? ''}}">
+      <label for="floatingInput">Title (Bahasa Indonesia)</label>
+    </div>
+
+    <div class="form-floating mb-3 col-md-12">
         <input type="number" class="form-control" name="year" id="year" placeholder="Year" value="{{$data->year ?? ''}}">
         <label for="floatingInput">Year</label>
       </div>  
