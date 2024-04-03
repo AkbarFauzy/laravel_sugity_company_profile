@@ -51,6 +51,11 @@
                                     <input name="name" type="text" class="form-control" id="name" placeholder="Lorem Ipsum">
                                 </div>
 
+                                <div class="mb-3">
+                                    <label  for="name">Name (Bahasa Indonesia)</label>
+                                    <input name="name_ind" type="text" class="form-control" id="name_ind" placeholder="Lorem Ipsum">
+                                </div>
+
                                 <label>Category</label>
                                 <select name="category" id="category" class="form-control">
                                 <option value="Public Transport">Public Transport</option>
@@ -76,14 +81,25 @@
                         </div>
                         <div class="mb-3">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Left Content</label>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Left Content</label>
                                     <textarea class="form-control" id="left-editor" rows="3" name="left_content">
                                     </textarea>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Right Content</label>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Right Content</label>
                                     <textarea class="form-control" id="right-editor" rows="3" name="right_content">
+                                    </textarea>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label">Left Content (Bahasa Indonesia)</label>
+                                    <textarea class="form-control" id="left-editor-ind" rows="3" name="left_content_ind">
+                                    </textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Right Content (Bahasa Indonesia)</label>
+                                    <textarea class="form-control" id="right-editor-ind" rows="3" name="right_content_ind">
                                     </textarea>
                                 </div>
                              </div>
@@ -151,6 +167,30 @@
 
     ClassicEditor
             .create( document.querySelector( '#right-editor' ),
+            {
+
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            });
+
+    ClassicEditor
+            .create( document.querySelector( '#left-editor-ind' ),
+            {
+
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            });
+    
+    ClassicEditor
+            .create( document.querySelector( '#right-editor-ind' ),
             {
 
             })

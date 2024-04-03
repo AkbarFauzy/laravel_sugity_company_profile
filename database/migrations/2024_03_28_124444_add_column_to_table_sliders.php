@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('sliders', function (Blueprint $table) {
             $table->text('tagline')->change();
-            $table->text('tagline_ind');
+            $table->text('tagline_ind')->after('tagline');
         });
     }
 

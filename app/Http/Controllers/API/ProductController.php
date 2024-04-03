@@ -193,9 +193,12 @@ class ProductController extends Controller
 
             $product = Product::create([
                 'name' => $req->input('name'),
+                'name_ind' => $req->input('name_ind'),
                 'category' => $req->input('category'),
                 'left_content' => $valueLeftContentForInteriorAndExterionPart != "" ? $valueLeftContentForInteriorAndExterionPart : $req->input('left_content'),
+                'left_content_ind' => $valueLeftContentForInteriorAndExterionPart != "" ? $valueLeftContentForInteriorAndExterionPart : $req->input('left_content_ind'),
                 'right_content' => $req->input('right_content'),
+                'right_content_ind' => $req->input('right_content_ind'),
                 'img' => $fileName ?? ""
             ]);
 
@@ -405,7 +408,7 @@ class ProductController extends Controller
                 }
 
                 if(file_exists($tempExtractPath)){
-                    rmdir($tempExtractPath);
+                    rmdir($tempExtractPath);    
                 }
 
             }else{
@@ -416,9 +419,12 @@ class ProductController extends Controller
 
             $product->update([
                 'name' => $req->input('name'),
+                'name_ind' => $req->input('name_ind'),
                 'category' => $req->input('category'),
                 'left_content' => $valueLeftContentForInteriorAndExterionPart != "" ? $valueLeftContentForInteriorAndExterionPart : $req->input('left_content'),
-                'right_content' => $req->input('right_content')
+                'left_content_ind' => $valueLeftContentForInteriorAndExterionPart != "" ? $valueLeftContentForInteriorAndExterionPart : $req->input('left_content_ind'),
+                'right_content' => $req->input('right_content'),
+                'right_content_ind' => $req->input('right_content_ind'),
             ]);
 
             DB::commit();

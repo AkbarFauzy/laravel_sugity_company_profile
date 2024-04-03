@@ -28,6 +28,7 @@
               <tr>
                   <th>ID</th>
                   <th>Title</th>
+                  <th>Title (Bahasa Indonesia)</th>
                   <th>Year</th>
                   <th>Img</th>
                   {{-- <th>Description</th> --}}
@@ -58,6 +59,7 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'title', name: 'title' },
+            { data: 'title_ind', name: 'title_ind' },
             { data: 'year', name: 'year' },
             { data: 'Img', name:'Img'},
             {
