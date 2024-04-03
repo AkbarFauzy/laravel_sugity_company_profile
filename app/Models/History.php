@@ -13,6 +13,7 @@ class History extends Model
 
     protected $fillable = [
         'title',
+        'title_ind',
         'year',
         'img',
     ];

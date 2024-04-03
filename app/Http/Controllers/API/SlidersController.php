@@ -58,6 +58,7 @@ class SlidersController extends Controller
             DB::beginTransaction();
             $slider = Sliders::create([
                 'tagline' => $req->input('tagline'),
+                'tagline_ind' => $req->input('tagline_ind'),
                 'img' => $fileName,
                 'page' => $req->input('page'),
                 'position' => $req->input('position'),
@@ -102,6 +103,7 @@ class SlidersController extends Controller
 
             $slider->update([
                 'tagline' => $req->input('tagline'),
+                'tagline_ind' => $req->input('tagline_ind'),
                 'page' => $req->input('page'),
                 'position' => $req->input('position'),
                 'x_offset' => $req->input('x_offset'),

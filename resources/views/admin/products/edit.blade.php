@@ -60,6 +60,17 @@
                             </div>
 
                             <div class="mb-3">
+                                <label  for="name">Name (Bahasa Indonesia)</label>
+                                <input name="name_ind"
+                                type="text"
+                                class="form-control"
+                                id="name_ind"
+                                placeholder="Lorem Ipsum"
+                                value="{{$data->name_ind}}"
+                                >
+                            </div>
+
+                            <div class="mb-3">
                                 <label>Category</label>
                                 <select name="category" id="category" class="form-control">
                                 <option value="Public Transport" {{$data->category === "Public Transport" ? 'selected' : ''}} >Public Transport</option>
@@ -85,15 +96,28 @@
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="exampleFormControlTextarea1" class="form-label">Left Content</label>
+                                <label class="form-label">Left Content</label>
                                 <textarea class="form-control" id="left-editor" rows="3" name="left_content">
                                     {{$data->left_content}}
                                 </textarea>
                             </div>
                             <div class="col-md-6">
-                                <label for="exampleFormControlTextarea1" class="form-label">Right Content</label>
+                                <label class="form-label">Right Content</label>
                                 <textarea class="form-control" id="right-editor" rows="3" name="right_content">
                                     {{$data->right_content}}
+                                </textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Left Content (Bahasa Indonesia)</label>
+                                <textarea class="form-control" id="left-editor-ind" rows="3" name="left_content_ind">
+                                    {{$data->left_content_ind}}
+                                </textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Right Content (Bahasa Indonesia)</label>
+                                <textarea class="form-control" id="right-editor-ind" rows="3" name="right_content_ind">
+                                    {{$data->right_content_ind}}
                                 </textarea>
                             </div>
                         </div>
@@ -186,6 +210,34 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     ClassicEditor
             .create( document.querySelector( '#right-editor' ),
+            {
+                ckfinder:{
+                    uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
+                }
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            });
+    
+    ClassicEditor
+            .create( document.querySelector( '#left-editor-ind' ),
+            {
+                ckfinder:{
+                    uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",
+                }
+            })
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            });
+
+    ClassicEditor
+            .create( document.querySelector( '#right-editor-ind' ),
             {
                 ckfinder:{
                     uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",

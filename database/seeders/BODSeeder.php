@@ -30,9 +30,9 @@ class BODSeeder extends Seeder
         ]);
 
         BOD::create([
-            'name' => 'Djoko Santoso',
+            'name' => 'Maya Maharini',
             'position' => 'Director',
-            'img' => 'DjokoSantoso-Director.png'
+            'img' => 'MayaMaharini-Director.png'
         ]);
 
         BOD::create([
@@ -49,9 +49,11 @@ class BODSeeder extends Seeder
         ]);
 
         BOD::create([
-            'name' => 'Maya Maharini',
+            'name' => 'Mohammad Yusuf',
             'position' => 'Director',
-            'img' => 'MayaMaharini-Director.png'
+            'img' => 'sc_dir_m_yusufjpg_1_1704877164.png'
         ]);
+
+
     }
 }

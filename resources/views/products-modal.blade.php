@@ -2,7 +2,7 @@
     <button type="button" class="style-btn-close" data-bs-dismiss="modal" aria-label="Close"><i
             class="bi bi-x"></i></button>
 </div>
-<h2 class="modal-title pt-2 pb-2 text-center color-black" id="modalVehicleLabel">{{$products->data->name}}
+<h2 class="modal-title pt-2 pb-2 text-center color-black" id="modalVehicleLabel">{{request()->segment(1) == 'en' ? $products->data->name : $products->data->name_ind}}
 </h2>
 
 <div class="d-flex justify-content-center">
@@ -182,7 +182,7 @@
     </div>
 @else
     @if(!empty($products->data->left_content) || (!empty($products->data->right_content)))
-    <h2 class="modal-title pt-5 text-center color-black">{{$products->data->name}}</h2>
+    <h2 class="modal-title pt-5 text-center color-black">{{request()->segment(1) == 'en' ? $products->data->name : $products->data->name_ind}}</h2>
     <div class="container pt-3 pb-5" align="center">
         <div class="row justify-content-between px-3 px-xl-5" align="left">
             <div class="col-lg-6 col-xl-6">
@@ -192,7 +192,7 @@
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif
-                    {!!$products->data->left_content!!}
+                    {!!request()->segment(1) == 'en' ? $products->data->left_content : $products->data->left_content_ind!!}
 
                     {{-- <ul class="style-list-content">
                         <li>Ergonomic Dashboard</li>
@@ -210,7 +210,7 @@
                     <div class="style-divider-content"></div>
                     <div class="style-list-content">
                 @endif
-                    {!!$products->data->right_content!!}
+                    {!!request()->segment(1) == 'en' ? $products->data->right_content : $products->data->right_content_ind!!}
                     {{-- <div class="col-md-6">
                         <ul class="style-list-content">
                             <li>Power Slide Door</li>

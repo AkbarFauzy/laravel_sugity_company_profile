@@ -12,9 +12,12 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'name_ind',
         'category',
         'left_content',
+        'left_content_ind',
         'right_content',
+        'right_content_ind',
         'img',
     ];
 

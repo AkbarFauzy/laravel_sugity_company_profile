@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('img');
             $table->string('tagline')->default('');
             $table->string('page')->default('');
-            $table->float('height')->default(0);
-            $table->float('width')->default(0);
+            $table->string('position')->default('');
+            $table->float('x_offset')->default(0);
+            $table->float('y_offset')->default(0);
             $table->timestamps();
         });
     }
