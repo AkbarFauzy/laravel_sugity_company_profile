@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->text('name_ind')->after('name');
-            $table->text('left_content_ind')->after('left_content');
-            $table->text('right_content_ind')->after('right_content');
+            $table->text('left_content_ind')->after('left_content')->nullable();
+            $table->text('right_content_ind')->after('right_content')->nullable();
         }); 
     }
 

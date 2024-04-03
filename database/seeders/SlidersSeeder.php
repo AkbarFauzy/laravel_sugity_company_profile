@@ -27,8 +27,8 @@ class SlidersSeeder extends Seeder
             'tagline_ind' => '<p><span style="font-size:56px;"><strong>HiAce Wira-Wiri</strong></span><br><span style="font-size:21px;">TOYOTA HiAce Wira-Wiri dikembangkan secara khusus untuk pengangkutan uang tunai, barang berharga, dan penumpang yang&nbsp;</span><br><span style="font-size:21px;">aman dan efisien, dengan mengutamakan perpaduan antara keamanan dan efektivitas operasional.&nbsp;</span></p>',
             'page' => 'Home',
             'position' => 'Bottom Left',
-            'x_offset' => null,
-            'y_offset' => null
+            'x_offset' => 0,
+            'y_offset' => 0
         ]);
 
         Sliders::create([
@@ -37,8 +37,8 @@ class SlidersSeeder extends Seeder
             'tagline_ind' => '<p><span style="font-size:56px;"><strong>Instrument Panel</strong></span></p><p><span style="font-size:21px;">Sub-perakitan panel instrumen: komponen penting yang mengatur data dan kontrol kendaraan yang penting,&nbsp;</span><br><span style="font-size:21px;">memastikan fungsionalitas dan kenyamanan yang mulus di ujung jari Anda.</span><br>&nbsp;</p>',
             'page' => 'Home',
             'position' => 'Bottom Left',
-            'x_offset' => null,
-            'y_offset' => null
+            'x_offset' => 0,
+            'y_offset' => 0
         ]);
 
         Sliders::create([
@@ -47,8 +47,8 @@ class SlidersSeeder extends Seeder
             'tagline_ind' => '<p><span style="font-size:56px;"><strong>Perakitan Kendaraan</strong></span></p><p><span style="font-size:21px;">Sugity, yang terkait dengan Toyota Autobody, beralih dari perakitan ke konversi kendaraan yang inovatif sejak tahun 2017,</span><br><span style="font-size:21px;">dengan memprioritaskan kualitas, keamanan, dan daya tahan.&nbsp;</span></p>',
             'page' => 'Home',
             'position' => 'Top Right',
-            'x_offset' => null,
-            'y_offset' => null
+            'x_offset' => 0,
+            'y_offset' => 0
         ]);
 
         // Sliders::create([
@@ -62,7 +62,7 @@ class SlidersSeeder extends Seeder
             'page' => 'Vehicle Business',
             'position' => 'Bottom Left',
             'x_offset' => -4,
-            'y_offset' => null
+            'y_offset' => 0
         ]);
 
         Sliders::create([
@@ -72,7 +72,7 @@ class SlidersSeeder extends Seeder
             'page' => 'Part Business',
             'position' => 'Middle Left',
             'x_offset' => -4,
-            'y_offset' => null
+            'y_offset' => 0
         ]);
 
         Sliders::create([
@@ -82,7 +82,7 @@ class SlidersSeeder extends Seeder
             'page' => 'Mold Business',
             'position' => 'Bottom Right',
             'x_offset' => -4,
-            'y_offset' => null
+            'y_offset' => 0
         ]);
     }
 }

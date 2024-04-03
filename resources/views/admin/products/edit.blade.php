@@ -237,7 +237,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             });
 
     ClassicEditor
-            .create( document.querySelector( '#right-editorind' ),
+            .create( document.querySelector( '#right-editor-ind' ),
             {
                 ckfinder:{
                     uploadUrl: "{{route('ckeditor.news-content-upload').'?_token='.csrf_token()}}",

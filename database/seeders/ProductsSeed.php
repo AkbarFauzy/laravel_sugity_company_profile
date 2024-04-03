@@ -320,6 +320,30 @@ class ProductsSeed extends Seeder
             'right_content_ind' => null,
         ]);
 
+        Product::create([
+            'id' => 31,
+            'name' => 'Vios Patrol',
+            'name_ind' => 'Patroli Vios',
+            'category' => 'Export Vehicle',
+            'img' => '9_1704637225.png',
+            'left_content' => null,
+            'left_content_ind' => null,
+            'right_content' => null,
+            'right_content_ind' => null,
+        ]);
+
+        Product::create([
+            'id' => 32,
+            'name' => 'Car Promotion',
+            'name_ind' => 'Mobil Promosi',
+            'category' => 'Other',
+            'img' => '2_1704726247.png',
+            'left_content' => '<ul><li>Part &amp; wiring installation</li><li>Providing highest &amp; reliable material quality</li></ul>',
+            'left_content_ind' => '<ul><li>Pemasangan suku cadang &amp; kabel</li><li>Memberikan kualitas bahan tertinggi &amp; dapat diandalkan</li></ul>',
+            'right_content' => '<ul><li>Genset</li><li>Karaoke Set</li><li>Table + Chair</li><li>Outdoor umbrella</li></ul>',
+            'right_content_ind' => '<ul><li>Genset</li><li>Perangkat Karaoke</li><li>Meja + Kursi</li><li>Payung luar ruangan</li></ul>',
+        ]);
+
         // Product::create([
         //     'name' => 'HiAce Wira Wiri',
         //     'category' => 'Public Transport',
