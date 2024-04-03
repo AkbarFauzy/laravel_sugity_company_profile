@@ -54,5 +54,35 @@ class SlidersSeeder extends Seeder
         // Sliders::create([
         //     'img'=>"banner-5-landing.png",
         // ]);
+
+        Sliders::create([
+            'img' => 'slider_product_vehicle_page_1705289328.png',
+            'tagline' => '<p><span style="font-size:48px;">HiAce JakLingko</span></p><p><span style="font-size:68px;"><i><strong>Spacious &amp; Comfort</strong></i></span></p>',
+            'tagline_ind' => '<p><span style="font-size:48px;">HiAce JakLingko</span></p><p><span style="font-size:68px;"><i><strong>Luas &amp; Nyaman</strong></i></span></p>',
+            'page' => 'Vehicle Business',
+            'position' => 'Bottom Left',
+            'x_offset' => -4,
+            'y_offset' => null
+        ]);
+
+        Sliders::create([
+            'img' => 'cover_part_business_1708569174.png',
+            'tagline' => '<p><span style="font-size:48px;"><strong>Sub Assy Process Automation</strong></span><br><span style="font-size:48px;"><i><strong>Proficient and Agile</strong></i></span></p>',
+            'tagline_ind' => '<p><span style="font-size:48px;"><strong>Otomatisasi Proses Sub Assy</strong></span><br><span style="font-size:48px;"><i><strong>Mahir dan Tangkas</strong></i></span></p>',
+            'page' => 'Part Business',
+            'position' => 'Middle Left',
+            'x_offset' => -4,
+            'y_offset' => null
+        ]);
+
+        Sliders::create([
+            'img' => '3_slider_product_overview_page_1705292140.png',
+            'tagline' => '<p><strong><span style="font-size:48px;">Mold Making</span></p><p><span style="font-size:38px;"><i>Quality and Precious</i></span></strong></p>',
+            'tagline_ind' => '<p><strong><span style="font-size:48px;">Pembuatan Cetakan</span></p><p><span style="font-size:38px;"><i>Berkualitas dan Berharga</i></span></strong></p>',
+            'page' => 'Mold Business',
+            'position' => 'Bottom Right',
+            'x_offset' => -4,
+            'y_offset' => null
+        ]);
     }
 }

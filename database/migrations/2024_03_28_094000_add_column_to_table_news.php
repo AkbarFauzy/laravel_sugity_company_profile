@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->string('headline_ind');
-            $table->text('content_ind');
+            $table->string('headline_ind')->after('headline');
+            $table->text('content_ind')->after('content');
         });
     }
 

@@ -20,7 +20,7 @@
 			<div class="item min-vh-40 min-vh-md-50 min-vh-lg-60 min-vh-xl-100">
 				<div class="style-banner-content">
 					<div class="custom-banner mb-2 mb-md-4 mb-lg-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				<div class="style-banner-image style-banner-vehicle" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
@@ -61,7 +61,7 @@
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$vehicle->name}}
+												<h4 class="text-left mt-4" style="color: black">{{request()->segment(1) == 'en' ? $vehicle->name : $vehicle->name_ind}}
 													<br><br>
 													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 													<a style="color: black" class="text-left" href="#" 
@@ -87,7 +87,7 @@
 											<div class="style-content">
 												<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 												<div class="px-4 px-md-0" style="display: grid;">
-													<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
+													<span class="fs-4 fw-semibold mb-2" style="color: black">{{request()->segment(1) == 'en' ? $vehicle->name : $vehicle->name_ind}}</span>
 													@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 													<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
 														<span>{{ __('product-vehicle.exploreMore') }}</span>
@@ -112,7 +112,7 @@
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="px-4 px-md-0" style="display: grid;">
-												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{request()->segment(1) == 'en' ? $vehicle->name : $vehicle->name_ind}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
 													<span>{{ __('product-vehicle.exploreMore') }}</span>
@@ -138,7 +138,7 @@
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="px-4 px-md-0" style="display: grid;">
-												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{request()->segment(1) == 'en' ? $vehicle->name : $vehicle->name_ind}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
 													<span>{{ __('product-vehicle.exploreMore') }}</span>
@@ -163,7 +163,7 @@
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$vehicle->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="px-4 px-md-0" style="display: grid;">
-												<span class="fs-4 fw-semibold mb-2" style="color: black">{{$vehicle->name}}</span>
+												<span class="fs-4 fw-semibold mb-2" style="color: black">{{request()->segment(1) == 'en' ? $vehicle->name : $vehicle->name_ind}}</span>
 												@if(!empty($vehicle->left_content) || !empty($vehicle->right_content) || !empty($vehicle->gallery) )
 												<a class="color-black fw-normal fs-5" href="#" data-bs-toggle="modal" data-bs-id="{{$vehicle->id}}" data-bs-target="#modalVehicle">
 													<span>{{ __('product-vehicle.exploreMore') }}</span>

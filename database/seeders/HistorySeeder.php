@@ -17,10 +17,10 @@ class HistorySeeder extends Seeder
         DB::table('history')->truncate();
 
         History::create([
-            'title' => "Sugity Establish",
-            'title_ind' => "Sugity Membangun",
-            'year' => 1995,
-            'img' => "1995_1_1704627681.png"
+           'title' => "Sugity Establish",
+           'title_ind' => "Sugity Membangun",
+           'year' => 1995,
+           'img' => "1995_1_1704627681.png"
         ]);
 
         History::create([

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('csr', function (Blueprint $table) {
-            $table->string('headline_ind')->after('headline');
-            $table->text('content_ind')->after('content');
-        });
+        Schema::table('products', function (Blueprint $table) {
+            $table->text('name_ind')->after('name');
+            $table->text('left_content_ind')->after('left_content');
+            $table->text('right_content_ind')->after('right_content');
+        }); 
     }
 
     /**
@@ -22,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('csr', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             //
         });
     }

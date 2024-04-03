@@ -18,25 +18,25 @@
 		    	{{-- Desktop --}}
 				<div class="style-banner-content d-none d-xl-block">
 					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset)!!}">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
             	{{-- Mobile --}}
 				<div class="style-banner-content d-block d-sm-none">
 					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-6)!!}">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				{{-- Tablet M --}}
 				<div class="style-banner-content d-none d-md-block d-lg-none">
 					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-4)!!}">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				{{-- Tablet L --}}
 				<div class="style-banner-content d-none d-lg-block d-xl-none">
 					<div class="custom-banner mb-5" style="{!!\App\Http\Library\SliderHelper::slider_position($slider->position, $slider->x_offset, $slider->y_offset-4)!!}">
-						{!!$slider->tagline!!}
+						{!!request()->segment(1) == 'en' ? $slider->tagline : $slider->tagline_ind!!}
 					</div>
 				</div>
 				<div class="style-banner-image style-banner-mold" style="background-image: url('{{asset("images/sliders/".$slider->img)}}'); background-size: cover !important;">
@@ -72,7 +72,7 @@
 										<div class="style-content">
 											<img src="{{asset('images/products/'.$item->img)}}" style="width:100%; height: 250px; object-fit: contain;">
 											<div class="style-footer px-4 px-md-0">
-												<h4 class="text-left mt-4" style="color: black">{{$item->name}}
+												<h4 class="text-left mt-4" style="color: black">{{request()->segment(1) == 'en' ? $item->name : $item->name_ind}}
 												<br>
 												@if($item->name == "Big Mold")
 													(1300Ton-3500Ton)

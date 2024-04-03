@@ -26,8 +26,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Tagline (Bahasa Indonesia)</label>
-                            <textarea class="form-control" id="editor" rows="3" name="tagline_ind">
+                            <label class="form-label">Tagline</label>
+                            <textarea class="form-control" id="editor" rows="3" name="tagline">
+                                {{$data->tagline}}
+                            </textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tagline (Bahasa Indonesia)</label>
+                            <textarea class="form-control" id="editor_ind" rows="3" name="tagline_ind">
                                 {{$data->tagline_ind}}
                             </textarea>
                         </div>
@@ -111,6 +118,42 @@
 <script>
     ClassicEditor
             .create( document.querySelector( '#editor' ), 
+            { fontSize: {
+                    options: [
+                        8,
+                        12,
+                        14,
+                        'default',
+                        18,
+                        21,
+                        24,
+                        32,
+                        48,
+                        56,
+                    ]
+                },
+                toolbar: {
+                    items: [
+                        'undo', 'redo',
+                        '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                        '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
+                        '|', 'link', 'uploadImage', 'blockQuote', 'codeBlock',
+                        '|', 'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
+                    ],
+                    shouldNotGroupWhenFull: false
+                }
+            })
+            .then( editor => {
+                console.log( Array.from( editor.ui.componentFactory.names() ) );
+                console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            });
+</script>
+<script>
+    ClassicEditor
+            .create( document.querySelector( '#editor_ind' ), 
             { fontSize: {
                     options: [
                         8,

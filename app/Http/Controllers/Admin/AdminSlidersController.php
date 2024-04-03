@@ -35,8 +35,10 @@ class AdminSlidersController extends Controller
                     return $btn;
                   }) ->editColumn('tagline', function ($row) {
                         return html_entity_decode(strip_tags($row->tagline));
-                  })
-                  ->rawColumns(['Img','action', 'tagline'])
+                  }) ->editColumn('tagline_ind', function ($row) {
+                    return html_entity_decode(strip_tags($row->tagline_ind));
+                })
+                  ->rawColumns(['Img','action', 'tagline', 'tagline_ind'])
                   ->make(true);
         }
         return view('admin/sliders/index');
